@@ -256,6 +256,12 @@ MathJax = {
 <h1 id="2-lineare-abbildungen-bild-kern-determinanten">2. Lineare Abbildungen, Bild-Kern & Determinanten</h1>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Stell dir eine Matrix als Maschine vor: Du steckst einen Vektor rein und bekommst einen anderen raus. Das <strong>Bild</strong> ist alles, was aus der Maschine rauskommen kann – also die Menge aller möglichen Ergebnisse. Der <strong>Kern</strong> hingegen ist die Menge aller Vektoren, die die Maschine zu Null macht. Wenn der Kern nur aus dem Nullvektor besteht, geht keine Information verloren und die Abbildung ist injektiv.</p><p>Das Berechnen von Bild und Kern läuft immer gleich: Du bringst die Matrix mit Gauß auf Zeilenstufenform. Die Pivotspalten verraten dir das Bild, die freien Variablen den Kern. Der <strong>Rangsatz</strong> garantiert dabei, dass sich die Spaltenanzahl immer sauber in Rang (Dimension des Bildes) und Defekt (Dimension des Kerns) aufteilt.</p><p><strong>Determinanten</strong> sind eine einzige Zahl, die einer quadratischen Matrix zugeordnet wird – und diese Zahl enthält überraschend viel Information. Ist sie Null, ist die Matrix nicht invertierbar und das zugehörige Gleichungssystem hat entweder keine oder unendlich viele Lösungen. Ist sie ungleich Null, ist alles eindeutig lösbar. Geometrisch beschreibt der Betrag der Determinante, wie stark die Matrix Volumina verzerrt, und das Vorzeichen sagt dir, ob die Orientierung erhalten bleibt oder gespiegelt wird.</p><p><strong>Für die Nachklausur:</strong> Die Determinante kam in der Klausur bei Aufgabe 1.6–1.8 vor – dort musst du sie aus der Jordan-Normalform ablesen können. Übe die Laplace-Entwicklung und lerne die Rechenregeln (Produktregel, Transposition, Skalierung) wirklich auswendig. Der Bild-Kern-Algorithmus ist dein Schweizer Taschenmesser für fast jede Aufgabe.</p></div>
 <h2 id="2-1-bild-kern-algorithmus">2.1 Bild-Kern-Algorithmus</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Dieser Algorithmus ist die praktische Umsetzung des Homomorphiesatzes. Du schaust, was nach der Abbildung real 'übrig bleibt' (Bild) und was durch die Skalierung 'getötet' wird (Kern).</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-homomorphiesatz-und-dimensionsformel">Übungsblatt 3, AP 1: Homomorphiesatz und Dimensionsformel</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-2-bild-und-kern-einer-linearen-abbildung-berechnen">Übungsblatt 3, AP 2: Bild und Kern berechnen</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-4-abbildungsmatrix-erzeugen">Übungsblatt 2, AP 4: Abbildungsmatrix erzeugen</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -315,6 +321,12 @@ MathJax = {
 <li>$A$ bijektiv $\iff$ injektiv und surjektiv $\iff$ $A$ invertierbar (nur bei $m = n$)</li>
 </ul>
 <h2 id="2-2-determinanten">2.2 Determinanten</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Die Determinante ist der Volumen-Faktor! Eine Det=2 bedeutet: Jedes Quadrat wird nach Transformation doppelt so groß. Det=0 bedeutet: Der Raum wurde so flachgedrückt, dass kein Volumen mehr bleibt (nicht umkehrbar).</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-3-bedeutung-von-determinante-0">Übungsblatt 3, AP 3: Bedeutung von "Determinante = 0"</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-determinante-der-vandermonde-matrix">Übungsblatt 4, AP 1: Determinante der Vandermonde-Matrix</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -346,6 +358,17 @@ MathJax = {
 <tr><td>Dreiecksmatrix</td><td>$\det(A) = \prod_{i=1}^{n} a_{ii}$ (Produkt der Diagonaleinträge)</td></tr>
 <tr><td>Ähnlichkeit</td><td>$\det(SAS^{-1}) = \det(A)$</td></tr>
 </table>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Eigenschaften & Determinantenproduktsatz</b></summary>
+<p><blockquote></p>
+<p>Nach <a href="https://de.wikipedia.org/wiki/Determinante_(Mathematik)">Wikipedia (Determinante)</a>:</p>
+<p><ul></p>
+<p><li><strong>Determinantenproduktsatz:</strong> $\det(A \cdot B) = \det(A) \cdot \det(B)$. Das bedeutet, die Determinante ist ein Gruppenhomomorphismus von der allgemeinen linearen Gruppe in die Einheitengruppe des Körpers.</li></p>
+<p><li><strong>Existenz der Inversen:</strong> Eine Matrix $A$ ist genau dann invertierbar (regulär), wenn $\det(A) \neq 0$. Dann gilt $\det(A^{-1}) = (\det A)^{-1}$.</li></p>
+<p><li><strong>Ähnliche Matrizen:</strong> Wenn $A$ und $B$ ähnlich sind ($A = X^{-1}BX$), dann haben sie dieselbe Determinante, denn $\det(X^{-1}BX) = \det(X)^{-1}\det(B)\det(X) = \det(B)$. Daher ist die berechnete Determinante eines Basiswechsels konstant, was es erlaubt, von der "Determinante einer linearen Abbildung" unabhängig von ihrer Basis zu sprechen.</li></p>
+<p></ul></p>
+<p></blockquote></p>
+</details>
 <h3 id="laplace-entwicklung">Laplace-Entwicklung</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>

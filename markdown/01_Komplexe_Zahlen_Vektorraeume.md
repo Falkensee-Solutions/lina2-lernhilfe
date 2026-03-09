@@ -12,6 +12,14 @@
 
 ## 1.1 Komplexe Zahlen
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Komplexe Zahlen sprengen den eindimensionalen Zahlenstrahl. Das 'i' ist im Grunde geometrisch eine 90-Grad-Drehung auf eine neue Achse (den Imaginärteil). Zweimal 90 Grad = 180 Grad, was exakt drehen auf die negative X-Achse und somit der Multiplikation mit -1 entspricht!
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 1: Komplexe Zahlen (komplett)](Uebungszettel_Originale.html#uebungsblatt-1-komplexe-zahlen)
@@ -64,6 +72,18 @@ Der Trick z * z-quer rettet uns in Klausuren oft aus der Patsche, um aus etwas K
 - $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
 - $|z_1 \cdot z_2| = |z_1| \cdot |z_2|$
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Algebraische Eigenschaften & Fundamentalsatz</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Komplexe_Zahl">Wikipedia (Komplexe Zahl)</a>:
+<ul>
+<li><strong>Algebraischer Abschluss:</strong> Der Körper der komplexen Zahlen ist algebraisch abgeschlossen. Nach dem <em>Fundamentalsatz der Algebra</em> hat jede algebraische Gleichung positiven Grades hier immer mindestens eine Lösung, d. h., jedes Polynom zerfällt über $\mathbb{C}$ vollständig in Linearfaktoren. Das garantiert z. B., dass Matrizen über $\mathbb{C}$ stets Eigenwerte haben.</li>
+<li><strong>Keine Anordnung:</strong> Im Gegensatz zu den reellen Zahlen lässt sich $\mathbb{C}$ nicht sinnvoll als geordneter Körper anordnen. Es gibt kein "größer" oder "kleiner" für komplexe Zahlen.</li>
+<li><strong>Komplexe Konjugation:</strong> Die Funktion $z \mapsto \bar{z}$ ist ein (involutorischer) Körperautomorphismus, was bedeutet, dass sich diese Operation nahtlos auf alle Summen und Produkte überträgt ($\overline{y+z} = \bar{y}+\bar{z}$ sowie $\overline{y\cdot z} = \bar{y}\cdot\bar{z}$).</li>
+</ul>
+</blockquote>
+</details>
+
 ### Polarform
 
 <details>
@@ -110,9 +130,29 @@ mit $i^2 = j^2 = k^2 = ijk = -1$
 
 **Nicht kommutativ!** $ij = k$ aber $ji = -k$
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Struktur & Schiefkörper</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Quaternion">Wikipedia (Quaternion)</a>:
+<ul>
+<li><strong>Schiefkörper:</strong> Die Quaternionen bilden das erste entdeckte Beispiel eines nichtkommutativen Schiefkörpers, d.h. es gelten alle normalen Körper-Rechenregeln inklusive der Invertierbarkeit (Inverses $x^{-1}$ existiert für jedes $x \neq 0$), mit Ausnahme des Kommutativgesetzes ($xy \neq yx$).</li>
+<li><strong>Vier-Quadrate-Satz:</strong> Hamiltons Multiplikationsregeln dienten schon früh als nützliches Werkzeug im Beweis des Eulerschen Vier-Quadrate-Satzes, da die Norm des Produkts zweier Quaternionen immer gleich dem Produkt ihrer einzelnen Normen ist.</li>
+<li><strong>Anwendungen:</strong> Einheitenquaternionen ($\|q\| = 1$) bilden eine Lie-Gruppe und modellieren Drehungen im 3D-Raum rechnerisch weitaus eleganter und stabiler als klassische Rotationsmatrizen oder Euler-Winkel (vermeidet Gimbal-Lock).</li>
+</ul>
+</blockquote>
+</details>
+
 → Anwendung: Drehungen im 3D-Raum
 
 ## 1.3 Vektorräume
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Verlasse gedanklich den Schul-Vektor (xyz-Pfeil). Abstraktion ist gefragt: Eine Lösungsmenge eines LGS, eine Menge von Differentialgleichungen – das sind alles abstrakte Vektoren.
+</blockquote>
+</details>
+
 
 
 > 🔗 **Zugehörige Übungen:**
@@ -131,6 +171,18 @@ Verlasse gedanklich den Schul-Vektor (xyz-Pfeil). Abstraktion ist gefragt: Eine 
 
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Historie & Abstraktion</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Vektorraum">Wikipedia (Vektorraum)</a>:
+<ul>
+<li><strong>Ursprung:</strong> Historisch gesehen wurden abstrakte Vektorräume von den aus der Physik bekannten geometrischen Verschiebungs-Vektoren des euklidischen Raumes abstrahiert. Den grundlegenden Basis-Begriff und den $n$-dimensionalen Raum definierte erstmals Hermann Graßmann (1844, in "Die lineale Ausdehnungslehre").</li>
+<li><strong>Unendlichdimensionaler Fall:</strong> Die abstrakte Definition eines Vektorraums umschließt ganz natürlich beliebige Strukturen. Bezieht man etwa den Funktionenraum aller stetigen Funktionen $f: \mathbb{R} \to \mathbb{R}$ ein, so bildet dies einen unendlichdimensionalen Vektorraum ($K[X]$ für Polynomräume verhält sich analog).</li>
+<li><strong>Basis-Existenz:</strong> Unter Voraussetzung des <em>Auswahlaxioms</em> (etwa über das Lemma von Zorn) lässt sich beweisen, dass absolut jeder Vektorraum eine – eventuell überabzählbare – Basis besitzt, und je zwei Basen desselben Vektorraums dieselbe Kardinalität (Dimension) haben.</li>
+</ul>
+</blockquote>
+</details>
+
 <blockquote>
 Ein Vektorraum kann alles sein: Polynome, Matrizen, sogar Audiosignale. Solange du Objekte addieren und skalieren (strecken) kannst, bist du in einem Vektorraum.
 </blockquote>

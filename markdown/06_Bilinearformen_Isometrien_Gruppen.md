@@ -75,6 +75,17 @@ Ist die Matrix $A=A^T$ (symmetrisch), dürfen links und rechts die Inputs getaus
 - **Symmetrisch:** $\beta(u, v) = \beta(v, u)$ $\iff$ $G = G^T$
 - **Antisymmetrisch:** $\beta(u, v) = -\beta(v, u)$ $\iff$ $G = -G^T$
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Ausartungsraum & Basiswechsel</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Bilinearform">Wikipedia (Bilinearform)</a>:
+<ul>
+<li><strong>Ausartungsraum:</strong> Dies ist die Menge der Vektoren $v$, die in der Form mit allen anderen Vektoren $w$ den Wert 0 ergeben (d.h. $\beta(v,w) = 0$ für alle $w$). Sind Rechts- und Linkskern einer Form nur $\{0\}$, nennt man sie <em>nicht ausgeartet</em>. Ein Skalarprodukt ist ein prominentes Beispiel einer nicht ausgearteten Form.</li>
+<li><strong>Basiswechsel:</strong> Wechselt man die Basis über eine Transformationsmatrix $S$, so ändert sich die darstellende Matrix $G$ nach der Regel $S^T G S$. Man sagt, die Matrizen $G$ und $S^T G S$ sind zueinander <em>kongruent</em>.</li>
+</ul>
+</blockquote>
+</details>
+
 ## 6.2 Quadratische Formen
 
 <details>
@@ -101,6 +112,18 @@ Die Signatur $(p, q, r)$ gibt an:
 - $r$ = Anzahl Null-Eigenwerte von $G$
 
 **Trägheitssatz von Sylvester:** Die Signatur ist eine Invariante (unabhängig von der Basis).
+
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Polarisierung & Definitheit</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Quadratische_Form">Wikipedia (Quadratische Form)</a>:
+<ul>
+<li><strong>Polarisierung:</strong> Zu jeder quadratischen Form existiert eindeutig eine symmetrische Bilinearform $\beta$, welche durch $\beta(x,y) = \frac{1}{2}(q(x+y) - q(x) - q(y))$ ("Polarisationsformel") zurückgewonnen werden kann. $q$ und $\beta$ bedingen sich gegenseitig zwingend.</li>
+<li><strong>Definitheit & Geometrie:</strong> Betrachtet man quadratische Formen über reellen Zahlen, so eignen sie sich zur Einführung von Längen/Metriken genau dann, wenn sie <em>positiv definit</em> sind (Signatur $(n, 0, 0)$), die quadratischen Argumente also nur für den Nullvektor als einziges Null werden.</li>
+<li><strong>Anwendungen:</strong> In der Zahlentheorie geht es oft um die Frage, welche ganzen Zahlen sich als Lösungs-Werte einer ganzzahligen quadratischen Form repräsentieren lassen (z.B. der berühmte <em>Vier-Quadrate-Satz</em>: Jede natürliche Zahl ist Summe von vier Quadratzahlen).</li>
+</ul>
+</blockquote>
+</details>
 
 ## 6.3 Adjungiertheit
 
@@ -233,6 +256,17 @@ Eigenschaften:
 - $\det(A) = 1$: **Rotation** (spezielle orthogonale Gruppe $SO(n)$)
 - $\det(A) = -1$: **Spiegelung** (oder Drehspiegelung)
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Satz von Mazur-Ulam & Struktur der Isometrien</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Isometrie">Wikipedia (Isometrie)</a>:
+<ul>
+<li><strong>Struktur im $\mathbb{R}^n$:</strong> Jede Isometrie des euklidischen Raums in sich lässt sich als Verkettung einer orthogonalen (linearen) Abbildung und einer anschließenden Translation darstellen. Es gilt also immer $f(x) = Ax + b$ mit einer orthogonalen Matrix $A$.</li>
+<li><strong>Satz von Mazur-Ulam (1932):</strong> Eine erstaunliche Verallgemeinerung besagt: Jede surjektive Isometrie zwischen zwei beliebigen reellen normierten Vektorräumen ist automatisch eine affine Abbildung (Bewahrt Geraden und Parallelität). Man muss also als Bedingung im rellen normierten Raum lediglich die Abständerhaltung fordern, und Linearität/Affinität springt zwingend von selbst heraus!</li>
+</ul>
+</blockquote>
+</details>
+
 ### Unitäre Matrizen ($\mathbb{C}^n$)
 
 <details>
@@ -245,6 +279,14 @@ Das komplexe Bruder-Gegenstück zur Isometrie. Da $A^* A = I$ gilt, liegen alle 
 $A$ unitär $\iff A^* A = I \iff A^{-1} = A^*$
 
 ## 6.6 Grundlagen der Gruppentheorie
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Muss man für die Klausur einordnen können! Gruppen sind abgeschottete Welten (Mengen) mit einer Verknüpfung, aus der man nie zufällig 'herausrechnen' kann (Abgeschlossenheit).
+</blockquote>
+</details>
+
 
 
 > 🔗 **Zugehörige Übungen:**
@@ -281,6 +323,18 @@ $(G, \circ)$ ist eine **Gruppe**, wenn:
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Klassifikation & Nebenklassen</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Gruppe_(Mathematik)">Wikipedia (Gruppe)</a>:
+<ul>
+<li><strong>Satz von Lagrange:</strong> Für jede Untergruppe $H$ einer endlichen Gruppe $G$ gilt zwingend, dass die Ordnung (Elementanzahl) von $H$ stets exakt die Ordnung von $G$ teilt.</li>
+<li><strong>Nebenklassen & Normalteiler:</strong> Jede Untergruppe $H$ induziert eine Äquivalenzrelation und somit eine Zerlegung der Gesamtgruppe in sogenannte <em>Nebenklassen</em>. Stimmen Links- und Rechtsnebenklassen völlig überein, nennt man $H$ einen <em>Normalteiler</em>, wodurch sich sogenannte Faktorgruppen bilden lassen.</li>
+<li><strong>Lie-Gruppen:</strong> Die oben aufgeführten kontinuierlichen Matrixgruppen wie $GL(n)$ oder $O(n)$ sind nicht nur algebraische Gruppen, sondern gleichzeitig topologische Mannigfaltigkeiten, und spielen in der theoretischen Physik als <em>Lie-Gruppen</em> eine überragende Rolle (etwa zur Beschreibung von Naturgesetzen und Symmetrien).</li>
+</ul>
+</blockquote>
+</details>
+
 $O(n)$ = Komplettes Set von Rotationen und spiegelnden Umklappungen. $SO(n)$ = 'Spezielle' Orthogonalgruppe, die Determinante ist strickt +1 (also absolute reine Drehung im Raum).
 </blockquote>
 </details>

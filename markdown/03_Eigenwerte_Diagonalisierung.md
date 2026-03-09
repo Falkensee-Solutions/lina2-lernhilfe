@@ -14,6 +14,14 @@
 
 ## 3.1 Grundbegriffe
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Beim Konzept Eigenwert gehen wir auf die Suche nach dem Einfachen: Welche Vektoren werden von der Matrix nicht aus der Bahn geworfen, sondern behalten stoisch ihre Richtung und werden lediglich skaliert?
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 4, AP 2: Eigenschaften aus Matrix ablesen](Uebungszettel_Originale.html#aufgabenpaket-2-eigenschaften-einer-linearen-abbildung-aus-der-matrix-ablesen)
@@ -122,6 +130,14 @@ $$1 \leq \text{geo. VF}(\lambda) \leq \text{alg. VF}(\lambda)$$
 
 ## 3.3 Diagonalisierbarkeit
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das Wunsch-Szenario: Eine Diagonalmatrix lässt sich exponentiell super einfach ausrechnen (z.B. für DGLs!), weil man nur die Diagonale potenzieren muss. Keine überkreuzten Abhängigkeiten mehr.
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 5, AP 1: Ergänzung einer Eigenraumbasis](Uebungszettel_Originale.html#aufgabenpaket-1-ergaenzung-einer-eigenraumbasis)
@@ -156,6 +172,23 @@ Man sucht die 'Zauber-Basis' S. Wendet man den Basiswechsel an: $S^{-1} A S$, da
 3. Prüfe: geo. VF = alg. VF für alle EW?
 4. Wenn ja: $S = (v_1 | \cdots | v_n)$ (Eigenvektoren als Spalten)
 5. Dann: $A = S \cdot D \cdot S^{-1}$ mit $D = \text{diag}(\lambda_1, \ldots, \lambda_n)$
+
+### Eigenschaften von Diagonalmatrizen (Theorie-Wissen)
+
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Gut zu wissen</b></summary>
+<blockquote>
+Warum sind sie so toll? Aus <a href="https://de.wikipedia.org/wiki/Diagonalmatrix">Wikipedia (Diagonalmatrix)</a>:
+<ul>
+<li><strong>Multiplikation:</strong> Die Matrizenmultiplikation $D_1 \cdot D_2$ ist extrem simpel (Einträge auf der Diagonale einfach komponentenweise multiplizieren).</li>
+<li><strong>Determinante:</strong> Ist einfach das Produkt der Hauptdiagonalelemente.</li>
+<li><strong>Inverse:</strong> Existiert genau dann, wenn kein Diagonaleintrag $0$ ist. Sie besteht einfach aus den Kehrwerten der Diagonaleinträge.</li>
+<li>Diagonalmatrizen sind immer <strong>symmetrisch</strong> und <strong>normal</strong> (und bei reellen Einträgen selbstadjungiert).</li>
+<li>Sie bilden einen kommutativen Unterring im Ring der Matrizen.</li>
+</ul>
+</blockquote>
+</details>
+
 
 ## 3.4 Defekt einer Matrix
 

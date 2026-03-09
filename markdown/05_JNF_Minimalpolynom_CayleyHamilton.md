@@ -16,6 +16,14 @@
 
 ## 5.1 Jordan-Normalform (JNF)
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Hier wird's manchmal unübersichtlich. Die JNF ist das Notpflaster der Linearen Algebra, wenn eine Matrix einfach nicht genug Eigenvektoren hat, um sie sauber zu diagonalisieren. Wir retten, was zu retten ist.
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 7, AP 1: Vorbereitungen auf den JNF-Existenzsatz](Uebungszettel_Originale.html#aufgabenpaket-1-vorbereitungen-auf-den-jnf-existenzsatz)
@@ -254,6 +262,14 @@ $$(A - \lambda I)^k v = 0 \quad \text{aber} \quad (A - \lambda I)^{k-1} v \neq 0
 
 ## 5.4 Minimalpolynom
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das ist das 'effizienteste' Polynom. Wenn du in dieses Polynom deine Matrix A einsetzt, kommt am Ende garantiert die Nullmatrix heraus.
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 8, AP 1: Nullstellen von Polynomen](Uebungszettel_Originale.html#aufgabenpaket-1-nullstellen-von-polynomen)
@@ -305,6 +321,14 @@ Man rechnet es meist iterativ aus, indem man Terme hochpotenziert $(A-\lambda I)
 
 ## 5.5 Satz von Cayley-Hamilton
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Ein gigantisch starkes Matrix-Konzept. 'Jede Matrix ist Nullstelle ihres eigenen char. Polynoms'. Heißt: A reingesteckt in $\chi(X)$ ergibt IMMER null.
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 7, AP 3: Cayley-Hamilton](Uebungszettel_Originale.html#aufgabenpaket-3-cayley-hamilton)
@@ -319,6 +343,22 @@ Ein gigantisch starkes Matrix-Konzept. 'Jede Matrix ist Nullstelle ihres eigenen
 
 > **Satz:** Jede Matrix erfüllt ihr eigenes charakteristisches Polynom:
 > $$\chi_A(A) = 0$$
+
+### Wichtige Folgerungen (Wissen für die Theorie/Klausur)
+
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Zusammenhänge und Folgerungen</b></summary>
+<blockquote>
+Nach Wikipedia liefert Cayley-Hamilton sehr nützliche Eigenschaften:
+<ul>
+<li>Die Potenzen einer quadratischen Matrix spannen einen Untervektorraum auf, der höchstens die Dimension der Zeilenzahl $n$ hat.</li>
+<li>Die <strong>Inverse</strong> einer invertierbaren Matrix ist als Linearkombination der Potenzen der Matrix (mit Exponenten kleiner als $n$) darstellbar.</li>
+<li>Das <strong>Minimalpolynom</strong> einer Matrix teilt ihr <a href="https://de.wikipedia.org/wiki/Charakteristisches_Polynom">charakteristisches Polynom</a>.</li>
+<li>Eine quadratische Matrix mit $n$-fachem Eigenwert Null ist <strong>nilpotent</strong>, da ihr char. Polynom die Form $\lambda^n$ ist.</li>
+<li>Man kann höhere Potenzen von Matrizen einfach durch Umstellen des charakteristischen Polynoms berechnen (wie in Aufgabe 4).</li>
+</ul>
+</blockquote>
+</details>
 
 ### Anwendung (Klausuraufgabe 4!)
 

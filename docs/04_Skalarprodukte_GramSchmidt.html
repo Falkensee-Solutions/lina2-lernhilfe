@@ -257,6 +257,12 @@ MathJax = {
 <blockquote><p>⚡ <strong>PRIORITÄT 3 – Hier hast du 16/30 Punkte verloren (Aufgabe 3)!</strong></p></blockquote>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Ein <strong>Skalarprodukt</strong> ist eine Methode, um in einem Vektorraum Längen und Winkel zu messen. Im $\mathbb{R}^2$ kennst du das als das gewöhnliche Punktprodukt: $\langle x | y \rangle = x_1 y_1 + x_2 y_2$. Dieses Konzept lässt sich verallgemeinern – sogar auf Funktionenräume, wo das Skalarprodukt ein Integral wird. Entscheidend ist: Zwei Vektoren stehen <strong>senkrecht</strong> (orthogonal) zueinander, wenn ihr Skalarprodukt Null ergibt.</p><p>Im Komplexen wird das etwas kniffliger. Weil komplexe Zahlen einen Real- und Imaginärteil haben, muss man beim Skalarprodukt das erste Argument konjugieren: $\langle x | y \rangle = \sum \overline{x_i} y_i$. Das nennt man <strong>hermitesches Skalarprodukt</strong>. Der Haken: $\langle u | v \rangle \neq \langle v | u \rangle$ – stattdessen gilt $\langle u | v \rangle = \overline{\langle v | u \rangle}$. Dieses Detail war in deiner Klausuraufgabe entscheidend!</p><p>Das <strong>Gram-Schmidt-Verfahren</strong> ist ein Algorithmus, der aus einer beliebigen Basis eine <strong>Orthonormalbasis</strong> macht – also eine Basis, in der alle Vektoren Länge 1 haben und paarweise senkrecht aufeinander stehen. Die Idee ist einfach: Du nimmst den ersten Vektor und normierst ihn. Dann nimmst du den zweiten Vektor, ziehst den Anteil ab, der in Richtung des ersten zeigt, und normierst das Ergebnis. So machst du weiter, bis alle Vektoren sauber orthogonal zueinander sind. Die Reihenfolge ist immer: erst orthogonalisieren (Projektionen abziehen), dann normieren.</p><p><strong>Für die Nachklausur:</strong> In Aufgabe 3 der Klausur musstest du Gram-Schmidt im Funktionenraum mit komplexem Skalarprodukt durchführen. Der häufigste Fehler hier: Die Konjugation vergessen! Wenn $f(x) = ix$ ist, dann ist $\overline{f(x)} = -ix$. Übe das Verfahren Schritt für Schritt an konkreten Beispielen durch, bis der Ablauf automatisch sitzt.</p></div>
 <h2 id="4-1-skalarprodukte-axiome">4.1 Skalarprodukte – Axiome</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das Skalarprodukt ist letztlich nur das Mathe-Wort für ein Werkzeug, das universell Längen messen und Winkel (Orthogonalität) zwischen zwei Elementen berechnen kann.</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-euklidische-raeume">Übungsblatt 9, AP 1: Euklidische Räume</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-4-unitaere-vektorraeume">Übungsblatt 9, AP 4: Unitäre Vektorräume</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -314,6 +320,17 @@ MathJax = {
 <p></blockquote></p>
 </details>
 <p>$$\|v\| = \sqrt{\langle v | v \rangle}$$</p>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Cauchy-Schwarz & Norm-Eigenschaften</b></summary>
+<p><blockquote></p>
+<p>Nach <a href="https://de.wikipedia.org/wiki/Skalarprodukt">Wikipedia (Skalarprodukt)</a>:</p>
+<p><ul></p>
+<p><li><strong>Cauchy-Schwarzsche Ungleichung:</strong> $|\langle x | y \rangle|^2 \leq \langle x | x \rangle \cdot \langle y | y \rangle$. Diese liefert die obere Schranke für Skalarprodukte und begründet die Dreiecksungleichung der Norm. Die obige Gleichheit gilt genau dann, wenn $x$ und $y$ linear abhängig sind.</li></p>
+<p><li><strong>Allgemeiner Winkelbegriff:</strong> Durch Umstellen auf $\cos(\varphi) = \frac{\langle x | y \rangle}{\|x\|\|y\|}$ lässt sich auch in abstrakten Vektorräumen (z. B. Funktionenräumen mit L2-Skalarprodukt d. h. Integralen) ein "Winkel" zwischen Funktionen definieren. Darauf basiert unsere gesamte Auffassung von "Orthogonalität".</li></p>
+<p><li>Aus dem Skalarprodukt abgeleitete Normen erfüllen immer die <em>Parallelogrammgleichung</em>.</li></p>
+<p></ul></p>
+<p></blockquote></p>
+</details>
 <h2 id="4-2-orthogonalitaet">4.2 Orthogonalität</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -344,6 +361,12 @@ MathJax = {
 <p>$$U^\perp = \{v \in V \mid \langle v | u \rangle = 0 \text{ für alle } u \in U\}$$</p>
 <p>Es gilt: $V = U \oplus U^\perp$ (direkte Summe)</p>
 <h2 id="4-3-gram-schmidt-verfahren-schritt-fuer-schritt">4.3 Gram-Schmidt-Verfahren – Schritt für Schritt</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Der systematische 'Schatten-Auslöscher'-Algorithmus. Wir wollen saubere Orthogonalachsen formen, indem wir iterativ immer das abziehen, was nicht senkrecht ist.</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-gram-schmidt-verfahren">Übungsblatt 6, AP 1: Gram-Schmidt-Verfahren</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -370,6 +393,17 @@ MathJax = {
 <p>$$\tilde{e}_k = v_k - \sum_{j=1}^{k-1} \langle e_j | v_k \rangle \, e_j$$</p>
 <p>$$e_k = \frac{\tilde{e}_k}{\|\tilde{e}_k\|}$$</p>
 <blockquote><p><strong>MERKE die Reihenfolge:</strong> Projektion abziehen → normieren. NICHT umgekehrt!</p></blockquote>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Geometrisches Prinzip & QR-Zerlegung</b></summary>
+<p><blockquote></p>
+<p>Nach <a href="https://de.wikipedia.org/wiki/Gram-Schmidtsches_Orthogonalisierungsverfahren">Wikipedia (Gram-Schmidt-Verfahren)</a>:</p>
+<p><ul></p>
+<p><li><strong>Geometrisches Prinzip:</strong> Man zieht von einem Vektor $w_k$ genau die Projektions-Anteile der bereits ermittelten orthogonalen Vektoren $v_1, \dots, v_{k-1}$ ab, sodass der "abgeschnittene" Differenzvektor danach konsequent senkrecht auf allen steht.</li></p>
+<p><li><strong>Sukzessiver Aufspann:</strong> Eine essenzielle Eigenschaft ist, dass nach jedem Zwischenschritt $i$ die neu berechneten Vektoren $(e_1, \dots, e_i)$ exakt denselben Untervektorraum erzeugen wie die Startvektoren $(w_1, \dots, w_i)$.</li></p>
+<p><li><strong>Die Matrix-Sicht (QR-Zerlegung):</strong> Fasst man die neu gewonnenen orthonormalen Vektoren als Spalten einer Matrix $Q$ zusammen und die ursprünglichen $w$-Vektoren als Matrix $A$, so gilt $A = QR$ (wobei $R$ eine obere Dreiecksmatrix ist). Gram-Schmidt ist faktisch der numerische Weg zur QR-Zerlegung.</li></p>
+<p></ul></p>
+<p></blockquote></p>
+</details>
 <h2 id="4-4-klausuraufgabe-3-komplette-musterloesung">4.4 Klausuraufgabe 3 – Komplette Musterlösung</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -407,6 +441,12 @@ MathJax = {
 <hr>
 <p><strong>Probe:</strong> $\langle e_1 | e_2 \rangle = \int_0^1 1 \cdot 2\sqrt{3} \, i(x - \frac{1}{2}) \, dx = 2\sqrt{3} i \int_0^1 (x - \frac{1}{2}) \, dx = 2\sqrt{3} i \cdot 0 = 0$ ✓</p>
 <h2 id="4-5-projektionsoperatoren">4.5 Projektionsoperatoren</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Wenn man eine zu schwere Gleichung lösen will, projiziert man sie mit $P_U$ auf einen einfacheren Unterraum. Das stutzt die Gleichung auf das Wesentliche zurück.</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-4-galerkin-projektion">Übungsblatt 5, AP 4: Galerkin-Projektion</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-2-projektionsabbildung">Übungsblatt 6, AP 2: Projektionsabbildung</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>

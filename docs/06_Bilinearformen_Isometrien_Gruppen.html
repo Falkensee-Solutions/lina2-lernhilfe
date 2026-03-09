@@ -305,6 +305,16 @@ MathJax = {
 <li><strong>Symmetrisch:</strong> $\beta(u, v) = \beta(v, u)$ $\iff$ $G = G^T$</li>
 <li><strong>Antisymmetrisch:</strong> $\beta(u, v) = -\beta(v, u)$ $\iff$ $G = -G^T$</li>
 </ul>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Ausartungsraum & Basiswechsel</b></summary>
+<p><blockquote></p>
+<p>Nach <a href="https://de.wikipedia.org/wiki/Bilinearform">Wikipedia (Bilinearform)</a>:</p>
+<p><ul></p>
+<p><li><strong>Ausartungsraum:</strong> Dies ist die Menge der Vektoren $v$, die in der Form mit allen anderen Vektoren $w$ den Wert 0 ergeben (d.h. $\beta(v,w) = 0$ für alle $w$). Sind Rechts- und Linkskern einer Form nur $\{0\}$, nennt man sie <em>nicht ausgeartet</em>. Ein Skalarprodukt ist ein prominentes Beispiel einer nicht ausgearteten Form.</li></p>
+<p><li><strong>Basiswechsel:</strong> Wechselt man die Basis über eine Transformationsmatrix $S$, so ändert sich die darstellende Matrix $G$ nach der Regel $S^T G S$. Man sagt, die Matrizen $G$ und $S^T G S$ sind zueinander <em>kongruent</em>.</li></p>
+<p></ul></p>
+<p></blockquote></p>
+</details>
 <h2 id="6-2-quadratische-formen">6.2 Quadratische Formen</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -327,6 +337,17 @@ MathJax = {
 <li>$r$ = Anzahl Null-Eigenwerte von $G$</li>
 </ul>
 <p><strong>Trägheitssatz von Sylvester:</strong> Die Signatur ist eine Invariante (unabhängig von der Basis).</p>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Polarisierung & Definitheit</b></summary>
+<p><blockquote></p>
+<p>Nach <a href="https://de.wikipedia.org/wiki/Quadratische_Form">Wikipedia (Quadratische Form)</a>:</p>
+<p><ul></p>
+<p><li><strong>Polarisierung:</strong> Zu jeder quadratischen Form existiert eindeutig eine symmetrische Bilinearform $\beta$, welche durch $\beta(x,y) = \frac{1}{2}(q(x+y) - q(x) - q(y))$ ("Polarisationsformel") zurückgewonnen werden kann. $q$ und $\beta$ bedingen sich gegenseitig zwingend.</li></p>
+<p><li><strong>Definitheit & Geometrie:</strong> Betrachtet man quadratische Formen über reellen Zahlen, so eignen sie sich zur Einführung von Längen/Metriken genau dann, wenn sie <em>positiv definit</em> sind (Signatur $(n, 0, 0)$), die quadratischen Argumente also nur für den Nullvektor als einziges Null werden.</li></p>
+<p><li><strong>Anwendungen:</strong> In der Zahlentheorie geht es oft um die Frage, welche ganzen Zahlen sich als Lösungs-Werte einer ganzzahligen quadratischen Form repräsentieren lassen (z.B. der berühmte <em>Vier-Quadrate-Satz</em>: Jede natürliche Zahl ist Summe von vier Quadratzahlen).</li></p>
+<p></ul></p>
+<p></blockquote></p>
+</details>
 <h2 id="6-3-adjungiertheit">6.3 Adjungiertheit</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -428,6 +449,16 @@ MathJax = {
 <li>$\det(A) = 1$: <strong>Rotation</strong> (spezielle orthogonale Gruppe $SO(n)$)</li>
 <li>$\det(A) = -1$: <strong>Spiegelung</strong> (oder Drehspiegelung)</li>
 </ul>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Satz von Mazur-Ulam & Struktur der Isometrien</b></summary>
+<p><blockquote></p>
+<p>Nach <a href="https://de.wikipedia.org/wiki/Isometrie">Wikipedia (Isometrie)</a>:</p>
+<p><ul></p>
+<p><li><strong>Struktur im $\mathbb{R}^n$:</strong> Jede Isometrie des euklidischen Raums in sich lässt sich als Verkettung einer orthogonalen (linearen) Abbildung und einer anschließenden Translation darstellen. Es gilt also immer $f(x) = Ax + b$ mit einer orthogonalen Matrix $A$.</li></p>
+<p><li><strong>Satz von Mazur-Ulam (1932):</strong> Eine erstaunliche Verallgemeinerung besagt: Jede surjektive Isometrie zwischen zwei beliebigen reellen normierten Vektorräumen ist automatisch eine affine Abbildung (Bewahrt Geraden und Parallelität). Man muss also als Bedingung im rellen normierten Raum lediglich die Abständerhaltung fordern, und Linearität/Affinität springt zwingend von selbst heraus!</li></p>
+<p></ul></p>
+<p></blockquote></p>
+</details>
 <h3 id="unitaere-matrizen-mathbb-c-n">Unitäre Matrizen ($\mathbb{C}^n$)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -437,6 +468,12 @@ MathJax = {
 </details>
 <p>$A$ unitär $\iff A^<em> A = I \iff A^{-1} = A^</em>$</p>
 <h2 id="6-6-grundlagen-der-gruppentheorie">6.6 Grundlagen der Gruppentheorie</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Muss man für die Klausur einordnen können! Gruppen sind abgeschottete Welten (Mengen) mit einer Verknüpfung, aus der man nie zufällig 'herausrechnen' kann (Abgeschlossenheit).</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-3-symmetriegruppe-aufstellen">Übungsblatt 8, AP 3: Symmetriegruppe aufstellen</a><br>- <a href="Uebungszettel_Originale.html#uebungsblatt-10-untergruppen-von-automorphismen">Übungsblatt 10: Untergruppen von Automorphismen</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -463,6 +500,17 @@ MathJax = {
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Klassifikation & Nebenklassen</b></summary>
+<p><blockquote></p>
+<p>Nach <a href="https://de.wikipedia.org/wiki/Gruppe_(Mathematik)">Wikipedia (Gruppe)</a>:</p>
+<p><ul></p>
+<p><li><strong>Satz von Lagrange:</strong> Für jede Untergruppe $H$ einer endlichen Gruppe $G$ gilt zwingend, dass die Ordnung (Elementanzahl) von $H$ stets exakt die Ordnung von $G$ teilt.</li></p>
+<p><li><strong>Nebenklassen & Normalteiler:</strong> Jede Untergruppe $H$ induziert eine Äquivalenzrelation und somit eine Zerlegung der Gesamtgruppe in sogenannte <em>Nebenklassen</em>. Stimmen Links- und Rechtsnebenklassen völlig überein, nennt man $H$ einen <em>Normalteiler</em>, wodurch sich sogenannte Faktorgruppen bilden lassen.</li></p>
+<p><li><strong>Lie-Gruppen:</strong> Die oben aufgeführten kontinuierlichen Matrixgruppen wie $GL(n)$ oder $O(n)$ sind nicht nur algebraische Gruppen, sondern gleichzeitig topologische Mannigfaltigkeiten, und spielen in der theoretischen Physik als <em>Lie-Gruppen</em> eine überragende Rolle (etwa zur Beschreibung von Naturgesetzen und Symmetrien).</li></p>
+<p></ul></p>
+<p></blockquote></p>
+</details>
 <p>$O(n)$ = Komplettes Set von Rotationen und spiegelnden Umklappungen. $SO(n)$ = 'Spezielle' Orthogonalgruppe, die Determinante ist strickt +1 (also absolute reine Drehung im Raum).</p>
 <p></blockquote></p>
 </details>

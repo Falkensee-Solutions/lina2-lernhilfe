@@ -14,6 +14,14 @@
 
 ## 4.1 Skalarprodukte – Axiome
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das Skalarprodukt ist letztlich nur das Mathe-Wort für ein Werkzeug, das universell Längen messen und Winkel (Orthogonalität) zwischen zwei Elementen berechnen kann.
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 9, AP 1: Euklidische Räume](Uebungszettel_Originale.html#aufgabenpaket-1-euklidische-raeume)
@@ -84,6 +92,18 @@ Jedes Skalarprodukt eines Vektors mit sich selbst ergibt die quadrierte Länge. 
 
 $$\|v\| = \sqrt{\langle v | v \rangle}$$
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Cauchy-Schwarz & Norm-Eigenschaften</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Skalarprodukt">Wikipedia (Skalarprodukt)</a>:
+<ul>
+<li><strong>Cauchy-Schwarzsche Ungleichung:</strong> $|\langle x | y \rangle|^2 \leq \langle x | x \rangle \cdot \langle y | y \rangle$. Diese liefert die obere Schranke für Skalarprodukte und begründet die Dreiecksungleichung der Norm. Die obige Gleichheit gilt genau dann, wenn $x$ und $y$ linear abhängig sind.</li>
+<li><strong>Allgemeiner Winkelbegriff:</strong> Durch Umstellen auf $\cos(\varphi) = \frac{\langle x | y \rangle}{\|x\|\|y\|}$ lässt sich auch in abstrakten Vektorräumen (z. B. Funktionenräumen mit L2-Skalarprodukt d. h. Integralen) ein "Winkel" zwischen Funktionen definieren. Darauf basiert unsere gesamte Auffassung von "Orthogonalität".</li>
+<li>Aus dem Skalarprodukt abgeleitete Normen erfüllen immer die <em>Parallelogrammgleichung</em>.</li>
+</ul>
+</blockquote>
+</details>
+
 ## 4.2 Orthogonalität
 
 <details>
@@ -123,6 +143,14 @@ Es gilt: $V = U \oplus U^\perp$ (direkte Summe)
 
 ## 4.3 Gram-Schmidt-Verfahren – Schritt für Schritt
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Der systematische 'Schatten-Auslöscher'-Algorithmus. Wir wollen saubere Orthogonalachsen formen, indem wir iterativ immer das abziehen, was nicht senkrecht ist.
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 6, AP 1: Gram-Schmidt-Verfahren](Uebungszettel_Originale.html#aufgabenpaket-1-gram-schmidt-verfahren)
@@ -161,6 +189,18 @@ $$\tilde{e}_k = v_k - \sum_{j=1}^{k-1} \langle e_j | v_k \rangle \, e_j$$
 $$e_k = \frac{\tilde{e}_k}{\|\tilde{e}_k\|}$$
 
 > **MERKE die Reihenfolge:** Projektion abziehen → normieren. NICHT umgekehrt!
+
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Geometrisches Prinzip & QR-Zerlegung</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Gram-Schmidtsches_Orthogonalisierungsverfahren">Wikipedia (Gram-Schmidt-Verfahren)</a>:
+<ul>
+<li><strong>Geometrisches Prinzip:</strong> Man zieht von einem Vektor $w_k$ genau die Projektions-Anteile der bereits ermittelten orthogonalen Vektoren $v_1, \dots, v_{k-1}$ ab, sodass der "abgeschnittene" Differenzvektor danach konsequent senkrecht auf allen steht.</li>
+<li><strong>Sukzessiver Aufspann:</strong> Eine essenzielle Eigenschaft ist, dass nach jedem Zwischenschritt $i$ die neu berechneten Vektoren $(e_1, \dots, e_i)$ exakt denselben Untervektorraum erzeugen wie die Startvektoren $(w_1, \dots, w_i)$.</li>
+<li><strong>Die Matrix-Sicht (QR-Zerlegung):</strong> Fasst man die neu gewonnenen orthonormalen Vektoren als Spalten einer Matrix $Q$ zusammen und die ursprünglichen $w$-Vektoren als Matrix $A$, so gilt $A = QR$ (wobei $R$ eine obere Dreiecksmatrix ist). Gram-Schmidt ist faktisch der numerische Weg zur QR-Zerlegung.</li>
+</ul>
+</blockquote>
+</details>
 
 ## 4.4 Klausuraufgabe 3 – Komplette Musterlösung
 
@@ -228,6 +268,14 @@ $$e_2(x) = \frac{\tilde{e}_2}{\|\tilde{e}_2\|} = \frac{i(x - \frac{1}{2})}{\frac
 **Probe:** $\langle e_1 | e_2 \rangle = \int_0^1 1 \cdot 2\sqrt{3} \, i(x - \frac{1}{2}) \, dx = 2\sqrt{3} i \int_0^1 (x - \frac{1}{2}) \, dx = 2\sqrt{3} i \cdot 0 = 0$ ✓
 
 ## 4.5 Projektionsoperatoren
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Wenn man eine zu schwere Gleichung lösen will, projiziert man sie mit $P_U$ auf einen einfacheren Unterraum. Das stutzt die Gleichung auf das Wesentliche zurück.
+</blockquote>
+</details>
+
 
 
 > 🔗 **Zugehörige Übungen:**

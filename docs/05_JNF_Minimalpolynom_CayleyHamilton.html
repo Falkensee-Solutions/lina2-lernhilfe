@@ -257,6 +257,12 @@ MathJax = {
 <blockquote><p>⚡ <strong>PRIORITÄT 2 – Hier hast du 27/50 Punkte verloren (Aufgaben 1 + 4)!</strong></p></blockquote>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Nicht jede Matrix lässt sich diagonalisieren – manchmal gibt es einfach nicht genug Eigenvektoren. Für solche Matrizen gibt es die <strong>Jordan-Normalform (JNF)</strong>: eine fast-diagonale Struktur, in der auf der Hauptdiagonale die Eigenwerte stehen und direkt darüber manchmal Einsen. Diese Einsen zeigen an, wo ein Eigenwert „nicht genug" Eigenvektoren hat. Je größer ein Jordan-Block ist, desto weiter entfernt ist die Matrix vom Diagonalisierbaren.</p><p>Die JNF ist eine Art Röntgenbild der Matrix. Aus ihr kannst du sofort fast alles ablesen: Eigenwerte (die Diagonaleinträge), algebraische Vielfachheiten (Summe der Blockgrößen pro Eigenwert), geometrische Vielfachheiten (Anzahl der Blöcke pro Eigenwert), das Minimalpolynom, die Determinante und ob die Matrix diagonalisierbar ist. Es lohnt sich enorm, die Tabelle auf dieser Seite sicher zu beherrschen.</p><p>Das <strong>Minimalpolynom</strong> ist das kleinste Polynom, das die Matrix zu Null macht – wenn du es in die Matrix einsetzt, kommt die Nullmatrix raus. Es hängt eng mit der JNF zusammen: Der Exponent jedes Eigenwerts im Minimalpolynom entspricht der Größe des größten Jordan-Blocks zu diesem Eigenwert. Der Satz von <strong>Cayley-Hamilton</strong> sagt, dass jede Matrix ihr eigenes charakteristisches Polynom erfüllt – das heißt, wenn du das char. Polynom in die Matrix einsetzt, kommt immer Null raus.</p><p>Das <strong>Matrixexponential</strong> $\exp(A)$ ist das Pendant zur Exponentialfunktion für Matrizen und taucht bei Differentialgleichungen auf: Die Lösung von $\dot{x}(t) = Ax(t)$ ist $x(t) = \exp(tA) x_0$. Für die Berechnung hilft es, zu wissen, ob die Matrix idempotent ist ($A^2 = A$), denn dann vereinfacht sich die Reihe drastisch.</p><p><strong>Für die Nachklausur:</strong> Aufgabe 1 (JNF ablesen: 19/30) und Aufgabe 4 (Matrixexponential: 4/20) machten zusammen 50 Punkte aus. In Aufgabe 1 musst du die JNF blitzschnell „lesen" können – char. Polynom, Minimalpolynom, Eigenräume, Determinante, alles direkt ablesen. In Aufgabe 4 war der Schlüssel Cayley-Hamilton: Zeige $A^2 = A$, dann per Induktion $A^m = A$, und damit vereinfacht sich $\exp(A) = I + (e-1)A$. Übe beide Aufgabentypen, bis sie sitzen!</p></div>
 <h2 id="5-1-jordan-normalform-jnf">5.1 Jordan-Normalform (JNF)</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Hier wird's manchmal unübersichtlich. Die JNF ist das Notpflaster der Linearen Algebra, wenn eine Matrix einfach nicht genug Eigenvektoren hat, um sie sauber zu diagonalisieren. Wir retten, was zu retten ist.</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-vorbereitungen-auf-den-jnf-existenzsatz">Übungsblatt 7, AP 1: Vorbereitungen auf den JNF-Existenzsatz</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-4-berechnung-einer-jordan-normalform">Übungsblatt 7, AP 4: Berechnung einer Jordan-Normalform</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -431,6 +437,12 @@ MathJax = {
 </ul>
 <blockquote><p><strong>Achtung Notation:</strong> Manchmal wird "Hauptvektor erster Stufe" für den verallgemeinerten Eigenvektor mit $(A-\lambda I)v \neq 0$ aber $(A-\lambda I)^2 v = 0$ verwendet. In der Klausur war $v_4$ so einer.</p></blockquote>
 <h2 id="5-4-minimalpolynom">5.4 Minimalpolynom</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das ist das 'effizienteste' Polynom. Wenn du in dieses Polynom deine Matrix A einsetzt, kommt am Ende garantiert die Nullmatrix heraus.</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-nullstellen-von-polynomen">Übungsblatt 8, AP 1: Nullstellen von Polynomen</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-2-begleitmatrix-eines-polynoms">Übungsblatt 8, AP 2: Begleitmatrix eines Polynoms</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -470,6 +482,12 @@ MathJax = {
 <li>Teste ob $p(A) = 0$</li>
 </ol>
 <h2 id="5-5-satz-von-cayley-hamilton">5.5 Satz von Cayley-Hamilton</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ein gigantisch starkes Matrix-Konzept. 'Jede Matrix ist Nullstelle ihres eigenen char. Polynoms'. Heißt: A reingesteckt in $\chi(X)$ ergibt IMMER null.</p>
+<p></blockquote></p>
+</details>
 <blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-3-cayley-hamilton">Übungsblatt 7, AP 3: Cayley-Hamilton</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
@@ -478,6 +496,20 @@ MathJax = {
 <p></blockquote></p>
 </details>
 <blockquote><p><strong>Satz:</strong> Jede Matrix erfüllt ihr eigenes charakteristisches Polynom:<br>$$\chi_A(A) = 0$$</p></blockquote>
+<h3 id="wichtige-folgerungen-wissen-fuer-die-theorie-klausur">Wichtige Folgerungen (Wissen für die Theorie/Klausur)</h3>
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Zusammenhänge und Folgerungen</b></summary>
+<p><blockquote></p>
+<p>Nach Wikipedia liefert Cayley-Hamilton sehr nützliche Eigenschaften:</p>
+<p><ul></p>
+<p><li>Die Potenzen einer quadratischen Matrix spannen einen Untervektorraum auf, der höchstens die Dimension der Zeilenzahl $n$ hat.</li></p>
+<p><li>Die <strong>Inverse</strong> einer invertierbaren Matrix ist als Linearkombination der Potenzen der Matrix (mit Exponenten kleiner als $n$) darstellbar.</li></p>
+<p><li>Das <strong>Minimalpolynom</strong> einer Matrix teilt ihr <a href="https://de.wikipedia.org/wiki/Charakteristisches_Polynom">charakteristisches Polynom</a>.</li></p>
+<p><li>Eine quadratische Matrix mit $n$-fachem Eigenwert Null ist <strong>nilpotent</strong>, da ihr char. Polynom die Form $\lambda^n$ ist.</li></p>
+<p><li>Man kann höhere Potenzen von Matrizen einfach durch Umstellen des charakteristischen Polynoms berechnen (wie in Aufgabe 4).</li></p>
+<p></ul></p>
+<p></blockquote></p>
+</details>
 <h3 id="anwendung-klausuraufgabe-4">Anwendung (Klausuraufgabe 4!)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>

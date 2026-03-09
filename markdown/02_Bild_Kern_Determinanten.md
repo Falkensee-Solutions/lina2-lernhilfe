@@ -12,6 +12,14 @@
 
 ## 2.1 Bild-Kern-Algorithmus
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Dieser Algorithmus ist die praktische Umsetzung des Homomorphiesatzes. Du schaust, was nach der Abbildung real 'übrig bleibt' (Bild) und was durch die Skalierung 'getötet' wird (Kern).
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 3, AP 1: Homomorphiesatz und Dimensionsformel](Uebungszettel_Originale.html#aufgabenpaket-1-homomorphiesatz-und-dimensionsformel)
@@ -88,6 +96,14 @@ Für $A \in K^{m \times n}$:
 
 ## 2.2 Determinanten
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Die Determinante ist der Volumen-Faktor! Eine Det=2 bedeutet: Jedes Quadrat wird nach Transformation doppelt so groß. Det=0 bedeutet: Der Raum wurde so flachgedrückt, dass kein Volumen mehr bleibt (nicht umkehrbar).
+</blockquote>
+</details>
+
+
 
 > 🔗 **Zugehörige Übungen:**
 > - [Übungsblatt 3, AP 3: Bedeutung von "Determinante = 0"](Uebungszettel_Originale.html#aufgabenpaket-3-bedeutung-von-determinante-0)
@@ -130,6 +146,18 @@ Klassische Fehlerquelle: Eine Matrix skaliert man in JEDER Dimension. Also ist $
 | Skalierung | $\det(\lambda A) = \lambda^n \det(A)$ für $A \in K^{n \times n}$ |
 | Dreiecksmatrix | $\det(A) = \prod_{i=1}^{n} a_{ii}$ (Produkt der Diagonaleinträge) |
 | Ähnlichkeit | $\det(SAS^{-1}) = \det(A)$ |
+
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Eigenschaften & Determinantenproduktsatz</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Determinante_(Mathematik)">Wikipedia (Determinante)</a>:
+<ul>
+<li><strong>Determinantenproduktsatz:</strong> $\det(A \cdot B) = \det(A) \cdot \det(B)$. Das bedeutet, die Determinante ist ein Gruppenhomomorphismus von der allgemeinen linearen Gruppe in die Einheitengruppe des Körpers.</li>
+<li><strong>Existenz der Inversen:</strong> Eine Matrix $A$ ist genau dann invertierbar (regulär), wenn $\det(A) \neq 0$. Dann gilt $\det(A^{-1}) = (\det A)^{-1}$.</li>
+<li><strong>Ähnliche Matrizen:</strong> Wenn $A$ und $B$ ähnlich sind ($A = X^{-1}BX$), dann haben sie dieselbe Determinante, denn $\det(X^{-1}BX) = \det(X)^{-1}\det(B)\det(X) = \det(B)$. Daher ist die berechnete Determinante eines Basiswechsels konstant, was es erlaubt, von der "Determinante einer linearen Abbildung" unabhängig von ihrer Basis zu sprechen.</li>
+</ul>
+</blockquote>
+</details>
 
 ### Laplace-Entwicklung
 
