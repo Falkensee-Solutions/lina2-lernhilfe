@@ -249,7 +249,19 @@ MathJax = {
 <h1>2. Lineare Abbildungen, Bild-Kern & Determinanten</h1>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Stell dir eine Matrix als Maschine vor: Du steckst einen Vektor rein und bekommst einen anderen raus. Das <strong>Bild</strong> ist alles, was aus der Maschine rauskommen kann – also die Menge aller möglichen Ergebnisse. Der <strong>Kern</strong> hingegen ist die Menge aller Vektoren, die die Maschine zu Null macht. Wenn der Kern nur aus dem Nullvektor besteht, geht keine Information verloren und die Abbildung ist injektiv.</p><p>Das Berechnen von Bild und Kern läuft immer gleich: Du bringst die Matrix mit Gauß auf Zeilenstufenform. Die Pivotspalten verraten dir das Bild, die freien Variablen den Kern. Der <strong>Rangsatz</strong> garantiert dabei, dass sich die Spaltenanzahl immer sauber in Rang (Dimension des Bildes) und Defekt (Dimension des Kerns) aufteilt.</p><p><strong>Determinanten</strong> sind eine einzige Zahl, die einer quadratischen Matrix zugeordnet wird – und diese Zahl enthält überraschend viel Information. Ist sie Null, ist die Matrix nicht invertierbar und das zugehörige Gleichungssystem hat entweder keine oder unendlich viele Lösungen. Ist sie ungleich Null, ist alles eindeutig lösbar. Geometrisch beschreibt der Betrag der Determinante, wie stark die Matrix Volumina verzerrt, und das Vorzeichen sagt dir, ob die Orientierung erhalten bleibt oder gespiegelt wird.</p><p><strong>Für die Nachklausur:</strong> Die Determinante kam in der Klausur bei Aufgabe 1.6–1.8 vor – dort musst du sie aus der Jordan-Normalform ablesen können. Übe die Laplace-Entwicklung und lerne die Rechenregeln (Produktregel, Transposition, Skalierung) wirklich auswendig. Der Bild-Kern-Algorithmus ist dein Schweizer Taschenmesser für fast jede Aufgabe.</p></div>
 <h2>2.1 Bild-Kern-Algorithmus</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Dieser Algorithmus ist die praktische Umsetzung des Homomorphiesatzes. Du schaust, was nach der Abbildung real 'übrig bleibt' (Bild) und was durch die Skalierung 'getötet' wird (Kern).</p>
+<p></blockquote></p>
+</details>
 <h3>Kern (Nullraum)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Der Kern ist das 'Schwarze Loch' der Matrix. Alle Vektoren, die im LGS auf den Nullvektor abgebildet werden. Ein großer Kern bedeutet meistens massiven Informationsverlust bei der Abbildung.</p>
+<p></blockquote></p>
+</details>
 <p>$$\ker(A) = \{x \in K^n \mid Ax = 0\}$$</p>
 <p><strong>Berechnung:</strong></p>
 <ol>
@@ -258,6 +270,12 @@ MathJax = {
 <li>Die freien Variablen parametrisieren den Kern</li>
 </ol>
 <h3>Bild (Spaltenraum)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das Bild ist der komplette Raum, den du nach der Transformation noch erreichen kannst. Wenn die Matrix aus 3 Vektoren (Spalten) besteht, ist das Bild einfach der Schatten oder das Volumen, das diese drei Vektoren aufspannen.</p>
+<p></blockquote></p>
+</details>
 <p>$$\text{Bild}(A) = \{Ax \mid x \in K^n\}$$</p>
 <p><strong>Berechnung:</strong></p>
 <ol>
@@ -265,8 +283,20 @@ MathJax = {
 <li>Die Spalten von $A$ (Original!), die Pivotspalten entsprechen, bilden eine Basis des Bildes</li>
 </ol>
 <h3>Rang einer Matrix</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Die Dimension des Bildes. Wenn der Rang gleich der Anzahl der Spalten ist, hast du vollen Informationserhalt (Kern ist 0, die Abbildung ist injektiv).</p>
+<p></blockquote></p>
+</details>
 <p>$$\text{Rang}(A) = \dim(\text{Bild}(A)) = \text{Anzahl der Pivotspalten}$$</p>
 <h3>Zusammenfassung der Zusammenhänge</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Injektiv = Keine zwei Werte crashen auf dasselbe Bild (Kern = 0). Surjektiv = Du triffst wirklich jeden Punkt im Zielraum (Bild füllt alles aus).</p>
+<p></blockquote></p>
+</details>
 <p>Für $A \in K^{m \times n}$:</p>
 <ul>
 <li>$\ker(A) \subseteq K^n$ (Unterraum des Definitionsbereichs)</li>
@@ -277,9 +307,27 @@ MathJax = {
 <li>$A$ bijektiv $\iff$ injektiv und surjektiv $\iff$ $A$ invertierbar (nur bei $m = n$)</li>
 </ul>
 <h2>2.2 Determinanten</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Die Determinante ist der Volumen-Faktor! Eine Det=2 bedeutet: Jedes Quadrat wird nach Transformation doppelt so groß. Det=0 bedeutet: Der Raum wurde so flachgedrückt, dass kein Volumen mehr bleibt (nicht umkehrbar).</p>
+<p></blockquote></p>
+</details>
 <h3>Definition (Leibniz-Formel)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Eher theoretisch wichtig. Praktisch zeigt sie, dass die Determinante sich aus allen Permutationen/Vertauschungen der Dimensionen errechnet. Vorzeichen prüfen nicht vergessen!</p>
+<p></blockquote></p>
+</details>
 <p>$$\det(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma(i)}$$</p>
 <h3>Rechenregeln (AUSWENDIG LERNEN!)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Klassische Fehlerquelle: Eine Matrix skaliert man in JEDER Dimension. Also ist $det(\lambda \cdot A) = \lambda^n \cdot det(A)$ und NICHT nur $\lambda$. Stell dir vor, du verdoppelst einen 3D-Würfel in Länge, Breite und Höhe: Das Volumen wächst um $2^3 = 8$.</p>
+<p></blockquote></p>
+</details>
 <table>
 <tr><th>Regel</th><th>Formel</th></tr>
 <tr><td>Produktregel</td><td>$\det(AB) = \det(A) \cdot \det(B)$</td></tr>
@@ -290,11 +338,23 @@ MathJax = {
 <tr><td>Ähnlichkeit</td><td>$\det(SAS^{-1}) = \det(A)$</td></tr>
 </table>
 <h3>Laplace-Entwicklung</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Der rechenintensive Weg. Achte auf das Schachbrettmuster aus Plus/Minus bei den Vorzeichen, und nimm IMMER die Zeile/Spalte, wo die meisten Nullen stehen. Zeit ist wertvoll in der Klausur!</p>
+<p></blockquote></p>
+</details>
 <p>Nach der $i$-ten Zeile:</p>
 <p>$$\det(A) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(A_{ij})$$</p>
 <p>wobei $A_{ij}$ die Matrix ohne $i$-te Zeile und $j$-te Spalte ist.</p>
 <blockquote><p><strong>Tipp:</strong> Entwickle nach Zeile/Spalte mit den meisten Nullen!</p></blockquote>
 <h3>Geometrische Bedeutung</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Prof. Weber stellt hier seine Det=1 vs Det=-1 Fallen! Eine Spiegelung dreht den Raum komplett 'auf links' (Orientierung umgekehrt = negatives Volumen = Det -1). Eine Drehung hält die Orientierung aufrecht (Det +1).</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li>$|\det(A)|$ = Volumen des Parallelotops, das von den Spaltenvektoren aufgespannt wird</li>
 <li>$\det(A) > 0$: orientierungserhaltend</li>
@@ -303,7 +363,19 @@ MathJax = {
 </ul>
 <blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 1.6-1.8):</strong><br>- $\det(A) = \det(VJV^{-1}) = \det(V)\det(J)\det(V^{-1}) = \det(J)$<br>- Volumentreu $\iff |\det(A)| = 1$<br>- Orientierungserhaltend $\iff \det(A) > 0$</p></blockquote>
 <h2>2.3 LGS-Theorie</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Hier fließen Analysis und Algebra zusammen. Wie löst man Probleme, die eigentlich nicht perfekt lösbar sind? Mit partikulärer Lösung plus Freiheitsgraden (dem Kern).</p>
+<p></blockquote></p>
+</details>
 <h3>Lösungsstruktur von $Ax = b$</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Erinner dich an DGLs: Die Gesamtlösung ist IMMER = EINE richtige Speziellösung (partikulär) + die Gesamtheit aller Nullstellen (homogen, also der Kern).</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li><strong>Homogenes System</strong> ($b = 0$): Lösungsmenge ist $\ker(A)$, ein Unterraum</li>
 <li><strong>Inhomogenes System</strong> ($b \neq 0$): $L = x_p + \ker(A)$ (eine partikuläre Lösung + Kern)</li>
@@ -311,6 +383,12 @@ MathJax = {
 <li><strong>Eindeutig lösbar</strong> $\iff$ lösbar und $\ker(A) = \{0\}$</li>
 </ul>
 <h3>Gauß-Algorithmus</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Er verändert den Lösungsraum nicht essentiell. Achtung: Durch die Umformungen bleibt der Kern zwar identisch, aber der Original-Spaltenraum (das Bild) kann visuell kippen. Deswegen muss man für die Basis des Bildes immer die SPALTEN DER ORIGINALMATRIX ablesen.</p>
+<p></blockquote></p>
+</details>
 <p>Erlaubte Zeilenoperationen (ändern die Lösungsmenge nicht):</p>
 <ol>
 <li>Zeile mit $\lambda \neq 0$ multiplizieren</li>

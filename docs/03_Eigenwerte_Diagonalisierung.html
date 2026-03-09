@@ -250,27 +250,81 @@ MathJax = {
 <blockquote><p>⚡ <strong>PRIORITÄT 1 – Hier hast du 19/20 Punkte verloren (Aufgabe 2)!</strong></p></blockquote>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Eigenwerte und Eigenvektoren sind eines der wichtigsten Konzepte der gesamten linearen Algebra – und gleichzeitig das Thema, das in deiner Klausur am schlechtesten lief. Aber die Grundidee ist gar nicht so kompliziert: Ein <strong>Eigenvektor</strong> ist ein Vektor, der durch eine Matrix nicht seine Richtung ändert, sondern nur gestreckt oder gestaucht wird. Der Faktor, um den er gestreckt wird, heißt <strong>Eigenwert</strong>. Wenn du zum Beispiel eine Spiegelungsmatrix hast, dann bleibt ein Vektor, der genau auf der Spiegelachse liegt, unverändert – er hat den Eigenwert 1. Ein Vektor senkrecht dazu wird umgeklappt – er hat den Eigenwert −1.</p><p>Eigenwerte findest du, indem du das <strong>charakteristische Polynom</strong> berechnest – das ist $\det(A - \lambda I)$ – und dessen Nullstellen bestimmst. Der Kniff ist, dass jede Nullstelle ein Eigenwert ist. Für jeden Eigenwert berechnest du dann den <strong>Eigenraum</strong>, also die Menge aller zugehörigen Eigenvektoren, indem du den Kern von $(A - \lambda I)$ bestimmst.</p><p>Die große Frage ist dann: Kann man eine Basis finden, die nur aus Eigenvektoren besteht? Wenn ja, ist die Matrix <strong>diagonalisierbar</strong> – und das vereinfacht alles enorm, weil eine Diagonalmatrix trivial zu potenzieren ist. Ob das klappt, hängt davon ab, ob für jeden Eigenwert genug linear unabhängige Eigenvektoren existieren. Dafür vergleichst du die <strong>algebraische Vielfachheit</strong> (wie oft der Eigenwert als Nullstelle im char. Polynom vorkommt) mit der <strong>geometrischen Vielfachheit</strong> (Dimension des Eigenraums). Stimmen beide überein, ist die Matrix diagonalisierbar.</p><p><strong>Für die Nachklausur:</strong> In der Klausur solltest du zeigen, dass gewisse Vektoren Eigenvektoren sind, und den Defekt einer Matrix bestimmen. Übe insbesondere den Beweis, dass bei einer Matrix $M = \lambda_1 v_1 v_1^T + \ldots$ die $v_i$ tatsächlich Eigenvektoren sind – genau das kam dran!</p></div>
 <h2>3.1 Grundbegriffe</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Beim Konzept Eigenwert gehen wir auf die Suche nach dem Einfachen: Welche Vektoren werden von der Matrix nicht aus der Bahn geworfen, sondern behalten stoisch ihre Richtung und werden lediglich skaliert?</p>
+<p></blockquote></p>
+</details>
 <h3>Eigenwert & Eigenvektor</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Eigenvektoren sind die grundlegenden 'Rotations- oder Streckachsen' der Matrix. Wenn du einen Vektor auf diese Linien legst, tut die Matrix nichts anderes, als simple Vergrößerung / Verkleinerung.</p>
+<p></blockquote></p>
+</details>
 <p>$\lambda \in K$ ist <strong>Eigenwert</strong> von $A$ und $v \neq 0$ ist <strong>Eigenvektor</strong> zum Eigenwert $\lambda$, wenn:</p>
 <p>$$Av = \lambda v$$</p>
 <h3>Eigenraum</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das ist einfach die komplette Menge aller Eigenvektoren zu der gleichen Skalierung (die auf derselben Geraden oder Ebene liegen), PLUS dem Nullvektor.</p>
+<p></blockquote></p>
+</details>
 <p>$$E_\lambda = \ker(A - \lambda I) = \{v \in V \mid Av = \lambda v\}$$</p>
 <p>Der Eigenraum ist immer ein <strong>Unterraum</strong> von $V$.</p>
 <h3>Charakteristisches Polynom</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Der Trick hier: Wir wollen, dass $(A - \lambda I)x = 0$ eine Lösung ungleich dem 0-Vektor hat. Das geht nur, wenn die Matrix nicht den vollen Rang hat und selbst einen Kern besitzt. Also muss ihre Determinante Null sein!</p>
+<p></blockquote></p>
+</details>
 <p>$$\chi_A(\lambda) = \det(A - \lambda I)$$</p>
 <p>Die Eigenwerte sind genau die <strong>Nullstellen</strong> von $\chi_A$.</p>
 <blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 1.1):</strong> Bei Jordan-Normalform $J$ kann man $\chi_A$ direkt ablesen!<br>Wenn $J$ die Diagonaleinträge $\lambda_1, \ldots, \lambda_n$ hat:<br>$$\chi_A(\lambda) = \prod_{i=1}^{n} (\lambda_i - \lambda)$$</p></blockquote>
 <h2>3.2 Algebraische vs. Geometrische Vielfachheit</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ein klassisches Prüfung-Stolperbeispiel. Algebraisch = 'Wie oft taucht die Lösung rechnerisch im Term auf?'. Geometrisch = 'Wie viele echte linear unabhängige Vektoren bekomme ich dafür tatsächlich raus?'.</p>
+<p></blockquote></p>
+</details>
 <h3>Algebraische Vielfachheit (alg. VF)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Sagt einfach, welchen Exponenten eine Nullstelle im Polynom hat. Wenn $\lambda=2$ eine dreifache Nullstelle ist, hat sie algebraische VF 3.</p>
+<p></blockquote></p>
+</details>
 <p>= Vielfachheit von $\lambda$ als Nullstelle von $\chi_A$</p>
 <p><strong>Beispiel:</strong> $\chi_A(\lambda) = (\lambda - 2)^3(\lambda + 1)^2$ → alg. VF von 2 ist <strong>3</strong>, alg. VF von -1 ist <strong>2</strong></p>
 <h3>Geometrische Vielfachheit (geo. VF)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Die Anzahl der linear unabhängigen Vektoren, die wir im Eigenraum finden. Die Dimension dieses Raums kann nie größer werden, als die algebraische Vielfachheit uns an Platz erlaubt.</p>
+<p></blockquote></p>
+</details>
 <p>$$\text{geo. VF}(\lambda) = \dim(\ker(A - \lambda I)) = \dim(E_\lambda)$$</p>
 <p>= Anzahl der linear unabhängigen Eigenvektoren zum Eigenwert $\lambda$</p>
 <h3>Fundamentale Ungleichung</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Diese Ungleichung entscheidet über Leben (Diagonalisierbarkeit) und Tod (Krampf mit Jordan-Normalform). Wenn $geo < alg$, dann 'fehlen' uns Vektoren, die Matrix ist defekt.</p>
+<p></blockquote></p>
+</details>
 <p>$$1 \leq \text{geo. VF}(\lambda) \leq \text{alg. VF}(\lambda)$$</p>
 <blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 1.4):</strong> Bei JNF:<br>- geo. VF = Anzahl der Jordan-Blöcke zum Eigenwert $\lambda$<br>- alg. VF = Summe der Größen aller Jordan-Blöcke zum Eigenwert $\lambda$</p></blockquote>
 <h2>3.3 Diagonalisierbarkeit</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das Wunsch-Szenario: Eine Diagonalmatrix lässt sich exponentiell super einfach ausrechnen (z.B. für DGLs!), weil man nur die Diagonale potenzieren muss. Keine überkreuzten Abhängigkeiten mehr.</p>
+<p></blockquote></p>
+</details>
 <p>$A$ ist <strong>diagonalisierbar</strong> $\iff$ eine der folgenden äquivalenten Bedingungen gilt:</p>
 <ol>
 <li>Es existiert eine Basis aus Eigenvektoren von $A$</li>
@@ -280,6 +334,12 @@ MathJax = {
 </ol>
 <blockquote><p><strong>Achtung:</strong> Eine Matrix <strong>kann</strong> diagonalisierbar sein, auch wenn Eigenwerte mehrfache algebraische Vielfachheit haben! Entscheidend ist: geo = alg für jeden EW.</p></blockquote>
 <h3>Diagonalisieren: Algorithmus</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Man sucht die 'Zauber-Basis' S. Wendet man den Basiswechsel an: $S^{-1} A S$, dann verschwinden alle Nebendiagonalen und zurück bleiben nur saubere Streckfaktoren (die Eigenwerte) auf der Diagonalen.</p>
+<p></blockquote></p>
+</details>
 <ol>
 <li>Berechne $\chi_A(\lambda)$ und finde alle Eigenwerte</li>
 <li>Berechne für jeden EW $\lambda_i$ den Eigenraum $E_{\lambda_i} = \ker(A - \lambda_i I)$</li>
@@ -288,9 +348,21 @@ MathJax = {
 <li>Dann: $A = S \cdot D \cdot S^{-1}$ mit $D = \text{diag}(\lambda_1, \ldots, \lambda_n)$</li>
 </ol>
 <h2>3.4 Defekt einer Matrix</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Defekt ist nur ein anderes Wort für 'Dimension des Kerns'. Wenn 0 ein Eigenwert ist, dann meint $Ax = 0x$ exakt den Kern, ergo ist die Dimension des Kerns gleich der geometrischen Vielfachheit des Eigenwerts 0.</p>
+<p></blockquote></p>
+</details>
 <p>$$\text{Defekt}(A) = \dim(\ker(A)) = n - \text{Rang}(A)$$</p>
 <blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 2.2):</strong><br>Hat $A$ den Eigenwert $\lambda = 0$ mit algebraischer Vielfachheit $m \geq 1$, dann:<br>- $\text{Defekt}(A) = \dim(\ker(A)) = \text{geo. VF}(0)$<br>- Es gilt: $1 \leq \text{geo. VF}(0) \leq m$<br>- Also: $1 \leq \text{Defekt}(A) \leq m$<br>- Genauer: $\text{Rang}(A) = n - \text{Defekt}(A)$, also $n - m \leq \text{Rang}(A) \leq n - 1$</p></blockquote>
 <h2>3.5 Beweis zu ONS und Eigenwerten (Klausuraufgabe 2.1!)</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Genau das kam in der Nachklausur! Der Trick ist die Assoziativität: $(v_1^T)v_1 = v_1^T v_1$, was das Skalarprodukt formt und bei einem ONS exakt 1 ergibt. Andere Kreuzprodukte $v_2^T v_1$ sind 0, weil sie senkrecht aufeinander stehen. Damit löst sich die eklige Summe sofort in Rauch auf.</p>
+<p></blockquote></p>
+</details>
 <p><strong>Gegeben:</strong> ONS $v_1, v_2, v_3 \in \mathbb{R}^n$, $M = \lambda_1 v_1 v_1^T + \lambda_2 v_2 v_2^T + \lambda_3 v_3 v_3^T$</p>
 <p><strong>Zu zeigen:</strong> $Mv_i = \lambda_i v_i$</p>
 <p><strong>Beweis:</strong></p>
@@ -301,6 +373,12 @@ MathJax = {
 <p>Analog für $v_2$ und $v_3$. $\square$</p>
 <blockquote><p><strong>Merke:</strong> Das Produkt $v v^T$ (äußeres Produkt) ist eine $n \times n$-Matrix (Rang 1), die auf den Unterraum $\text{span}(v)$ projiziert! So eine Matrix heißt <strong>Projektionsmatrix</strong> (bis auf Normierung).</p></blockquote>
 <h2>3.6 Zusammenhang: Eigenwerte und Matrixeigenschaften</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Hier kann man Prof. Webers True/False-Aufgaben in Sekunden knacken: Orthogonal heißt alle EW haben Betrag 1. Symmetrisch heißt alle EW sind reell. Nilpotent heißt, die Matrix zerschießt sich selbst, also ist jeder EW zwingend 0.</p>
+<p></blockquote></p>
+</details>
 <table>
 <tr><th>Eigenschaft</th><th>Bedingung an Eigenwerte</th></tr>
 <tr><td>$A$ invertierbar</td><td>Alle $\lambda_i \neq 0$</td></tr>

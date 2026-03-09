@@ -14,13 +14,39 @@
 
 ## 4.1 Skalarprodukte – Axiome
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das Skalarprodukt ist letztlich nur das Mathe-Wort für ein Werkzeug, das universell Längen messen und Winkel (Orthogonalität) zwischen zwei Elementen berechnen kann.
+</blockquote>
+</details>
+
+
 ### Reelles Skalarprodukt
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das simple Punktprodukt aus der Schule. $x_1 y_1 + x_2 y_2$. Es ist zu sich selbst immer komplett symmetrisch.
+</blockquote>
+</details>
+
 $\langle \cdot | \cdot \rangle: V \times V \to \mathbb{R}$ heißt Skalarprodukt, wenn:
 1. **Symmetrie:** $\langle u | v \rangle = \langle v | u \rangle$
 2. **Linearität (im 2. Argument):** $\langle u | \alpha v + \beta w \rangle = \alpha\langle u | v \rangle + \beta\langle u | w \rangle$
 3. **Positive Definitheit:** $\langle v | v \rangle \geq 0$ und $\langle v | v \rangle = 0 \iff v = 0$
 
 ### Komplexes Skalarprodukt (hermitesch) ← **KLAUSURRELEVANT!**
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Im Komplexen droht ein Problem: Multipliziert man i mit sich selbst, ergäbe das eine negative Länge (-1). Darum muss im Skalarprodukt das erste Argument IMMER konjugiert werden! Dabei gilt: $\langle u|v
+angle = \overline{\langle v|u
+angle}$.
+</blockquote>
+</details>
+
 $\langle \cdot | \cdot \rangle: V \times V \to \mathbb{C}$ heißt Skalarprodukt, wenn:
 1. **Hermitesche Symmetrie:** $\langle u | v \rangle = \overline{\langle v | u \rangle}$
 2. **Antilinearität im 1. Argument:** $\langle \alpha u | v \rangle = \overline{\alpha}\langle u | v \rangle$
@@ -30,32 +56,89 @@ $\langle \cdot | \cdot \rangle: V \times V \to \mathbb{C}$ heißt Skalarprodukt,
 > ⚠️ **VORSICHT:** Im Komplexen ist $\langle u | v \rangle \neq \langle v | u \rangle$, sondern $\langle u | v \rangle = \overline{\langle v | u \rangle}$!
 
 ### Standard-Skalarprodukte
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Denk daran: Integrale sind das absolute Äquivalent zur Vektor-Summe, wenn du von diskreten Spaltenvektoren zu kontinuierlichen Funktionen wechselst. Ein Integral über $f(x)g(x)$ IST ein Skalarprodukt.
+</blockquote>
+</details>
+
 - **$\mathbb{R}^n$:** $\langle x | y \rangle = x^T y = \sum_{i=1}^n x_i y_i$
 - **$\mathbb{C}^n$:** $\langle x | y \rangle = x^* y = \sum_{i=1}^n \overline{x_i} y_i$ (wobei $x^* = \overline{x}^T$)
 - **Funktionenraum:** $\langle f | g \rangle = \int_a^b \overline{f(x)} g(x) \, dx$
 
 ### Norm (durch Skalarprodukt induziert)
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Jedes Skalarprodukt eines Vektors mit sich selbst ergibt die quadrierte Länge. Wenn du am Ende die Wurzel ziehst, ist dein Vektor 'genormt' (Länge 1).
+</blockquote>
+</details>
+
 $$\|v\| = \sqrt{\langle v | v \rangle}$$
 
 ## 4.2 Orthogonalität
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Zwei Vektoren (oder Funktionen!) haben absolut keine Berührungspunkte, keine gemeinsame Richtung. Sie spannen den Raum maximal breit auf.
+</blockquote>
+</details>
+
+
 ### Definitionen
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Orthogonal = Senkrecht (Skalarprodukt = 0). Orthonormal = Senkrecht UND auf Länge 1 normiert. Ein ONS ist wahnsinnig bequem zu rechnen, da fast jede Multiplikation in 0 oder 1 zerfällt.
+</blockquote>
+</details>
+
 - **Orthogonal:** $u \perp v \iff \langle u | v \rangle = 0$
 - **Orthogonalsystem (OS):** Paarweise orthogonale, nicht-null Vektoren
 - **Orthonormalsystem (ONS):** OS mit $\|v_i\| = 1$ für alle $i$
 - **Orthonormalbasis (ONB):** ONS, das auch Basis ist
 
 ### Orthogonales Komplement
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das ist genau die Menge aller Vektoren im Raum, die auf deinem Unterraum senkrecht stehen. Wenn du auf dem flachen Fußboden deines Zimmers stehst, ist das Komplement genau die Achse, die zur Decke zeigt.
+</blockquote>
+</details>
+
 $$U^\perp = \{v \in V \mid \langle v | u \rangle = 0 \text{ für alle } u \in U\}$$
 
 Es gilt: $V = U \oplus U^\perp$ (direkte Summe)
 
 ## 4.3 Gram-Schmidt-Verfahren – Schritt für Schritt
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Der systematische 'Schatten-Auslöscher'-Algorithmus. Wir wollen saubere Orthogonalachsen formen, indem wir iterativ immer das abziehen, was nicht senkrecht ist.
+</blockquote>
+</details>
+
+
 **Eingabe:** Linear unabhängige Vektoren $v_1, \ldots, v_k$  
 **Ausgabe:** Orthonormalbasis $e_1, \ldots, e_k$
 
 ### Algorithmus
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Wenn du von $v_2$ den Term $\langle u_1|v_2
+angle u_1$ subtrahierst, schneidest du genau den Schatten ab, den $v_2$ auf $u_1$ wirft. Zurück bleibt genau der Teil, der strikt senkrecht absteht. Das klappt exakt so auch mit Polynomen!
+</blockquote>
+</details>
+
 
 **Schritt 1:** Normiere den ersten Vektor
 $$e_1 = \frac{v_1}{\|v_1\|}$$
@@ -71,6 +154,14 @@ $$e_k = \frac{\tilde{e}_k}{\|\tilde{e}_k\|}$$
 > **MERKE die Reihenfolge:** Projektion abziehen → normieren. NICHT umgekehrt!
 
 ## 4.4 Klausuraufgabe 3 – Komplette Musterlösung
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Hier haben fast alle Punkte verloren! Beim komplexen Integral wird die Konjugation vergessen. Wenn du $ix$ in den linken Slot des Skalarprodukts knallst, MUSS das Integral mit $-ix$ (konjugiert) weiterrechnen sonst wird das Ergebnis falsch.
+</blockquote>
+</details>
+
 
 **Gegeben:** $f_1(x) = 1$, $f_2(x) = ix$ auf $[0,1]$  
 **Skalarprodukt:** $\langle f | g \rangle = \int_0^1 \overline{f(x)} g(x) \, dx$  
@@ -129,12 +220,36 @@ $$e_2(x) = \frac{\tilde{e}_2}{\|\tilde{e}_2\|} = \frac{i(x - \frac{1}{2})}{\frac
 
 ## 4.5 Projektionsoperatoren
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Wenn man eine zu schwere Gleichung lösen will, projiziert man sie mit $P_U$ auf einen einfacheren Unterraum. Das stutzt die Gleichung auf das Wesentliche zurück.
+</blockquote>
+</details>
+
+
 ### Orthogonalprojektion auf einen Unterraum
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Hast du eine ONS-Basis, baust du dir deine Projektion direkt aus Summen zusammen. Alles, was nicht reinpasst, fällt atomar zu Null ab.
+</blockquote>
+</details>
+
 Sei $U = \text{span}(u_1, \ldots, u_k)$ mit ONB $e_1, \ldots, e_k$. Dann:
 
 $$P_U(v) = \sum_{i=1}^{k} \langle e_i | v \rangle \, e_i$$
 
 ### Eigenschaften
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+$P^2 = P$ (idempotent) heißt: Wenn ich einmal einen Taschenlampenschatten auf den Boden geworfen habe, bleibt es der exakt selbe Schatten, wenn ich die Lampe nochmal von oben drauf scheinen lasse.
+</blockquote>
+</details>
+
 - $P^2 = P$ (idempotent)
 - $P^* = P$ (selbstadjungiert)
 - $\text{Bild}(P) = U$

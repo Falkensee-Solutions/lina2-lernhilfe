@@ -250,7 +250,19 @@ MathJax = {
 <blockquote><p>⚡ <strong>PRIORITÄT 3 – Hier hast du 16/30 Punkte verloren (Aufgabe 3)!</strong></p></blockquote>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Ein <strong>Skalarprodukt</strong> ist eine Methode, um in einem Vektorraum Längen und Winkel zu messen. Im $\mathbb{R}^2$ kennst du das als das gewöhnliche Punktprodukt: $\langle x | y \rangle = x_1 y_1 + x_2 y_2$. Dieses Konzept lässt sich verallgemeinern – sogar auf Funktionenräume, wo das Skalarprodukt ein Integral wird. Entscheidend ist: Zwei Vektoren stehen <strong>senkrecht</strong> (orthogonal) zueinander, wenn ihr Skalarprodukt Null ergibt.</p><p>Im Komplexen wird das etwas kniffliger. Weil komplexe Zahlen einen Real- und Imaginärteil haben, muss man beim Skalarprodukt das erste Argument konjugieren: $\langle x | y \rangle = \sum \overline{x_i} y_i$. Das nennt man <strong>hermitesches Skalarprodukt</strong>. Der Haken: $\langle u | v \rangle \neq \langle v | u \rangle$ – stattdessen gilt $\langle u | v \rangle = \overline{\langle v | u \rangle}$. Dieses Detail war in deiner Klausuraufgabe entscheidend!</p><p>Das <strong>Gram-Schmidt-Verfahren</strong> ist ein Algorithmus, der aus einer beliebigen Basis eine <strong>Orthonormalbasis</strong> macht – also eine Basis, in der alle Vektoren Länge 1 haben und paarweise senkrecht aufeinander stehen. Die Idee ist einfach: Du nimmst den ersten Vektor und normierst ihn. Dann nimmst du den zweiten Vektor, ziehst den Anteil ab, der in Richtung des ersten zeigt, und normierst das Ergebnis. So machst du weiter, bis alle Vektoren sauber orthogonal zueinander sind. Die Reihenfolge ist immer: erst orthogonalisieren (Projektionen abziehen), dann normieren.</p><p><strong>Für die Nachklausur:</strong> In Aufgabe 3 der Klausur musstest du Gram-Schmidt im Funktionenraum mit komplexem Skalarprodukt durchführen. Der häufigste Fehler hier: Die Konjugation vergessen! Wenn $f(x) = ix$ ist, dann ist $\overline{f(x)} = -ix$. Übe das Verfahren Schritt für Schritt an konkreten Beispielen durch, bis der Ablauf automatisch sitzt.</p></div>
 <h2>4.1 Skalarprodukte – Axiome</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das Skalarprodukt ist letztlich nur das Mathe-Wort für ein Werkzeug, das universell Längen messen und Winkel (Orthogonalität) zwischen zwei Elementen berechnen kann.</p>
+<p></blockquote></p>
+</details>
 <h3>Reelles Skalarprodukt</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das simple Punktprodukt aus der Schule. $x_1 y_1 + x_2 y_2$. Es ist zu sich selbst immer komplett symmetrisch.</p>
+<p></blockquote></p>
+</details>
 <p>$\langle \cdot | \cdot \rangle: V \times V \to \mathbb{R}$ heißt Skalarprodukt, wenn:</p>
 <ol>
 <li><strong>Symmetrie:</strong> $\langle u | v \rangle = \langle v | u \rangle$</li>
@@ -258,6 +270,14 @@ MathJax = {
 <li><strong>Positive Definitheit:</strong> $\langle v | v \rangle \geq 0$ und $\langle v | v \rangle = 0 \iff v = 0$</li>
 </ol>
 <h3>Komplexes Skalarprodukt (hermitesch) ← <strong>KLAUSURRELEVANT!</strong></h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Im Komplexen droht ein Problem: Multipliziert man i mit sich selbst, ergäbe das eine negative Länge (-1). Darum muss im Skalarprodukt das erste Argument IMMER konjugiert werden! Dabei gilt: $\langle u|v</p>
+<p>angle = \overline{\langle v|u</p>
+<p>angle}$.</p>
+<p></blockquote></p>
+</details>
 <p>$\langle \cdot | \cdot \rangle: V \times V \to \mathbb{C}$ heißt Skalarprodukt, wenn:</p>
 <ol>
 <li><strong>Hermitesche Symmetrie:</strong> $\langle u | v \rangle = \overline{\langle v | u \rangle}$</li>
@@ -267,15 +287,39 @@ MathJax = {
 </ol>
 <blockquote><p>⚠️ <strong>VORSICHT:</strong> Im Komplexen ist $\langle u | v \rangle \neq \langle v | u \rangle$, sondern $\langle u | v \rangle = \overline{\langle v | u \rangle}$!</p></blockquote>
 <h3>Standard-Skalarprodukte</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Denk daran: Integrale sind das absolute Äquivalent zur Vektor-Summe, wenn du von diskreten Spaltenvektoren zu kontinuierlichen Funktionen wechselst. Ein Integral über $f(x)g(x)$ IST ein Skalarprodukt.</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li><strong>$\mathbb{R}^n$:</strong> $\langle x | y \rangle = x^T y = \sum_{i=1}^n x_i y_i$</li>
 <li><strong>$\mathbb{C}^n$:</strong> $\langle x | y \rangle = x^<em> y = \sum_{i=1}^n \overline{x_i} y_i$ (wobei $x^</em> = \overline{x}^T$)</li>
 <li><strong>Funktionenraum:</strong> $\langle f | g \rangle = \int_a^b \overline{f(x)} g(x) \, dx$</li>
 </ul>
 <h3>Norm (durch Skalarprodukt induziert)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Jedes Skalarprodukt eines Vektors mit sich selbst ergibt die quadrierte Länge. Wenn du am Ende die Wurzel ziehst, ist dein Vektor 'genormt' (Länge 1).</p>
+<p></blockquote></p>
+</details>
 <p>$$\|v\| = \sqrt{\langle v | v \rangle}$$</p>
 <h2>4.2 Orthogonalität</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Zwei Vektoren (oder Funktionen!) haben absolut keine Berührungspunkte, keine gemeinsame Richtung. Sie spannen den Raum maximal breit auf.</p>
+<p></blockquote></p>
+</details>
 <h3>Definitionen</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Orthogonal = Senkrecht (Skalarprodukt = 0). Orthonormal = Senkrecht UND auf Länge 1 normiert. Ein ONS ist wahnsinnig bequem zu rechnen, da fast jede Multiplikation in 0 oder 1 zerfällt.</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li><strong>Orthogonal:</strong> $u \perp v \iff \langle u | v \rangle = 0$</li>
 <li><strong>Orthogonalsystem (OS):</strong> Paarweise orthogonale, nicht-null Vektoren</li>
@@ -283,12 +327,31 @@ MathJax = {
 <li><strong>Orthonormalbasis (ONB):</strong> ONS, das auch Basis ist</li>
 </ul>
 <h3>Orthogonales Komplement</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das ist genau die Menge aller Vektoren im Raum, die auf deinem Unterraum senkrecht stehen. Wenn du auf dem flachen Fußboden deines Zimmers stehst, ist das Komplement genau die Achse, die zur Decke zeigt.</p>
+<p></blockquote></p>
+</details>
 <p>$$U^\perp = \{v \in V \mid \langle v | u \rangle = 0 \text{ für alle } u \in U\}$$</p>
 <p>Es gilt: $V = U \oplus U^\perp$ (direkte Summe)</p>
 <h2>4.3 Gram-Schmidt-Verfahren – Schritt für Schritt</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Der systematische 'Schatten-Auslöscher'-Algorithmus. Wir wollen saubere Orthogonalachsen formen, indem wir iterativ immer das abziehen, was nicht senkrecht ist.</p>
+<p></blockquote></p>
+</details>
 <p><strong>Eingabe:</strong> Linear unabhängige Vektoren $v_1, \ldots, v_k$  </p>
 <p><strong>Ausgabe:</strong> Orthonormalbasis $e_1, \ldots, e_k$</p>
 <h3>Algorithmus</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Wenn du von $v_2$ den Term $\langle u_1|v_2</p>
+<p>angle u_1$ subtrahierst, schneidest du genau den Schatten ab, den $v_2$ auf $u_1$ wirft. Zurück bleibt genau der Teil, der strikt senkrecht absteht. Das klappt exakt so auch mit Polynomen!</p>
+<p></blockquote></p>
+</details>
 <p><strong>Schritt 1:</strong> Normiere den ersten Vektor</p>
 <p>$$e_1 = \frac{v_1}{\|v_1\|}$$</p>
 <p><strong>Schritt 2:</strong> Subtrahiere Projektion, dann normiere</p>
@@ -299,6 +362,12 @@ MathJax = {
 <p>$$e_k = \frac{\tilde{e}_k}{\|\tilde{e}_k\|}$$</p>
 <blockquote><p><strong>MERKE die Reihenfolge:</strong> Projektion abziehen → normieren. NICHT umgekehrt!</p></blockquote>
 <h2>4.4 Klausuraufgabe 3 – Komplette Musterlösung</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Hier haben fast alle Punkte verloren! Beim komplexen Integral wird die Konjugation vergessen. Wenn du $ix$ in den linken Slot des Skalarprodukts knallst, MUSS das Integral mit $-ix$ (konjugiert) weiterrechnen sonst wird das Ergebnis falsch.</p>
+<p></blockquote></p>
+</details>
 <p><strong>Gegeben:</strong> $f_1(x) = 1$, $f_2(x) = ix$ auf $[0,1]$  </p>
 <p><strong>Skalarprodukt:</strong> $\langle f | g \rangle = \int_0^1 \overline{f(x)} g(x) \, dx$  </p>
 <p><strong>Gesucht:</strong> ONB von $\text{span}(f_1, f_2)$</p>
@@ -329,10 +398,28 @@ MathJax = {
 <hr>
 <p><strong>Probe:</strong> $\langle e_1 | e_2 \rangle = \int_0^1 1 \cdot 2\sqrt{3} \, i(x - \frac{1}{2}) \, dx = 2\sqrt{3} i \int_0^1 (x - \frac{1}{2}) \, dx = 2\sqrt{3} i \cdot 0 = 0$ ✓</p>
 <h2>4.5 Projektionsoperatoren</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Wenn man eine zu schwere Gleichung lösen will, projiziert man sie mit $P_U$ auf einen einfacheren Unterraum. Das stutzt die Gleichung auf das Wesentliche zurück.</p>
+<p></blockquote></p>
+</details>
 <h3>Orthogonalprojektion auf einen Unterraum</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Hast du eine ONS-Basis, baust du dir deine Projektion direkt aus Summen zusammen. Alles, was nicht reinpasst, fällt atomar zu Null ab.</p>
+<p></blockquote></p>
+</details>
 <p>Sei $U = \text{span}(u_1, \ldots, u_k)$ mit ONB $e_1, \ldots, e_k$. Dann:</p>
 <p>$$P_U(v) = \sum_{i=1}^{k} \langle e_i | v \rangle \, e_i$$</p>
 <h3>Eigenschaften</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>$P^2 = P$ (idempotent) heißt: Wenn ich einmal einen Taschenlampenschatten auf den Boden geworfen habe, bleibt es der exakt selbe Schatten, wenn ich die Lampe nochmal von oben drauf scheinen lasse.</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li>$P^2 = P$ (idempotent)</li>
 <li>$P^* = P$ (selbstadjungiert)</li>

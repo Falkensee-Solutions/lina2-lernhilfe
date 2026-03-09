@@ -250,14 +250,38 @@ MathJax = {
 <blockquote><p>⚡ <strong>PRIORITÄT 2 – Hier hast du 27/50 Punkte verloren (Aufgaben 1 + 4)!</strong></p></blockquote>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Nicht jede Matrix lässt sich diagonalisieren – manchmal gibt es einfach nicht genug Eigenvektoren. Für solche Matrizen gibt es die <strong>Jordan-Normalform (JNF)</strong>: eine fast-diagonale Struktur, in der auf der Hauptdiagonale die Eigenwerte stehen und direkt darüber manchmal Einsen. Diese Einsen zeigen an, wo ein Eigenwert „nicht genug" Eigenvektoren hat. Je größer ein Jordan-Block ist, desto weiter entfernt ist die Matrix vom Diagonalisierbaren.</p><p>Die JNF ist eine Art Röntgenbild der Matrix. Aus ihr kannst du sofort fast alles ablesen: Eigenwerte (die Diagonaleinträge), algebraische Vielfachheiten (Summe der Blockgrößen pro Eigenwert), geometrische Vielfachheiten (Anzahl der Blöcke pro Eigenwert), das Minimalpolynom, die Determinante und ob die Matrix diagonalisierbar ist. Es lohnt sich enorm, die Tabelle auf dieser Seite sicher zu beherrschen.</p><p>Das <strong>Minimalpolynom</strong> ist das kleinste Polynom, das die Matrix zu Null macht – wenn du es in die Matrix einsetzt, kommt die Nullmatrix raus. Es hängt eng mit der JNF zusammen: Der Exponent jedes Eigenwerts im Minimalpolynom entspricht der Größe des größten Jordan-Blocks zu diesem Eigenwert. Der Satz von <strong>Cayley-Hamilton</strong> sagt, dass jede Matrix ihr eigenes charakteristisches Polynom erfüllt – das heißt, wenn du das char. Polynom in die Matrix einsetzt, kommt immer Null raus.</p><p>Das <strong>Matrixexponential</strong> $\exp(A)$ ist das Pendant zur Exponentialfunktion für Matrizen und taucht bei Differentialgleichungen auf: Die Lösung von $\dot{x}(t) = Ax(t)$ ist $x(t) = \exp(tA) x_0$. Für die Berechnung hilft es, zu wissen, ob die Matrix idempotent ist ($A^2 = A$), denn dann vereinfacht sich die Reihe drastisch.</p><p><strong>Für die Nachklausur:</strong> Aufgabe 1 (JNF ablesen: 19/30) und Aufgabe 4 (Matrixexponential: 4/20) machten zusammen 50 Punkte aus. In Aufgabe 1 musst du die JNF blitzschnell „lesen" können – char. Polynom, Minimalpolynom, Eigenräume, Determinante, alles direkt ablesen. In Aufgabe 4 war der Schlüssel Cayley-Hamilton: Zeige $A^2 = A$, dann per Induktion $A^m = A$, und damit vereinfacht sich $\exp(A) = I + (e-1)A$. Übe beide Aufgabentypen, bis sie sitzen!</p></div>
 <h2>5.1 Jordan-Normalform (JNF)</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Hier wird's manchmal unübersichtlich. Die JNF ist das Notpflaster der Linearen Algebra, wenn eine Matrix einfach nicht genug Eigenvektoren hat, um sie sauber zu diagonalisieren. Wir retten, was zu retten ist.</p>
+<p></blockquote></p>
+</details>
 <h3>Jordan-Block</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Warum stehen da Einsen über der Diagonale? Sie bedeuten geometrisch: Die Matrix greift den Vektor, und anstatt ihn nur zu strecken, schubst sie ihn anteilig in die Richtung des vorherigen Vektors. Das erzeugt eine Verkettung (Jordan-Kette).</p>
+<p></blockquote></p>
+</details>
 <p>Ein <strong>Jordan-Block</strong> der Größe $k$ zum Eigenwert $\lambda$:</p>
 <p>$$J_k(\lambda) = \begin{pmatrix} \lambda & 1 & 0 & \cdots & 0 \\ 0 & \lambda & 1 & \cdots & 0 \\ \vdots & & \ddots & \ddots & \vdots \\ 0 & \cdots & & \lambda & 1 \\ 0 & \cdots & & 0 & \lambda \end{pmatrix}$$</p>
 <h3>Jordan-Normalform</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ein hübscher Block-Baukasten. Wir sortieren die Matrix so um, dass die Blöcke als geschlossene Ketten-Einheiten auf der Diagonale rumhängen.</p>
+<p></blockquote></p>
+</details>
 <p>Jede Matrix $A \in \mathbb{C}^{n \times n}$ ist ähnlich zu einer <strong>Blockdiagonalmatrix</strong> aus Jordan-Blöcken:</p>
 <p>$$J = \begin{pmatrix} J_{k_1}(\lambda_1) & & \\ & J_{k_2}(\lambda_2) & \\ & & \ddots \end{pmatrix}$$</p>
 <p>Es gibt eine invertierbare Matrix $V$ mit $A = VJV^{-1}$.</p>
 <h3>Was man aus der JNF ablesen kann</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Anzahl der Blöcke pro Eigenwert = Geometrische Vielfachheit. Summe der Block-Dimensionen = Algebraische Vielfachheit. Det(A) = Alles auf der Diagonale multiplizieren. Spur = Alles addieren.</p>
+<p></blockquote></p>
+</details>
 <table>
 <tr><th>Information</th><th>Wie ablesen</th></tr>
 <tr><td>Eigenwerte</td><td>Diagonaleinträge von $J$</td></tr>
@@ -269,6 +293,12 @@ MathJax = {
 <tr><td>Determinante</td><td>Produkt der Diagonaleinträge</td></tr>
 </table>
 <h2>5.2 Klausuraufgabe 1 – Analyse der JNF</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Der absolute Klassiker. Ein 2x2 Block und zwei 1x1 Blöcke, alle zu Eigenwert -1. Alles, aber wirklich alles, lässt sich durch Hinsehen lösen.</p>
+<p></blockquote></p>
+</details>
 <p><strong>Gegeben:</strong></p>
 <p>$$J = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & -1 & 1 & 0 \\ 0 & 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 & -1 \end{pmatrix}$$</p>
 <p><strong>Struktur:</strong></p>
@@ -279,39 +309,111 @@ MathJax = {
 <li>Block 4: $J_1(-1)$ → Eigenwert -1, Größe 1</li>
 </ul>
 <h3>1.1: Charakteristisches Polynom</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Bestimmt sich durch die gesamte Diagonale: Da die -1 dort genau viermal steht, ist das Polynom simpel $(\lambda - (-1))^4$.</p>
+<p></blockquote></p>
+</details>
 <p>$$\chi_A(\lambda) = (\lambda - 1)^2 (\lambda + 1)^3$$</p>
 <p>(alg. VF von 1 ist 2, alg. VF von -1 ist 3)</p>
 <h3>1.2: Minimalpolynom</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Bestimmt sich nur durch den GRÖSSTEN Block pro Eigenwert. Da der größte Block 2x2 ist, hat die Klammer den Exponenten 2.</p>
+<p></blockquote></p>
+</details>
 <p>$$\mu_A(\lambda) = (\lambda - 1)(\lambda + 1)^2$$</p>
 <p><strong>Begründung:</strong> Der größte Jordan-Block zu EW 1 hat Größe 1, der größte zu EW -1 hat Größe 2.</p>
 <h3>1.3: Eigenraum zum Eigenwert -1</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Wie groß ist der Eigenraum (geo. VF)? So viele linear unabhängige Eigenvektoren wie wir Jordan Blöcke haben. Bei 3 Blöcken ist die Dimension 3.</p>
+<p></blockquote></p>
+</details>
 <p>Die Eigenvektoren zum EW -1 sind die Spalten von $V$, die dem <strong>Anfang</strong> jedes Jordan-Blocks zu -1 entsprechen.</p>
 <p>$E_{-1} = \text{span}(v_3, v_5)$ (Spalte 3 und 5 von $V$, da Block 3 bei Spalte 3 beginnt und Block 4 bei Spalte 5)</p>
 <p><strong>Begründung:</strong> $Av_3 = -v_3$ und $Av_5 = -v_5$ (aus $AV = VJ$ und der Struktur von $J$)</p>
 <h3>1.4: Geometrische Vielfachheiten</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Geo = 3 (wegen 3 Blöcken). Alg = 4 (da die Nullstelle 4-mal auf der Diagonale vorkommt).</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li>geo. VF(1) = 2 (zwei Blöcke der Größe 1)</li>
 <li>geo. VF(-1) = 2 (zwei Blöcke: einer Größe 2, einer Größe 1)</li>
 </ul>
 <h3>1.5: Hauptvektor erster Stufe</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ein Vektor der 'zweiten Reihe'. Er wird durch die Matrix erst in den Eigenvektor reingerutscht und braucht zwei Zyklen $(A-\lambda I)^2$, um komplett die Null zu treffen.</p>
+<p></blockquote></p>
+</details>
 <p>$v_4$ ist ein <strong>Hauptvektor</strong> erster Stufe zum EW $-1$ (auch verallgemeinerter Eigenvektor).</p>
 <p>Er erfüllt: $(A - (-1)I)v_4 = (A + I)v_4 = v_3 \neq 0$, aber $(A + I)^2 v_4 = 0$.</p>
 <h3>1.6: Determinante</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Einfach ALLE Diagonaleinträge multiplizieren: $(-1) \cdot (-1) \cdot (-1) \cdot (-1) = 1$.</p>
+<p></blockquote></p>
+</details>
 <p>$$\det(A) = \det(VJV^{-1}) = \det(V)\det(J)\det(V^{-1}) = \det(J)$$</p>
 <p>$$\det(J) = 1 \cdot 1 \cdot (-1) \cdot (-1) \cdot (-1) = -1$$</p>
 <h3>1.7: Volumentreu?</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ja! Wenn $|\det(A)| = 1$, bleibt das Volumen im Raum unverändert. Die Matrix quetscht das Volumen in der einen Richtung, dehnt es aber exakt kompensierend in einer anderen aus.</p>
+<p></blockquote></p>
+</details>
 <p>$|{\det(A)}| = |-1| = 1$ → <strong>Ja</strong>, die Abbildung ist volumentreu.</p>
 <h3>1.8: Orientierungserhaltend?</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Determinante ist +1, also bleibt das räumliche Koordinatensystem wie es ist ('Rechts bleibt Rechts'). Bei -1 wäre das Volumen gleich geblieben, aber der Raum wäre invertiert / gespiegelt worden.</p>
+<p></blockquote></p>
+</details>
 <p>$\det(A) = -1 < 0$ → <strong>Nein</strong>, die Abbildung ist <strong>nicht</strong> orientierungserhaltend.</p>
 <p><strong>Begründung:</strong> Eine lineare Abbildung ist orientierungserhaltend $\iff \det(A) > 0$.</p>
 <h3>1.9: Kann $A$ symmetrisch sein?</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Der Lieblingstrick für Zusatzaufgaben. Gemäß dem Spektralsatz sind symmetrische reelle Matrizen IMMER komplett diagonalisierbar! A hat aber einen 2er Jordanblock (nicht diagonalisierbar), also ist es völlig unmöglich, dass sie ursprünglich symmetrisch war!</p>
+<p></blockquote></p>
+</details>
 <p><strong>Nein.</strong></p>
 <p><strong>Begründung:</strong> Symmetrische reelle Matrizen sind immer diagonalisierbar (Spektralsatz). Aber $A$ hat einen Jordan-Block der Größe 2 (zu EW -1), ist also <strong>nicht</strong> diagonalisierbar. Widerspruch!</p>
 <h2>5.3 Haupträume und Hauptvektoren</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Wenn dir echte Eigenvektoren fehlen, nimmst du Hauptvektoren als Lückenfüller für deine Basis. Das sind Vektoren, die eine Reaktionskette bilden.</p>
+<p></blockquote></p>
+</details>
 <h3>Hauptraum</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Zusammenfassung aller Hauptvektoren, die zu einem Eigenwert gehören. Jeder Eigenraum wohnt im Inneren seines Hauptraumes.</p>
+<p></blockquote></p>
+</details>
 <p>$$H_\lambda = \ker(A - \lambda I)^{m_\lambda}$$</p>
 <p>wobei $m_\lambda$ = algebraische Vielfachheit von $\lambda$.</p>
 <h3>Hauptvektor der Stufe $k$</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Er wird durch die Anwendung von $(A - \lambda I)$ erst auf den k-1'ten Vektor verwandelt, dann auf den k-2'ten... und landet exakt nach der k-ten Anwendung im Nullraum.</p>
+<p></blockquote></p>
+</details>
 <p>$v$ ist Hauptvektor der Stufe $k$ zum EW $\lambda$, wenn:</p>
 <p>$$(A - \lambda I)^k v = 0 \quad \text{aber} \quad (A - \lambda I)^{k-1} v \neq 0$$</p>
 <ul>
@@ -321,22 +423,58 @@ MathJax = {
 </ul>
 <blockquote><p><strong>Achtung Notation:</strong> Manchmal wird "Hauptvektor erster Stufe" für den verallgemeinerten Eigenvektor mit $(A-\lambda I)v \neq 0$ aber $(A-\lambda I)^2 v = 0$ verwendet. In der Klausur war $v_4$ so einer.</p></blockquote>
 <h2>5.4 Minimalpolynom</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Das ist das 'effizienteste' Polynom. Wenn du in dieses Polynom deine Matrix A einsetzt, kommt am Ende garantiert die Nullmatrix heraus.</p>
+<p></blockquote></p>
+</details>
 <h3>Definition</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Die klassische Taylorreihe der Schul-e-Funktion, nur eben mit Matrizen. Bei Jordan-Blöcken hat das die geniale Eigenschaft, dass die Taylorreihe durch das 'nilpotente' Verhalten der 1en rasant abbricht!</p>
+<p></blockquote></p>
+</details>
 <p>Das <strong>Minimalpolynom</strong> $\mu_A$ ist das normierte Polynom kleinsten Grades mit $\mu_A(A) = 0$.</p>
 <h3>Eigenschaften</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Bei einer strikten Diagonalmatrix ist das Minimalpolynom absolut minimal, da jede Nullstelle nur Potenz 1 braucht, um die Matrix zu löschen.</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li>$\mu_A$ teilt $\chi_A$ (d.h. $\chi_A = \mu_A \cdot q$ für ein Polynom $q$)</li>
 <li>$\mu_A$ und $\chi_A$ haben <strong>die gleichen</strong> Nullstellen (= Eigenwerte)</li>
 <li>Aus der JNF: $\mu_A(\lambda) = \prod_i (\lambda - \lambda_i)^{s_i}$, wobei $s_i$ = Größe des <strong>größten</strong> Jordan-Blocks zu $\lambda_i$</li>
 </ul>
 <h3>Berechnung ohne JNF</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Man rechnet es meist iterativ aus, indem man Terme hochpotenziert $(A-\lambda I)$, bis tatsächlich die Nullmatrix entsteht.</p>
+<p></blockquote></p>
+</details>
 <ol>
 <li>Probiere Polynome aufsteigenden Grades, die durch $\chi_A$ teilen</li>
 <li>Teste ob $p(A) = 0$</li>
 </ol>
 <h2>5.5 Satz von Cayley-Hamilton</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ein gigantisch starkes Matrix-Konzept. 'Jede Matrix ist Nullstelle ihres eigenen char. Polynoms'. Heißt: A reingesteckt in $\chi(X)$ ergibt IMMER null.</p>
+<p></blockquote></p>
+</details>
 <blockquote><p><strong>Satz:</strong> Jede Matrix erfüllt ihr eigenes charakteristisches Polynom:<br>$$\chi_A(A) = 0$$</p></blockquote>
 <h3>Anwendung (Klausuraufgabe 4!)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Extrem nützlich, um Matrixpotenzen zu kürzen! Wenn $A^2 - A = 0$ gilt, wie in der Klausur, dann weiß man, dass unendlich hohe Potenzen wie $A^{100}$ einfach auf A kollabieren. Kein ewiges Multiplizieren!</p>
+<p></blockquote></p>
+</details>
 <p><strong>Gegeben:</strong> $A$ diagonalisierbar mit Eigenwerten $\lambda_1 = 0$ und $\lambda_2 = 1$.</p>
 <p><strong>4.1: Minimalpolynom</strong></p>
 <p>$$\mu_A(\lambda) = \lambda(\lambda - 1) = \lambda^2 - \lambda$$</p>
@@ -357,9 +495,27 @@ MathJax = {
 <p>$$= I + A \sum_{k=1}^{\infty} \frac{1}{k!} = I + A\left(\sum_{k=0}^{\infty} \frac{1}{k!} - 1\right) = I + A(e - 1)$$</p>
 <p>$$\boxed{\exp(A) = I + (e-1)A}$$</p>
 <h2>5.6 Matrixexponential – Allgemein</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Wofür das alles in der Praxis da ist: Viele Differentialgleichungen von Schwingungen in der Physik hängen an $y' = Ay$. Ein Matrix-Exponential löst diese Naturgesetze auf.</p>
+<p></blockquote></p>
+</details>
 <h3>Definition</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Die klassische Taylorreihe der Schul-e-Funktion, nur eben mit Matrizen. Bei Jordan-Blöcken hat das die geniale Eigenschaft, dass die Taylorreihe durch das 'nilpotente' Verhalten der 1en rasant abbricht!</p>
+<p></blockquote></p>
+</details>
 <p>$$\exp(A) = \sum_{k=0}^{\infty} \frac{A^k}{k!} = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots$$</p>
 <h3>Rechenregeln</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Höchste Vorsicht: $e^{A+B}$ ist NUR dann aufteilbar in $e^A \cdot e^B$, wenn die Matrizen vertauschen ($A \cdot B = B \cdot A$).</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li>$\exp(0) = I$</li>
 <li>Wenn $AB = BA$: $\exp(A+B) = \exp(A)\exp(B)$</li>
@@ -367,8 +523,20 @@ MathJax = {
 <li>$\det(\exp(A)) = e^{\text{Spur}(A)}$</li>
 </ul>
 <h3>Für Diagonalmatrizen</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Zuckerschlecken! Man packt einfach das $e^\lambda$ an jeden Diagonaleintrag. Komplett triviale Berechnung.</p>
+<p></blockquote></p>
+</details>
 <p>$$\exp\left(\begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix}\right) = \begin{pmatrix} e^{\lambda_1} & & \\ & \ddots & \\ & & e^{\lambda_n} \end{pmatrix}$$</p>
 <h3>Anwendung: DGL</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Löst dir deine linearen DGL-Systeme auf den Punkt durch einfaches Einsetzen von $y(t) = e^{t \cdot A} y(0)$.</p>
+<p></blockquote></p>
+</details>
 <p>Die Lösung von $\dot{x}(t) = Ax(t)$ mit $x(0) = x_0$ ist:</p>
 <p>$$x(t) = \exp(tA) \cdot x_0$$</p>
 <div class="footer">

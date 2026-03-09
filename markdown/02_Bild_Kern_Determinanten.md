@@ -12,7 +12,23 @@
 
 ## 2.1 Bild-Kern-Algorithmus
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Dieser Algorithmus ist die praktische Umsetzung des Homomorphiesatzes. Du schaust, was nach der Abbildung real 'übrig bleibt' (Bild) und was durch die Skalierung 'getötet' wird (Kern).
+</blockquote>
+</details>
+
+
 ### Kern (Nullraum)
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Der Kern ist das 'Schwarze Loch' der Matrix. Alle Vektoren, die im LGS auf den Nullvektor abgebildet werden. Ein großer Kern bedeutet meistens massiven Informationsverlust bei der Abbildung.
+</blockquote>
+</details>
+
 $$\ker(A) = \{x \in K^n \mid Ax = 0\}$$
 
 **Berechnung:**
@@ -21,6 +37,14 @@ $$\ker(A) = \{x \in K^n \mid Ax = 0\}$$
 3. Die freien Variablen parametrisieren den Kern
 
 ### Bild (Spaltenraum)
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das Bild ist der komplette Raum, den du nach der Transformation noch erreichen kannst. Wenn die Matrix aus 3 Vektoren (Spalten) besteht, ist das Bild einfach der Schatten oder das Volumen, das diese drei Vektoren aufspannen.
+</blockquote>
+</details>
+
 $$\text{Bild}(A) = \{Ax \mid x \in K^n\}$$
 
 **Berechnung:**
@@ -28,23 +52,64 @@ $$\text{Bild}(A) = \{Ax \mid x \in K^n\}$$
 2. Die Spalten von $A$ (Original!), die Pivotspalten entsprechen, bilden eine Basis des Bildes
 
 ### Rang einer Matrix
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Die Dimension des Bildes. Wenn der Rang gleich der Anzahl der Spalten ist, hast du vollen Informationserhalt (Kern ist 0, die Abbildung ist injektiv).
+</blockquote>
+</details>
+
 $$\text{Rang}(A) = \dim(\text{Bild}(A)) = \text{Anzahl der Pivotspalten}$$
 
 ### Zusammenfassung der Zusammenhänge
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Injektiv = Keine zwei Werte crashen auf dasselbe Bild (Kern = 0). Surjektiv = Du triffst wirklich jeden Punkt im Zielraum (Bild füllt alles aus).
+</blockquote>
+</details>
+
 Für $A \in K^{m \times n}$:
 - $\ker(A) \subseteq K^n$ (Unterraum des Definitionsbereichs)
 - $\text{Bild}(A) \subseteq K^m$ (Unterraum des Zielraums)
 - $\dim(\ker(A)) + \text{Rang}(A) = n$
+
 - $A$ injektiv $\iff \ker(A) = \{0\}$
 - $A$ surjektiv $\iff \text{Bild}(A) = K^m$
 - $A$ bijektiv $\iff$ injektiv und surjektiv $\iff$ $A$ invertierbar (nur bei $m = n$)
 
 ## 2.2 Determinanten
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Die Determinante ist der Volumen-Faktor! Eine Det=2 bedeutet: Jedes Quadrat wird nach Transformation doppelt so groß. Det=0 bedeutet: Der Raum wurde so flachgedrückt, dass kein Volumen mehr bleibt (nicht umkehrbar).
+</blockquote>
+</details>
+
+
 ### Definition (Leibniz-Formel)
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Eher theoretisch wichtig. Praktisch zeigt sie, dass die Determinante sich aus allen Permutationen/Vertauschungen der Dimensionen errechnet. Vorzeichen prüfen nicht vergessen!
+</blockquote>
+</details>
+
 $$\det(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma(i)}$$
 
 ### Rechenregeln (AUSWENDIG LERNEN!)
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Klassische Fehlerquelle: Eine Matrix skaliert man in JEDER Dimension. Also ist $det(\lambda \cdot A) = \lambda^n \cdot det(A)$ und NICHT nur $\lambda$. Stell dir vor, du verdoppelst einen 3D-Würfel in Länge, Breite und Höhe: Das Volumen wächst um $2^3 = 8$.
+</blockquote>
+</details>
+
 
 | Regel | Formel |
 |-------|--------|
@@ -56,6 +121,14 @@ $$\det(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma
 | Ähnlichkeit | $\det(SAS^{-1}) = \det(A)$ |
 
 ### Laplace-Entwicklung
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Der rechenintensive Weg. Achte auf das Schachbrettmuster aus Plus/Minus bei den Vorzeichen, und nimm IMMER die Zeile/Spalte, wo die meisten Nullen stehen. Zeit ist wertvoll in der Klausur!
+</blockquote>
+</details>
+
 Nach der $i$-ten Zeile:
 $$\det(A) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(A_{ij})$$
 
@@ -64,6 +137,14 @@ wobei $A_{ij}$ die Matrix ohne $i$-te Zeile und $j$-te Spalte ist.
 > **Tipp:** Entwickle nach Zeile/Spalte mit den meisten Nullen!
 
 ### Geometrische Bedeutung
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Prof. Weber stellt hier seine Det=1 vs Det=-1 Fallen! Eine Spiegelung dreht den Raum komplett 'auf links' (Orientierung umgekehrt = negatives Volumen = Det -1). Eine Drehung hält die Orientierung aufrecht (Det +1).
+</blockquote>
+</details>
+
 - $|\det(A)|$ = Volumen des Parallelotops, das von den Spaltenvektoren aufgespannt wird
 - $\det(A) > 0$: orientierungserhaltend
 - $\det(A) < 0$: orientierungsumkehrend
@@ -76,13 +157,37 @@ wobei $A_{ij}$ die Matrix ohne $i$-te Zeile und $j$-te Spalte ist.
 
 ## 2.3 LGS-Theorie
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Hier fließen Analysis und Algebra zusammen. Wie löst man Probleme, die eigentlich nicht perfekt lösbar sind? Mit partikulärer Lösung plus Freiheitsgraden (dem Kern).
+</blockquote>
+</details>
+
+
 ### Lösungsstruktur von $Ax = b$
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Erinner dich an DGLs: Die Gesamtlösung ist IMMER = EINE richtige Speziellösung (partikulär) + die Gesamtheit aller Nullstellen (homogen, also der Kern).
+</blockquote>
+</details>
+
 - **Homogenes System** ($b = 0$): Lösungsmenge ist $\ker(A)$, ein Unterraum
 - **Inhomogenes System** ($b \neq 0$): $L = x_p + \ker(A)$ (eine partikuläre Lösung + Kern)
 - Lösbar $\iff b \in \text{Bild}(A)$
 - **Eindeutig lösbar** $\iff$ lösbar und $\ker(A) = \{0\}$
 
 ### Gauß-Algorithmus
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Er verändert den Lösungsraum nicht essentiell. Achtung: Durch die Umformungen bleibt der Kern zwar identisch, aber der Original-Spaltenraum (das Bild) kann visuell kippen. Deswegen muss man für die Basis des Bildes immer die SPALTEN DER ORIGINALMATRIX ablesen.
+</blockquote>
+</details>
+
 Erlaubte Zeilenoperationen (ändern die Lösungsmenge nicht):
 1. Zeile mit $\lambda \neq 0$ multiplizieren
 2. Vielfaches einer Zeile zu einer anderen addieren

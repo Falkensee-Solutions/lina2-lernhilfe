@@ -14,16 +14,48 @@
 
 ## 3.1 Grundbegriffe
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Beim Konzept Eigenwert gehen wir auf die Suche nach dem Einfachen: Welche Vektoren werden von der Matrix nicht aus der Bahn geworfen, sondern behalten stoisch ihre Richtung und werden lediglich skaliert?
+</blockquote>
+</details>
+
+
 ### Eigenwert & Eigenvektor
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Eigenvektoren sind die grundlegenden 'Rotations- oder Streckachsen' der Matrix. Wenn du einen Vektor auf diese Linien legst, tut die Matrix nichts anderes, als simple Vergrößerung / Verkleinerung.
+</blockquote>
+</details>
+
 $\lambda \in K$ ist **Eigenwert** von $A$ und $v \neq 0$ ist **Eigenvektor** zum Eigenwert $\lambda$, wenn:
 $$Av = \lambda v$$
 
 ### Eigenraum
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das ist einfach die komplette Menge aller Eigenvektoren zu der gleichen Skalierung (die auf derselben Geraden oder Ebene liegen), PLUS dem Nullvektor.
+</blockquote>
+</details>
+
 $$E_\lambda = \ker(A - \lambda I) = \{v \in V \mid Av = \lambda v\}$$
 
 Der Eigenraum ist immer ein **Unterraum** von $V$.
 
 ### Charakteristisches Polynom
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Der Trick hier: Wir wollen, dass $(A - \lambda I)x = 0$ eine Lösung ungleich dem 0-Vektor hat. Das geht nur, wenn die Matrix nicht den vollen Rang hat und selbst einen Kern besitzt. Also muss ihre Determinante Null sein!
+</blockquote>
+</details>
+
 $$\chi_A(\lambda) = \det(A - \lambda I)$$
 
 Die Eigenwerte sind genau die **Nullstellen** von $\chi_A$.
@@ -34,17 +66,49 @@ Die Eigenwerte sind genau die **Nullstellen** von $\chi_A$.
 
 ## 3.2 Algebraische vs. Geometrische Vielfachheit
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Ein klassisches Prüfung-Stolperbeispiel. Algebraisch = 'Wie oft taucht die Lösung rechnerisch im Term auf?'. Geometrisch = 'Wie viele echte linear unabhängige Vektoren bekomme ich dafür tatsächlich raus?'.
+</blockquote>
+</details>
+
+
 ### Algebraische Vielfachheit (alg. VF)
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Sagt einfach, welchen Exponenten eine Nullstelle im Polynom hat. Wenn $\lambda=2$ eine dreifache Nullstelle ist, hat sie algebraische VF 3.
+</blockquote>
+</details>
+
 = Vielfachheit von $\lambda$ als Nullstelle von $\chi_A$
 
 **Beispiel:** $\chi_A(\lambda) = (\lambda - 2)^3(\lambda + 1)^2$ → alg. VF von 2 ist **3**, alg. VF von -1 ist **2**
 
 ### Geometrische Vielfachheit (geo. VF)
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Die Anzahl der linear unabhängigen Vektoren, die wir im Eigenraum finden. Die Dimension dieses Raums kann nie größer werden, als die algebraische Vielfachheit uns an Platz erlaubt.
+</blockquote>
+</details>
+
 $$\text{geo. VF}(\lambda) = \dim(\ker(A - \lambda I)) = \dim(E_\lambda)$$
 
 = Anzahl der linear unabhängigen Eigenvektoren zum Eigenwert $\lambda$
 
 ### Fundamentale Ungleichung
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Diese Ungleichung entscheidet über Leben (Diagonalisierbarkeit) und Tod (Krampf mit Jordan-Normalform). Wenn $geo < alg$, dann 'fehlen' uns Vektoren, die Matrix ist defekt.
+</blockquote>
+</details>
+
 $$1 \leq \text{geo. VF}(\lambda) \leq \text{alg. VF}(\lambda)$$
 
 > **KLAUSURRELEVANT (Aufgabe 1.4):** Bei JNF:
@@ -52,6 +116,14 @@ $$1 \leq \text{geo. VF}(\lambda) \leq \text{alg. VF}(\lambda)$$
 > - alg. VF = Summe der Größen aller Jordan-Blöcke zum Eigenwert $\lambda$
 
 ## 3.3 Diagonalisierbarkeit
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Das Wunsch-Szenario: Eine Diagonalmatrix lässt sich exponentiell super einfach ausrechnen (z.B. für DGLs!), weil man nur die Diagonale potenzieren muss. Keine überkreuzten Abhängigkeiten mehr.
+</blockquote>
+</details>
+
 
 $A$ ist **diagonalisierbar** $\iff$ eine der folgenden äquivalenten Bedingungen gilt:
 1. Es existiert eine Basis aus Eigenvektoren von $A$
@@ -62,6 +134,14 @@ $A$ ist **diagonalisierbar** $\iff$ eine der folgenden äquivalenten Bedingungen
 > **Achtung:** Eine Matrix **kann** diagonalisierbar sein, auch wenn Eigenwerte mehrfache algebraische Vielfachheit haben! Entscheidend ist: geo = alg für jeden EW.
 
 ### Diagonalisieren: Algorithmus
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Man sucht die 'Zauber-Basis' S. Wendet man den Basiswechsel an: $S^{-1} A S$, dann verschwinden alle Nebendiagonalen und zurück bleiben nur saubere Streckfaktoren (die Eigenwerte) auf der Diagonalen.
+</blockquote>
+</details>
+
 1. Berechne $\chi_A(\lambda)$ und finde alle Eigenwerte
 2. Berechne für jeden EW $\lambda_i$ den Eigenraum $E_{\lambda_i} = \ker(A - \lambda_i I)$
 3. Prüfe: geo. VF = alg. VF für alle EW?
@@ -69,6 +149,14 @@ $A$ ist **diagonalisierbar** $\iff$ eine der folgenden äquivalenten Bedingungen
 5. Dann: $A = S \cdot D \cdot S^{-1}$ mit $D = \text{diag}(\lambda_1, \ldots, \lambda_n)$
 
 ## 3.4 Defekt einer Matrix
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Defekt ist nur ein anderes Wort für 'Dimension des Kerns'. Wenn 0 ein Eigenwert ist, dann meint $Ax = 0x$ exakt den Kern, ergo ist die Dimension des Kerns gleich der geometrischen Vielfachheit des Eigenwerts 0.
+</blockquote>
+</details>
+
 
 $$\text{Defekt}(A) = \dim(\ker(A)) = n - \text{Rang}(A)$$
 
@@ -81,12 +169,21 @@ $$\text{Defekt}(A) = \dim(\ker(A)) = n - \text{Rang}(A)$$
 
 ## 3.5 Beweis zu ONS und Eigenwerten (Klausuraufgabe 2.1!)
 
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Genau das kam in der Nachklausur! Der Trick ist die Assoziativität: $(v_1^T)v_1 = v_1^T v_1$, was das Skalarprodukt formt und bei einem ONS exakt 1 ergibt. Andere Kreuzprodukte $v_2^T v_1$ sind 0, weil sie senkrecht aufeinander stehen. Damit löst sich die eklige Summe sofort in Rauch auf.
+</blockquote>
+</details>
+
+
 **Gegeben:** ONS $v_1, v_2, v_3 \in \mathbb{R}^n$, $M = \lambda_1 v_1 v_1^T + \lambda_2 v_2 v_2^T + \lambda_3 v_3 v_3^T$
 
 **Zu zeigen:** $Mv_i = \lambda_i v_i$
 
 **Beweis:**
 $$Mv_1 = (\lambda_1 v_1 v_1^T + \lambda_2 v_2 v_2^T + \lambda_3 v_3 v_3^T) v_1$$
+
 $$= \lambda_1 v_1 \underbrace{(v_1^T v_1)}_{= 1} + \lambda_2 v_2 \underbrace{(v_2^T v_1)}_{= 0} + \lambda_3 v_3 \underbrace{(v_3^T v_1)}_{= 0}$$
 $$= \lambda_1 v_1$$
 
@@ -97,6 +194,14 @@ Analog für $v_2$ und $v_3$. $\square$
 > **Merke:** Das Produkt $v v^T$ (äußeres Produkt) ist eine $n \times n$-Matrix (Rang 1), die auf den Unterraum $\text{span}(v)$ projiziert! So eine Matrix heißt **Projektionsmatrix** (bis auf Normierung).
 
 ## 3.6 Zusammenhang: Eigenwerte und Matrixeigenschaften
+
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<blockquote>
+Hier kann man Prof. Webers True/False-Aufgaben in Sekunden knacken: Orthogonal heißt alle EW haben Betrag 1. Symmetrisch heißt alle EW sind reell. Nilpotent heißt, die Matrix zerschießt sich selbst, also ist jeder EW zwingend 0.
+</blockquote>
+</details>
+
 
 | Eigenschaft | Bedingung an Eigenwerte |
 |-------------|------------------------|

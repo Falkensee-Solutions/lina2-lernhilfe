@@ -249,9 +249,27 @@ MathJax = {
 <h1>1. Komplexe Zahlen & Vektorräume</h1>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>In der Schule hast du mit reellen Zahlen gerechnet – also Zahlen auf dem Zahlenstrahl. Aber manche Gleichungen, wie $x^2 = -1$, haben dort keine Lösung. Deshalb erweitern wir den Zahlenstrahl zu einer ganzen Zahlenebene: den <strong>komplexen Zahlen</strong>. Jede komplexe Zahl hat einen „Realteil" (links-rechts) und einen „Imaginärteil" (oben-unten). Das Besondere: Wenn du eine komplexe Zahl mit einer anderen multiplizierst, passiert geometrisch eine Drehung und Streckung in der Ebene. Das ist kein Zufall – genau deshalb sind komplexe Zahlen so nützlich, um Drehungen und Schwingungen zu beschreiben.</p><p>Der zweite große Block hier sind <strong>Vektorräume</strong>. Du kennst Vektoren als Pfeile im $\mathbb{R}^2$ oder $\mathbb{R}^3$. Ein Vektorraum verallgemeinert das: Alles, was man sinnvoll addieren und mit Zahlen strecken kann, ist ein Vektorraum – auch Funktionen oder Polynome. Die zentrale Idee ist die <strong>Basis</strong>: eine minimale Menge von Vektoren, aus denen man durch Linearkombination jeden anderen Vektor im Raum erzeugen kann. Die Anzahl der Basisvektoren ist die <strong>Dimension</strong> des Raums.</p><p><strong>Lineare Abbildungen</strong> sind Funktionen zwischen Vektorräumen, die sich „brav" verhalten: Sie erhalten Addition und Skalierung. Jede solche Abbildung lässt sich als Matrix schreiben. Der <strong>Rangsatz</strong> sagt dir, dass die Dimension des Raums sich aufteilt in das, was die Abbildung trifft (Bild) und das, was sie auf Null schickt (Kern). Dieses Zusammenspiel von Bild und Kern zieht sich wie ein roter Faden durch die gesamte Vorlesung.</p><p><strong>Für die Nachklausur:</strong> Komplexe Zahlen kommen dir bei Eigenwerten und beim Gram-Schmidt mit komplexem Skalarprodukt wieder entgegen. Übe besonders das Rechnen mit $i$, $\bar{z}$ und $|z|$, und stelle sicher, dass du die Polarform sicher beherrschst.</p></div>
 <h2>1.1 Komplexe Zahlen</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Komplexe Zahlen sprengen den eindimensionalen Zahlenstrahl. Das 'i' ist im Grunde geometrisch eine 90-Grad-Drehung auf eine neue Achse (den Imaginärteil). Zweimal 90 Grad = 180 Grad, was exakt drehen auf die negative X-Achse und somit der Multiplikation mit -1 entspricht!</p>
+<p></blockquote></p>
+</details>
 <h3>Definition</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ein Vektorraum kann alles sein: Polynome, Matrizen, sogar Audiosignale. Solange du Objekte addieren und skalieren (strecken) kannst, bist du in einem Vektorraum.</p>
+<p></blockquote></p>
+</details>
 <p>$\mathbb{C} = \{a + bi \mid a, b \in \mathbb{R}\}$ mit $i^2 = -1$</p>
 <h3>Rechenregeln</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Plus/Minus ist einfaches Vektor-Schieben (wie im R²). Mal und Geteilt sind immer Kombinationen aus Streckung (Längen verändern) und Drehung (Winkel addieren).</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li><strong>Addition:</strong> $(a+bi) + (c+di) = (a+c) + (b+d)i$</li>
 <li><strong>Multiplikation:</strong> $(a+bi)(c+di) = (ac - bd) + (ad + bc)i$</li>
@@ -260,6 +278,12 @@ MathJax = {
 <li><strong>Division:</strong> $\frac{z_1}{z_2} = \frac{z_1 \cdot \overline{z_2}}{|z_2|^2}$</li>
 </ul>
 <h3>Wichtige Eigenschaften</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Der Trick z * z-quer rettet uns in Klausuren oft aus der Patsche, um aus etwas Komplexem wieder eine handfeste reelle Zahl (den Radius im Quadrat) zu machen.</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li>$z \cdot \overline{z} = |z|^2$ (immer reell und ≥ 0)</li>
 <li>$\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$</li>
@@ -267,24 +291,54 @@ MathJax = {
 <li>$|z_1 \cdot z_2| = |z_1| \cdot |z_2|$</li>
 </ul>
 <h3>Polarform</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Merk dir: Die Polarform ist der Cheat-Code für Multiplikation! Statt ewig Klammern auszumultiplizieren, addierst du hier einfach die Winkel und nimmst die Radien absolut mal. Es visualisiert das Drehen im Raum direkt.</p>
+<p></blockquote></p>
+</details>
 <p>$z = r \cdot e^{i\varphi} = r(\cos\varphi + i\sin\varphi)$</p>
 <p>wobei $r = |z|$ und $\varphi = \arg(z)$</p>
 <p><strong>Multiplikation in Polarform:</strong></p>
 <p>$z_1 \cdot z_2 = r_1 r_2 \cdot e^{i(\varphi_1 + \varphi_2)}$</p>
 <p>→ Multiplikation = Streckung um $r_2$ + Drehung um $\varphi_2$</p>
 <h3>Geometrische Interpretation</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Prof. Weber liebt Geometrie! Merk dir: Konjugieren ist immer eine Spiegelung an der reellen Achse. Multiplizieren mit $e^{iarphi}$ ist die exakte Drehung um den Ursprung.</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li>Addition: Vektoraddition in der Ebene</li>
 <li>Multiplikation mit $e^{i\varphi}$: Drehung um Winkel $\varphi$</li>
 <li>Konjugation: Spiegelung an der reellen Achse</li>
 </ul>
 <h2>1.2 Quaternionen (kurz)</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Damit haben Hamilton und Grassmann den 3D-Raum verknüpft (das baut direkt auf komplexe Zahlen auf). Wichtigstes Detail: Das Kommutativgesetz bricht! a<em>b ist nicht mehr b</em>a, denn in 3D kommt es massiv darauf an, ob du erst um X oder erst um Y drehst.</p>
+<p></blockquote></p>
+</details>
 <p>$\mathbb{H} = \{a + bi + cj + dk \mid a,b,c,d \in \mathbb{R}\}$</p>
 <p>mit $i^2 = j^2 = k^2 = ijk = -1$</p>
 <p><strong>Nicht kommutativ!</strong> $ij = k$ aber $ji = -k$</p>
 <p>→ Anwendung: Drehungen im 3D-Raum</p>
 <h2>1.3 Vektorräume</h2>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Verlasse gedanklich den Schul-Vektor (xyz-Pfeil). Abstraktion ist gefragt: Eine Lösungsmenge eines LGS, eine Menge von Differentialgleichungen – das sind alles abstrakte Vektoren.</p>
+<p></blockquote></p>
+</details>
 <h3>Definition</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ein Vektorraum kann alles sein: Polynome, Matrizen, sogar Audiosignale. Solange du Objekte addieren und skalieren (strecken) kannst, bist du in einem Vektorraum.</p>
+<p></blockquote></p>
+</details>
 <p>Ein <strong>Vektorraum</strong> $V$ über einem Körper $K$ ist eine abelsche Gruppe $(V, +)$ mit einer Skalarmultiplikation $K \times V \to V$, die folgende Axiome erfüllt:</p>
 <ol>
 <li>$\lambda(\mu v) = (\lambda\mu)v$ (Assoziativität)</li>
@@ -293,6 +347,12 @@ MathJax = {
 <li>$(\lambda + \mu)v = \lambda v + \mu v$ (Distributivität 2)</li>
 </ol>
 <h3>Unterräume</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Ein Unterraum ist eine stabile, 'brave' Teilwelt. Wenn du auf einer 2D-Ebene im 3D-Raum bleibst und durch den Ursprung gehst, hast du so eine Welt. Wichtig: Die Null (Ursprung) MUSS immer drin sein!</p>
+<p></blockquote></p>
+</details>
 <p>$U \subseteq V$ ist <strong>Unterraum</strong> $\iff$</p>
 <ol>
 <li>$U \neq \emptyset$ (d.h. $0 \in U$)</li>
@@ -301,6 +361,12 @@ MathJax = {
 </ol>
 <p><strong>Kurzkriterium:</strong> $U \neq \emptyset$ und $\lambda u + \mu w \in U$ für alle $\lambda, \mu \in K$ und $u, w \in U$</p>
 <h3>Basis & Dimension</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Basis = Absolutes Raster. Nimmst du einen Vektor weg, erreichst du nicht mehr jeden Punkt (Erzeugendensystem kaputt). Tust du einen dazu, gibt es Redundanzen (Lineare Abhängigkeit). Die Dimension ist exakt die Mindest-Baustein-Zahl.</p>
+<p></blockquote></p>
+</details>
 <ul>
 <li><strong>Linear unabhängig:</strong> $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0 \Rightarrow \lambda_1 = \cdots = \lambda_n = 0$</li>
 <li><strong>Erzeugendensystem:</strong> Jedes $v \in V$ ist Linearkombination der Erzeuger</li>
@@ -308,6 +374,12 @@ MathJax = {
 <li><strong>Dimension:</strong> Anzahl der Basisvektoren: $\dim(V) = n$</li>
 </ul>
 <h3>Lineare Abbildungen</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Lineare Abbildungen sind Transformationen, die das Gitter des Raumes nicht verbiegen, sondern nur gleichmäßig drehen/strecken/scheren. Jede lineare Abbildung kann man in eine Matrix übersetzen.</p>
+<p></blockquote></p>
+</details>
 <p>$f: V \to W$ ist <strong>linear</strong> $\iff$</p>
 <ul>
 <li>$f(u + v) = f(u) + f(v)$</li>
@@ -315,6 +387,12 @@ MathJax = {
 </ul>
 <p><strong>Matrixdarstellung:</strong> Jede lineare Abbildung $f: K^n \to K^m$ wird durch eine Matrix $A \in K^{m \times n}$ dargestellt: $f(v) = Av$</p>
 <h3>Dimensionsformel (Rangsatz)</h3>
+<details>
+<summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
+<p><blockquote></p>
+<p>Die wohl wichtigste Intuition der Vorlesung! Du hast einen 3D-Raum (n=3). Die Matrix projiziert/quetscht ihn auf ein 2D-Blatt (Bild hat Dim 2). Wo ist die dritte Dimension hin? Sie wurde zu Null zerquetscht! Das ist der Kern (Dim 1).</p>
+<p></blockquote></p>
+</details>
 <p>$$\dim(V) = \dim(\ker(f)) + \dim(\text{Bild}(f))$$</p>
 <p>$$n = \text{Defekt} + \text{Rang}$$</p>
 <blockquote><p><strong>KLAUSURRELEVANT:</strong> Diese Formel verbindet Kern und Bild. Wenn du den Rang einer Matrix kennst, kennst du auch die Dimension des Kerns!</p></blockquote>
