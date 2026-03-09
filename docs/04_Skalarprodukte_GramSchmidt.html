@@ -251,17 +251,18 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1>4. Skalarprodukte & Gram-Schmidt-Verfahren</h1>
+<h1 id="4-skalarprodukte-gram-schmidt-verfahren">4. Skalarprodukte & Gram-Schmidt-Verfahren</h1>
 <blockquote><p>⚡ <strong>PRIORITÄT 3 – Hier hast du 16/30 Punkte verloren (Aufgabe 3)!</strong></p></blockquote>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Ein <strong>Skalarprodukt</strong> ist eine Methode, um in einem Vektorraum Längen und Winkel zu messen. Im $\mathbb{R}^2$ kennst du das als das gewöhnliche Punktprodukt: $\langle x | y \rangle = x_1 y_1 + x_2 y_2$. Dieses Konzept lässt sich verallgemeinern – sogar auf Funktionenräume, wo das Skalarprodukt ein Integral wird. Entscheidend ist: Zwei Vektoren stehen <strong>senkrecht</strong> (orthogonal) zueinander, wenn ihr Skalarprodukt Null ergibt.</p><p>Im Komplexen wird das etwas kniffliger. Weil komplexe Zahlen einen Real- und Imaginärteil haben, muss man beim Skalarprodukt das erste Argument konjugieren: $\langle x | y \rangle = \sum \overline{x_i} y_i$. Das nennt man <strong>hermitesches Skalarprodukt</strong>. Der Haken: $\langle u | v \rangle \neq \langle v | u \rangle$ – stattdessen gilt $\langle u | v \rangle = \overline{\langle v | u \rangle}$. Dieses Detail war in deiner Klausuraufgabe entscheidend!</p><p>Das <strong>Gram-Schmidt-Verfahren</strong> ist ein Algorithmus, der aus einer beliebigen Basis eine <strong>Orthonormalbasis</strong> macht – also eine Basis, in der alle Vektoren Länge 1 haben und paarweise senkrecht aufeinander stehen. Die Idee ist einfach: Du nimmst den ersten Vektor und normierst ihn. Dann nimmst du den zweiten Vektor, ziehst den Anteil ab, der in Richtung des ersten zeigt, und normierst das Ergebnis. So machst du weiter, bis alle Vektoren sauber orthogonal zueinander sind. Die Reihenfolge ist immer: erst orthogonalisieren (Projektionen abziehen), dann normieren.</p><p><strong>Für die Nachklausur:</strong> In Aufgabe 3 der Klausur musstest du Gram-Schmidt im Funktionenraum mit komplexem Skalarprodukt durchführen. Der häufigste Fehler hier: Die Konjugation vergessen! Wenn $f(x) = ix$ ist, dann ist $\overline{f(x)} = -ix$. Übe das Verfahren Schritt für Schritt an konkreten Beispielen durch, bis der Ablauf automatisch sitzt.</p></div>
-<h2>4.1 Skalarprodukte – Axiome</h2>
+<h2 id="4-1-skalarprodukte-axiome">4.1 Skalarprodukte – Axiome</h2>
+<blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-euklidische-raeume">Übungsblatt 9, AP 1: Euklidische Räume</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-4-unitaere-vektorraeume">Übungsblatt 9, AP 4: Unitäre Vektorräume</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Das Skalarprodukt ist letztlich nur das Mathe-Wort für ein Werkzeug, das universell Längen messen und Winkel (Orthogonalität) zwischen zwei Elementen berechnen kann.</p>
 <p></blockquote></p>
 </details>
-<h3>Reelles Skalarprodukt</h3>
+<h3 id="reelles-skalarprodukt">Reelles Skalarprodukt</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -274,7 +275,7 @@ MathJax = {
 <li><strong>Linearität (im 2. Argument):</strong> $\langle u | \alpha v + \beta w \rangle = \alpha\langle u | v \rangle + \beta\langle u | w \rangle$</li>
 <li><strong>Positive Definitheit:</strong> $\langle v | v \rangle \geq 0$ und $\langle v | v \rangle = 0 \iff v = 0$</li>
 </ol>
-<h3>Komplexes Skalarprodukt (hermitesch) ← <strong>KLAUSURRELEVANT!</strong></h3>
+<h3 id="komplexes-skalarprodukt-hermitesch-klausurrelevant">Komplexes Skalarprodukt (hermitesch) ← <strong>KLAUSURRELEVANT!</strong></h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -291,7 +292,7 @@ MathJax = {
 <li><strong>Positive Definitheit:</strong> $\langle v | v \rangle \geq 0$ und $\langle v | v \rangle = 0 \iff v = 0$</li>
 </ol>
 <blockquote><p>⚠️ <strong>VORSICHT:</strong> Im Komplexen ist $\langle u | v \rangle \neq \langle v | u \rangle$, sondern $\langle u | v \rangle = \overline{\langle v | u \rangle}$!</p></blockquote>
-<h3>Standard-Skalarprodukte</h3>
+<h3 id="standard-skalarprodukte">Standard-Skalarprodukte</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -303,7 +304,7 @@ MathJax = {
 <li><strong>$\mathbb{C}^n$:</strong> $\langle x | y \rangle = x^<em> y = \sum_{i=1}^n \overline{x_i} y_i$ (wobei $x^</em> = \overline{x}^T$)</li>
 <li><strong>Funktionenraum:</strong> $\langle f | g \rangle = \int_a^b \overline{f(x)} g(x) \, dx$</li>
 </ul>
-<h3>Norm (durch Skalarprodukt induziert)</h3>
+<h3 id="norm-durch-skalarprodukt-induziert">Norm (durch Skalarprodukt induziert)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -311,14 +312,14 @@ MathJax = {
 <p></blockquote></p>
 </details>
 <p>$$\|v\| = \sqrt{\langle v | v \rangle}$$</p>
-<h2>4.2 Orthogonalität</h2>
+<h2 id="4-2-orthogonalitaet">4.2 Orthogonalität</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Zwei Vektoren (oder Funktionen!) haben absolut keine Berührungspunkte, keine gemeinsame Richtung. Sie spannen den Raum maximal breit auf.</p>
 <p></blockquote></p>
 </details>
-<h3>Definitionen</h3>
+<h3 id="definitionen">Definitionen</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -331,7 +332,7 @@ MathJax = {
 <li><strong>Orthonormalsystem (ONS):</strong> OS mit $\|v_i\| = 1$ für alle $i$</li>
 <li><strong>Orthonormalbasis (ONB):</strong> ONS, das auch Basis ist</li>
 </ul>
-<h3>Orthogonales Komplement</h3>
+<h3 id="orthogonales-komplement">Orthogonales Komplement</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -340,7 +341,8 @@ MathJax = {
 </details>
 <p>$$U^\perp = \{v \in V \mid \langle v | u \rangle = 0 \text{ für alle } u \in U\}$$</p>
 <p>Es gilt: $V = U \oplus U^\perp$ (direkte Summe)</p>
-<h2>4.3 Gram-Schmidt-Verfahren – Schritt für Schritt</h2>
+<h2 id="4-3-gram-schmidt-verfahren-schritt-fuer-schritt">4.3 Gram-Schmidt-Verfahren – Schritt für Schritt</h2>
+<blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-gram-schmidt-verfahren">Übungsblatt 6, AP 1: Gram-Schmidt-Verfahren</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -349,7 +351,7 @@ MathJax = {
 </details>
 <p><strong>Eingabe:</strong> Linear unabhängige Vektoren $v_1, \ldots, v_k$  </p>
 <p><strong>Ausgabe:</strong> Orthonormalbasis $e_1, \ldots, e_k$</p>
-<h3>Algorithmus</h3>
+<h3 id="algorithmus">Algorithmus</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -366,7 +368,7 @@ MathJax = {
 <p>$$\tilde{e}_k = v_k - \sum_{j=1}^{k-1} \langle e_j | v_k \rangle \, e_j$$</p>
 <p>$$e_k = \frac{\tilde{e}_k}{\|\tilde{e}_k\|}$$</p>
 <blockquote><p><strong>MERKE die Reihenfolge:</strong> Projektion abziehen → normieren. NICHT umgekehrt!</p></blockquote>
-<h2>4.4 Klausuraufgabe 3 – Komplette Musterlösung</h2>
+<h2 id="4-4-klausuraufgabe-3-komplette-musterloesung">4.4 Klausuraufgabe 3 – Komplette Musterlösung</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -402,14 +404,15 @@ MathJax = {
 <p>$$e_2(x) = \frac{\tilde{e}_2}{\|\tilde{e}_2\|} = \frac{i(x - \frac{1}{2})}{\frac{1}{2\sqrt{3}}} = 2\sqrt{3} \cdot i\left(x - \frac{1}{2}\right)$$</p>
 <hr>
 <p><strong>Probe:</strong> $\langle e_1 | e_2 \rangle = \int_0^1 1 \cdot 2\sqrt{3} \, i(x - \frac{1}{2}) \, dx = 2\sqrt{3} i \int_0^1 (x - \frac{1}{2}) \, dx = 2\sqrt{3} i \cdot 0 = 0$ ✓</p>
-<h2>4.5 Projektionsoperatoren</h2>
+<h2 id="4-5-projektionsoperatoren">4.5 Projektionsoperatoren</h2>
+<blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-4-galerkin-projektion">Übungsblatt 5, AP 4: Galerkin-Projektion</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-2-projektionsabbildung">Übungsblatt 6, AP 2: Projektionsabbildung</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Wenn man eine zu schwere Gleichung lösen will, projiziert man sie mit $P_U$ auf einen einfacheren Unterraum. Das stutzt die Gleichung auf das Wesentliche zurück.</p>
 <p></blockquote></p>
 </details>
-<h3>Orthogonalprojektion auf einen Unterraum</h3>
+<h3 id="orthogonalprojektion-auf-einen-unterraum">Orthogonalprojektion auf einen Unterraum</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -418,7 +421,7 @@ MathJax = {
 </details>
 <p>Sei $U = \text{span}(u_1, \ldots, u_k)$ mit ONB $e_1, \ldots, e_k$. Dann:</p>
 <p>$$P_U(v) = \sum_{i=1}^{k} \langle e_i | v \rangle \, e_i$$</p>
-<h3>Eigenschaften</h3>
+<h3 id="eigenschaften">Eigenschaften</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>

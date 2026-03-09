@@ -251,10 +251,10 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1>Klausur-Musterlösungen – Vollständige Lösungen der Erstklausur</h1>
+<h1 id="klausur-musterloesungen-vollstaendige-loesungen-der-erstklausur">Klausur-Musterlösungen – Vollständige Lösungen der Erstklausur</h1>
 <blockquote><p>Diese Lösungen zeigen den <strong>idealen Lösungsweg</strong> mit allen Begründungen, die in der Klausur erwartet werden. Vergleiche mit deinen eigenen Lösungsversuchen!</p></blockquote>
 <hr>
-<h2>Aufgabe 1: Jordan-Normalform (30 Punkte)</h2>
+<h2 id="aufgabe-1-jordan-normalform-30-punkte">Aufgabe 1: Jordan-Normalform (30 Punkte)</h2>
 <p><strong>Gegeben:</strong></p>
 <p>$$J = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & -1 & 1 & 0 \\ 0 & 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 & -1 \end{pmatrix}, \quad V = (v_1 | v_2 | v_3 | v_4 | v_5), \quad A = VJV^{-1}$$</p>
 <p><strong>Blockstruktur von $J$:</strong></p>
@@ -265,11 +265,11 @@ MathJax = {
 <li>$J_1(-1)$: Zeile/Spalte 5 (Eigenwert -1, Größe 1)</li>
 </ul>
 <hr>
-<h3>1.1 Charakteristisches Polynom (ohne Begründung)</h3>
+<h3 id="1-1-charakteristisches-polynom-ohne-begruendung">1.1 Charakteristisches Polynom (ohne Begründung)</h3>
 <p>$$\boxed{\chi_A(\lambda) = (\lambda - 1)^2 (\lambda + 1)^3}$$</p>
 <p><em>Direkt aus der JNF: alg. VF(1) = 2 (zwei 1×1-Blöcke), alg. VF(-1) = 3 (ein 2×2-Block + ein 1×1-Block).</em></p>
 <hr>
-<h3>1.2 Minimalpolynom (mit Begründung)</h3>
+<h3 id="1-2-minimalpolynom-mit-begruendung">1.2 Minimalpolynom (mit Begründung)</h3>
 <p>$$\boxed{\mu_A(\lambda) = (\lambda - 1)(\lambda + 1)^2}$$</p>
 <p><strong>Begründung:</strong> Das Minimalpolynom ergibt sich aus den <strong>größten</strong> Jordan-Blöcken zu jedem Eigenwert:</p>
 <ul>
@@ -278,7 +278,7 @@ MathJax = {
 </ul>
 <p>Also $\mu_A(\lambda) = (\lambda - 1)(\lambda + 1)^2$.</p>
 <hr>
-<h3>1.3 Eigenraum zum Eigenwert -1 (mit Begründung)</h3>
+<h3 id="1-3-eigenraum-zum-eigenwert-1-mit-begruendung">1.3 Eigenraum zum Eigenwert -1 (mit Begründung)</h3>
 <p>$$\boxed{E_{-1} = \text{span}(v_3, v_5)}$$</p>
 <p><strong>Begründung:</strong> Aus $AV = VJ$ (spaltenweise) ergibt sich:</p>
 <ul>
@@ -288,7 +288,7 @@ MathJax = {
 </ul>
 <p>Da $V$ invertierbar ist, sind $v_1, \ldots, v_5$ linear unabhängig. Insbesondere sind $v_3, v_5$ linear unabhängig und bilden eine Basis von $E_{-1}$.</p>
 <hr>
-<h3>1.4 Geometrische Vielfachheiten (mit Begründung)</h3>
+<h3 id="1-4-geometrische-vielfachheiten-mit-begruendung">1.4 Geometrische Vielfachheiten (mit Begründung)</h3>
 <p>$$\boxed{\text{geo. VF}(1) = 2, \quad \text{geo. VF}(-1) = 2}$$</p>
 <p><strong>Begründung:</strong></p>
 <ul>
@@ -296,11 +296,11 @@ MathJax = {
 <li><strong>EW -1:</strong> Es gibt 2 Jordan-Blöcke zu EW -1 (Größe 2 und 1). Die geometrische Vielfachheit = Anzahl der Blöcke = 2. Eigenvektoren: $v_3, v_5$.</li>
 </ul>
 <hr>
-<h3>1.5 Hauptvektor erster Stufe (ohne Begründung)</h3>
+<h3 id="1-5-hauptvektor-erster-stufe-ohne-begruendung">1.5 Hauptvektor erster Stufe (ohne Begründung)</h3>
 <p>$$\boxed{v_4}$$</p>
 <p>$v_4$ ist ein Hauptvektor der Stufe 2 zum Eigenwert -1 (manchmal auch "verallgemeinerter Eigenvektor 1. Stufe" genannt), da $(A+I)v_4 = v_3 \neq 0$, aber $(A+I)^2 v_4 = (A+I)v_3 = 0$.</p>
 <hr>
-<h3>1.6 Determinante (mit Berechnung)</h3>
+<h3 id="1-6-determinante-mit-berechnung">1.6 Determinante (mit Berechnung)</h3>
 <p>$$\boxed{\det(A) = -1}$$</p>
 <p><strong>Berechnung:</strong></p>
 <p>$$\det(A) = \det(VJV^{-1}) = \det(V) \cdot \det(J) \cdot \det(V^{-1})$$</p>
@@ -308,20 +308,20 @@ MathJax = {
 <p>$J$ ist eine obere Dreiecksmatrix, also:</p>
 <p>$$\det(J) = 1 \cdot 1 \cdot (-1) \cdot (-1) \cdot (-1) = -1$$</p>
 <hr>
-<h3>1.7 Volumentreu? (mit Begründung)</h3>
+<h3 id="1-7-volumentreu-mit-begruendung">1.7 Volumentreu? (mit Begründung)</h3>
 <p>$$\boxed{\text{Ja, } A \text{ ist volumentreu.}}$$</p>
 <p><strong>Begründung:</strong> Eine lineare Abbildung ist volumentreu genau dann, wenn $|\det(A)| = 1$. Es gilt $|\det(A)| = |-1| = 1$. ✓</p>
 <hr>
-<h3>1.8 Orientierungserhaltend? (mit Begründung)</h3>
+<h3 id="1-8-orientierungserhaltend-mit-begruendung">1.8 Orientierungserhaltend? (mit Begründung)</h3>
 <p>$$\boxed{\text{Nein, } A \text{ ist nicht orientierungserhaltend.}}$$</p>
 <p><strong>Begründung:</strong> Eine lineare Abbildung ist orientierungserhaltend genau dann, wenn $\det(A) > 0$. Es gilt $\det(A) = -1 < 0$. ✗</p>
 <hr>
-<h3>1.9 Kann $A$ symmetrisch sein? (mit Begründung)</h3>
+<h3 id="1-9-kann-a-symmetrisch-sein-mit-begruendung">1.9 Kann $A$ symmetrisch sein? (mit Begründung)</h3>
 <p>$$\boxed{\text{Nein.}}$$</p>
 <p><strong>Begründung (Widerspruchsbeweis):</strong> Angenommen, $A$ wäre symmetrisch ($A = A^T$). Dann wäre $A$ nach dem <strong>Spektralsatz</strong> orthogonal diagonalisierbar, d.h. alle Jordan-Blöcke hätten Größe 1 (die JNF wäre eine Diagonalmatrix). Aber $J$ enthält den Jordan-Block $J_2(-1)$ der Größe 2. <strong>Widerspruch!</strong> Also kann $A$ nicht symmetrisch sein.</p>
 <hr>
-<h2>Aufgabe 2: Bedeutung von Eigenwerten (20 Punkte)</h2>
-<h3>2.1 Zeige: $Mv_i = \lambda_i v_i$ (ca. 10 Punkte)</h3>
+<h2 id="aufgabe-2-bedeutung-von-eigenwerten-20-punkte">Aufgabe 2: Bedeutung von Eigenwerten (20 Punkte)</h2>
+<h3 id="2-1-zeige-mv-i-lambda-i-v-i-ca-10-punkte">2.1 Zeige: $Mv_i = \lambda_i v_i$ (ca. 10 Punkte)</h3>
 <p><strong>Gegeben:</strong> ONS $v_1, v_2, v_3 \in \mathbb{R}^n$ (bzgl. Standard-SP), $M = \lambda_1 v_1 v_1^T + \lambda_2 v_2 v_2^T + \lambda_3 v_3 v_3^T$.</p>
 <p><strong>Beweis:</strong> Wir zeigen $Mv_i = \lambda_i v_i$ für $i \in \{1, 2, 3\}$.</p>
 <p>Sei $i \in \{1, 2, 3\}$ beliebig. Dann:</p>
@@ -333,7 +333,7 @@ MathJax = {
 <p>$$Mv_i = \lambda_1 v_1 \cdot \delta_{1i} + \lambda_2 v_2 \cdot \delta_{2i} + \lambda_3 v_3 \cdot \delta_{3i} = \lambda_i v_i$$</p>
 <p>Also ist $v_i$ Eigenvektor von $M$ zum Eigenwert $\lambda_i$ für $i = 1, 2, 3$. $\square$</p>
 <hr>
-<h3>2.2 Defekt bei EW $\lambda = 0$ (ca. 10 Punkte)</h3>
+<h3 id="2-2-defekt-bei-ew-lambda-0-ca-10-punkte">2.2 Defekt bei EW $\lambda = 0$ (ca. 10 Punkte)</h3>
 <p><strong>Gegeben:</strong> $A$ hat den Eigenwert $\lambda = 0$ mit algebraischer Vielfachheit $m \geq 1$.</p>
 <p><strong>Behauptung:</strong> Der Defekt (= Dimension des Kerns) von $A$ hat die Schranken:</p>
 <p>$$\boxed{1 \leq \text{Defekt}(A) \leq m}$$</p>
@@ -350,7 +350,7 @@ MathJax = {
 <p>Also: $n - m \leq \text{Rang}(A) \leq n - 1$.</p>
 <p>$\square$</p>
 <hr>
-<h2>Aufgabe 3: Gram-Schmidt-Verfahren (30 Punkte)</h2>
+<h2 id="aufgabe-3-gram-schmidt-verfahren-30-punkte">Aufgabe 3: Gram-Schmidt-Verfahren (30 Punkte)</h2>
 <p><strong>Gegeben:</strong> $f_1(x) = 1$, $f_2(x) = ix$ auf $[0,1]$  </p>
 <p><strong>Skalarprodukt:</strong> $\langle f | g \rangle = \int_0^1 \overline{f(x)} \, g(x) \, dx$</p>
 <p><strong>Gesucht:</strong> ONB von $V = \text{span}(f_1, f_2)$.</p>
@@ -386,21 +386,21 @@ MathJax = {
 <p><strong>Probe: $\|e_2\| = 1$?</strong></p>
 <p>$$\|e_2\|^2 = (2\sqrt{3})^2 \cdot \frac{1}{12} = 12 \cdot \frac{1}{12} = 1 \quad ✓$$</p>
 <hr>
-<h2>Aufgabe 4: Matrixexponential (20 Punkte)</h2>
+<h2 id="aufgabe-4-matrixexponential-20-punkte">Aufgabe 4: Matrixexponential (20 Punkte)</h2>
 <p><strong>Gegeben:</strong> $A \in \mathbb{R}^{n \times n}$ diagonalisierbar mit Eigenwerten $\lambda_1 = 0$ und $\lambda_2 = 1$.</p>
 <hr>
-<h3>4.1 Minimalpolynom (ohne Begründung)</h3>
+<h3 id="4-1-minimalpolynom-ohne-begruendung">4.1 Minimalpolynom (ohne Begründung)</h3>
 <p>$$\boxed{\mu_A(\lambda) = \lambda(\lambda - 1) = \lambda^2 - \lambda}$$</p>
 <p><em>Da $A$ diagonalisierbar, hat das Minimalpolynom nur einfache Nullstellen. Die Nullstellen sind die Eigenwerte 0 und 1.</em></p>
 <hr>
-<h3>4.2 $A^2 = A$ (mit Beweis über Cayley-Hamilton)</h3>
+<h3 id="4-2-a-2-a-mit-beweis-ueber-cayley-hamilton">4.2 $A^2 = A$ (mit Beweis über Cayley-Hamilton)</h3>
 <p><strong>Zu zeigen:</strong> $A^2 = A$</p>
 <p><strong>Beweis:</strong> Nach dem <strong>Satz von Cayley-Hamilton</strong> erfüllt jede Matrix ihr Minimalpolynom (und auch ihr charakteristisches Polynom):</p>
 <p>$$\mu_A(A) = A^2 - A = 0$$</p>
 <p>Umstellen: $A^2 = A$. $\square$</p>
 <blockquote><p><strong>Alternativ (ohne Cayley-Hamilton, über Diagonalisierung):</strong><br>Da $A$ diagonalisierbar, existiert $S$ mit $A = S \text{diag}(\lambda_1, \ldots, \lambda_n) S^{-1}$, wobei $\lambda_i \in \{0, 1\}$.<br>Dann $A^2 = S \text{diag}(\lambda_1^2, \ldots, \lambda_n^2) S^{-1}$.<br>Da $0^2 = 0$ und $1^2 = 1$: $\lambda_i^2 = \lambda_i$ für alle $i$. Also $A^2 = A$.</p></blockquote>
 <hr>
-<h3>4.3 $A^m = A$ für $m \geq 1$ (Induktionsbeweis)</h3>
+<h3 id="4-3-a-m-a-fuer-m-geq-1-induktionsbeweis">4.3 $A^m = A$ für $m \geq 1$ (Induktionsbeweis)</h3>
 <p><strong>Beweis durch vollständige Induktion über $m$:</strong></p>
 <p><strong>Induktionsanfang ($m = 1$):</strong></p>
 <p>$$A^1 = A \quad ✓$$</p>
@@ -409,7 +409,7 @@ MathJax = {
 <p>$$A^{m+1} = A^m \cdot A \overset{\text{IV}}{=} A \cdot A = A^2 \overset{4.2}{=} A$$</p>
 <p>Also gilt $A^{m+1} = A$, und nach dem Prinzip der vollständigen Induktion gilt $A^m = A$ für alle $m \geq 1$. $\square$</p>
 <hr>
-<h3>4.4 $\exp(A) = I + (e-1)A$ (mit Beweis)</h3>
+<h3 id="4-4-exp-a-i-e-1-a-mit-beweis">4.4 $\exp(A) = I + (e-1)A$ (mit Beweis)</h3>
 <p><strong>Beweis:</strong></p>
 <p>Per Definition des Matrixexponentials:</p>
 <p>$$\exp(A) = \sum_{k=0}^{\infty} \frac{A^k}{k!}$$</p>
@@ -423,7 +423,7 @@ MathJax = {
 <p>$$\exp(A) = I + A(e - 1) = I + (e-1)A$$</p>
 <p>$$\boxed{\exp(A) = I + (e-1)A} \quad \square$$</p>
 <hr>
-<h2>Punkteverteilung – Was du beim nächsten Mal holen musst</h2>
+<h2 id="punkteverteilung-was-du-beim-naechsten-mal-holen-musst">Punkteverteilung – Was du beim nächsten Mal holen musst</h2>
 <table>
 <tr><th>Aufgabe</th><th>Erstklausur</th><th>Ziel Nachklausur</th><th>Strategie</th></tr>
 <tr><td>1 (JNF)</td><td>19/30</td><td><strong>25/30</strong></td><td>1.1 und 1.5 nicht mehr vergessen, Begründungen sauber</td></tr>

@@ -14,6 +14,11 @@
 
 ## 3.1 Grundbegriffe
 
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 4, AP 2: Eigenschaften aus Matrix ablesen](Uebungszettel_Originale.html#aufgabenpaket-2-eigenschaften-einer-linearen-abbildung-aus-der-matrix-ablesen)
+> - [Übungsblatt 4, AP 3: Berechnung von Eigenräumen](Uebungszettel_Originale.html#aufgabenpaket-3-berechnung-von-eigenraeumen)
+
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>
@@ -116,6 +121,10 @@ $$1 \leq \text{geo. VF}(\lambda) \leq \text{alg. VF}(\lambda)$$
 > - alg. VF = Summe der Größen aller Jordan-Blöcke zum Eigenwert $\lambda$
 
 ## 3.3 Diagonalisierbarkeit
+
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 5, AP 1: Ergänzung einer Eigenraumbasis](Uebungszettel_Originale.html#aufgabenpaket-1-ergaenzung-einer-eigenraumbasis)
 
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>

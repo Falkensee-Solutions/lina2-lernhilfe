@@ -246,6 +246,11 @@ $A$ unitär $\iff A^* A = I \iff A^{-1} = A^*$
 
 ## 6.6 Grundlagen der Gruppentheorie
 
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 8, AP 3: Symmetriegruppe aufstellen](Uebungszettel_Originale.html#aufgabenpaket-3-symmetriegruppe-aufstellen)
+> - [Übungsblatt 10: Untergruppen von Automorphismen](Uebungszettel_Originale.html#uebungsblatt-10-untergruppen-von-automorphismen)
+
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>

@@ -251,10 +251,10 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1>Das große Ganze – Wie hängt alles zusammen?</h1>
+<h1 id="das-grosse-ganze-wie-haengt-alles-zusammen">Das große Ganze – Wie hängt alles zusammen?</h1>
 <blockquote><p>Lies dieses Dokument <strong>immer wieder</strong>. Jedes Mal wirst du neue Verbindungen sehen.<br>Der Dozent will genau das: Dass du erklären kannst, <strong>warum</strong> etwas gilt und <strong>wo</strong> es wieder auftaucht.</p></blockquote>
 <hr>
-<h2>Die eine zentrale Idee</h2>
+<h2 id="die-eine-zentrale-idee">Die eine zentrale Idee</h2>
 <p>Lineare Algebra handelt von <strong>einer einzigen Frage:</strong></p>
 <blockquote><p><strong>Was macht eine Matrix $A$ mit Vektoren?</strong></p></blockquote>
 <p>Alles – wirklich alles – sind verschiedene Blickwinkel auf diese Frage:</p>
@@ -268,9 +268,9 @@ MathJax = {
 </ul>
 <p>Und das Schöne ist: <strong>All diese Blickwinkel hängen zusammen.</strong> Das zeige ich dir jetzt.</p>
 <hr>
-<h2>1. Die Determinante – der rote Faden durch alles</h2>
+<h2 id="1-die-determinante-der-rote-faden-durch-alles">1. Die Determinante – der rote Faden durch alles</h2>
 <p>Die Determinante ist der <strong>Klebstoff</strong> der linearen Algebra. Sie taucht überall auf:</p>
-<h3>Determinante ↔ Eigenwerte</h3>
+<h3 id="determinante-eigenwerte">Determinante ↔ Eigenwerte</h3>
 <p>$$\det(A) = \lambda_1 \cdot \lambda_2 \cdots \lambda_n$$</p>
 <p><strong>Warum?</strong> Das char. Polynom ist $\chi_A(\lambda) = \det(A - \lambda I)$. Setzt du $\lambda = 0$ ein, bekommst du $\det(A)$. Und das char. Polynom hat die Form $(\lambda_1 - \lambda)(\lambda_2 - \lambda)\cdots$. Bei $\lambda = 0$ steht da genau $\lambda_1 \cdot \lambda_2 \cdots$.</p>
 <p><strong>Was folgt daraus?</strong></p>
@@ -279,7 +279,7 @@ MathJax = {
 <li>$A$ hat Eigenwert 0 $\iff$ $\det(A) = 0$ $\iff$ $A$ nicht invertierbar $\iff$ $\ker(A) \neq \{0\}$</li>
 </ul>
 <blockquote><p><strong>Merke:</strong> Determinante = 0, Eigenwert = 0, Kern nicht-trivial, nicht invertierbar – das ist <strong>alles dasselbe</strong>, nur anders formuliert!</p></blockquote>
-<h3>Determinante ↔ Volumen & Orientierung</h3>
+<h3 id="determinante-volumen-orientierung">Determinante ↔ Volumen & Orientierung</h3>
 <ul>
 <li>$|\det(A)| = $ Volumenfaktor (um wie viel wird das Volumen gestreckt)</li>
 <li>$\det(A) > 0$: Orientierung bleibt erhalten (Drehung)</li>
@@ -291,24 +291,24 @@ MathJax = {
 <li>Volumentreu? Ja, weil $|-1| = 1$ ✓</li>
 <li>Orientierungserhaltend? Nein, weil $-1 < 0$ ✗</li>
 </ul>
-<h3>Determinante ↔ JNF</h3>
+<h3 id="determinante-jnf">Determinante ↔ JNF</h3>
 <p>$$\det(A) = \det(VJV^{-1}) = \det(V) \cdot \det(J) \cdot \det(V)^{-1} = \det(J)$$</p>
 <p><strong>Warum ist das wichtig?</strong> Weil $\det(J)$ = Produkt der Diagonaleinträge (Dreiecksmatrix!). Du musst also nur die Eigenwerte multiplizieren, egal wie kompliziert die Matrix ist.</p>
 <p><strong>Die Kette:</strong> $\det(AB) = \det(A)\det(B)$ ist die <strong>Produktregel</strong> der Determinante. Sie steckt auch hinter $\det(SAS^{-1}) = \det(A)$ – ähnliche Matrizen haben <strong>immer</strong> die gleiche Determinante.</p>
-<h3>Determinante ↔ Invertierbarkeit ↔ Kern</h3>
+<h3 id="determinante-invertierbarkeit-kern">Determinante ↔ Invertierbarkeit ↔ Kern</h3>
 <p>$$\det(A) \neq 0 \iff A \text{ invertierbar} \iff \ker(A) = \{0\} \iff \text{Rang}(A) = n$$</p>
 <p><strong>Das ist eine der wichtigsten Äquivalenzketten der Vorlesung.</strong> Wenn eine der Bedingungen gilt, gelten automatisch alle anderen. Und wenn eine nicht gilt, gilt keine.</p>
 <hr>
-<h2>2. Eigenwerte – die DNA der Matrix</h2>
+<h2 id="2-eigenwerte-die-dna-der-matrix">2. Eigenwerte – die DNA der Matrix</h2>
 <p>Eigenwerte verraten dir fast alles über eine Matrix. Stell dir vor, du siehst nur die Eigenwerte – was weißt du dann schon?</p>
-<h3>Eigenwerte → Determinante & Spur</h3>
+<h3 id="eigenwerte-determinante-spur">Eigenwerte → Determinante & Spur</h3>
 <ul>
 <li>$\det(A) = \prod \lambda_i$ (Produkt → Volumen)</li>
 <li>$\text{Spur}(A) = \sum \lambda_i$ (Summe → "durchschnittliche Streckung")</li>
 </ul>
-<h3>Eigenwerte → Invertierbarkeit</h3>
+<h3 id="eigenwerte-invertierbarkeit">Eigenwerte → Invertierbarkeit</h3>
 <p>Kein Eigenwert = 0 $\iff$ $A$ invertierbar</p>
-<h3>Eigenwerte → Art der Matrix</h3>
+<h3 id="eigenwerte-art-der-matrix">Eigenwerte → Art der Matrix</h3>
 <table>
 <tr><th>Was du siehst</th><th>Was die Matrix ist</th></tr>
 <tr><td>Alle $\lambda_i$ reell</td><td>Könnte symmetrisch sein</td></tr>
@@ -317,7 +317,7 @@ MathJax = {
 <tr><td>Alle $</td><td>\lambda_i</td><td>= 1$</td><td>Könnte orthogonal/unitär sein (Isometrie)</td></tr>
 <tr><td>Alle $\lambda_i > 0$</td><td>Positiv definit (wenn symmetrisch)</td></tr>
 </table>
-<h3>Eigenwerte → Potenzen & Exponential</h3>
+<h3 id="eigenwerte-potenzen-exponential">Eigenwerte → Potenzen & Exponential</h3>
 <p>Wenn $Av = \lambda v$, dann:</p>
 <ul>
 <li>$A^k v = \lambda^k v$ (Potenzen)</li>
@@ -325,16 +325,16 @@ MathJax = {
 </ul>
 <p><strong>Das ist der tiefe Grund, warum Aufgabe 4 funktioniert:</strong> Wenn die Eigenwerte nur 0 und 1 sind, dann sind die Eigenwerte von $A^k$ auch nur $0^k = 0$ und $1^k = 1$. Also "sieht" $A^k$ genauso aus wie $A$!</p>
 <hr>
-<h2>3. Der Dreiklang: Algebraische VF – Geometrische VF – JNF</h2>
+<h2 id="3-der-dreiklang-algebraische-vf-geometrische-vf-jnf">3. Der Dreiklang: Algebraische VF – Geometrische VF – JNF</h2>
 <p>Das ist das <strong>Herzstück</strong> der Vorlesung und das, was die meisten nicht verstehen:</p>
-<h3>Was die algebraische Vielfachheit sagt</h3>
+<h3 id="was-die-algebraische-vielfachheit-sagt">Was die algebraische Vielfachheit sagt</h3>
 <p>= Wie oft taucht $\lambda$ als Nullstelle im char. Polynom auf?</p>
 <p>= Wie viel "Platz" reserviert $\lambda$ in der Matrix?</p>
-<h3>Was die geometrische Vielfachheit sagt</h3>
+<h3 id="was-die-geometrische-vielfachheit-sagt">Was die geometrische Vielfachheit sagt</h3>
 <p>= Wie viele <strong>unabhängige Richtungen</strong> gibt es, in die $A$ einfach nur streckt (ohne zu "drehen")?</p>
-<h3>Was die JNF sagt</h3>
+<h3 id="was-die-jnf-sagt">Was die JNF sagt</h3>
 <p>= Wie die Matrix <strong>wirklich</strong> aussieht, wenn man die richtige Brille ($V$) aufsetzt.</p>
-<h3>Die Verbindung</h3>
+<h3 id="die-verbindung">Die Verbindung</h3>
 <p>$$\text{geo. VF} = \text{Anzahl der Jordan-Blöcke}$$</p>
 <p>$$\text{alg. VF} = \text{Gesamtgröße aller Jordan-Blöcke}$$</p>
 <p><strong>Beispiel aus der Klausur (EW = -1, alg. VF = 3):</strong></p>
@@ -347,7 +347,7 @@ MathJax = {
 <li><strong>Ja</strong> → Diagonalisierbar! Die Matrix streckt nur, sie "dreht nicht".</li>
 <li><strong>Nein</strong> → Nicht diagonalisierbar. Es gibt Jordan-Blöcke > 1. Die Matrix hat eine "Schwanz-Struktur" (Hauptvektoren).</li>
 </ul>
-<h3>Warum Diagonalisierbarkeit so wichtig ist</h3>
+<h3 id="warum-diagonalisierbarkeit-so-wichtig-ist">Warum Diagonalisierbarkeit so wichtig ist</h3>
 <p>Wenn $A = SDS^{-1}$ (diagonalisierbar), dann:</p>
 <ul>
 <li>$A^k = SD^kS^{-1}$ (Potenzen trivial berechnen)</li>
@@ -356,32 +356,32 @@ MathJax = {
 </ul>
 <p>→ <strong>Deshalb</strong> will man wissen ob eine Matrix diagonalisierbar ist!</p>
 <hr>
-<h2>4. Kern, Bild & Rang – die Dimensionsbrille</h2>
-<h3>Die Dimensionsformel (Rangsatz) verbindet alles</h3>
+<h2 id="4-kern-bild-rang-die-dimensionsbrille">4. Kern, Bild & Rang – die Dimensionsbrille</h2>
+<h3 id="die-dimensionsformel-rangsatz-verbindet-alles">Die Dimensionsformel (Rangsatz) verbindet alles</h3>
 <p>$$\underbrace{\dim(V)}_{= n} = \underbrace{\dim(\ker(A))}_{\text{Defekt}} + \underbrace{\dim(\text{Bild}(A))}_{\text{Rang}}$$</p>
 <p><strong>Was das bedeutet:</strong> Der Definitionsbereich teilt sich auf in "was vernichtet wird" und "was rauskommt". Je mehr vernichtet wird, desto weniger kommt raus.</p>
-<h3>Rang ↔ Determinante</h3>
+<h3 id="rang-determinante">Rang ↔ Determinante</h3>
 <ul>
 <li>Rang = $n$ $\iff$ $\det(A) \neq 0$ $\iff$ $A$ invertierbar</li>
 <li>Rang < $n$ $\iff$ $\det(A) = 0$ $\iff$ $A$ hat EW 0</li>
 </ul>
-<h3>Defekt ↔ Eigenwert 0</h3>
+<h3 id="defekt-eigenwert-0">Defekt ↔ Eigenwert 0</h3>
 <p>$$\text{Defekt}(A) = \dim(\ker(A)) = \text{geo. VF}(0)$$</p>
 <p><strong>In der Klausur (Aufgabe 2.2):</strong> Wenn EW 0 algebraische VF $m$ hat:</p>
 <p>$$1 \leq \text{Defekt} \leq m$$</p>
 <p>Das folgt direkt aus $1 \leq \text{geo. VF} \leq \text{alg. VF}$!</p>
 <hr>
-<h2>5. Skalarprodukt – die Messbrille</h2>
+<h2 id="5-skalarprodukt-die-messbrille">5. Skalarprodukt – die Messbrille</h2>
 <p>Ohne Skalarprodukt kann man nur "algebraisch" arbeiten (Gleichungen lösen). <strong>Mit</strong> Skalarprodukt kann man auch <strong>messen</strong> (Längen, Winkel).</p>
-<h3>Skalarprodukt → Orthogonalität</h3>
+<h3 id="skalarprodukt-orthogonalitaet">Skalarprodukt → Orthogonalität</h3>
 <p>$\langle u | v \rangle = 0$ heißt "$u$ steht senkrecht auf $v$"</p>
-<h3>Skalarprodukt → Norm</h3>
+<h3 id="skalarprodukt-norm">Skalarprodukt → Norm</h3>
 <p>$\|v\| = \sqrt{\langle v | v \rangle}$ = Länge des Vektors</p>
-<h3>Skalarprodukt → Gram-Schmidt</h3>
+<h3 id="skalarprodukt-gram-schmidt">Skalarprodukt → Gram-Schmidt</h3>
 <p>GS benutzt das Skalarprodukt, um eine beliebige Basis in eine <strong>orthonormale</strong> Basis umzuwandeln. Der Schlüssel ist die <strong>Projektion:</strong></p>
 <p>$$\text{proj}_e(v) = \langle e | v \rangle \cdot e$$</p>
 <p>Das ist die "Komponente von $v$ in Richtung $e$". Gram-Schmidt zieht diese Komponenten ab.</p>
-<h3>Skalarprodukt → Adjungiertheit</h3>
+<h3 id="skalarprodukt-adjungiertheit">Skalarprodukt → Adjungiertheit</h3>
 <p>$\langle Av | w \rangle = \langle v | A^* w \rangle$</p>
 <p><strong>Warum wichtig?</strong> Weil spezielle Beziehungen zwischen $A$ und $A^*$ die Matrix klassifizieren:</p>
 <ul>
@@ -389,30 +389,30 @@ MathJax = {
 <li>$A^*A = I$ → orthogonal/unitär → <strong>Isometrie</strong> (Längen bleiben gleich)</li>
 <li>$A^<em>A = AA^</em>$ → normal → <strong>unitär diagonalisierbar</strong></li>
 </ul>
-<h3>Skalarprodukt → Spektralsatz</h3>
+<h3 id="skalarprodukt-spektralsatz">Skalarprodukt → Spektralsatz</h3>
 <blockquote><p>Symmetrische Matrizen haben <strong>reelle</strong> Eigenwerte und sind <strong>orthogonal</strong> diagonalisierbar.</p></blockquote>
 <p><strong>Warum kam das in der Klausur (1.9)?</strong></p>
 <p>Die JNF hat einen Block größe 2, also ist $A$ <strong>nicht</strong> diagonalisierbar. Wäre $A$ symmetrisch, <strong>müsste</strong> sie diagonalisierbar sein (Spektralsatz). Widerspruch! → $A$ ist nicht symmetrisch.</p>
 <hr>
-<h2>6. Cayley-Hamilton & Minimalpolynom – die Polynombrille</h2>
-<h3>Die große Idee</h3>
+<h2 id="6-cayley-hamilton-minimalpolynom-die-polynombrille">6. Cayley-Hamilton & Minimalpolynom – die Polynombrille</h2>
+<h3 id="die-grosse-idee">Die große Idee</h3>
 <p>Jede Matrix "gehorcht" ihrem eigenen Polynom:</p>
 <p>$$\chi_A(A) = 0 \quad \text{(Cayley-Hamilton)}$$</p>
 <p>Das heißt: Du kannst hohe Potenzen von $A$ immer durch <strong>niedrigere</strong> ausdrücken!</p>
-<h3>Minimalpolynom = das kürzeste Polynom, das $A$ "gehorcht"</h3>
+<h3 id="minimalpolynom-das-kuerzeste-polynom-das-a-gehorcht">Minimalpolynom = das kürzeste Polynom, das $A$ "gehorcht"</h3>
 <ul>
 <li>$\mu_A$ teilt $\chi_A$</li>
 <li>Gleiche Nullstellen (= gleiche Eigenwerte)</li>
 <li>Aber $\mu_A$ kann kürzeren Grad haben</li>
 </ul>
-<h3>Woher kommt das Minimalpolynom? → Aus der JNF!</h3>
+<h3 id="woher-kommt-das-minimalpolynom-aus-der-jnf">Woher kommt das Minimalpolynom? → Aus der JNF!</h3>
 <ul>
 <li>$\chi_A$: <strong>Alle</strong> Blockgrößen zählen → Grad = $n$ (Matrixgröße)</li>
 <li>$\mu_A$: Nur der <strong>größte</strong> Block pro EW zählt</li>
 </ul>
 <p><strong>Klausur (1.2):</strong> Größter Block zu EW 1 hat Größe 1, zu EW -1 Größe 2.</p>
 <p>→ $\mu_A = (\lambda - 1)^1 (\lambda + 1)^2$</p>
-<h3>Die Kette: Minimalpolynom → $A^2 = A$ → $A^m = A$ → $\exp(A)$</h3>
+<h3 id="die-kette-minimalpolynom-a-2-a-a-m-a-exp-a">Die Kette: Minimalpolynom → $A^2 = A$ → $A^m = A$ → $\exp(A)$</h3>
 <p>Das war die ganze Aufgabe 4:</p>
 <ol>
 <li><strong>Minimalpolynom</strong> $= \lambda^2 - \lambda$ (weil diagonalisierbar mit EW 0, 1)</li>
@@ -422,7 +422,7 @@ MathJax = {
 </ol>
 <p><strong>Siehst du die Kette?</strong> Minimalpolynom → Matrixgleichung → Induktion → Exponential. Alles baut aufeinander auf!</p>
 <hr>
-<h2>7. Die Vernetzungsmatrix – Alles auf einen Blick</h2>
+<h2 id="7-die-vernetzungsmatrix-alles-auf-einen-blick">7. Die Vernetzungsmatrix – Alles auf einen Blick</h2>
 <p>Lies diese Tabelle spaltenweise: "Wenn ich X kenne, was weiß ich dann über Y?"</p>
 <table>
 <tr><th>Wenn ich ... kenne</th><th>→ Eigenwerte</th><th>→ Determinante</th><th>→ Rang/Kern</th><th>→ Diagonalisierbar?</th><th>→ Symmetrisch?</th></tr>
@@ -434,24 +434,24 @@ MathJax = {
 <tr><td><strong>Skalarprodukt</strong></td><td>–</td><td>–</td><td>–</td><td>–</td><td>$A = A^T$ prüfbar</td></tr>
 </table>
 <hr>
-<h2>8. Die 5 wichtigsten "Warum?"-Fragen für die Klausur</h2>
-<h3>Warum gilt $\det(A) = \det(J)$?</h3>
+<h2 id="8-die-5-wichtigsten-warum-fragen-fuer-die-klausur">8. Die 5 wichtigsten "Warum?"-Fragen für die Klausur</h2>
+<h3 id="warum-gilt-det-a-det-j">Warum gilt $\det(A) = \det(J)$?</h3>
 <p>Weil $A = VJV^{-1}$ und $\det(AB) = \det(A)\det(B)$. Die $\det(V)$ und $\det(V^{-1})$ kürzen sich weg.</p>
 <p><strong>Allgemeiner:</strong> Ähnliche Matrizen haben die gleiche Determinante, die gleichen Eigenwerte, das gleiche char. Polynom und das gleiche Minimalpolynom. All diese Dinge sind <strong>Invarianten unter Ähnlichkeit</strong>.</p>
-<h3>Warum ist eine symmetrische Matrix immer diagonalisierbar?</h3>
+<h3 id="warum-ist-eine-symmetrische-matrix-immer-diagonalisierbar">Warum ist eine symmetrische Matrix immer diagonalisierbar?</h3>
 <p>Weil der Spektralsatz sagt: Für symm. Matrizen existiert eine <strong>ONB</strong> aus Eigenvektoren. Eigenvektoren zu verschiedenen EW sind automatisch orthogonal (das folgt aus $\langle Av | w \rangle = \langle v | Aw \rangle$ für symmetrische $A$).</p>
 <p>→ Wenn es eine Basis aus Eigenvektoren gibt, sind alle Jordan-Blöcke Größe 1 → diagonalisierbar.</p>
-<h3>Warum braucht man Gram-Schmidt?</h3>
+<h3 id="warum-braucht-man-gram-schmidt">Warum braucht man Gram-Schmidt?</h3>
 <p>Weil eine Basis meistens <strong>nicht</strong> orthonormal ist. Aber ONBs sind super praktisch:</p>
 <ul>
 <li>Koordinaten berechnen: $\alpha_i = \langle e_i | v \rangle$ (kein LGS nötig!)</li>
 <li>Projektionen: $P_U(v) = \sum \langle e_i | v \rangle e_i$</li>
 <li>Numerische Stabilität bei Rechnungen</li>
 </ul>
-<h3>Warum funktioniert $\exp(A) = I + (e-1)A$?</h3>
+<h3 id="warum-funktioniert-exp-a-i-e-1-a">Warum funktioniert $\exp(A) = I + (e-1)A$?</h3>
 <p>Weil $A^2 = A$ (idempotent). Das bedeutet: $A$ projiziert auf einen Unterraum. Projizierst du zweimal, passiert nichts Neues. Deshalb sind alle Potenzen gleich, und die unendliche Summe wird endlich.</p>
 <p><strong>Tiefere Einsicht:</strong> Die Eigenwerte von $A$ sind 0 und 1. $\exp(A)$ hat die Eigenwerte $e^0 = 1$ und $e^1 = e$. Also $\exp(A) = 1 \cdot P_0 + e \cdot P_1$, wobei $P_0, P_1$ Projektionen auf die Eigenräume sind. Das ist dasselbe wie $I + (e-1)A$!</p>
-<h3>Warum ist Induktion bei Matrixbeweisen so häufig?</h3>
+<h3 id="warum-ist-induktion-bei-matrixbeweisen-so-haeufig">Warum ist Induktion bei Matrixbeweisen so häufig?</h3>
 <p>Weil viele Matrixeigenschaften sich <strong>iterativ</strong> aufbauen:</p>
 <ul>
 <li>$A^{m+1} = A^m \cdot A$ (Potenz)</li>
@@ -459,8 +459,8 @@ MathJax = {
 <li>Dimension eines Unterraums durch schrittweises Hinzufügen von Vektoren</li>
 </ul>
 <hr>
-<h2>9. Drei Geschichten, die alles verbinden</h2>
-<h3>Geschichte 1: "Die Matrix als Maschine"</h3>
+<h2 id="9-drei-geschichten-die-alles-verbinden">9. Drei Geschichten, die alles verbinden</h2>
+<h3 id="geschichte-1-die-matrix-als-maschine">Geschichte 1: "Die Matrix als Maschine"</h3>
 <p>Stell dir $A$ als Maschine vor, die Vektoren rein bekommt und Vektoren rausspuckt.</p>
 <ul>
 <li><strong>Eigenvektoren</strong> sind die Vektoren, die nur <strong>gestreckt</strong> werden (Richtung bleibt gleich).</li>
@@ -470,7 +470,7 @@ MathJax = {
 <li><strong>Determinante</strong> sagt, wie sich das <strong>Gesamtvolumen</strong> ändert.</li>
 <li><strong>JNF</strong> ist der <strong>Bauplan</strong> der Maschine in ihrer einfachsten Form.</li>
 </ul>
-<h3>Geschichte 2: "Vom Char. Polynom zur kompletten Analyse"</h3>
+<h3 id="geschichte-2-vom-char-polynom-zur-kompletten-analyse">Geschichte 2: "Vom Char. Polynom zur kompletten Analyse"</h3>
 <p>Du bekommst eine Matrix $A$. Was tust du?</p>
 <ol>
 <li><strong>Char. Polynom</strong> berechnen → Eigenwerte finden</li>
@@ -482,7 +482,7 @@ MathJax = {
 <li><strong>Cayley-Hamilton</strong> nutzen für Matrixgleichungen</li>
 </ol>
 <p><strong>Alles hängt zusammen!</strong> Char. Polynom → Eigenwerte → Eigenräume → JNF → Minimalpolynom → Matrixgleichungen.</p>
-<h3>Geschichte 3: "Skalarprodukt als Upgrade"</h3>
+<h3 id="geschichte-3-skalarprodukt-als-upgrade">Geschichte 3: "Skalarprodukt als Upgrade"</h3>
 <p>Ohne Skalarprodukt kannst du:</p>
 <ul>
 <li>Eigenwerte berechnen ✓</li>
@@ -499,7 +499,7 @@ MathJax = {
 </ul>
 <p>Das Skalarprodukt ist das <strong>geometrische Upgrade</strong> der algebraischen Theorie.</p>
 <hr>
-<h2>10. Verbotene Kurzschlüsse (häufige Denkfehler!)</h2>
+<h2 id="10-verbotene-kurzschluesse-haeufige-denkfehler">10. Verbotene Kurzschlüsse (häufige Denkfehler!)</h2>
 <table>
 <tr><th>Falsch</th><th>Richtig</th></tr>
 <tr><td>"Alle EW reell → symmetrisch"</td><td>Alle EW reell ist <strong>notwendig</strong>, aber nicht hinreichend!</td></tr>
@@ -511,7 +511,7 @@ MathJax = {
 <tr><td>"Gram-Schmidt ändert den aufgespannten Raum"</td><td><strong>Falsch!</strong> GS ändert nur die Basis, nicht den Raum</td></tr>
 </table>
 <hr>
-<h2>Letzte Worte</h2>
+<h2 id="letzte-worte">Letzte Worte</h2>
 <p>Wenn du in der Klausur eine Aufgabe siehst, frag dich immer:</p>
 <ol>
 <li><strong>Welche Objekte sind beteiligt?</strong> (Matrix, Eigenwerte, Determinante, Skalarprodukt, ...)</li>

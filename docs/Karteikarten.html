@@ -251,31 +251,31 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1>Karteikarten – LINA2 Definitionen & Sätze</h1>
+<h1 id="karteikarten-lina2-definitionen-saetze">Karteikarten – LINA2 Definitionen & Sätze</h1>
 <blockquote><p>Lerne jede Karte: Lies die <strong>Frage</strong>, versuche die Antwort zu formulieren, dann vergleiche mit der <strong>Antwort</strong>.</p></blockquote>
 <hr>
-<h2>📦 Block A: Grundbegriffe</h2>
-<h3>Karte A1</h3>
+<h2 id="block-a-grundbegriffe">📦 Block A: Grundbegriffe</h2>
+<h3 id="karte-a1">Karte A1</h3>
 <p><strong>F:</strong> Was ist ein Vektorraum?  </p>
 <p><strong>A:</strong> Eine abelsche Gruppe $(V, +)$ mit Skalarmultiplikation über einem Körper $K$, die Assoziativität, neutrales Element ($1 \cdot v = v$) und zwei Distributivgesetze erfüllt.</p>
-<h3>Karte A2</h3>
+<h3 id="karte-a2">Karte A2</h3>
 <p><strong>F:</strong> Wann ist eine Teilmenge $U \subseteq V$ ein Unterraum?  </p>
 <p><strong>A:</strong> Wenn $U \neq \emptyset$ und $U$ unter Addition und Skalarmultiplikation abgeschlossen ist. Kurzform: $\lambda u + \mu w \in U$ für alle $\lambda, \mu \in K$ und $u, w \in U$.</p>
-<h3>Karte A3</h3>
+<h3 id="karte-a3">Karte A3</h3>
 <p><strong>F:</strong> Was bedeutet "linear unabhängig"?  </p>
 <p><strong>A:</strong> $v_1, \ldots, v_n$ sind linear unabhängig, wenn $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$ nur die triviale Lösung $\lambda_1 = \cdots = \lambda_n = 0$ hat.</p>
-<h3>Karte A4</h3>
+<h3 id="karte-a4">Karte A4</h3>
 <p><strong>F:</strong> Was ist eine Basis? Was ist die Dimension?  </p>
 <p><strong>A:</strong> Eine Basis ist ein linear unabhängiges Erzeugendensystem. Die Dimension ist die Anzahl der Basisvektoren. Jede Basis hat gleich viele Elemente.</p>
-<h3>Karte A5</h3>
+<h3 id="karte-a5">Karte A5</h3>
 <p><strong>F:</strong> Wann ist eine Abbildung $f: V \to W$ linear?  </p>
 <p><strong>A:</strong> Wenn $f(\alpha u + \beta v) = \alpha f(u) + \beta f(v)$ für alle $\alpha, \beta \in K$ und $u, v \in V$.</p>
 <hr>
-<h2>📦 Block B: Determinanten</h2>
-<h3>Karte B1</h3>
+<h2 id="block-b-determinanten">📦 Block B: Determinanten</h2>
+<h3 id="karte-b1">Karte B1</h3>
 <p><strong>F:</strong> Wie berechnet man die Determinante einer Dreiecksmatrix?  </p>
 <p><strong>A:</strong> Produkt der Diagonaleinträge: $\det(A) = \prod_{i=1}^n a_{ii}$</p>
-<h3>Karte B2</h3>
+<h3 id="karte-b2">Karte B2</h3>
 <p><strong>F:</strong> Nenne 4 wichtige Rechenregeln für Determinanten.  </p>
 <p><strong>A:</strong></p>
 <ol>
@@ -284,103 +284,103 @@ MathJax = {
 <li>$\det(\lambda A) = \lambda^n \det(A)$</li>
 <li>$\det(SAS^{-1}) = \det(A)$</li>
 </ol>
-<h3>Karte B3</h3>
+<h3 id="karte-b3">Karte B3</h3>
 <p><strong>F:</strong> Was sagt $\det(A)$ geometrisch aus?  </p>
 <p><strong>A:</strong> $|\det(A)|$ = Volumenfaktor. $\det(A) > 0$: orientierungserhaltend. $\det(A) < 0$: orientierungsumkehrend. $|\det(A)| = 1$: volumentreu.</p>
-<h3>Karte B4</h3>
+<h3 id="karte-b4">Karte B4</h3>
 <p><strong>F:</strong> Was ist die Laplace-Entwicklung?  </p>
 <p><strong>A:</strong> $\det(A) = \sum_{j=1}^n (-1)^{i+j} a_{ij} \det(A_{ij})$ (Entwicklung nach $i$-ter Zeile). Tipp: Zeile/Spalte mit den meisten Nullen wählen.</p>
 <hr>
-<h2>📦 Block C: Eigenwerte & Diagonalisierung</h2>
-<h3>Karte C1</h3>
+<h2 id="block-c-eigenwerte-diagonalisierung">📦 Block C: Eigenwerte & Diagonalisierung</h2>
+<h3 id="karte-c1">Karte C1</h3>
 <p><strong>F:</strong> Was sind Eigenwert und Eigenvektor?  </p>
 <p><strong>A:</strong> $\lambda$ ist Eigenwert und $v \neq 0$ ist Eigenvektor von $A$, wenn $Av = \lambda v$.</p>
-<h3>Karte C2</h3>
+<h3 id="karte-c2">Karte C2</h3>
 <p><strong>F:</strong> Wie findet man die Eigenwerte?  </p>
 <p><strong>A:</strong> Als Nullstellen des charakteristischen Polynoms $\chi_A(\lambda) = \det(A - \lambda I) = 0$.</p>
-<h3>Karte C3</h3>
+<h3 id="karte-c3">Karte C3</h3>
 <p><strong>F:</strong> Was ist der Unterschied zwischen algebraischer und geometrischer Vielfachheit?  </p>
 <p><strong>A:</strong> <strong>Alg. VF:</strong> Vielfachheit als Nullstelle von $\chi_A$. <strong>Geo. VF:</strong> $\dim(\ker(A - \lambda I))$ = Anzahl linear unabhängiger Eigenvektoren. Es gilt: $1 \leq \text{geo} \leq \text{alg}$.</p>
-<h3>Karte C4</h3>
+<h3 id="karte-c4">Karte C4</h3>
 <p><strong>F:</strong> Wann ist $A$ diagonalisierbar?  </p>
 <p><strong>A:</strong> Genau dann, wenn geo. VF = alg. VF für <strong>jeden</strong> Eigenwert. Äquivalent: Es existiert eine Basis aus Eigenvektoren. Äquivalent: Alle Jordan-Blöcke haben Größe 1.</p>
-<h3>Karte C5</h3>
+<h3 id="karte-c5">Karte C5</h3>
 <p><strong>F:</strong> Wie hängen Eigenwerte und Determinante/Spur zusammen?  </p>
 <p><strong>A:</strong> $\det(A) = \prod \lambda_i$ und $\text{Spur}(A) = \sum \lambda_i$.</p>
-<h3>Karte C6</h3>
+<h3 id="karte-c6">Karte C6</h3>
 <p><strong>F:</strong> Was besagt der Defekt bei EW = 0?  </p>
 <p><strong>A:</strong> Hat $A$ den EW $0$ mit alg. VF $m$, dann: $\text{Defekt}(A) = \dim(\ker(A)) = \text{geo. VF}(0)$, mit $1 \leq \text{Defekt} \leq m$.</p>
-<h3>Karte C7</h3>
+<h3 id="karte-c7">Karte C7</h3>
 <p><strong>F:</strong> Wie zeigt man $Mv_i = \lambda_i v_i$ wenn $M = \sum \lambda_k v_k v_k^T$ und $\{v_k\}$ ONS?  </p>
 <p><strong>A:</strong> Einsetzen: $Mv_i = \sum_k \lambda_k v_k (v_k^T v_i)$. Wegen ONS: $v_k^T v_i = \delta_{ki}$. Also bleibt nur $\lambda_i v_i$. <strong>Schlüssel: ONS-Eigenschaft!</strong></p>
 <hr>
-<h2>📦 Block D: Skalarprodukte & Gram-Schmidt</h2>
-<h3>Karte D1</h3>
+<h2 id="block-d-skalarprodukte-gram-schmidt">📦 Block D: Skalarprodukte & Gram-Schmidt</h2>
+<h3 id="karte-d1">Karte D1</h3>
 <p><strong>F:</strong> Nenne die Axiome eines komplexen Skalarprodukts.  </p>
 <p><strong>A:</strong> 1) Hermitesche Symmetrie: $\langle u|v\rangle = \overline{\langle v|u\rangle}$ 2) Antilinear im 1. Argument 3) Linear im 2. Argument 4) Positiv definit: $\langle v|v\rangle > 0$ für $v \neq 0$</p>
-<h3>Karte D2</h3>
+<h3 id="karte-d2">Karte D2</h3>
 <p><strong>F:</strong> Beschreibe den Gram-Schmidt-Algorithmus.  </p>
 <p><strong>A:</strong> Schritt $k$: $\tilde{e}_k = v_k - \sum_{j<k} \langle e_j | v_k \rangle \, e_j$, dann $e_k = \tilde{e}_k / \|\tilde{e}_k\|$. Projektion abziehen → normieren.</p>
-<h3>Karte D3</h3>
+<h3 id="karte-d3">Karte D3</h3>
 <p><strong>F:</strong> Was ist eine Orthogonalprojektion auf $U$?  </p>
 <p><strong>A:</strong> $P_U(v) = \sum_i \langle e_i | v \rangle e_i$ (mit ONB $\{e_i\}$ von $U$). Eigenschaften: $P^2 = P$, $P^* = P$.</p>
-<h3>Karte D4</h3>
+<h3 id="karte-d4">Karte D4</h3>
 <p><strong>F:</strong> Was ist das Integral-Skalarprodukt für komplexe Funktionen?  </p>
 <p><strong>A:</strong> $\langle f | g \rangle = \int_a^b \overline{f(x)} g(x) \, dx$. <strong>Achtung:</strong> Konjugation im 1. Argument!</p>
 <hr>
-<h2>📦 Block E: Jordan-Normalform</h2>
-<h3>Karte E1</h3>
+<h2 id="block-e-jordan-normalform">📦 Block E: Jordan-Normalform</h2>
+<h3 id="karte-e1">Karte E1</h3>
 <p><strong>F:</strong> Was ist ein Jordan-Block $J_k(\lambda)$?  </p>
 <p><strong>A:</strong> $k \times k$-Matrix mit $\lambda$ auf der Diagonale und 1en auf der oberen Nebendiagonale, sonst 0.</p>
-<h3>Karte E2</h3>
+<h3 id="karte-e2">Karte E2</h3>
 <p><strong>F:</strong> Wie liest man das Minimalpolynom aus der JNF ab?  </p>
 <p><strong>A:</strong> $\mu_A(\lambda) = \prod_i (\lambda - \lambda_i)^{s_i}$, wobei $s_i$ = Größe des <strong>größten</strong> Jordan-Blocks zum EW $\lambda_i$.</p>
-<h3>Karte E3</h3>
+<h3 id="karte-e3">Karte E3</h3>
 <p><strong>F:</strong> Wie liest man die geometrische Vielfachheit aus der JNF ab?  </p>
 <p><strong>A:</strong> geo. VF($\lambda$) = <strong>Anzahl</strong> der Jordan-Blöcke zum EW $\lambda$.</p>
-<h3>Karte E4</h3>
+<h3 id="karte-e4">Karte E4</h3>
 <p><strong>F:</strong> Was ist ein Hauptvektor der Stufe $k$?  </p>
 <p><strong>A:</strong> $v$ mit $(A - \lambda I)^k v = 0$ aber $(A - \lambda I)^{k-1} v \neq 0$.</p>
 <hr>
-<h2>📦 Block F: Cayley-Hamilton & Matrixexponential</h2>
-<h3>Karte F1</h3>
+<h2 id="block-f-cayley-hamilton-matrixexponential">📦 Block F: Cayley-Hamilton & Matrixexponential</h2>
+<h3 id="karte-f1">Karte F1</h3>
 <p><strong>F:</strong> Was besagt der Satz von Cayley-Hamilton?  </p>
 <p><strong>A:</strong> Jede Matrix erfüllt ihr eigenes char. Polynom: $\chi_A(A) = 0$.</p>
-<h3>Karte F2</h3>
+<h3 id="karte-f2">Karte F2</h3>
 <p><strong>F:</strong> Was ist das Minimalpolynom und wie hängt es mit $\chi_A$ zusammen?  </p>
 <p><strong>A:</strong> Kleinstes normiertes Polynom $p$ mit $p(A) = 0$. Es teilt $\chi_A$ und hat die gleichen Nullstellen.</p>
-<h3>Karte F3</h3>
+<h3 id="karte-f3">Karte F3</h3>
 <p><strong>F:</strong> Was ist das Matrixexponential?  </p>
 <p><strong>A:</strong> $\exp(A) = \sum_{k=0}^\infty \frac{A^k}{k!} = I + A + \frac{A^2}{2!} + \cdots$</p>
-<h3>Karte F4</h3>
+<h3 id="karte-f4">Karte F4</h3>
 <p><strong>F:</strong> Wie zeigt man $A^m = A$ für idempotentes $A$ per Induktion?  </p>
 <p><strong>A:</strong> IA: $A^1 = A$ ✓. IS: $A^{m+1} = A^m \cdot A = A \cdot A = A^2 = A$ (letzterer Schritt weil $A^2 = A$).</p>
-<h3>Karte F5</h3>
+<h3 id="karte-f5">Karte F5</h3>
 <p><strong>F:</strong> Warum gilt $\exp(A) = I + (e-1)A$ wenn $A^2 = A$?  </p>
 <p><strong>A:</strong> Da $A^k = A$ für $k \geq 1$: $\exp(A) = I + \sum_{k=1}^\infty \frac{A}{k!} = I + A \cdot (e - 1)$.</p>
 <hr>
-<h2>📦 Block G: Isometrien & Spezialmatrizen</h2>
-<h3>Karte G1</h3>
+<h2 id="block-g-isometrien-spezialmatrizen">📦 Block G: Isometrien & Spezialmatrizen</h2>
+<h3 id="karte-g1">Karte G1</h3>
 <p><strong>F:</strong> Wann ist $A$ orthogonal? Was folgt?  </p>
 <p><strong>A:</strong> $A^T A = I$ (also $A^{-1} = A^T$). Folgt: $\det(A) = \pm 1$, Spalten sind ONB, $A$ ist eine Isometrie.</p>
-<h3>Karte G2</h3>
+<h3 id="karte-g2">Karte G2</h3>
 <p><strong>F:</strong> Wann ist eine reelle $A$ sym.? Was ist der Spektralsatz?  </p>
 <p><strong>A:</strong> Symmetrisch: $A = A^T$. Spektralsatz: sym. Matrizen haben nur reelle EW und sind <strong>orthogonal diagonalisierbar</strong>.</p>
-<h3>Karte G3</h3>
+<h3 id="karte-g3">Karte G3</h3>
 <p><strong>F:</strong> Was ist eine Gruppe? Nenne die 4 Axiome.  </p>
 <p><strong>A:</strong> $(G, \circ)$ mit: 1) Abgeschlossenheit 2) Assoziativität 3) Neutrales Element $e$ 4) Inverse existieren.</p>
-<h3>Karte G4</h3>
+<h3 id="karte-g4">Karte G4</h3>
 <p><strong>F:</strong> Was ist der Zusammenhang zwischen Isometrie und Determinante?  </p>
 <p><strong>A:</strong> Isometrie $\Rightarrow |\det(A)| = 1$. Wenn $\det = 1$: Rotation. Wenn $\det = -1$: Spiegelung (nicht notw. orientierungserhaltend!).</p>
 <hr>
-<h2>📦 Block H: Beweistechniken</h2>
-<h3>Karte H1</h3>
+<h2 id="block-h-beweistechniken">📦 Block H: Beweistechniken</h2>
+<h3 id="karte-h1">Karte H1</h3>
 <p><strong>F:</strong> Wie funktioniert vollständige Induktion?  </p>
 <p><strong>A:</strong> 1) <strong>IA:</strong> Zeige Aussage für $n_0$ (Anfang). 2) <strong>IV:</strong> Nimm an, Aussage gilt für $n = m$. 3) <strong>IS:</strong> Zeige Aussage für $n = m+1$ unter Nutzung von IV.</p>
-<h3>Karte H2</h3>
+<h3 id="karte-h2">Karte H2</h3>
 <p><strong>F:</strong> Wie führt man einen Widerspruchsbeweis?  </p>
 <p><strong>A:</strong> Nimm das Gegenteil der Behauptung an. Leite daraus einen Widerspruch (zu Voraussetzung oder bekannter Tatsache) her. Also muss die Behauptung gelten.</p>
-<h3>Karte H3</h3>
+<h3 id="karte-h3">Karte H3</h3>
 <p><strong>F:</strong> Wie zeigt man $U$ ist Unterraum?  </p>
 <p><strong>A:</strong> Zeige 3 Dinge: 1) $0 \in U$ (nicht leer). 2) Abgeschlossen unter Addition. 3) Abgeschlossen unter Skalarmultiplikation.</p>
 <div class="footer">

@@ -12,6 +12,12 @@
 
 ## 2.1 Bild-Kern-Algorithmus
 
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 3, AP 1: Homomorphiesatz und Dimensionsformel](Uebungszettel_Originale.html#aufgabenpaket-1-homomorphiesatz-und-dimensionsformel)
+> - [Übungsblatt 3, AP 2: Bild und Kern berechnen](Uebungszettel_Originale.html#aufgabenpaket-2-bild-und-kern-einer-linearen-abbildung-berechnen)
+> - [Übungsblatt 2, AP 4: Abbildungsmatrix erzeugen](Uebungszettel_Originale.html#aufgabenpaket-4-abbildungsmatrix-erzeugen)
+
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>
@@ -81,6 +87,11 @@ Für $A \in K^{m \times n}$:
 - $A$ bijektiv $\iff$ injektiv und surjektiv $\iff$ $A$ invertierbar (nur bei $m = n$)
 
 ## 2.2 Determinanten
+
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 3, AP 3: Bedeutung von "Determinante = 0"](Uebungszettel_Originale.html#aufgabenpaket-3-bedeutung-von-determinante-0)
+> - [Übungsblatt 4, AP 1: Determinante der Vandermonde-Matrix](Uebungszettel_Originale.html#aufgabenpaket-1-determinante-der-vandermonde-matrix)
 
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>

@@ -16,6 +16,11 @@
 
 ## 5.1 Jordan-Normalform (JNF)
 
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 7, AP 1: Vorbereitungen auf den JNF-Existenzsatz](Uebungszettel_Originale.html#aufgabenpaket-1-vorbereitungen-auf-den-jnf-existenzsatz)
+> - [Übungsblatt 7, AP 4: Berechnung einer Jordan-Normalform](Uebungszettel_Originale.html#aufgabenpaket-4-berechnung-einer-jordan-normalform)
+
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>
@@ -249,6 +254,11 @@ $$(A - \lambda I)^k v = 0 \quad \text{aber} \quad (A - \lambda I)^{k-1} v \neq 0
 
 ## 5.4 Minimalpolynom
 
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 8, AP 1: Nullstellen von Polynomen](Uebungszettel_Originale.html#aufgabenpaket-1-nullstellen-von-polynomen)
+> - [Übungsblatt 8, AP 2: Begleitmatrix eines Polynoms](Uebungszettel_Originale.html#aufgabenpaket-2-begleitmatrix-eines-polynoms)
+
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>
@@ -294,6 +304,10 @@ Man rechnet es meist iterativ aus, indem man Terme hochpotenziert $(A-\lambda I)
 2. Teste ob $p(A) = 0$
 
 ## 5.5 Satz von Cayley-Hamilton
+
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 7, AP 3: Cayley-Hamilton](Uebungszettel_Originale.html#aufgabenpaket-3-cayley-hamilton)
 
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>

@@ -14,6 +14,11 @@
 
 ## 4.1 Skalarprodukte – Axiome
 
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 9, AP 1: Euklidische Räume](Uebungszettel_Originale.html#aufgabenpaket-1-euklidische-raeume)
+> - [Übungsblatt 9, AP 4: Unitäre Vektorräume](Uebungszettel_Originale.html#aufgabenpaket-4-unitaere-vektorraeume)
+
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>
@@ -118,6 +123,10 @@ Es gilt: $V = U \oplus U^\perp$ (direkte Summe)
 
 ## 4.3 Gram-Schmidt-Verfahren – Schritt für Schritt
 
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 6, AP 1: Gram-Schmidt-Verfahren](Uebungszettel_Originale.html#aufgabenpaket-1-gram-schmidt-verfahren)
+
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>
@@ -219,6 +228,11 @@ $$e_2(x) = \frac{\tilde{e}_2}{\|\tilde{e}_2\|} = \frac{i(x - \frac{1}{2})}{\frac
 **Probe:** $\langle e_1 | e_2 \rangle = \int_0^1 1 \cdot 2\sqrt{3} \, i(x - \frac{1}{2}) \, dx = 2\sqrt{3} i \int_0^1 (x - \frac{1}{2}) \, dx = 2\sqrt{3} i \cdot 0 = 0$ ✓
 
 ## 4.5 Projektionsoperatoren
+
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 5, AP 4: Galerkin-Projektion](Uebungszettel_Originale.html#aufgabenpaket-4-galerkin-projektion)
+> - [Übungsblatt 6, AP 2: Projektionsabbildung](Uebungszettel_Originale.html#aufgabenpaket-2-projektionsabbildung)
 
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>

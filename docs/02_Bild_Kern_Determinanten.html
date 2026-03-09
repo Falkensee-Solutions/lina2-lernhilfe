@@ -251,16 +251,17 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1>2. Lineare Abbildungen, Bild-Kern & Determinanten</h1>
+<h1 id="2-lineare-abbildungen-bild-kern-determinanten">2. Lineare Abbildungen, Bild-Kern & Determinanten</h1>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Stell dir eine Matrix als Maschine vor: Du steckst einen Vektor rein und bekommst einen anderen raus. Das <strong>Bild</strong> ist alles, was aus der Maschine rauskommen kann – also die Menge aller möglichen Ergebnisse. Der <strong>Kern</strong> hingegen ist die Menge aller Vektoren, die die Maschine zu Null macht. Wenn der Kern nur aus dem Nullvektor besteht, geht keine Information verloren und die Abbildung ist injektiv.</p><p>Das Berechnen von Bild und Kern läuft immer gleich: Du bringst die Matrix mit Gauß auf Zeilenstufenform. Die Pivotspalten verraten dir das Bild, die freien Variablen den Kern. Der <strong>Rangsatz</strong> garantiert dabei, dass sich die Spaltenanzahl immer sauber in Rang (Dimension des Bildes) und Defekt (Dimension des Kerns) aufteilt.</p><p><strong>Determinanten</strong> sind eine einzige Zahl, die einer quadratischen Matrix zugeordnet wird – und diese Zahl enthält überraschend viel Information. Ist sie Null, ist die Matrix nicht invertierbar und das zugehörige Gleichungssystem hat entweder keine oder unendlich viele Lösungen. Ist sie ungleich Null, ist alles eindeutig lösbar. Geometrisch beschreibt der Betrag der Determinante, wie stark die Matrix Volumina verzerrt, und das Vorzeichen sagt dir, ob die Orientierung erhalten bleibt oder gespiegelt wird.</p><p><strong>Für die Nachklausur:</strong> Die Determinante kam in der Klausur bei Aufgabe 1.6–1.8 vor – dort musst du sie aus der Jordan-Normalform ablesen können. Übe die Laplace-Entwicklung und lerne die Rechenregeln (Produktregel, Transposition, Skalierung) wirklich auswendig. Der Bild-Kern-Algorithmus ist dein Schweizer Taschenmesser für fast jede Aufgabe.</p></div>
-<h2>2.1 Bild-Kern-Algorithmus</h2>
+<h2 id="2-1-bild-kern-algorithmus">2.1 Bild-Kern-Algorithmus</h2>
+<blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-homomorphiesatz-und-dimensionsformel">Übungsblatt 3, AP 1: Homomorphiesatz und Dimensionsformel</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-2-bild-und-kern-einer-linearen-abbildung-berechnen">Übungsblatt 3, AP 2: Bild und Kern berechnen</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-4-abbildungsmatrix-erzeugen">Übungsblatt 2, AP 4: Abbildungsmatrix erzeugen</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Dieser Algorithmus ist die praktische Umsetzung des Homomorphiesatzes. Du schaust, was nach der Abbildung real 'übrig bleibt' (Bild) und was durch die Skalierung 'getötet' wird (Kern).</p>
 <p></blockquote></p>
 </details>
-<h3>Kern (Nullraum)</h3>
+<h3 id="kern-nullraum">Kern (Nullraum)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -274,7 +275,7 @@ MathJax = {
 <li>Löse das homogene LGS $Ax = 0$</li>
 <li>Die freien Variablen parametrisieren den Kern</li>
 </ol>
-<h3>Bild (Spaltenraum)</h3>
+<h3 id="bild-spaltenraum">Bild (Spaltenraum)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -287,7 +288,7 @@ MathJax = {
 <li>Bringe $A$ auf Zeilenstufenform</li>
 <li>Die Spalten von $A$ (Original!), die Pivotspalten entsprechen, bilden eine Basis des Bildes</li>
 </ol>
-<h3>Rang einer Matrix</h3>
+<h3 id="rang-einer-matrix">Rang einer Matrix</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -295,7 +296,7 @@ MathJax = {
 <p></blockquote></p>
 </details>
 <p>$$\text{Rang}(A) = \dim(\text{Bild}(A)) = \text{Anzahl der Pivotspalten}$$</p>
-<h3>Zusammenfassung der Zusammenhänge</h3>
+<h3 id="zusammenfassung-der-zusammenhaenge">Zusammenfassung der Zusammenhänge</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -311,14 +312,15 @@ MathJax = {
 <li>$A$ surjektiv $\iff \text{Bild}(A) = K^m$</li>
 <li>$A$ bijektiv $\iff$ injektiv und surjektiv $\iff$ $A$ invertierbar (nur bei $m = n$)</li>
 </ul>
-<h2>2.2 Determinanten</h2>
+<h2 id="2-2-determinanten">2.2 Determinanten</h2>
+<blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-3-bedeutung-von-determinante-0">Übungsblatt 3, AP 3: Bedeutung von "Determinante = 0"</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-determinante-der-vandermonde-matrix">Übungsblatt 4, AP 1: Determinante der Vandermonde-Matrix</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Die Determinante ist der Volumen-Faktor! Eine Det=2 bedeutet: Jedes Quadrat wird nach Transformation doppelt so groß. Det=0 bedeutet: Der Raum wurde so flachgedrückt, dass kein Volumen mehr bleibt (nicht umkehrbar).</p>
 <p></blockquote></p>
 </details>
-<h3>Definition (Leibniz-Formel)</h3>
+<h3 id="definition-leibniz-formel">Definition (Leibniz-Formel)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -326,7 +328,7 @@ MathJax = {
 <p></blockquote></p>
 </details>
 <p>$$\det(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma(i)}$$</p>
-<h3>Rechenregeln (AUSWENDIG LERNEN!)</h3>
+<h3 id="rechenregeln-auswendig-lernen">Rechenregeln (AUSWENDIG LERNEN!)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -342,7 +344,7 @@ MathJax = {
 <tr><td>Dreiecksmatrix</td><td>$\det(A) = \prod_{i=1}^{n} a_{ii}$ (Produkt der Diagonaleinträge)</td></tr>
 <tr><td>Ähnlichkeit</td><td>$\det(SAS^{-1}) = \det(A)$</td></tr>
 </table>
-<h3>Laplace-Entwicklung</h3>
+<h3 id="laplace-entwicklung">Laplace-Entwicklung</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -353,7 +355,7 @@ MathJax = {
 <p>$$\det(A) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(A_{ij})$$</p>
 <p>wobei $A_{ij}$ die Matrix ohne $i$-te Zeile und $j$-te Spalte ist.</p>
 <blockquote><p><strong>Tipp:</strong> Entwickle nach Zeile/Spalte mit den meisten Nullen!</p></blockquote>
-<h3>Geometrische Bedeutung</h3>
+<h3 id="geometrische-bedeutung">Geometrische Bedeutung</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -367,14 +369,14 @@ MathJax = {
 <li>$|\det(A)| = 1$: volumentreu</li>
 </ul>
 <blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 1.6-1.8):</strong><br>- $\det(A) = \det(VJV^{-1}) = \det(V)\det(J)\det(V^{-1}) = \det(J)$<br>- Volumentreu $\iff |\det(A)| = 1$<br>- Orientierungserhaltend $\iff \det(A) > 0$</p></blockquote>
-<h2>2.3 LGS-Theorie</h2>
+<h2 id="2-3-lgs-theorie">2.3 LGS-Theorie</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Hier fließen Analysis und Algebra zusammen. Wie löst man Probleme, die eigentlich nicht perfekt lösbar sind? Mit partikulärer Lösung plus Freiheitsgraden (dem Kern).</p>
 <p></blockquote></p>
 </details>
-<h3>Lösungsstruktur von $Ax = b$</h3>
+<h3 id="loesungsstruktur-von-ax-b">Lösungsstruktur von $Ax = b$</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -387,7 +389,7 @@ MathJax = {
 <li>Lösbar $\iff b \in \text{Bild}(A)$</li>
 <li><strong>Eindeutig lösbar</strong> $\iff$ lösbar und $\ker(A) = \{0\}$</li>
 </ul>
-<h3>Gauß-Algorithmus</h3>
+<h3 id="gauss-algorithmus">Gauß-Algorithmus</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>

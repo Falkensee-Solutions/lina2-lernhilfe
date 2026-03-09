@@ -251,16 +251,16 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1>6. Bilinearformen, Orthogonalität, Isometrien & Gruppentheorie</h1>
+<h1 id="6-bilinearformen-orthogonalitaet-isometrien-gruppentheorie">6. Bilinearformen, Orthogonalität, Isometrien & Gruppentheorie</h1>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>In diesem Kapitel kommen mehrere Themen zusammen, die auf den ersten Blick unterschiedlich wirken, aber alle mit der Frage zu tun haben: Wie misst man Geometrie in Vektorräumen, und welche Abbildungen erhalten diese Geometrie?</p><p>Eine <strong>Bilinearform</strong> ist wie ein verallgemeinertes Skalarprodukt – eine Funktion, die zwei Vektoren nimmt und eine Zahl zurückgibt, und die in beiden Argumenten linear ist. Im Komplexen heißt das Ganze <strong>Sesquilinearform</strong>, weil es im ersten Argument „anderthalblinear" (anti-linear) ist. Jede Bilinearform lässt sich durch eine Matrix $G$ darstellen: $\beta(v, w) = v^T G w$. Die <strong>Signatur</strong> von $G$ (wie viele positive, negative und Null-Eigenwerte sie hat) ist eine Invariante – sie ändert sich nicht, egal welche Basis du wählst.</p><p><strong>Adjungiertheit</strong> ist ein Konzept, bei dem du fragst: Wenn ich eine Matrix $A$ auf der linken Seite eines Skalarprodukts habe, welche Matrix $A^*$ muss ich auf die rechte Seite schreiben, damit der Wert gleich bleibt? Im Reellen ist das einfach die Transponierte, im Komplexen die konjugiert-Transponierte. Daraus ergeben sich wichtige Matrixklassen: <strong>selbstadjungierte</strong> Matrizen (alle Eigenwerte reell), <strong>orthogonale</strong> Matrizen (erhalten Längen und Winkel) und <strong>unitäre</strong> Matrizen (die komplexe Version davon).</p><p><strong>Isometrien</strong> sind Abbildungen, die alle Abstände erhalten – sie verzerren den Raum nicht. Orthogonale Matrizen sind genau die Isometrien des $\mathbb{R}^n$: entweder Drehungen (Determinante $+1$) oder Spiegelungen (Determinante $-1$). Die Menge aller solchen Matrizen bildet eine <strong>Gruppe</strong> – das heißt, du kannst sie hintereinander ausführen und jede rückgängig machen, und das Ergebnis ist wieder eine Isometrie.</p><p><strong>Für die Nachklausur:</strong> Dieses Kapitel ist hinter den Kulissen überall präsent. In der Klausur kam die Frage, ob eine Matrix symmetrisch sein kann (Aufgabe 1.9) – dafür brauchst du den <strong>Spektralsatz</strong>: symmetrische Matrizen sind diagonalisierbar. Die Gruppentheorie-Grundlagen (Definition einer Gruppe, Untergruppe, wichtige Beispiele wie $GL(n)$, $O(n)$, $SO(n)$) solltest du kennen – mindestens die Definitionen.</p></div>
-<h2>6.1 Bilinearformen</h2>
+<h2 id="6-1-bilinearformen">6.1 Bilinearformen</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Denk an Bilinearformen als ein verallgemeinertes Skalarprodukt. Eine Maschine, die zwei Vektoren als Input frisst und dir dazu passend genau einen reellen Wert/Skalar ausspuckt.</p>
 <p></blockquote></p>
 </details>
-<h3>Definition</h3>
+<h3 id="definition">Definition</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -272,7 +272,7 @@ MathJax = {
 <li>$\beta(\alpha u + \beta v, w) = \alpha \beta(u, w) + \beta \beta(v, w)$</li>
 <li>$\beta(u, \alpha v + \beta w) = \alpha \beta(u, v) + \beta \beta(u, w)$</li>
 </ul>
-<h3>Sesquilinearform (Halbilinearform)</h3>
+<h3 id="sesquilinearform-halbilinearform">Sesquilinearform (Halbilinearform)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -282,7 +282,7 @@ MathJax = {
 <p>Im Komplexen: $\sigma: V \times V \to \mathbb{C}$ ist linear im 2. Argument, <strong>antilinear</strong> im 1.:</p>
 <p>$$\sigma(\alpha u, v) = \overline{\alpha} \, \sigma(u, v)$$</p>
 <p>Ein komplexes Skalarprodukt ist eine <strong>positiv definite hermitesche Sesquilinearform</strong>.</p>
-<h3>Darstellungsmatrix</h3>
+<h3 id="darstellungsmatrix">Darstellungsmatrix</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -292,7 +292,7 @@ MathJax = {
 <p>Bzgl. einer Basis $B = (b_1, \ldots, b_n)$:</p>
 <p>$$G_{ij} = \beta(b_i, b_j)$$</p>
 <p>Dann: $\beta(v, w) = [v]_B^T \cdot G \cdot [w]_B$</p>
-<h3>Symmetrie/Antisymmetrie</h3>
+<h3 id="symmetrie-antisymmetrie">Symmetrie/Antisymmetrie</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -303,7 +303,7 @@ MathJax = {
 <li><strong>Symmetrisch:</strong> $\beta(u, v) = \beta(v, u)$ $\iff$ $G = G^T$</li>
 <li><strong>Antisymmetrisch:</strong> $\beta(u, v) = -\beta(v, u)$ $\iff$ $G = -G^T$</li>
 </ul>
-<h2>6.2 Quadratische Formen</h2>
+<h2 id="6-2-quadratische-formen">6.2 Quadratische Formen</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -311,7 +311,7 @@ MathJax = {
 <p></blockquote></p>
 </details>
 <p>$$q(v) = \beta(v, v) = v^T G v$$</p>
-<h3>Signatur</h3>
+<h3 id="signatur">Signatur</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -325,7 +325,7 @@ MathJax = {
 <li>$r$ = Anzahl Null-Eigenwerte von $G$</li>
 </ul>
 <p><strong>Trägheitssatz von Sylvester:</strong> Die Signatur ist eine Invariante (unabhängig von der Basis).</p>
-<h2>6.3 Adjungiertheit</h2>
+<h2 id="6-3-adjungiertheit">6.3 Adjungiertheit</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -333,7 +333,7 @@ MathJax = {
 <p>ightarrow A^T$.</p>
 <p></blockquote></p>
 </details>
-<h3>Definition</h3>
+<h3 id="definition">Definition</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -342,7 +342,7 @@ MathJax = {
 </details>
 <p>$A^*$ heißt <strong>Adjungierte</strong> von $A$ bzgl. $\langle \cdot | \cdot \rangle$, wenn:</p>
 <p>$$\langle Av | w \rangle = \langle v | A^* w \rangle \quad \text{für alle } v, w$$</p>
-<h3>Konkret</h3>
+<h3 id="konkret">Konkret</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -353,7 +353,7 @@ MathJax = {
 <li><strong>Reell</strong> mit Standard-SP: $A^* = A^T$</li>
 <li><strong>Komplex</strong> mit Standard-SP: $A^* = \overline{A}^T$ (konjugiert-transponiert)</li>
 </ul>
-<h3>Spezialmatrizen</h3>
+<h3 id="spezialmatrizen">Spezialmatrizen</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -368,14 +368,14 @@ MathJax = {
 <tr><td>Orthogonal</td><td>$A^T A = I$</td><td>$</td><td>{\lambda_i}</td><td>= 1$</td></tr>
 <tr><td>Unitär</td><td>$A^* A = I$</td><td>$</td><td>{\lambda_i}</td><td>= 1$</td></tr>
 </table>
-<h2>6.4 Trigonalisierbarkeit</h2>
+<h2 id="6-4-trigonalisierbarkeit">6.4 Trigonalisierbarkeit</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Wenn Diagonalisieren scheitert (wie z.B. bei reinen Rotationsmatrizen, die keine reellen EW haben), formen wir in den komplexen Zahlen wenigstens eine hübsche obere Dreiecksmatrix.</p>
 <p></blockquote></p>
 </details>
-<h3>Satz</h3>
+<h3 id="satz">Satz</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -384,7 +384,7 @@ MathJax = {
 </details>
 <p>Jede Matrix $A \in \mathbb{C}^{n \times n}$ ist <strong>trigonalisierbar</strong>, d.h. es gibt eine unitäre Matrix $U$ mit:</p>
 <p>$$U^* A U = T \quad \text{(obere Dreiecksmatrix)}$$</p>
-<h3>Schur-Zerlegung</h3>
+<h3 id="schur-zerlegung">Schur-Zerlegung</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -394,14 +394,14 @@ MathJax = {
 <p>Für <strong>normale</strong> Matrizen ($A^<em>A = AA^</em>$) ist die Schur-Zerlegung eine Diagonalisierung:</p>
 <p>$$U^* A U = D$$</p>
 <blockquote><p><strong>Spektralsatz:</strong> Selbstadjungierte (= hermitesche) Matrizen sind <strong>unitär diagonalisierbar</strong> mit <strong>reellen</strong> Eigenwerten.</p></blockquote>
-<h2>6.5 Isometrien</h2>
+<h2 id="6-5-isometrien">6.5 Isometrien</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Transformationen absoluter Unveränderlichkeit! Weder stauchen noch strecken sie den Raum. Abstände zwischen Objektpunkten bleiben beim Bewegen erhalten.</p>
 <p></blockquote></p>
 </details>
-<h3>Definition</h3>
+<h3 id="definition">Definition</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -411,7 +411,7 @@ MathJax = {
 <p>$A$ ist eine <strong>Isometrie</strong>, wenn sie Abstände erhält:</p>
 <p>$$\|Av\| = \|v\| \quad \text{für alle } v$$</p>
 <p>Äquivalent: $\langle Av | Aw \rangle = \langle v | w \rangle$ für alle $v, w$</p>
-<h3>Orthogonale Matrizen ($\mathbb{R}^n$)</h3>
+<h3 id="orthogonale-matrizen-mathbb-r-n">Orthogonale Matrizen ($\mathbb{R}^n$)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -426,7 +426,7 @@ MathJax = {
 <li>$\det(A) = 1$: <strong>Rotation</strong> (spezielle orthogonale Gruppe $SO(n)$)</li>
 <li>$\det(A) = -1$: <strong>Spiegelung</strong> (oder Drehspiegelung)</li>
 </ul>
-<h3>Unitäre Matrizen ($\mathbb{C}^n$)</h3>
+<h3 id="unitaere-matrizen-mathbb-c-n">Unitäre Matrizen ($\mathbb{C}^n$)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -434,14 +434,15 @@ MathJax = {
 <p></blockquote></p>
 </details>
 <p>$A$ unitär $\iff A^<em> A = I \iff A^{-1} = A^</em>$</p>
-<h2>6.6 Grundlagen der Gruppentheorie</h2>
+<h2 id="6-6-grundlagen-der-gruppentheorie">6.6 Grundlagen der Gruppentheorie</h2>
+<blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-3-symmetriegruppe-aufstellen">Übungsblatt 8, AP 3: Symmetriegruppe aufstellen</a><br>- <a href="Uebungszettel_Originale.html#uebungsblatt-10-untergruppen-von-automorphismen">Übungsblatt 10: Untergruppen von Automorphismen</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Muss man für die Klausur einordnen können! Gruppen sind abgeschottete Welten (Mengen) mit einer Verknüpfung, aus der man nie zufällig 'herausrechnen' kann (Abgeschlossenheit).</p>
 <p></blockquote></p>
 </details>
-<h3>Gruppe</h3>
+<h3 id="gruppe">Gruppe</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -456,7 +457,7 @@ MathJax = {
 <li><strong>Inverses Element:</strong> $\forall a \in G \, \exists a^{-1} \in G: a \circ a^{-1} = e$</li>
 </ol>
 <p><strong>Abelsch:</strong> Wenn zusätzlich $a \circ b = b \circ a$ (kommutativ)</p>
-<h3>Wichtige Beispiele</h3>
+<h3 id="wichtige-beispiele">Wichtige Beispiele</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -471,7 +472,7 @@ MathJax = {
 <li>$U(n)$: unitäre Matrizen</li>
 <li>$S_n$: Permutationsgruppe (symmetrische Gruppe)</li>
 </ul>
-<h3>Untergruppen</h3>
+<h3 id="untergruppen">Untergruppen</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -484,7 +485,7 @@ MathJax = {
 <li>$a, b \in H \Rightarrow a \circ b \in H$</li>
 <li>$a \in H \Rightarrow a^{-1} \in H$</li>
 </ol>
-<h3>Körper</h3>
+<h3 id="koerper">Körper</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -498,7 +499,7 @@ MathJax = {
 <li>Distributivgesetz gilt</li>
 </ul>
 <p>Beispiele: $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$, $\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$ (endliche Körper)</p>
-<h2>6.7 Reversibilität</h2>
+<h2 id="6-7-reversibilitaet">6.7 Reversibilität</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>

@@ -251,17 +251,18 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1>3. Eigenwerte, Eigenvektoren & Diagonalisierung</h1>
+<h1 id="3-eigenwerte-eigenvektoren-diagonalisierung">3. Eigenwerte, Eigenvektoren & Diagonalisierung</h1>
 <blockquote><p>⚡ <strong>PRIORITÄT 1 – Hier hast du 19/20 Punkte verloren (Aufgabe 2)!</strong></p></blockquote>
 <div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Eigenwerte und Eigenvektoren sind eines der wichtigsten Konzepte der gesamten linearen Algebra – und gleichzeitig das Thema, das in deiner Klausur am schlechtesten lief. Aber die Grundidee ist gar nicht so kompliziert: Ein <strong>Eigenvektor</strong> ist ein Vektor, der durch eine Matrix nicht seine Richtung ändert, sondern nur gestreckt oder gestaucht wird. Der Faktor, um den er gestreckt wird, heißt <strong>Eigenwert</strong>. Wenn du zum Beispiel eine Spiegelungsmatrix hast, dann bleibt ein Vektor, der genau auf der Spiegelachse liegt, unverändert – er hat den Eigenwert 1. Ein Vektor senkrecht dazu wird umgeklappt – er hat den Eigenwert −1.</p><p>Eigenwerte findest du, indem du das <strong>charakteristische Polynom</strong> berechnest – das ist $\det(A - \lambda I)$ – und dessen Nullstellen bestimmst. Der Kniff ist, dass jede Nullstelle ein Eigenwert ist. Für jeden Eigenwert berechnest du dann den <strong>Eigenraum</strong>, also die Menge aller zugehörigen Eigenvektoren, indem du den Kern von $(A - \lambda I)$ bestimmst.</p><p>Die große Frage ist dann: Kann man eine Basis finden, die nur aus Eigenvektoren besteht? Wenn ja, ist die Matrix <strong>diagonalisierbar</strong> – und das vereinfacht alles enorm, weil eine Diagonalmatrix trivial zu potenzieren ist. Ob das klappt, hängt davon ab, ob für jeden Eigenwert genug linear unabhängige Eigenvektoren existieren. Dafür vergleichst du die <strong>algebraische Vielfachheit</strong> (wie oft der Eigenwert als Nullstelle im char. Polynom vorkommt) mit der <strong>geometrischen Vielfachheit</strong> (Dimension des Eigenraums). Stimmen beide überein, ist die Matrix diagonalisierbar.</p><p><strong>Für die Nachklausur:</strong> In der Klausur solltest du zeigen, dass gewisse Vektoren Eigenvektoren sind, und den Defekt einer Matrix bestimmen. Übe insbesondere den Beweis, dass bei einer Matrix $M = \lambda_1 v_1 v_1^T + \ldots$ die $v_i$ tatsächlich Eigenvektoren sind – genau das kam dran!</p></div>
-<h2>3.1 Grundbegriffe</h2>
+<h2 id="3-1-grundbegriffe">3.1 Grundbegriffe</h2>
+<blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-2-eigenschaften-einer-linearen-abbildung-aus-der-matrix-ablesen">Übungsblatt 4, AP 2: Eigenschaften aus Matrix ablesen</a><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-3-berechnung-von-eigenraeumen">Übungsblatt 4, AP 3: Berechnung von Eigenräumen</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Beim Konzept Eigenwert gehen wir auf die Suche nach dem Einfachen: Welche Vektoren werden von der Matrix nicht aus der Bahn geworfen, sondern behalten stoisch ihre Richtung und werden lediglich skaliert?</p>
 <p></blockquote></p>
 </details>
-<h3>Eigenwert & Eigenvektor</h3>
+<h3 id="eigenwert-eigenvektor">Eigenwert & Eigenvektor</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -270,7 +271,7 @@ MathJax = {
 </details>
 <p>$\lambda \in K$ ist <strong>Eigenwert</strong> von $A$ und $v \neq 0$ ist <strong>Eigenvektor</strong> zum Eigenwert $\lambda$, wenn:</p>
 <p>$$Av = \lambda v$$</p>
-<h3>Eigenraum</h3>
+<h3 id="eigenraum">Eigenraum</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -279,7 +280,7 @@ MathJax = {
 </details>
 <p>$$E_\lambda = \ker(A - \lambda I) = \{v \in V \mid Av = \lambda v\}$$</p>
 <p>Der Eigenraum ist immer ein <strong>Unterraum</strong> von $V$.</p>
-<h3>Charakteristisches Polynom</h3>
+<h3 id="charakteristisches-polynom">Charakteristisches Polynom</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -289,14 +290,14 @@ MathJax = {
 <p>$$\chi_A(\lambda) = \det(A - \lambda I)$$</p>
 <p>Die Eigenwerte sind genau die <strong>Nullstellen</strong> von $\chi_A$.</p>
 <blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 1.1):</strong> Bei Jordan-Normalform $J$ kann man $\chi_A$ direkt ablesen!<br>Wenn $J$ die Diagonaleinträge $\lambda_1, \ldots, \lambda_n$ hat:<br>$$\chi_A(\lambda) = \prod_{i=1}^{n} (\lambda_i - \lambda)$$</p></blockquote>
-<h2>3.2 Algebraische vs. Geometrische Vielfachheit</h2>
+<h2 id="3-2-algebraische-vs-geometrische-vielfachheit">3.2 Algebraische vs. Geometrische Vielfachheit</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
 <p>Ein klassisches Prüfung-Stolperbeispiel. Algebraisch = 'Wie oft taucht die Lösung rechnerisch im Term auf?'. Geometrisch = 'Wie viele echte linear unabhängige Vektoren bekomme ich dafür tatsächlich raus?'.</p>
 <p></blockquote></p>
 </details>
-<h3>Algebraische Vielfachheit (alg. VF)</h3>
+<h3 id="algebraische-vielfachheit-alg-vf">Algebraische Vielfachheit (alg. VF)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -305,7 +306,7 @@ MathJax = {
 </details>
 <p>= Vielfachheit von $\lambda$ als Nullstelle von $\chi_A$</p>
 <p><strong>Beispiel:</strong> $\chi_A(\lambda) = (\lambda - 2)^3(\lambda + 1)^2$ → alg. VF von 2 ist <strong>3</strong>, alg. VF von -1 ist <strong>2</strong></p>
-<h3>Geometrische Vielfachheit (geo. VF)</h3>
+<h3 id="geometrische-vielfachheit-geo-vf">Geometrische Vielfachheit (geo. VF)</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -314,7 +315,7 @@ MathJax = {
 </details>
 <p>$$\text{geo. VF}(\lambda) = \dim(\ker(A - \lambda I)) = \dim(E_\lambda)$$</p>
 <p>= Anzahl der linear unabhängigen Eigenvektoren zum Eigenwert $\lambda$</p>
-<h3>Fundamentale Ungleichung</h3>
+<h3 id="fundamentale-ungleichung">Fundamentale Ungleichung</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -323,7 +324,8 @@ MathJax = {
 </details>
 <p>$$1 \leq \text{geo. VF}(\lambda) \leq \text{alg. VF}(\lambda)$$</p>
 <blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 1.4):</strong> Bei JNF:<br>- geo. VF = Anzahl der Jordan-Blöcke zum Eigenwert $\lambda$<br>- alg. VF = Summe der Größen aller Jordan-Blöcke zum Eigenwert $\lambda$</p></blockquote>
-<h2>3.3 Diagonalisierbarkeit</h2>
+<h2 id="3-3-diagonalisierbarkeit">3.3 Diagonalisierbarkeit</h2>
+<blockquote><p>🔗 <strong>Zugehörige Übungen:</strong><br>- <a href="Uebungszettel_Originale.html#aufgabenpaket-1-ergaenzung-einer-eigenraumbasis">Übungsblatt 5, AP 1: Ergänzung einer Eigenraumbasis</a></p></blockquote>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -338,7 +340,7 @@ MathJax = {
 <li>Das Minimalpolynom hat nur einfache Nullstellen</li>
 </ol>
 <blockquote><p><strong>Achtung:</strong> Eine Matrix <strong>kann</strong> diagonalisierbar sein, auch wenn Eigenwerte mehrfache algebraische Vielfachheit haben! Entscheidend ist: geo = alg für jeden EW.</p></blockquote>
-<h3>Diagonalisieren: Algorithmus</h3>
+<h3 id="diagonalisieren-algorithmus">Diagonalisieren: Algorithmus</h3>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -352,7 +354,7 @@ MathJax = {
 <li>Wenn ja: $S = (v_1 | \cdots | v_n)$ (Eigenvektoren als Spalten)</li>
 <li>Dann: $A = S \cdot D \cdot S^{-1}$ mit $D = \text{diag}(\lambda_1, \ldots, \lambda_n)$</li>
 </ol>
-<h2>3.4 Defekt einer Matrix</h2>
+<h2 id="3-4-defekt-einer-matrix">3.4 Defekt einer Matrix</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -361,7 +363,7 @@ MathJax = {
 </details>
 <p>$$\text{Defekt}(A) = \dim(\ker(A)) = n - \text{Rang}(A)$$</p>
 <blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 2.2):</strong><br>Hat $A$ den Eigenwert $\lambda = 0$ mit algebraischer Vielfachheit $m \geq 1$, dann:<br>- $\text{Defekt}(A) = \dim(\ker(A)) = \text{geo. VF}(0)$<br>- Es gilt: $1 \leq \text{geo. VF}(0) \leq m$<br>- Also: $1 \leq \text{Defekt}(A) \leq m$<br>- Genauer: $\text{Rang}(A) = n - \text{Defekt}(A)$, also $n - m \leq \text{Rang}(A) \leq n - 1$</p></blockquote>
-<h2>3.5 Beweis zu ONS und Eigenwerten (Klausuraufgabe 2.1!)</h2>
+<h2 id="3-5-beweis-zu-ons-und-eigenwerten-klausuraufgabe-2-1">3.5 Beweis zu ONS und Eigenwerten (Klausuraufgabe 2.1!)</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>
@@ -377,7 +379,7 @@ MathJax = {
 <p><strong>Schlüssel:</strong> Die ONS-Eigenschaft $v_i^T v_j = \delta_{ij}$ (Kronecker-Delta) ist <strong>der</strong> entscheidende Trick!</p>
 <p>Analog für $v_2$ und $v_3$. $\square$</p>
 <blockquote><p><strong>Merke:</strong> Das Produkt $v v^T$ (äußeres Produkt) ist eine $n \times n$-Matrix (Rang 1), die auf den Unterraum $\text{span}(v)$ projiziert! So eine Matrix heißt <strong>Projektionsmatrix</strong> (bis auf Normierung).</p></blockquote>
-<h2>3.6 Zusammenhang: Eigenwerte und Matrixeigenschaften</h2>
+<h2 id="3-6-zusammenhang-eigenwerte-und-matrixeigenschaften">3.6 Zusammenhang: Eigenwerte und Matrixeigenschaften</h2>
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <p><blockquote></p>

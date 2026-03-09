@@ -251,11 +251,11 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1>Übungsaufgaben mit Lösungshinweisen</h1>
+<h1 id="uebungsaufgaben-mit-loesungshinweisen">Übungsaufgaben mit Lösungshinweisen</h1>
 <blockquote><p>Bearbeite jede Aufgabe selbständig, bevor du die Hinweise liest!<br>Die Aufgaben sind nach Klausurrelevanz sortiert.</p></blockquote>
 <hr>
-<h2>⚡ Aufgabenblock 1: Eigenwerte & Beweise (wie Klausuraufgabe 2)</h2>
-<h3>Aufgabe 1.1 – ONS und Eigenwerte</h3>
+<h2 id="aufgabenblock-1-eigenwerte-beweise-wie-klausuraufgabe-2">⚡ Aufgabenblock 1: Eigenwerte & Beweise (wie Klausuraufgabe 2)</h2>
+<h3 id="aufgabe-1-1-ons-und-eigenwerte">Aufgabe 1.1 – ONS und Eigenwerte</h3>
 <p>Gegeben: $v_1 = \frac{1}{\sqrt{2}}\binom{1}{1}$, $v_2 = \frac{1}{\sqrt{2}}\binom{1}{-1}$ (ONS in $\mathbb{R}^2$) und $M = 3 v_1 v_1^T + 5 v_2 v_2^T$.</p>
 <p>a) Zeige: $Mv_1 = 3v_1$ und $Mv_2 = 5v_2$.  </p>
 <p>b) Berechne $M$ explizit als $2 \times 2$-Matrix.  </p>
@@ -270,7 +270,7 @@ MathJax = {
 <p>c) Ja, denn $v_1, v_2$ sind linear unabhängig und bilden eine Basis aus Eigenvektoren. Alternativ: $M$ ist symmetrisch ($M = M^T$), also nach Spektralsatz diagonalisierbar.</p>
 </details>
 <hr>
-<h3>Aufgabe 1.2 – Defekt und Rang</h3>
+<h3 id="aufgabe-1-2-defekt-und-rang">Aufgabe 1.2 – Defekt und Rang</h3>
 <p>Gegeben: $A \in \mathbb{R}^{4 \times 4}$ mit $\chi_A(\lambda) = \lambda^2(\lambda - 3)(\lambda + 1)$.</p>
 <p>a) Welche Eigenwerte hat $A$? Gib die algebraischen Vielfachheiten an.  </p>
 <p>b) Was kannst du über den Defekt von $A$ sagen?  </p>
@@ -286,7 +286,7 @@ MathJax = {
 <p>d) Nein! $\lambda = 0$ ist Eigenwert, also $\det(A) = 0 \cdot 0 \cdot 3 \cdot (-1) = 0$.</p>
 </details>
 <hr>
-<h3>Aufgabe 1.3 – Symmetrische Matrix und Diagonalisierbarkeit</h3>
+<h3 id="aufgabe-1-3-symmetrische-matrix-und-diagonalisierbarkeit">Aufgabe 1.3 – Symmetrische Matrix und Diagonalisierbarkeit</h3>
 <p>Zeige: Wenn $A \in \mathbb{R}^{n \times n}$ einen Jordan-Block der Größe $k \geq 2$ besitzt, dann ist $A$ <strong>nicht</strong> symmetrisch.</p>
 <p><strong>Hinweis:</strong> Was weißt du über die Diagonalisierbarkeit symmetrischer Matrizen (Spektralsatz)?</p>
 <details>
@@ -294,8 +294,8 @@ MathJax = {
 <p>Angenommen $A$ wäre symmetrisch. Dann ist $A$ nach dem Spektralsatz (reell, orthogonal) diagonalisierbar. D.h. alle Jordan-Blöcke haben Größe 1. Widerspruch zu der Annahme, dass ein Block Größe $k \geq 2$ hat. Also kann $A$ nicht symmetrisch sein. $\square$</p>
 </details>
 <hr>
-<h2>⚡ Aufgabenblock 2: Gram-Schmidt (wie Klausuraufgabe 3)</h2>
-<h3>Aufgabe 2.1 – GS im Reellen</h3>
+<h2 id="aufgabenblock-2-gram-schmidt-wie-klausuraufgabe-3">⚡ Aufgabenblock 2: Gram-Schmidt (wie Klausuraufgabe 3)</h2>
+<h3 id="aufgabe-2-1-gs-im-reellen">Aufgabe 2.1 – GS im Reellen</h3>
 <p>Wende Gram-Schmidt auf $v_1 = (1, 1, 0)^T$ und $v_2 = (1, 0, 1)^T$ an (Standard-Skalarprodukt in $\mathbb{R}^3$).</p>
 <p><strong>Hinweis:</strong> Schritt 1: Normiere $v_1$. Schritt 2: Orthogonalisiere $v_2$ bzgl. $e_1$, dann normiere.</p>
 <details>
@@ -308,7 +308,7 @@ MathJax = {
 <p>Probe: $\langle e_1 | e_2 \rangle = \frac{1}{\sqrt{12}}(1 - 1 + 0) = 0$ ✓</p>
 </details>
 <hr>
-<h3>Aufgabe 2.2 – GS mit komplexem Integral-Skalarprodukt</h3>
+<h3 id="aufgabe-2-2-gs-mit-komplexem-integral-skalarprodukt">Aufgabe 2.2 – GS mit komplexem Integral-Skalarprodukt</h3>
 <p>Gegeben: $f_1(x) = 1$, $f_2(x) = e^{ix}$ auf $[0, 2\pi]$ mit $\langle f|g\rangle = \frac{1}{2\pi}\int_0^{2\pi} \overline{f(x)} g(x) \, dx$.</p>
 <p>Bestimme eine ONB von $\text{span}(f_1, f_2)$.</p>
 <p><strong>Hinweis:</strong> Berechne $\|f_1\|$, dann $\langle e_1 | f_2 \rangle$. Nutze $\int_0^{2\pi} e^{ix} dx = 0$.</p>
@@ -321,8 +321,8 @@ MathJax = {
 <p>Also $e_1(x) = 1$ und $e_2(x) = e^{ix}$ – sie waren schon orthonormal!</p>
 </details>
 <hr>
-<h2>⚡ Aufgabenblock 3: JNF, Minimalpolynom, Cayley-Hamilton (wie Klausuraufgaben 1 + 4)</h2>
-<h3>Aufgabe 3.1 – JNF ablesen</h3>
+<h2 id="aufgabenblock-3-jnf-minimalpolynom-cayley-hamilton-wie-klausuraufgaben-1-4">⚡ Aufgabenblock 3: JNF, Minimalpolynom, Cayley-Hamilton (wie Klausuraufgaben 1 + 4)</h2>
+<h3 id="aufgabe-3-1-jnf-ablesen">Aufgabe 3.1 – JNF ablesen</h3>
 <p>Gegeben die JNF:</p>
 <p>$$J = \begin{pmatrix} 2 & 1 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & -3 \end{pmatrix}$$</p>
 <p>a) Wie lautet $\chi_A$?  </p>
@@ -339,7 +339,7 @@ MathJax = {
 <p>e) $\det(A) = 2^3 \cdot (-3) = -24$. $\text{Spur}(A) = 2+2+2+(-3) = 3$.</p>
 </details>
 <hr>
-<h3>Aufgabe 3.2 – Cayley-Hamilton anwenden</h3>
+<h3 id="aufgabe-3-2-cayley-hamilton-anwenden">Aufgabe 3.2 – Cayley-Hamilton anwenden</h3>
 <p>$A \in \mathbb{R}^{3 \times 3}$ mit $\chi_A(\lambda) = -\lambda^3 + 4\lambda$.</p>
 <p>a) Finde die Eigenwerte.  </p>
 <p>b) Drücke $A^3$ durch niedrigere Potenzen von $A$ aus.  </p>
@@ -352,7 +352,7 @@ MathJax = {
 <p>c) $A^4 = A \cdot A^3 = A \cdot 4A = 4A^2$</p>
 </details>
 <hr>
-<h3>Aufgabe 3.3 – Matrixexponential</h3>
+<h3 id="aufgabe-3-3-matrixexponential">Aufgabe 3.3 – Matrixexponential</h3>
 <p>$A$ ist diagonalisierbar mit einzigem Eigenwert $\lambda = 0$ (d.h. $A = 0$). Berechne $\exp(A)$.</p>
 <p><strong>Hinweis:</strong> Was ist $A^k$ für $k \geq 1$?</p>
 <details>
@@ -362,7 +362,7 @@ MathJax = {
 <p>Also $\exp(0) = I$. (Das ist konsistent: $e^0 = 1$.)</p>
 </details>
 <hr>
-<h3>Aufgabe 3.4 – Matrixexponential (schwieriger)</h3>
+<h3 id="aufgabe-3-4-matrixexponential-schwieriger">Aufgabe 3.4 – Matrixexponential (schwieriger)</h3>
 <p>$A \in \mathbb{R}^{2 \times 2}$, nilpotent der Ordnung 2 (d.h. $A^2 = 0$ aber $A \neq 0$). Berechne $\exp(tA)$.</p>
 <details>
 <summary>Lösung</summary>
@@ -371,8 +371,8 @@ MathJax = {
 <p>Also $\exp(tA) = I + tA$ (Polynomformel!).</p>
 </details>
 <hr>
-<h2>Aufgabenblock 4: Determinanten & Beweise</h2>
-<h3>Aufgabe 4.1 – Determinante und Ähnlichkeit</h3>
+<h2 id="aufgabenblock-4-determinanten-beweise">Aufgabenblock 4: Determinanten & Beweise</h2>
+<h3 id="aufgabe-4-1-determinante-und-aehnlichkeit">Aufgabe 4.1 – Determinante und Ähnlichkeit</h3>
 <p>Zeige: Ähnliche Matrizen haben die gleiche Determinante, d.h. $\det(SAS^{-1}) = \det(A)$.</p>
 <details>
 <summary>Lösung</summary>
@@ -380,7 +380,7 @@ MathJax = {
 <p>(Verwendet: Produktregel und $\det(S^{-1}) = 1/\det(S)$.) $\square$</p>
 </details>
 <hr>
-<h3>Aufgabe 4.2 – Orientierung und Volumen</h3>
+<h3 id="aufgabe-4-2-orientierung-und-volumen">Aufgabe 4.2 – Orientierung und Volumen</h3>
 <p>$A \in \mathbb{R}^{3 \times 3}$ mit Eigenwerten $2, -1, 3$.</p>
 <p>a) Ist $A$ volumentreu?  </p>
 <p>b) Ist $A$ orientierungserhaltend?  </p>
@@ -393,8 +393,8 @@ MathJax = {
 <p>c) $\det(A) = -6 \neq 0$ → <strong>ja</strong>, invertierbar.</p>
 </details>
 <hr>
-<h2>Aufgabenblock 5: Gemischte Beweisaufgaben</h2>
-<h3>Aufgabe 5.1 – Induktionsbeweis</h3>
+<h2 id="aufgabenblock-5-gemischte-beweisaufgaben">Aufgabenblock 5: Gemischte Beweisaufgaben</h2>
+<h3 id="aufgabe-5-1-induktionsbeweis">Aufgabe 5.1 – Induktionsbeweis</h3>
 <p>Zeige per Induktion: Für eine nilpotente Matrix $N$ mit $N^k = 0$ gilt:</p>
 <p>$$(I - N)^{-1} = I + N + N^2 + \cdots + N^{k-1}$$</p>
 <p><strong>Hinweis:</strong> Multipliziere $(I-N)$ mit der rechten Seite und vereinfache.</p>
@@ -407,7 +407,7 @@ MathJax = {
 <p>(Das ist eigentlich die geometrische Reihe für Matrizen!)</p>
 </details>
 <hr>
-<h3>Aufgabe 5.2 – Projektionsbeweis</h3>
+<h3 id="aufgabe-5-2-projektionsbeweis">Aufgabe 5.2 – Projektionsbeweis</h3>
 <p>Sei $P$ eine Projektion ($P^2 = P$). Zeige:</p>
 <p>a) $\ker(P) = \text{Bild}(I - P)$  </p>
 <p>b) $\text{Bild}(P) = \ker(I - P)$  </p>
@@ -421,7 +421,7 @@ MathJax = {
 <p>c) Für jedes $v$: $v = Pv + (I-P)v$. Dabei $Pv \in \text{Bild}(P)$ und $(I-P)v \in \text{Bild}(I-P) = \ker(P)$. Schnitt: Wenn $v \in \ker(P) \cap \text{Bild}(P)$, dann $Pv = 0$ und $v = Pw$, also $0 = Pv = P^2w = Pw = v$. $\square$</p>
 </details>
 <hr>
-<h3>Aufgabe 5.3 – EW von Matrixpotenzen</h3>
+<h3 id="aufgabe-5-3-ew-von-matrixpotenzen">Aufgabe 5.3 – EW von Matrixpotenzen</h3>
 <p>Zeige: Wenn $\lambda$ Eigenwert von $A$ mit Eigenvektor $v$, dann ist $\lambda^k$ Eigenwert von $A^k$ mit gleichem Eigenvektor $v$.</p>
 <p><strong>Hinweis:</strong> Induktion über $k$.</p>
 <details>

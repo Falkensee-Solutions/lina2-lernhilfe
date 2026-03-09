@@ -12,6 +12,10 @@
 
 ## 1.1 Komplexe Zahlen
 
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 1: Komplexe Zahlen (komplett)](Uebungszettel_Originale.html#uebungsblatt-1-komplexe-zahlen)
+
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>
 <blockquote>
@@ -109,6 +113,11 @@ mit $i^2 = j^2 = k^2 = ijk = -1$
 → Anwendung: Drehungen im 3D-Raum
 
 ## 1.3 Vektorräume
+
+
+> 🔗 **Zugehörige Übungen:**
+> - [Übungsblatt 2: Erzeugendensysteme algebraischer Strukturen (komplett)](Uebungszettel_Originale.html#uebungsblatt-2-erzeugendensysteme-algebraischer-strukturen-und-algorithmische-anwendung)
+> - [Übungsblatt 3: Bild und Kern Linearer Abbildungen](Uebungszettel_Originale.html#uebungsblatt-3-bild-und-kern-linearer-abbildungen-zusammenhang-mit-determinanten)
 
 <details>
 <summary>🎓 <b>eLehrer-Erklärung einblenden</b></summary>

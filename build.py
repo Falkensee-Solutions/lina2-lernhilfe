@@ -10,6 +10,13 @@ import os
 import re
 import json
 
+def slugify(text):
+    text = re.sub(r'<[^>]+>', '', text)
+    text = text.lower()
+    text = text.replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss')
+    text = re.sub(r'[^a-z0-9]+', '-', text)
+    return text.strip('-')
+
 BASE = os.path.dirname(os.path.abspath(__file__))
 MD_DIR = os.path.join(BASE, "markdown")
 DOCS_DIR = os.path.join(BASE, "docs")
@@ -365,7 +372,7 @@ def markdown_to_html(md_text):
                 in_table = False
             level = len(m.group(1))
             text = inline_format(m.group(2))
-            html_lines.append(f'<h{level}>{text}</h{level}>')
+            html_lines.append(f'<h{level} id="{slugify(m.group(2))}">{text}</h{level}>')
             i += 1
             continue
 
