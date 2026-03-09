@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JNF, Minimalpolynom & Cayley-Hamilton – LINA2 Lernhilfe</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --accent: #f72585;
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 15px;
+  }
+
+  /* --- Top Bar --- */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary-dark);
+    color: white;
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .topbar a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+  .topbar .subtitle { color: rgba(255,255,255,.7); font-size: .85em; margin-left: auto; }
+  .menu-btn {
+    display: none; background: none; border: none; color: white;
+    font-size: 1.5em; cursor: pointer; padding: 4px 8px;
+  }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    position: fixed; top: 50px; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 16px 0;
+    z-index: 50;
+    transition: transform .3s;
+  }
+  .nav-category { padding: 0 16px; margin-bottom: 8px; }
+  .nav-cat-label {
+    display: block; font-size: .7em; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .08em; padding: 12px 0 4px 0;
+  }
+  .nav-link {
+    display: block; padding: 6px 16px; margin: 1px 8px;
+    border-radius: 6px; text-decoration: none;
+    color: var(--text); font-size: .88em;
+    transition: background .15s;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-link:hover { background: #f0f2ff; }
+  .nav-link.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* --- Main Content --- */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: 50px;
+    padding: 32px 40px 60px;
+    max-width: 900px;
+  }
+
+  h1 {
+    font-size: 1.8em; color: var(--text);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px; margin: 24px 0 20px;
+  }
+  h2 {
+    font-size: 1.35em; color: var(--primary-dark);
+    margin: 28px 0 14px;
+    border-left: 4px solid var(--primary);
+    padding-left: 12px;
+  }
+  h3 {
+    font-size: 1.1em; color: var(--primary);
+    margin: 20px 0 10px;
+  }
+  p { margin: 10px 0; }
+
+  blockquote {
+    border-left: 4px solid var(--accent);
+    background: #fff0f6;
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote strong { color: var(--accent); }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #f0f0f5; padding: 2px 6px;
+    border-radius: 4px; font-size: .9em;
+  }
+  pre {
+    background: #f0f0f5; padding: 16px;
+    border-radius: 8px; overflow-x: auto; margin: 12px 0;
+  }
+  pre code { background: none; padding: 0; }
+
+  table {
+    border-collapse: collapse; width: 100%;
+    margin: 16px 0; font-size: .92em;
+  }
+  th {
+    background: var(--primary); color: white;
+    padding: 10px 14px; text-align: left; font-weight: 600;
+  }
+  td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  tr:hover td { background: #e8ecff; }
+
+  ul, ol { margin: 10px 0 10px 24px; }
+  li { margin: 4px 0; }
+  li input[type="checkbox"] { margin-right: 8px; }
+
+  hr { border: none; border-top: 2px solid var(--border); margin: 30px 0; }
+
+  details {
+    background: #f8f9fa; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin: 12px 0;
+  }
+  details summary {
+    cursor: pointer; font-weight: 600; color: var(--primary);
+  }
+
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: .82em;
+    text-align: center;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); width: 260px; }
+    .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.15); }
+    .main { margin-left: 0; padding: 24px 16px 60px; }
+    .menu-btn { display: block; }
+    body { font-size: 14px; }
+  }
+
+  /* --- Print --- */
+  @media print {
+    .topbar, .sidebar, .menu-btn, .footer { display: none !important; }
+    .main { margin: 0; padding: 20px; max-width: 100%; }
+    body { font-size: 11px; background: white; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.15em; break-after: avoid; }
+    table { break-inside: avoid; font-size: .85em; }
+    blockquote { break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+  <a href="index.html">📐 LINA2 Lernhilfe</a>
+  <span class="subtitle">Lineare Algebra II – FU Berlin WiSe 2025/26</span>
+</div>
+
+<nav class="sidebar">
+  <div class="nav-category">
+    <a class="nav-link" href="index.html">🏠 Startseite</a>
+  </div>
+  <div class="nav-category"><span class="nav-cat-label">Planung</span>
+<a class="nav-link" href="00_Lernplan.html">📅 9-Tage-Lernplan</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Zusammenfassungen</span>
+<a class="nav-link" href="01_Komplexe_Zahlen_Vektorraeume.html">1️⃣ Komplexe Zahlen & Vektorräume</a>
+<a class="nav-link" href="02_Bild_Kern_Determinanten.html">2️⃣ Bild, Kern & Determinanten</a>
+<a class="nav-link" href="03_Eigenwerte_Diagonalisierung.html">3️⃣ Eigenwerte & Diagonalisierung</a>
+<a class="nav-link" href="04_Skalarprodukte_GramSchmidt.html">4️⃣ Skalarprodukte & Gram-Schmidt</a>
+<a class="nav-link active" href="05_JNF_Minimalpolynom_CayleyHamilton.html">5️⃣ JNF, Minimalpolynom & Cayley-Hamilton</a>
+<a class="nav-link" href="06_Bilinearformen_Isometrien_Gruppen.html">6️⃣ Bilinearformen, Isometrien & Gruppen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Verständnis</span>
+<a class="nav-link" href="Vernetzung_Das_Grosse_Ganze.html">🌐 Das große Ganze – Vernetzung</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link" href="Karteikarten.html">🗂️ Karteikarten</a>
+<a class="nav-link" href="Checkliste_Themen.html">✅ Checkliste pro Thema</a>
+<a class="nav-link" href="Uebungsaufgaben.html">📝 Übungsaufgaben</a>
+<a class="nav-link" href="Formelblatt.html">📋 Formelblatt</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Klausur</span>
+<a class="nav-link" href="Klausur_Musterloesungen.html">🎯 Klausur-Musterlösungen</a>
+</div>
+</nav>
+
+<div class="main">
+<h1>5. Jordan-Normalform, Minimalpolynom & Cayley-Hamilton</h1>
+<blockquote><p>⚡ <strong>PRIORITÄT 2 – Hier hast du 27/50 Punkte verloren (Aufgaben 1 + 4)!</strong></p></blockquote>
+<h2>5.1 Jordan-Normalform (JNF)</h2>
+<h3>Jordan-Block</h3>
+<p>Ein <strong>Jordan-Block</strong> der Größe $k$ zum Eigenwert $\lambda$:</p>
+<p>$$J_k(\lambda) = \begin{pmatrix} \lambda & 1 & 0 & \cdots & 0 \\ 0 & \lambda & 1 & \cdots & 0 \\ \vdots & & \ddots & \ddots & \vdots \\ 0 & \cdots & & \lambda & 1 \\ 0 & \cdots & & 0 & \lambda \end{pmatrix}$$</p>
+<h3>Jordan-Normalform</h3>
+<p>Jede Matrix $A \in \mathbb{C}^{n \times n}$ ist ähnlich zu einer <strong>Blockdiagonalmatrix</strong> aus Jordan-Blöcken:</p>
+<p>$$J = \begin{pmatrix} J_{k_1}(\lambda_1) & & \\ & J_{k_2}(\lambda_2) & \\ & & \ddots \end{pmatrix}$$</p>
+<p>Es gibt eine invertierbare Matrix $V$ mit $A = VJV^{-1}$.</p>
+<h3>Was man aus der JNF ablesen kann</h3>
+<table>
+<tr><th>Information</th><th>Wie ablesen</th></tr>
+<tr><td>Eigenwerte</td><td>Diagonaleinträge von $J$</td></tr>
+<tr><td>Algebraische VF von $\lambda$</td><td>Summe der Größen aller Blöcke zu $\lambda$</td></tr>
+<tr><td>Geometrische VF von $\lambda$</td><td><strong>Anzahl</strong> der Blöcke zu $\lambda$</td></tr>
+<tr><td>Char. Polynom</td><td>$\chi_A(\lambda) = \prod_i (\lambda_i - \lambda)$ aus Diag.</td></tr>
+<tr><td>Minimalpolynom</td><td>Produkt $\prod (\lambda - \lambda_i)^{m_i}$ wobei $m_i$ = Größe des <strong>größten</strong> Blocks zu $\lambda_i$</td></tr>
+<tr><td>Diagonalisierbar?</td><td>Ja $\iff$ alle Blöcke haben Größe 1</td></tr>
+<tr><td>Determinante</td><td>Produkt der Diagonaleinträge</td></tr>
+</table>
+<h2>5.2 Klausuraufgabe 1 – Analyse der JNF</h2>
+<p><strong>Gegeben:</strong></p>
+<p>$$J = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & -1 & 1 & 0 \\ 0 & 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 & -1 \end{pmatrix}$$</p>
+<p><strong>Struktur:</strong></p>
+<ul>
+<li>Block 1: $J_1(1)$ → Eigenwert 1, Größe 1</li>
+<li>Block 2: $J_1(1)$ → Eigenwert 1, Größe 1</li>
+<li>Block 3: $J_2(-1)$ → Eigenwert -1, Größe 2</li>
+<li>Block 4: $J_1(-1)$ → Eigenwert -1, Größe 1</li>
+</ul>
+<h3>1.1: Charakteristisches Polynom</h3>
+<p>$$\chi_A(\lambda) = (\lambda - 1)^2 (\lambda + 1)^3$$</p>
+<p>(alg. VF von 1 ist 2, alg. VF von -1 ist 3)</p>
+<h3>1.2: Minimalpolynom</h3>
+<p>$$\mu_A(\lambda) = (\lambda - 1)(\lambda + 1)^2$$</p>
+<p><strong>Begründung:</strong> Der größte Jordan-Block zu EW 1 hat Größe 1, der größte zu EW -1 hat Größe 2.</p>
+<h3>1.3: Eigenraum zum Eigenwert -1</h3>
+<p>Die Eigenvektoren zum EW -1 sind die Spalten von $V$, die dem <strong>Anfang</strong> jedes Jordan-Blocks zu -1 entsprechen.</p>
+<p>$E_{-1} = \text{span}(v_3, v_5)$ (Spalte 3 und 5 von $V$, da Block 3 bei Spalte 3 beginnt und Block 4 bei Spalte 5)</p>
+<p><strong>Begründung:</strong> $Av_3 = -v_3$ und $Av_5 = -v_5$ (aus $AV = VJ$ und der Struktur von $J$)</p>
+<h3>1.4: Geometrische Vielfachheiten</h3>
+<ul>
+<li>geo. VF(1) = 2 (zwei Blöcke der Größe 1)</li>
+<li>geo. VF(-1) = 2 (zwei Blöcke: einer Größe 2, einer Größe 1)</li>
+</ul>
+<h3>1.5: Hauptvektor erster Stufe</h3>
+<p>$v_4$ ist ein <strong>Hauptvektor</strong> erster Stufe zum EW $-1$ (auch verallgemeinerter Eigenvektor).</p>
+<p>Er erfüllt: $(A - (-1)I)v_4 = (A + I)v_4 = v_3 \neq 0$, aber $(A + I)^2 v_4 = 0$.</p>
+<h3>1.6: Determinante</h3>
+<p>$$\det(A) = \det(VJV^{-1}) = \det(V)\det(J)\det(V^{-1}) = \det(J)$$</p>
+<p>$$\det(J) = 1 \cdot 1 \cdot (-1) \cdot (-1) \cdot (-1) = -1$$</p>
+<h3>1.7: Volumentreu?</h3>
+<p>$|{\det(A)}| = |-1| = 1$ → <strong>Ja</strong>, die Abbildung ist volumentreu.</p>
+<h3>1.8: Orientierungserhaltend?</h3>
+<p>$\det(A) = -1 < 0$ → <strong>Nein</strong>, die Abbildung ist <strong>nicht</strong> orientierungserhaltend.</p>
+<p><strong>Begründung:</strong> Eine lineare Abbildung ist orientierungserhaltend $\iff \det(A) > 0$.</p>
+<h3>1.9: Kann $A$ symmetrisch sein?</h3>
+<p><strong>Nein.</strong></p>
+<p><strong>Begründung:</strong> Symmetrische reelle Matrizen sind immer diagonalisierbar (Spektralsatz). Aber $A$ hat einen Jordan-Block der Größe 2 (zu EW -1), ist also <strong>nicht</strong> diagonalisierbar. Widerspruch!</p>
+<h2>5.3 Haupträume und Hauptvektoren</h2>
+<h3>Hauptraum</h3>
+<p>$$H_\lambda = \ker(A - \lambda I)^{m_\lambda}$$</p>
+<p>wobei $m_\lambda$ = algebraische Vielfachheit von $\lambda$.</p>
+<h3>Hauptvektor der Stufe $k$</h3>
+<p>$v$ ist Hauptvektor der Stufe $k$ zum EW $\lambda$, wenn:</p>
+<p>$$(A - \lambda I)^k v = 0 \quad \text{aber} \quad (A - \lambda I)^{k-1} v \neq 0$$</p>
+<ul>
+<li>Stufe 0: Nullvektor</li>
+<li>Stufe 1: Eigenvektor (im eigentlichen Sinn, wenn $k=1$ und $(A-\lambda I)v = 0$)</li>
+<li>Stufe $\geq 2$: verallgemeinerter Eigenvektor</li>
+</ul>
+<blockquote><p><strong>Achtung Notation:</strong> Manchmal wird "Hauptvektor erster Stufe" für den verallgemeinerten Eigenvektor mit $(A-\lambda I)v \neq 0$ aber $(A-\lambda I)^2 v = 0$ verwendet. In der Klausur war $v_4$ so einer.</p></blockquote>
+<h2>5.4 Minimalpolynom</h2>
+<h3>Definition</h3>
+<p>Das <strong>Minimalpolynom</strong> $\mu_A$ ist das normierte Polynom kleinsten Grades mit $\mu_A(A) = 0$.</p>
+<h3>Eigenschaften</h3>
+<ul>
+<li>$\mu_A$ teilt $\chi_A$ (d.h. $\chi_A = \mu_A \cdot q$ für ein Polynom $q$)</li>
+<li>$\mu_A$ und $\chi_A$ haben <strong>die gleichen</strong> Nullstellen (= Eigenwerte)</li>
+<li>Aus der JNF: $\mu_A(\lambda) = \prod_i (\lambda - \lambda_i)^{s_i}$, wobei $s_i$ = Größe des <strong>größten</strong> Jordan-Blocks zu $\lambda_i$</li>
+</ul>
+<h3>Berechnung ohne JNF</h3>
+<ol>
+<li>Probiere Polynome aufsteigenden Grades, die durch $\chi_A$ teilen</li>
+<li>Teste ob $p(A) = 0$</li>
+</ol>
+<h2>5.5 Satz von Cayley-Hamilton</h2>
+<blockquote><p><strong>Satz:</strong> Jede Matrix erfüllt ihr eigenes charakteristisches Polynom:<br>$$\chi_A(A) = 0$$</p></blockquote>
+<h3>Anwendung (Klausuraufgabe 4!)</h3>
+<p><strong>Gegeben:</strong> $A$ diagonalisierbar mit Eigenwerten $\lambda_1 = 0$ und $\lambda_2 = 1$.</p>
+<p><strong>4.1: Minimalpolynom</strong></p>
+<p>$$\mu_A(\lambda) = \lambda(\lambda - 1) = \lambda^2 - \lambda$$</p>
+<p>(Da $A$ diagonalisierbar → alle Jordan-Blöcke Größe 1 → Minimalpolynom hat nur einfache Nullstellen)</p>
+<p><strong>4.2: $A^2 = A$</strong></p>
+<p>Cayley-Hamilton: $\chi_A(A) = 0$. Da $\mu_A | \chi_A$ und $\mu_A(A) = 0$:</p>
+<p>$$A^2 - A = 0 \implies A^2 = A$$</p>
+<p>(Formal: $\mu_A(\lambda) = \lambda^2 - \lambda$, also $\mu_A(A) = A^2 - A = 0$)</p>
+<p><strong>4.3: $A^m = A$ für $m \geq 1$ (Induktion)</strong></p>
+<p><em>Induktionsanfang:</em> $m = 1$: $A^1 = A$ ✓</p>
+<p><em>Induktionsschritt:</em> Angenommen $A^m = A$ für ein $m \geq 1$. Dann:</p>
+<p>$$A^{m+1} = A^m \cdot A = A \cdot A = A^2 = A$$</p>
+<p>(wobei wir im letzten Schritt $A^2 = A$ aus 4.2 verwenden)</p>
+<p>Also gilt $A^{m+1} = A$. $\square$</p>
+<p><strong>4.4: Matrixexponential</strong></p>
+<p>$$\exp(A) = \sum_{k=0}^{\infty} \frac{A^k}{k!} = \frac{A^0}{0!} + \sum_{k=1}^{\infty} \frac{A^k}{k!}$$</p>
+<p>$$= I + \sum_{k=1}^{\infty} \frac{A}{k!} \quad \text{(da } A^k = A \text{ für } k \geq 1\text{)}$$</p>
+<p>$$= I + A \sum_{k=1}^{\infty} \frac{1}{k!} = I + A\left(\sum_{k=0}^{\infty} \frac{1}{k!} - 1\right) = I + A(e - 1)$$</p>
+<p>$$\boxed{\exp(A) = I + (e-1)A}$$</p>
+<h2>5.6 Matrixexponential – Allgemein</h2>
+<h3>Definition</h3>
+<p>$$\exp(A) = \sum_{k=0}^{\infty} \frac{A^k}{k!} = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots$$</p>
+<h3>Rechenregeln</h3>
+<ul>
+<li>$\exp(0) = I$</li>
+<li>Wenn $AB = BA$: $\exp(A+B) = \exp(A)\exp(B)$</li>
+<li>$\exp(A)$ ist <strong>immer</strong> invertierbar mit $\exp(A)^{-1} = \exp(-A)$</li>
+<li>$\det(\exp(A)) = e^{\text{Spur}(A)}$</li>
+</ul>
+<h3>Für Diagonalmatrizen</h3>
+<p>$$\exp\left(\begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix}\right) = \begin{pmatrix} e^{\lambda_1} & & \\ & \ddots & \\ & & e^{\lambda_n} \end{pmatrix}$$</p>
+<h3>Anwendung: DGL</h3>
+<p>Die Lösung von $\dot{x}(t) = Ax(t)$ mit $x(0) = x_0$ ist:</p>
+<p>$$x(t) = \exp(tA) \cdot x_0$$</p>
+<div class="footer">
+  LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
+  <a href="index.html">← Zurück zur Startseite</a>
+</div>
+</div>
+
+<script>
+// Close sidebar on mobile after link click
+document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('open');
+}));
+</script>
+</body>
+</html>

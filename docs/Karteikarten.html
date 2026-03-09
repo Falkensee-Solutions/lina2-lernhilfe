@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karteikarten – LINA2 Lernhilfe</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --accent: #f72585;
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 15px;
+  }
+
+  /* --- Top Bar --- */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary-dark);
+    color: white;
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .topbar a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+  .topbar .subtitle { color: rgba(255,255,255,.7); font-size: .85em; margin-left: auto; }
+  .menu-btn {
+    display: none; background: none; border: none; color: white;
+    font-size: 1.5em; cursor: pointer; padding: 4px 8px;
+  }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    position: fixed; top: 50px; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 16px 0;
+    z-index: 50;
+    transition: transform .3s;
+  }
+  .nav-category { padding: 0 16px; margin-bottom: 8px; }
+  .nav-cat-label {
+    display: block; font-size: .7em; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .08em; padding: 12px 0 4px 0;
+  }
+  .nav-link {
+    display: block; padding: 6px 16px; margin: 1px 8px;
+    border-radius: 6px; text-decoration: none;
+    color: var(--text); font-size: .88em;
+    transition: background .15s;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-link:hover { background: #f0f2ff; }
+  .nav-link.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* --- Main Content --- */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: 50px;
+    padding: 32px 40px 60px;
+    max-width: 900px;
+  }
+
+  h1 {
+    font-size: 1.8em; color: var(--text);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px; margin: 24px 0 20px;
+  }
+  h2 {
+    font-size: 1.35em; color: var(--primary-dark);
+    margin: 28px 0 14px;
+    border-left: 4px solid var(--primary);
+    padding-left: 12px;
+  }
+  h3 {
+    font-size: 1.1em; color: var(--primary);
+    margin: 20px 0 10px;
+  }
+  p { margin: 10px 0; }
+
+  blockquote {
+    border-left: 4px solid var(--accent);
+    background: #fff0f6;
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote strong { color: var(--accent); }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #f0f0f5; padding: 2px 6px;
+    border-radius: 4px; font-size: .9em;
+  }
+  pre {
+    background: #f0f0f5; padding: 16px;
+    border-radius: 8px; overflow-x: auto; margin: 12px 0;
+  }
+  pre code { background: none; padding: 0; }
+
+  table {
+    border-collapse: collapse; width: 100%;
+    margin: 16px 0; font-size: .92em;
+  }
+  th {
+    background: var(--primary); color: white;
+    padding: 10px 14px; text-align: left; font-weight: 600;
+  }
+  td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  tr:hover td { background: #e8ecff; }
+
+  ul, ol { margin: 10px 0 10px 24px; }
+  li { margin: 4px 0; }
+  li input[type="checkbox"] { margin-right: 8px; }
+
+  hr { border: none; border-top: 2px solid var(--border); margin: 30px 0; }
+
+  details {
+    background: #f8f9fa; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin: 12px 0;
+  }
+  details summary {
+    cursor: pointer; font-weight: 600; color: var(--primary);
+  }
+
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: .82em;
+    text-align: center;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); width: 260px; }
+    .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.15); }
+    .main { margin-left: 0; padding: 24px 16px 60px; }
+    .menu-btn { display: block; }
+    body { font-size: 14px; }
+  }
+
+  /* --- Print --- */
+  @media print {
+    .topbar, .sidebar, .menu-btn, .footer { display: none !important; }
+    .main { margin: 0; padding: 20px; max-width: 100%; }
+    body { font-size: 11px; background: white; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.15em; break-after: avoid; }
+    table { break-inside: avoid; font-size: .85em; }
+    blockquote { break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+  <a href="index.html">📐 LINA2 Lernhilfe</a>
+  <span class="subtitle">Lineare Algebra II – FU Berlin WiSe 2025/26</span>
+</div>
+
+<nav class="sidebar">
+  <div class="nav-category">
+    <a class="nav-link" href="index.html">🏠 Startseite</a>
+  </div>
+  <div class="nav-category"><span class="nav-cat-label">Planung</span>
+<a class="nav-link" href="00_Lernplan.html">📅 9-Tage-Lernplan</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Zusammenfassungen</span>
+<a class="nav-link" href="01_Komplexe_Zahlen_Vektorraeume.html">1️⃣ Komplexe Zahlen & Vektorräume</a>
+<a class="nav-link" href="02_Bild_Kern_Determinanten.html">2️⃣ Bild, Kern & Determinanten</a>
+<a class="nav-link" href="03_Eigenwerte_Diagonalisierung.html">3️⃣ Eigenwerte & Diagonalisierung</a>
+<a class="nav-link" href="04_Skalarprodukte_GramSchmidt.html">4️⃣ Skalarprodukte & Gram-Schmidt</a>
+<a class="nav-link" href="05_JNF_Minimalpolynom_CayleyHamilton.html">5️⃣ JNF, Minimalpolynom & Cayley-Hamilton</a>
+<a class="nav-link" href="06_Bilinearformen_Isometrien_Gruppen.html">6️⃣ Bilinearformen, Isometrien & Gruppen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Verständnis</span>
+<a class="nav-link" href="Vernetzung_Das_Grosse_Ganze.html">🌐 Das große Ganze – Vernetzung</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link active" href="Karteikarten.html">🗂️ Karteikarten</a>
+<a class="nav-link" href="Checkliste_Themen.html">✅ Checkliste pro Thema</a>
+<a class="nav-link" href="Uebungsaufgaben.html">📝 Übungsaufgaben</a>
+<a class="nav-link" href="Formelblatt.html">📋 Formelblatt</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Klausur</span>
+<a class="nav-link" href="Klausur_Musterloesungen.html">🎯 Klausur-Musterlösungen</a>
+</div>
+</nav>
+
+<div class="main">
+<h1>Karteikarten – LINA2 Definitionen & Sätze</h1>
+<blockquote><p>Lerne jede Karte: Lies die <strong>Frage</strong>, versuche die Antwort zu formulieren, dann vergleiche mit der <strong>Antwort</strong>.</p></blockquote>
+<hr>
+<h2>📦 Block A: Grundbegriffe</h2>
+<h3>Karte A1</h3>
+<p><strong>F:</strong> Was ist ein Vektorraum?  </p>
+<p><strong>A:</strong> Eine abelsche Gruppe $(V, +)$ mit Skalarmultiplikation über einem Körper $K$, die Assoziativität, neutrales Element ($1 \cdot v = v$) und zwei Distributivgesetze erfüllt.</p>
+<h3>Karte A2</h3>
+<p><strong>F:</strong> Wann ist eine Teilmenge $U \subseteq V$ ein Unterraum?  </p>
+<p><strong>A:</strong> Wenn $U \neq \emptyset$ und $U$ unter Addition und Skalarmultiplikation abgeschlossen ist. Kurzform: $\lambda u + \mu w \in U$ für alle $\lambda, \mu \in K$ und $u, w \in U$.</p>
+<h3>Karte A3</h3>
+<p><strong>F:</strong> Was bedeutet "linear unabhängig"?  </p>
+<p><strong>A:</strong> $v_1, \ldots, v_n$ sind linear unabhängig, wenn $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$ nur die triviale Lösung $\lambda_1 = \cdots = \lambda_n = 0$ hat.</p>
+<h3>Karte A4</h3>
+<p><strong>F:</strong> Was ist eine Basis? Was ist die Dimension?  </p>
+<p><strong>A:</strong> Eine Basis ist ein linear unabhängiges Erzeugendensystem. Die Dimension ist die Anzahl der Basisvektoren. Jede Basis hat gleich viele Elemente.</p>
+<h3>Karte A5</h3>
+<p><strong>F:</strong> Wann ist eine Abbildung $f: V \to W$ linear?  </p>
+<p><strong>A:</strong> Wenn $f(\alpha u + \beta v) = \alpha f(u) + \beta f(v)$ für alle $\alpha, \beta \in K$ und $u, v \in V$.</p>
+<hr>
+<h2>📦 Block B: Determinanten</h2>
+<h3>Karte B1</h3>
+<p><strong>F:</strong> Wie berechnet man die Determinante einer Dreiecksmatrix?  </p>
+<p><strong>A:</strong> Produkt der Diagonaleinträge: $\det(A) = \prod_{i=1}^n a_{ii}$</p>
+<h3>Karte B2</h3>
+<p><strong>F:</strong> Nenne 4 wichtige Rechenregeln für Determinanten.  </p>
+<p><strong>A:</strong></p>
+<ol>
+<li>$\det(AB) = \det(A) \cdot \det(B)$</li>
+<li>$\det(A^T) = \det(A)$</li>
+<li>$\det(\lambda A) = \lambda^n \det(A)$</li>
+<li>$\det(SAS^{-1}) = \det(A)$</li>
+</ol>
+<h3>Karte B3</h3>
+<p><strong>F:</strong> Was sagt $\det(A)$ geometrisch aus?  </p>
+<p><strong>A:</strong> $|\det(A)|$ = Volumenfaktor. $\det(A) > 0$: orientierungserhaltend. $\det(A) < 0$: orientierungsumkehrend. $|\det(A)| = 1$: volumentreu.</p>
+<h3>Karte B4</h3>
+<p><strong>F:</strong> Was ist die Laplace-Entwicklung?  </p>
+<p><strong>A:</strong> $\det(A) = \sum_{j=1}^n (-1)^{i+j} a_{ij} \det(A_{ij})$ (Entwicklung nach $i$-ter Zeile). Tipp: Zeile/Spalte mit den meisten Nullen wählen.</p>
+<hr>
+<h2>📦 Block C: Eigenwerte & Diagonalisierung</h2>
+<h3>Karte C1</h3>
+<p><strong>F:</strong> Was sind Eigenwert und Eigenvektor?  </p>
+<p><strong>A:</strong> $\lambda$ ist Eigenwert und $v \neq 0$ ist Eigenvektor von $A$, wenn $Av = \lambda v$.</p>
+<h3>Karte C2</h3>
+<p><strong>F:</strong> Wie findet man die Eigenwerte?  </p>
+<p><strong>A:</strong> Als Nullstellen des charakteristischen Polynoms $\chi_A(\lambda) = \det(A - \lambda I) = 0$.</p>
+<h3>Karte C3</h3>
+<p><strong>F:</strong> Was ist der Unterschied zwischen algebraischer und geometrischer Vielfachheit?  </p>
+<p><strong>A:</strong> <strong>Alg. VF:</strong> Vielfachheit als Nullstelle von $\chi_A$. <strong>Geo. VF:</strong> $\dim(\ker(A - \lambda I))$ = Anzahl linear unabhängiger Eigenvektoren. Es gilt: $1 \leq \text{geo} \leq \text{alg}$.</p>
+<h3>Karte C4</h3>
+<p><strong>F:</strong> Wann ist $A$ diagonalisierbar?  </p>
+<p><strong>A:</strong> Genau dann, wenn geo. VF = alg. VF für <strong>jeden</strong> Eigenwert. Äquivalent: Es existiert eine Basis aus Eigenvektoren. Äquivalent: Alle Jordan-Blöcke haben Größe 1.</p>
+<h3>Karte C5</h3>
+<p><strong>F:</strong> Wie hängen Eigenwerte und Determinante/Spur zusammen?  </p>
+<p><strong>A:</strong> $\det(A) = \prod \lambda_i$ und $\text{Spur}(A) = \sum \lambda_i$.</p>
+<h3>Karte C6</h3>
+<p><strong>F:</strong> Was besagt der Defekt bei EW = 0?  </p>
+<p><strong>A:</strong> Hat $A$ den EW $0$ mit alg. VF $m$, dann: $\text{Defekt}(A) = \dim(\ker(A)) = \text{geo. VF}(0)$, mit $1 \leq \text{Defekt} \leq m$.</p>
+<h3>Karte C7</h3>
+<p><strong>F:</strong> Wie zeigt man $Mv_i = \lambda_i v_i$ wenn $M = \sum \lambda_k v_k v_k^T$ und $\{v_k\}$ ONS?  </p>
+<p><strong>A:</strong> Einsetzen: $Mv_i = \sum_k \lambda_k v_k (v_k^T v_i)$. Wegen ONS: $v_k^T v_i = \delta_{ki}$. Also bleibt nur $\lambda_i v_i$. <strong>Schlüssel: ONS-Eigenschaft!</strong></p>
+<hr>
+<h2>📦 Block D: Skalarprodukte & Gram-Schmidt</h2>
+<h3>Karte D1</h3>
+<p><strong>F:</strong> Nenne die Axiome eines komplexen Skalarprodukts.  </p>
+<p><strong>A:</strong> 1) Hermitesche Symmetrie: $\langle u|v\rangle = \overline{\langle v|u\rangle}$ 2) Antilinear im 1. Argument 3) Linear im 2. Argument 4) Positiv definit: $\langle v|v\rangle > 0$ für $v \neq 0$</p>
+<h3>Karte D2</h3>
+<p><strong>F:</strong> Beschreibe den Gram-Schmidt-Algorithmus.  </p>
+<p><strong>A:</strong> Schritt $k$: $\tilde{e}_k = v_k - \sum_{j<k} \langle e_j | v_k \rangle \, e_j$, dann $e_k = \tilde{e}_k / \|\tilde{e}_k\|$. Projektion abziehen → normieren.</p>
+<h3>Karte D3</h3>
+<p><strong>F:</strong> Was ist eine Orthogonalprojektion auf $U$?  </p>
+<p><strong>A:</strong> $P_U(v) = \sum_i \langle e_i | v \rangle e_i$ (mit ONB $\{e_i\}$ von $U$). Eigenschaften: $P^2 = P$, $P^* = P$.</p>
+<h3>Karte D4</h3>
+<p><strong>F:</strong> Was ist das Integral-Skalarprodukt für komplexe Funktionen?  </p>
+<p><strong>A:</strong> $\langle f | g \rangle = \int_a^b \overline{f(x)} g(x) \, dx$. <strong>Achtung:</strong> Konjugation im 1. Argument!</p>
+<hr>
+<h2>📦 Block E: Jordan-Normalform</h2>
+<h3>Karte E1</h3>
+<p><strong>F:</strong> Was ist ein Jordan-Block $J_k(\lambda)$?  </p>
+<p><strong>A:</strong> $k \times k$-Matrix mit $\lambda$ auf der Diagonale und 1en auf der oberen Nebendiagonale, sonst 0.</p>
+<h3>Karte E2</h3>
+<p><strong>F:</strong> Wie liest man das Minimalpolynom aus der JNF ab?  </p>
+<p><strong>A:</strong> $\mu_A(\lambda) = \prod_i (\lambda - \lambda_i)^{s_i}$, wobei $s_i$ = Größe des <strong>größten</strong> Jordan-Blocks zum EW $\lambda_i$.</p>
+<h3>Karte E3</h3>
+<p><strong>F:</strong> Wie liest man die geometrische Vielfachheit aus der JNF ab?  </p>
+<p><strong>A:</strong> geo. VF($\lambda$) = <strong>Anzahl</strong> der Jordan-Blöcke zum EW $\lambda$.</p>
+<h3>Karte E4</h3>
+<p><strong>F:</strong> Was ist ein Hauptvektor der Stufe $k$?  </p>
+<p><strong>A:</strong> $v$ mit $(A - \lambda I)^k v = 0$ aber $(A - \lambda I)^{k-1} v \neq 0$.</p>
+<hr>
+<h2>📦 Block F: Cayley-Hamilton & Matrixexponential</h2>
+<h3>Karte F1</h3>
+<p><strong>F:</strong> Was besagt der Satz von Cayley-Hamilton?  </p>
+<p><strong>A:</strong> Jede Matrix erfüllt ihr eigenes char. Polynom: $\chi_A(A) = 0$.</p>
+<h3>Karte F2</h3>
+<p><strong>F:</strong> Was ist das Minimalpolynom und wie hängt es mit $\chi_A$ zusammen?  </p>
+<p><strong>A:</strong> Kleinstes normiertes Polynom $p$ mit $p(A) = 0$. Es teilt $\chi_A$ und hat die gleichen Nullstellen.</p>
+<h3>Karte F3</h3>
+<p><strong>F:</strong> Was ist das Matrixexponential?  </p>
+<p><strong>A:</strong> $\exp(A) = \sum_{k=0}^\infty \frac{A^k}{k!} = I + A + \frac{A^2}{2!} + \cdots$</p>
+<h3>Karte F4</h3>
+<p><strong>F:</strong> Wie zeigt man $A^m = A$ für idempotentes $A$ per Induktion?  </p>
+<p><strong>A:</strong> IA: $A^1 = A$ ✓. IS: $A^{m+1} = A^m \cdot A = A \cdot A = A^2 = A$ (letzterer Schritt weil $A^2 = A$).</p>
+<h3>Karte F5</h3>
+<p><strong>F:</strong> Warum gilt $\exp(A) = I + (e-1)A$ wenn $A^2 = A$?  </p>
+<p><strong>A:</strong> Da $A^k = A$ für $k \geq 1$: $\exp(A) = I + \sum_{k=1}^\infty \frac{A}{k!} = I + A \cdot (e - 1)$.</p>
+<hr>
+<h2>📦 Block G: Isometrien & Spezialmatrizen</h2>
+<h3>Karte G1</h3>
+<p><strong>F:</strong> Wann ist $A$ orthogonal? Was folgt?  </p>
+<p><strong>A:</strong> $A^T A = I$ (also $A^{-1} = A^T$). Folgt: $\det(A) = \pm 1$, Spalten sind ONB, $A$ ist eine Isometrie.</p>
+<h3>Karte G2</h3>
+<p><strong>F:</strong> Wann ist eine reelle $A$ sym.? Was ist der Spektralsatz?  </p>
+<p><strong>A:</strong> Symmetrisch: $A = A^T$. Spektralsatz: sym. Matrizen haben nur reelle EW und sind <strong>orthogonal diagonalisierbar</strong>.</p>
+<h3>Karte G3</h3>
+<p><strong>F:</strong> Was ist eine Gruppe? Nenne die 4 Axiome.  </p>
+<p><strong>A:</strong> $(G, \circ)$ mit: 1) Abgeschlossenheit 2) Assoziativität 3) Neutrales Element $e$ 4) Inverse existieren.</p>
+<h3>Karte G4</h3>
+<p><strong>F:</strong> Was ist der Zusammenhang zwischen Isometrie und Determinante?  </p>
+<p><strong>A:</strong> Isometrie $\Rightarrow |\det(A)| = 1$. Wenn $\det = 1$: Rotation. Wenn $\det = -1$: Spiegelung (nicht notw. orientierungserhaltend!).</p>
+<hr>
+<h2>📦 Block H: Beweistechniken</h2>
+<h3>Karte H1</h3>
+<p><strong>F:</strong> Wie funktioniert vollständige Induktion?  </p>
+<p><strong>A:</strong> 1) <strong>IA:</strong> Zeige Aussage für $n_0$ (Anfang). 2) <strong>IV:</strong> Nimm an, Aussage gilt für $n = m$. 3) <strong>IS:</strong> Zeige Aussage für $n = m+1$ unter Nutzung von IV.</p>
+<h3>Karte H2</h3>
+<p><strong>F:</strong> Wie führt man einen Widerspruchsbeweis?  </p>
+<p><strong>A:</strong> Nimm das Gegenteil der Behauptung an. Leite daraus einen Widerspruch (zu Voraussetzung oder bekannter Tatsache) her. Also muss die Behauptung gelten.</p>
+<h3>Karte H3</h3>
+<p><strong>F:</strong> Wie zeigt man $U$ ist Unterraum?  </p>
+<p><strong>A:</strong> Zeige 3 Dinge: 1) $0 \in U$ (nicht leer). 2) Abgeschlossen unter Addition. 3) Abgeschlossen unter Skalarmultiplikation.</p>
+<div class="footer">
+  LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
+  <a href="index.html">← Zurück zur Startseite</a>
+</div>
+</div>
+
+<script>
+// Close sidebar on mobile after link click
+document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('open');
+}));
+</script>
+</body>
+</html>

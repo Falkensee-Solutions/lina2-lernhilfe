@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eigenwerte & Diagonalisierung – LINA2 Lernhilfe</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --accent: #f72585;
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 15px;
+  }
+
+  /* --- Top Bar --- */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary-dark);
+    color: white;
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .topbar a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+  .topbar .subtitle { color: rgba(255,255,255,.7); font-size: .85em; margin-left: auto; }
+  .menu-btn {
+    display: none; background: none; border: none; color: white;
+    font-size: 1.5em; cursor: pointer; padding: 4px 8px;
+  }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    position: fixed; top: 50px; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 16px 0;
+    z-index: 50;
+    transition: transform .3s;
+  }
+  .nav-category { padding: 0 16px; margin-bottom: 8px; }
+  .nav-cat-label {
+    display: block; font-size: .7em; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .08em; padding: 12px 0 4px 0;
+  }
+  .nav-link {
+    display: block; padding: 6px 16px; margin: 1px 8px;
+    border-radius: 6px; text-decoration: none;
+    color: var(--text); font-size: .88em;
+    transition: background .15s;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-link:hover { background: #f0f2ff; }
+  .nav-link.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* --- Main Content --- */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: 50px;
+    padding: 32px 40px 60px;
+    max-width: 900px;
+  }
+
+  h1 {
+    font-size: 1.8em; color: var(--text);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px; margin: 24px 0 20px;
+  }
+  h2 {
+    font-size: 1.35em; color: var(--primary-dark);
+    margin: 28px 0 14px;
+    border-left: 4px solid var(--primary);
+    padding-left: 12px;
+  }
+  h3 {
+    font-size: 1.1em; color: var(--primary);
+    margin: 20px 0 10px;
+  }
+  p { margin: 10px 0; }
+
+  blockquote {
+    border-left: 4px solid var(--accent);
+    background: #fff0f6;
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote strong { color: var(--accent); }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #f0f0f5; padding: 2px 6px;
+    border-radius: 4px; font-size: .9em;
+  }
+  pre {
+    background: #f0f0f5; padding: 16px;
+    border-radius: 8px; overflow-x: auto; margin: 12px 0;
+  }
+  pre code { background: none; padding: 0; }
+
+  table {
+    border-collapse: collapse; width: 100%;
+    margin: 16px 0; font-size: .92em;
+  }
+  th {
+    background: var(--primary); color: white;
+    padding: 10px 14px; text-align: left; font-weight: 600;
+  }
+  td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  tr:hover td { background: #e8ecff; }
+
+  ul, ol { margin: 10px 0 10px 24px; }
+  li { margin: 4px 0; }
+  li input[type="checkbox"] { margin-right: 8px; }
+
+  hr { border: none; border-top: 2px solid var(--border); margin: 30px 0; }
+
+  details {
+    background: #f8f9fa; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin: 12px 0;
+  }
+  details summary {
+    cursor: pointer; font-weight: 600; color: var(--primary);
+  }
+
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: .82em;
+    text-align: center;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); width: 260px; }
+    .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.15); }
+    .main { margin-left: 0; padding: 24px 16px 60px; }
+    .menu-btn { display: block; }
+    body { font-size: 14px; }
+  }
+
+  /* --- Print --- */
+  @media print {
+    .topbar, .sidebar, .menu-btn, .footer { display: none !important; }
+    .main { margin: 0; padding: 20px; max-width: 100%; }
+    body { font-size: 11px; background: white; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.15em; break-after: avoid; }
+    table { break-inside: avoid; font-size: .85em; }
+    blockquote { break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+  <a href="index.html">📐 LINA2 Lernhilfe</a>
+  <span class="subtitle">Lineare Algebra II – FU Berlin WiSe 2025/26</span>
+</div>
+
+<nav class="sidebar">
+  <div class="nav-category">
+    <a class="nav-link" href="index.html">🏠 Startseite</a>
+  </div>
+  <div class="nav-category"><span class="nav-cat-label">Planung</span>
+<a class="nav-link" href="00_Lernplan.html">📅 9-Tage-Lernplan</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Zusammenfassungen</span>
+<a class="nav-link" href="01_Komplexe_Zahlen_Vektorraeume.html">1️⃣ Komplexe Zahlen & Vektorräume</a>
+<a class="nav-link" href="02_Bild_Kern_Determinanten.html">2️⃣ Bild, Kern & Determinanten</a>
+<a class="nav-link active" href="03_Eigenwerte_Diagonalisierung.html">3️⃣ Eigenwerte & Diagonalisierung</a>
+<a class="nav-link" href="04_Skalarprodukte_GramSchmidt.html">4️⃣ Skalarprodukte & Gram-Schmidt</a>
+<a class="nav-link" href="05_JNF_Minimalpolynom_CayleyHamilton.html">5️⃣ JNF, Minimalpolynom & Cayley-Hamilton</a>
+<a class="nav-link" href="06_Bilinearformen_Isometrien_Gruppen.html">6️⃣ Bilinearformen, Isometrien & Gruppen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Verständnis</span>
+<a class="nav-link" href="Vernetzung_Das_Grosse_Ganze.html">🌐 Das große Ganze – Vernetzung</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link" href="Karteikarten.html">🗂️ Karteikarten</a>
+<a class="nav-link" href="Checkliste_Themen.html">✅ Checkliste pro Thema</a>
+<a class="nav-link" href="Uebungsaufgaben.html">📝 Übungsaufgaben</a>
+<a class="nav-link" href="Formelblatt.html">📋 Formelblatt</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Klausur</span>
+<a class="nav-link" href="Klausur_Musterloesungen.html">🎯 Klausur-Musterlösungen</a>
+</div>
+</nav>
+
+<div class="main">
+<h1>3. Eigenwerte, Eigenvektoren & Diagonalisierung</h1>
+<blockquote><p>⚡ <strong>PRIORITÄT 1 – Hier hast du 19/20 Punkte verloren (Aufgabe 2)!</strong></p></blockquote>
+<h2>3.1 Grundbegriffe</h2>
+<h3>Eigenwert & Eigenvektor</h3>
+<p>$\lambda \in K$ ist <strong>Eigenwert</strong> von $A$ und $v \neq 0$ ist <strong>Eigenvektor</strong> zum Eigenwert $\lambda$, wenn:</p>
+<p>$$Av = \lambda v$$</p>
+<h3>Eigenraum</h3>
+<p>$$E_\lambda = \ker(A - \lambda I) = \{v \in V \mid Av = \lambda v\}$$</p>
+<p>Der Eigenraum ist immer ein <strong>Unterraum</strong> von $V$.</p>
+<h3>Charakteristisches Polynom</h3>
+<p>$$\chi_A(\lambda) = \det(A - \lambda I)$$</p>
+<p>Die Eigenwerte sind genau die <strong>Nullstellen</strong> von $\chi_A$.</p>
+<blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 1.1):</strong> Bei Jordan-Normalform $J$ kann man $\chi_A$ direkt ablesen!<br>Wenn $J$ die Diagonaleinträge $\lambda_1, \ldots, \lambda_n$ hat:<br>$$\chi_A(\lambda) = \prod_{i=1}^{n} (\lambda_i - \lambda)$$</p></blockquote>
+<h2>3.2 Algebraische vs. Geometrische Vielfachheit</h2>
+<h3>Algebraische Vielfachheit (alg. VF)</h3>
+<p>= Vielfachheit von $\lambda$ als Nullstelle von $\chi_A$</p>
+<p><strong>Beispiel:</strong> $\chi_A(\lambda) = (\lambda - 2)^3(\lambda + 1)^2$ → alg. VF von 2 ist <strong>3</strong>, alg. VF von -1 ist <strong>2</strong></p>
+<h3>Geometrische Vielfachheit (geo. VF)</h3>
+<p>$$\text{geo. VF}(\lambda) = \dim(\ker(A - \lambda I)) = \dim(E_\lambda)$$</p>
+<p>= Anzahl der linear unabhängigen Eigenvektoren zum Eigenwert $\lambda$</p>
+<h3>Fundamentale Ungleichung</h3>
+<p>$$1 \leq \text{geo. VF}(\lambda) \leq \text{alg. VF}(\lambda)$$</p>
+<blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 1.4):</strong> Bei JNF:<br>- geo. VF = Anzahl der Jordan-Blöcke zum Eigenwert $\lambda$<br>- alg. VF = Summe der Größen aller Jordan-Blöcke zum Eigenwert $\lambda$</p></blockquote>
+<h2>3.3 Diagonalisierbarkeit</h2>
+<p>$A$ ist <strong>diagonalisierbar</strong> $\iff$ eine der folgenden äquivalenten Bedingungen gilt:</p>
+<ol>
+<li>Es existiert eine Basis aus Eigenvektoren von $A$</li>
+<li>$\text{geo. VF}(\lambda_i) = \text{alg. VF}(\lambda_i)$ für <strong>jeden</strong> Eigenwert $\lambda_i$</li>
+<li>Die JNF von $A$ ist eine Diagonalmatrix (alle Jordan-Blöcke haben Größe 1)</li>
+<li>Das Minimalpolynom hat nur einfache Nullstellen</li>
+</ol>
+<blockquote><p><strong>Achtung:</strong> Eine Matrix <strong>kann</strong> diagonalisierbar sein, auch wenn Eigenwerte mehrfache algebraische Vielfachheit haben! Entscheidend ist: geo = alg für jeden EW.</p></blockquote>
+<h3>Diagonalisieren: Algorithmus</h3>
+<ol>
+<li>Berechne $\chi_A(\lambda)$ und finde alle Eigenwerte</li>
+<li>Berechne für jeden EW $\lambda_i$ den Eigenraum $E_{\lambda_i} = \ker(A - \lambda_i I)$</li>
+<li>Prüfe: geo. VF = alg. VF für alle EW?</li>
+<li>Wenn ja: $S = (v_1 | \cdots | v_n)$ (Eigenvektoren als Spalten)</li>
+<li>Dann: $A = S \cdot D \cdot S^{-1}$ mit $D = \text{diag}(\lambda_1, \ldots, \lambda_n)$</li>
+</ol>
+<h2>3.4 Defekt einer Matrix</h2>
+<p>$$\text{Defekt}(A) = \dim(\ker(A)) = n - \text{Rang}(A)$$</p>
+<blockquote><p><strong>KLAUSURRELEVANT (Aufgabe 2.2):</strong><br>Hat $A$ den Eigenwert $\lambda = 0$ mit algebraischer Vielfachheit $m \geq 1$, dann:<br>- $\text{Defekt}(A) = \dim(\ker(A)) = \text{geo. VF}(0)$<br>- Es gilt: $1 \leq \text{geo. VF}(0) \leq m$<br>- Also: $1 \leq \text{Defekt}(A) \leq m$<br>- Genauer: $\text{Rang}(A) = n - \text{Defekt}(A)$, also $n - m \leq \text{Rang}(A) \leq n - 1$</p></blockquote>
+<h2>3.5 Beweis zu ONS und Eigenwerten (Klausuraufgabe 2.1!)</h2>
+<p><strong>Gegeben:</strong> ONS $v_1, v_2, v_3 \in \mathbb{R}^n$, $M = \lambda_1 v_1 v_1^T + \lambda_2 v_2 v_2^T + \lambda_3 v_3 v_3^T$</p>
+<p><strong>Zu zeigen:</strong> $Mv_i = \lambda_i v_i$</p>
+<p><strong>Beweis:</strong></p>
+<p>$$Mv_1 = (\lambda_1 v_1 v_1^T + \lambda_2 v_2 v_2^T + \lambda_3 v_3 v_3^T) v_1$$</p>
+<p>$$= \lambda_1 v_1 \underbrace{(v_1^T v_1)}_{= 1} + \lambda_2 v_2 \underbrace{(v_2^T v_1)}_{= 0} + \lambda_3 v_3 \underbrace{(v_3^T v_1)}_{= 0}$$</p>
+<p>$$= \lambda_1 v_1$$</p>
+<p><strong>Schlüssel:</strong> Die ONS-Eigenschaft $v_i^T v_j = \delta_{ij}$ (Kronecker-Delta) ist <strong>der</strong> entscheidende Trick!</p>
+<p>Analog für $v_2$ und $v_3$. $\square$</p>
+<blockquote><p><strong>Merke:</strong> Das Produkt $v v^T$ (äußeres Produkt) ist eine $n \times n$-Matrix (Rang 1), die auf den Unterraum $\text{span}(v)$ projiziert! So eine Matrix heißt <strong>Projektionsmatrix</strong> (bis auf Normierung).</p></blockquote>
+<h2>3.6 Zusammenhang: Eigenwerte und Matrixeigenschaften</h2>
+<table>
+<tr><th>Eigenschaft</th><th>Bedingung an Eigenwerte</th></tr>
+<tr><td>$A$ invertierbar</td><td>Alle $\lambda_i \neq 0$</td></tr>
+<tr><td>$\det(A)$</td><td>$= \prod \lambda_i$</td></tr>
+<tr><td>$\text{Spur}(A)$</td><td>$= \sum \lambda_i$</td></tr>
+<tr><td>$A$ symmetrisch ($A = A^T$)</td><td>Alle Eigenwerte reell</td></tr>
+<tr><td>$A$ positiv definit</td><td>Alle $\lambda_i > 0$</td></tr>
+<tr><td>$A$ orthogonal</td><td>Alle $</td><td>\lambda_i</td><td>= 1$</td></tr>
+<tr><td>$A^k$ hat Eigenwerte</td><td>$\lambda_i^k$</td></tr>
+<tr><td>$A$ nilpotent</td><td>Alle $\lambda_i = 0$</td></tr>
+<tr><td>$A$ idempotent ($A^2 = A$)</td><td>$\lambda_i \in \{0, 1\}$</td></tr>
+</table>
+<div class="footer">
+  LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
+  <a href="index.html">← Zurück zur Startseite</a>
+</div>
+</div>
+
+<script>
+// Close sidebar on mobile after link click
+document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('open');
+}));
+</script>
+</body>
+</html>

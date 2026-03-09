@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+*.tmp

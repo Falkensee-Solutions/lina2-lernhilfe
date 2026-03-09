@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Das große Ganze – Vernetzung – LINA2 Lernhilfe</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --accent: #f72585;
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 15px;
+  }
+
+  /* --- Top Bar --- */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary-dark);
+    color: white;
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .topbar a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+  .topbar .subtitle { color: rgba(255,255,255,.7); font-size: .85em; margin-left: auto; }
+  .menu-btn {
+    display: none; background: none; border: none; color: white;
+    font-size: 1.5em; cursor: pointer; padding: 4px 8px;
+  }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    position: fixed; top: 50px; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 16px 0;
+    z-index: 50;
+    transition: transform .3s;
+  }
+  .nav-category { padding: 0 16px; margin-bottom: 8px; }
+  .nav-cat-label {
+    display: block; font-size: .7em; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .08em; padding: 12px 0 4px 0;
+  }
+  .nav-link {
+    display: block; padding: 6px 16px; margin: 1px 8px;
+    border-radius: 6px; text-decoration: none;
+    color: var(--text); font-size: .88em;
+    transition: background .15s;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-link:hover { background: #f0f2ff; }
+  .nav-link.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* --- Main Content --- */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: 50px;
+    padding: 32px 40px 60px;
+    max-width: 900px;
+  }
+
+  h1 {
+    font-size: 1.8em; color: var(--text);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px; margin: 24px 0 20px;
+  }
+  h2 {
+    font-size: 1.35em; color: var(--primary-dark);
+    margin: 28px 0 14px;
+    border-left: 4px solid var(--primary);
+    padding-left: 12px;
+  }
+  h3 {
+    font-size: 1.1em; color: var(--primary);
+    margin: 20px 0 10px;
+  }
+  p { margin: 10px 0; }
+
+  blockquote {
+    border-left: 4px solid var(--accent);
+    background: #fff0f6;
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote strong { color: var(--accent); }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #f0f0f5; padding: 2px 6px;
+    border-radius: 4px; font-size: .9em;
+  }
+  pre {
+    background: #f0f0f5; padding: 16px;
+    border-radius: 8px; overflow-x: auto; margin: 12px 0;
+  }
+  pre code { background: none; padding: 0; }
+
+  table {
+    border-collapse: collapse; width: 100%;
+    margin: 16px 0; font-size: .92em;
+  }
+  th {
+    background: var(--primary); color: white;
+    padding: 10px 14px; text-align: left; font-weight: 600;
+  }
+  td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  tr:hover td { background: #e8ecff; }
+
+  ul, ol { margin: 10px 0 10px 24px; }
+  li { margin: 4px 0; }
+  li input[type="checkbox"] { margin-right: 8px; }
+
+  hr { border: none; border-top: 2px solid var(--border); margin: 30px 0; }
+
+  details {
+    background: #f8f9fa; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin: 12px 0;
+  }
+  details summary {
+    cursor: pointer; font-weight: 600; color: var(--primary);
+  }
+
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: .82em;
+    text-align: center;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); width: 260px; }
+    .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.15); }
+    .main { margin-left: 0; padding: 24px 16px 60px; }
+    .menu-btn { display: block; }
+    body { font-size: 14px; }
+  }
+
+  /* --- Print --- */
+  @media print {
+    .topbar, .sidebar, .menu-btn, .footer { display: none !important; }
+    .main { margin: 0; padding: 20px; max-width: 100%; }
+    body { font-size: 11px; background: white; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.15em; break-after: avoid; }
+    table { break-inside: avoid; font-size: .85em; }
+    blockquote { break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+  <a href="index.html">📐 LINA2 Lernhilfe</a>
+  <span class="subtitle">Lineare Algebra II – FU Berlin WiSe 2025/26</span>
+</div>
+
+<nav class="sidebar">
+  <div class="nav-category">
+    <a class="nav-link" href="index.html">🏠 Startseite</a>
+  </div>
+  <div class="nav-category"><span class="nav-cat-label">Planung</span>
+<a class="nav-link" href="00_Lernplan.html">📅 9-Tage-Lernplan</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Zusammenfassungen</span>
+<a class="nav-link" href="01_Komplexe_Zahlen_Vektorraeume.html">1️⃣ Komplexe Zahlen & Vektorräume</a>
+<a class="nav-link" href="02_Bild_Kern_Determinanten.html">2️⃣ Bild, Kern & Determinanten</a>
+<a class="nav-link" href="03_Eigenwerte_Diagonalisierung.html">3️⃣ Eigenwerte & Diagonalisierung</a>
+<a class="nav-link" href="04_Skalarprodukte_GramSchmidt.html">4️⃣ Skalarprodukte & Gram-Schmidt</a>
+<a class="nav-link" href="05_JNF_Minimalpolynom_CayleyHamilton.html">5️⃣ JNF, Minimalpolynom & Cayley-Hamilton</a>
+<a class="nav-link" href="06_Bilinearformen_Isometrien_Gruppen.html">6️⃣ Bilinearformen, Isometrien & Gruppen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Verständnis</span>
+<a class="nav-link active" href="Vernetzung_Das_Grosse_Ganze.html">🌐 Das große Ganze – Vernetzung</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link" href="Karteikarten.html">🗂️ Karteikarten</a>
+<a class="nav-link" href="Checkliste_Themen.html">✅ Checkliste pro Thema</a>
+<a class="nav-link" href="Uebungsaufgaben.html">📝 Übungsaufgaben</a>
+<a class="nav-link" href="Formelblatt.html">📋 Formelblatt</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Klausur</span>
+<a class="nav-link" href="Klausur_Musterloesungen.html">🎯 Klausur-Musterlösungen</a>
+</div>
+</nav>
+
+<div class="main">
+<h1>Das große Ganze – Wie hängt alles zusammen?</h1>
+<blockquote><p>Lies dieses Dokument <strong>immer wieder</strong>. Jedes Mal wirst du neue Verbindungen sehen.<br>Der Dozent will genau das: Dass du erklären kannst, <strong>warum</strong> etwas gilt und <strong>wo</strong> es wieder auftaucht.</p></blockquote>
+<hr>
+<h2>Die eine zentrale Idee</h2>
+<p>Lineare Algebra handelt von <strong>einer einzigen Frage:</strong></p>
+<blockquote><p><strong>Was macht eine Matrix $A$ mit Vektoren?</strong></p></blockquote>
+<p>Alles – wirklich alles – sind verschiedene Blickwinkel auf diese Frage:</p>
+<ul>
+<li><strong>Eigenwerte</strong> sagen dir: In welche Richtungen streckt/staucht $A$?</li>
+<li><strong>Determinante</strong> sagt dir: Wie verändert $A$ Volumina?</li>
+<li><strong>Kern</strong> sagt dir: Was wird von $A$ "vernichtet" (auf 0 geschickt)?</li>
+<li><strong>Bild</strong> sagt dir: Was kann $A$ überhaupt erreichen?</li>
+<li><strong>Skalarprodukt</strong> sagt dir: Wie verändert $A$ Winkel und Längen?</li>
+<li><strong>JNF</strong> sagt dir: Wie sieht $A$ in ihrer "einfachsten Form" aus?</li>
+</ul>
+<p>Und das Schöne ist: <strong>All diese Blickwinkel hängen zusammen.</strong> Das zeige ich dir jetzt.</p>
+<hr>
+<h2>1. Die Determinante – der rote Faden durch alles</h2>
+<p>Die Determinante ist der <strong>Klebstoff</strong> der linearen Algebra. Sie taucht überall auf:</p>
+<h3>Determinante ↔ Eigenwerte</h3>
+<p>$$\det(A) = \lambda_1 \cdot \lambda_2 \cdots \lambda_n$$</p>
+<p><strong>Warum?</strong> Das char. Polynom ist $\chi_A(\lambda) = \det(A - \lambda I)$. Setzt du $\lambda = 0$ ein, bekommst du $\det(A)$. Und das char. Polynom hat die Form $(\lambda_1 - \lambda)(\lambda_2 - \lambda)\cdots$. Bei $\lambda = 0$ steht da genau $\lambda_1 \cdot \lambda_2 \cdots$.</p>
+<p><strong>Was folgt daraus?</strong></p>
+<ul>
+<li>$A$ invertierbar $\iff$ $\det(A) \neq 0$ $\iff$ kein Eigenwert ist 0</li>
+<li>$A$ hat Eigenwert 0 $\iff$ $\det(A) = 0$ $\iff$ $A$ nicht invertierbar $\iff$ $\ker(A) \neq \{0\}$</li>
+</ul>
+<blockquote><p><strong>Merke:</strong> Determinante = 0, Eigenwert = 0, Kern nicht-trivial, nicht invertierbar – das ist <strong>alles dasselbe</strong>, nur anders formuliert!</p></blockquote>
+<h3>Determinante ↔ Volumen & Orientierung</h3>
+<ul>
+<li>$|\det(A)| = $ Volumenfaktor (um wie viel wird das Volumen gestreckt)</li>
+<li>$\det(A) > 0$: Orientierung bleibt erhalten (Drehung)</li>
+<li>$\det(A) < 0$: Orientierung kippt (Spiegelung)</li>
+<li>$|\det(A)| = 1$: Volumen bleibt gleich (volumentreu)</li>
+</ul>
+<p><strong>In der Klausur (1.7 + 1.8):</strong> Du hast $\det(A) = -1$ berechnet. Also:</p>
+<ul>
+<li>Volumentreu? Ja, weil $|-1| = 1$ ✓</li>
+<li>Orientierungserhaltend? Nein, weil $-1 < 0$ ✗</li>
+</ul>
+<h3>Determinante ↔ JNF</h3>
+<p>$$\det(A) = \det(VJV^{-1}) = \det(V) \cdot \det(J) \cdot \det(V)^{-1} = \det(J)$$</p>
+<p><strong>Warum ist das wichtig?</strong> Weil $\det(J)$ = Produkt der Diagonaleinträge (Dreiecksmatrix!). Du musst also nur die Eigenwerte multiplizieren, egal wie kompliziert die Matrix ist.</p>
+<p><strong>Die Kette:</strong> $\det(AB) = \det(A)\det(B)$ ist die <strong>Produktregel</strong> der Determinante. Sie steckt auch hinter $\det(SAS^{-1}) = \det(A)$ – ähnliche Matrizen haben <strong>immer</strong> die gleiche Determinante.</p>
+<h3>Determinante ↔ Invertierbarkeit ↔ Kern</h3>
+<p>$$\det(A) \neq 0 \iff A \text{ invertierbar} \iff \ker(A) = \{0\} \iff \text{Rang}(A) = n$$</p>
+<p><strong>Das ist eine der wichtigsten Äquivalenzketten der Vorlesung.</strong> Wenn eine der Bedingungen gilt, gelten automatisch alle anderen. Und wenn eine nicht gilt, gilt keine.</p>
+<hr>
+<h2>2. Eigenwerte – die DNA der Matrix</h2>
+<p>Eigenwerte verraten dir fast alles über eine Matrix. Stell dir vor, du siehst nur die Eigenwerte – was weißt du dann schon?</p>
+<h3>Eigenwerte → Determinante & Spur</h3>
+<ul>
+<li>$\det(A) = \prod \lambda_i$ (Produkt → Volumen)</li>
+<li>$\text{Spur}(A) = \sum \lambda_i$ (Summe → "durchschnittliche Streckung")</li>
+</ul>
+<h3>Eigenwerte → Invertierbarkeit</h3>
+<p>Kein Eigenwert = 0 $\iff$ $A$ invertierbar</p>
+<h3>Eigenwerte → Art der Matrix</h3>
+<table>
+<tr><th>Was du siehst</th><th>Was die Matrix ist</th></tr>
+<tr><td>Alle $\lambda_i$ reell</td><td>Könnte symmetrisch sein</td></tr>
+<tr><td>Alle $\lambda_i \in \{0, 1\}$</td><td>Könnte eine Projektion sein ($A^2 = A$)</td></tr>
+<tr><td>Alle $\lambda_i = 0$</td><td>Nilpotent ($A^k = 0$ für ein $k$)</td></tr>
+<tr><td>Alle $</td><td>\lambda_i</td><td>= 1$</td><td>Könnte orthogonal/unitär sein (Isometrie)</td></tr>
+<tr><td>Alle $\lambda_i > 0$</td><td>Positiv definit (wenn symmetrisch)</td></tr>
+</table>
+<h3>Eigenwerte → Potenzen & Exponential</h3>
+<p>Wenn $Av = \lambda v$, dann:</p>
+<ul>
+<li>$A^k v = \lambda^k v$ (Potenzen)</li>
+<li>$\exp(A) v = e^\lambda v$ (Exponential)</li>
+</ul>
+<p><strong>Das ist der tiefe Grund, warum Aufgabe 4 funktioniert:</strong> Wenn die Eigenwerte nur 0 und 1 sind, dann sind die Eigenwerte von $A^k$ auch nur $0^k = 0$ und $1^k = 1$. Also "sieht" $A^k$ genauso aus wie $A$!</p>
+<hr>
+<h2>3. Der Dreiklang: Algebraische VF – Geometrische VF – JNF</h2>
+<p>Das ist das <strong>Herzstück</strong> der Vorlesung und das, was die meisten nicht verstehen:</p>
+<h3>Was die algebraische Vielfachheit sagt</h3>
+<p>= Wie oft taucht $\lambda$ als Nullstelle im char. Polynom auf?</p>
+<p>= Wie viel "Platz" reserviert $\lambda$ in der Matrix?</p>
+<h3>Was die geometrische Vielfachheit sagt</h3>
+<p>= Wie viele <strong>unabhängige Richtungen</strong> gibt es, in die $A$ einfach nur streckt (ohne zu "drehen")?</p>
+<h3>Was die JNF sagt</h3>
+<p>= Wie die Matrix <strong>wirklich</strong> aussieht, wenn man die richtige Brille ($V$) aufsetzt.</p>
+<h3>Die Verbindung</h3>
+<p>$$\text{geo. VF} = \text{Anzahl der Jordan-Blöcke}$$</p>
+<p>$$\text{alg. VF} = \text{Gesamtgröße aller Jordan-Blöcke}$$</p>
+<p><strong>Beispiel aus der Klausur (EW = -1, alg. VF = 3):</strong></p>
+<ul>
+<li>$J_2(-1)$ und $J_1(-1)$ → 2 Blöcke → geo. VF = 2</li>
+<li>Blockgrößen 2+1 = 3 → alg. VF = 3</li>
+</ul>
+<p><strong>Die entscheidende Frage:</strong> Ist geo = alg?</p>
+<ul>
+<li><strong>Ja</strong> → Diagonalisierbar! Die Matrix streckt nur, sie "dreht nicht".</li>
+<li><strong>Nein</strong> → Nicht diagonalisierbar. Es gibt Jordan-Blöcke > 1. Die Matrix hat eine "Schwanz-Struktur" (Hauptvektoren).</li>
+</ul>
+<h3>Warum Diagonalisierbarkeit so wichtig ist</h3>
+<p>Wenn $A = SDS^{-1}$ (diagonalisierbar), dann:</p>
+<ul>
+<li>$A^k = SD^kS^{-1}$ (Potenzen trivial berechnen)</li>
+<li>$\exp(A) = S \exp(D) S^{-1}$ (Exponential trivial berechnen)</li>
+<li>Alle Berechnungen werden <strong>einfach</strong>, weil $D$ nur Diagonaleinträge hat.</li>
+</ul>
+<p>→ <strong>Deshalb</strong> will man wissen ob eine Matrix diagonalisierbar ist!</p>
+<hr>
+<h2>4. Kern, Bild & Rang – die Dimensionsbrille</h2>
+<h3>Die Dimensionsformel (Rangsatz) verbindet alles</h3>
+<p>$$\underbrace{\dim(V)}_{= n} = \underbrace{\dim(\ker(A))}_{\text{Defekt}} + \underbrace{\dim(\text{Bild}(A))}_{\text{Rang}}$$</p>
+<p><strong>Was das bedeutet:</strong> Der Definitionsbereich teilt sich auf in "was vernichtet wird" und "was rauskommt". Je mehr vernichtet wird, desto weniger kommt raus.</p>
+<h3>Rang ↔ Determinante</h3>
+<ul>
+<li>Rang = $n$ $\iff$ $\det(A) \neq 0$ $\iff$ $A$ invertierbar</li>
+<li>Rang < $n$ $\iff$ $\det(A) = 0$ $\iff$ $A$ hat EW 0</li>
+</ul>
+<h3>Defekt ↔ Eigenwert 0</h3>
+<p>$$\text{Defekt}(A) = \dim(\ker(A)) = \text{geo. VF}(0)$$</p>
+<p><strong>In der Klausur (Aufgabe 2.2):</strong> Wenn EW 0 algebraische VF $m$ hat:</p>
+<p>$$1 \leq \text{Defekt} \leq m$$</p>
+<p>Das folgt direkt aus $1 \leq \text{geo. VF} \leq \text{alg. VF}$!</p>
+<hr>
+<h2>5. Skalarprodukt – die Messbrille</h2>
+<p>Ohne Skalarprodukt kann man nur "algebraisch" arbeiten (Gleichungen lösen). <strong>Mit</strong> Skalarprodukt kann man auch <strong>messen</strong> (Längen, Winkel).</p>
+<h3>Skalarprodukt → Orthogonalität</h3>
+<p>$\langle u | v \rangle = 0$ heißt "$u$ steht senkrecht auf $v$"</p>
+<h3>Skalarprodukt → Norm</h3>
+<p>$\|v\| = \sqrt{\langle v | v \rangle}$ = Länge des Vektors</p>
+<h3>Skalarprodukt → Gram-Schmidt</h3>
+<p>GS benutzt das Skalarprodukt, um eine beliebige Basis in eine <strong>orthonormale</strong> Basis umzuwandeln. Der Schlüssel ist die <strong>Projektion:</strong></p>
+<p>$$\text{proj}_e(v) = \langle e | v \rangle \cdot e$$</p>
+<p>Das ist die "Komponente von $v$ in Richtung $e$". Gram-Schmidt zieht diese Komponenten ab.</p>
+<h3>Skalarprodukt → Adjungiertheit</h3>
+<p>$\langle Av | w \rangle = \langle v | A^* w \rangle$</p>
+<p><strong>Warum wichtig?</strong> Weil spezielle Beziehungen zwischen $A$ und $A^*$ die Matrix klassifizieren:</p>
+<ul>
+<li>$A = A^*$ → selbstadjungiert (symmetrisch) → <strong>alle EW reell, orthogonal diagonalisierbar</strong></li>
+<li>$A^*A = I$ → orthogonal/unitär → <strong>Isometrie</strong> (Längen bleiben gleich)</li>
+<li>$A^<em>A = AA^</em>$ → normal → <strong>unitär diagonalisierbar</strong></li>
+</ul>
+<h3>Skalarprodukt → Spektralsatz</h3>
+<blockquote><p>Symmetrische Matrizen haben <strong>reelle</strong> Eigenwerte und sind <strong>orthogonal</strong> diagonalisierbar.</p></blockquote>
+<p><strong>Warum kam das in der Klausur (1.9)?</strong></p>
+<p>Die JNF hat einen Block größe 2, also ist $A$ <strong>nicht</strong> diagonalisierbar. Wäre $A$ symmetrisch, <strong>müsste</strong> sie diagonalisierbar sein (Spektralsatz). Widerspruch! → $A$ ist nicht symmetrisch.</p>
+<hr>
+<h2>6. Cayley-Hamilton & Minimalpolynom – die Polynombrille</h2>
+<h3>Die große Idee</h3>
+<p>Jede Matrix "gehorcht" ihrem eigenen Polynom:</p>
+<p>$$\chi_A(A) = 0 \quad \text{(Cayley-Hamilton)}$$</p>
+<p>Das heißt: Du kannst hohe Potenzen von $A$ immer durch <strong>niedrigere</strong> ausdrücken!</p>
+<h3>Minimalpolynom = das kürzeste Polynom, das $A$ "gehorcht"</h3>
+<ul>
+<li>$\mu_A$ teilt $\chi_A$</li>
+<li>Gleiche Nullstellen (= gleiche Eigenwerte)</li>
+<li>Aber $\mu_A$ kann kürzeren Grad haben</li>
+</ul>
+<h3>Woher kommt das Minimalpolynom? → Aus der JNF!</h3>
+<ul>
+<li>$\chi_A$: <strong>Alle</strong> Blockgrößen zählen → Grad = $n$ (Matrixgröße)</li>
+<li>$\mu_A$: Nur der <strong>größte</strong> Block pro EW zählt</li>
+</ul>
+<p><strong>Klausur (1.2):</strong> Größter Block zu EW 1 hat Größe 1, zu EW -1 Größe 2.</p>
+<p>→ $\mu_A = (\lambda - 1)^1 (\lambda + 1)^2$</p>
+<h3>Die Kette: Minimalpolynom → $A^2 = A$ → $A^m = A$ → $\exp(A)$</h3>
+<p>Das war die ganze Aufgabe 4:</p>
+<ol>
+<li><strong>Minimalpolynom</strong> $= \lambda^2 - \lambda$ (weil diagonalisierbar mit EW 0, 1)</li>
+<li><strong>Cayley-Hamilton</strong> → $A^2 - A = 0$ → $A^2 = A$</li>
+<li><strong>Induktion</strong> → $A^m = A$ für alle $m \geq 1$</li>
+<li><strong>Definition</strong> von $\exp(A) = \sum \frac{A^k}{k!}$ → setze $A^k = A$ ein → fertig!</li>
+</ol>
+<p><strong>Siehst du die Kette?</strong> Minimalpolynom → Matrixgleichung → Induktion → Exponential. Alles baut aufeinander auf!</p>
+<hr>
+<h2>7. Die Vernetzungsmatrix – Alles auf einen Blick</h2>
+<p>Lies diese Tabelle spaltenweise: "Wenn ich X kenne, was weiß ich dann über Y?"</p>
+<table>
+<tr><th>Wenn ich ... kenne</th><th>→ Eigenwerte</th><th>→ Determinante</th><th>→ Rang/Kern</th><th>→ Diagonalisierbar?</th><th>→ Symmetrisch?</th></tr>
+<tr><td><strong>Eigenwerte</strong></td><td>✓</td><td>$= \prod \lambda_i$</td><td>EW=0 ↔ Kern≠{0}</td><td>Brauche auch geo. VF</td><td>Wenn alle reell: möglich</td></tr>
+<tr><td><strong>Determinante</strong></td><td>Nur Produkt</td><td>✓</td><td>$\neq 0$ ↔ voller Rang</td><td>Nein</td><td>Nein</td></tr>
+<tr><td><strong>JNF</strong></td><td>Diagonale ablesen</td><td>Diagonale multiplizieren</td><td>Anzahl Nullen auf Diag.</td><td>Alle Blöcke Größe 1?</td><td>Alle Blöcke Größe 1 + reelle EW</td></tr>
+<tr><td><strong>Char. Polynom</strong></td><td>= Nullstellen</td><td>$= \chi_A(0)$</td><td>EW=0 vorhanden?</td><td>Brauche geo. VF</td><td>Nein</td></tr>
+<tr><td><strong>Minimalpolynom</strong></td><td>= Nullstellen</td><td>Indirekt</td><td>EW=0 vorhanden?</td><td>Nur einfache Nullstellen?</td><td>Nur einfache Nullstellen + reelle EW</td></tr>
+<tr><td><strong>Skalarprodukt</strong></td><td>–</td><td>–</td><td>–</td><td>–</td><td>$A = A^T$ prüfbar</td></tr>
+</table>
+<hr>
+<h2>8. Die 5 wichtigsten "Warum?"-Fragen für die Klausur</h2>
+<h3>Warum gilt $\det(A) = \det(J)$?</h3>
+<p>Weil $A = VJV^{-1}$ und $\det(AB) = \det(A)\det(B)$. Die $\det(V)$ und $\det(V^{-1})$ kürzen sich weg.</p>
+<p><strong>Allgemeiner:</strong> Ähnliche Matrizen haben die gleiche Determinante, die gleichen Eigenwerte, das gleiche char. Polynom und das gleiche Minimalpolynom. All diese Dinge sind <strong>Invarianten unter Ähnlichkeit</strong>.</p>
+<h3>Warum ist eine symmetrische Matrix immer diagonalisierbar?</h3>
+<p>Weil der Spektralsatz sagt: Für symm. Matrizen existiert eine <strong>ONB</strong> aus Eigenvektoren. Eigenvektoren zu verschiedenen EW sind automatisch orthogonal (das folgt aus $\langle Av | w \rangle = \langle v | Aw \rangle$ für symmetrische $A$).</p>
+<p>→ Wenn es eine Basis aus Eigenvektoren gibt, sind alle Jordan-Blöcke Größe 1 → diagonalisierbar.</p>
+<h3>Warum braucht man Gram-Schmidt?</h3>
+<p>Weil eine Basis meistens <strong>nicht</strong> orthonormal ist. Aber ONBs sind super praktisch:</p>
+<ul>
+<li>Koordinaten berechnen: $\alpha_i = \langle e_i | v \rangle$ (kein LGS nötig!)</li>
+<li>Projektionen: $P_U(v) = \sum \langle e_i | v \rangle e_i$</li>
+<li>Numerische Stabilität bei Rechnungen</li>
+</ul>
+<h3>Warum funktioniert $\exp(A) = I + (e-1)A$?</h3>
+<p>Weil $A^2 = A$ (idempotent). Das bedeutet: $A$ projiziert auf einen Unterraum. Projizierst du zweimal, passiert nichts Neues. Deshalb sind alle Potenzen gleich, und die unendliche Summe wird endlich.</p>
+<p><strong>Tiefere Einsicht:</strong> Die Eigenwerte von $A$ sind 0 und 1. $\exp(A)$ hat die Eigenwerte $e^0 = 1$ und $e^1 = e$. Also $\exp(A) = 1 \cdot P_0 + e \cdot P_1$, wobei $P_0, P_1$ Projektionen auf die Eigenräume sind. Das ist dasselbe wie $I + (e-1)A$!</p>
+<h3>Warum ist Induktion bei Matrixbeweisen so häufig?</h3>
+<p>Weil viele Matrixeigenschaften sich <strong>iterativ</strong> aufbauen:</p>
+<ul>
+<li>$A^{m+1} = A^m \cdot A$ (Potenz)</li>
+<li>$\exp(A)$ ist eine unendliche Summe (teilweise abschneidbar)</li>
+<li>Dimension eines Unterraums durch schrittweises Hinzufügen von Vektoren</li>
+</ul>
+<hr>
+<h2>9. Drei Geschichten, die alles verbinden</h2>
+<h3>Geschichte 1: "Die Matrix als Maschine"</h3>
+<p>Stell dir $A$ als Maschine vor, die Vektoren rein bekommt und Vektoren rausspuckt.</p>
+<ul>
+<li><strong>Eigenvektoren</strong> sind die Vektoren, die nur <strong>gestreckt</strong> werden (Richtung bleibt gleich).</li>
+<li><strong>Eigenwerte</strong> sind die <strong>Streckungsfaktoren</strong>.</li>
+<li><strong>Kern</strong> sind die Vektoren, die <strong>vernichtet</strong> werden (auf 0 geschickt).</li>
+<li><strong>Bild</strong> ist alles, was die Maschine <strong>produzieren</strong> kann.</li>
+<li><strong>Determinante</strong> sagt, wie sich das <strong>Gesamtvolumen</strong> ändert.</li>
+<li><strong>JNF</strong> ist der <strong>Bauplan</strong> der Maschine in ihrer einfachsten Form.</li>
+</ul>
+<h3>Geschichte 2: "Vom Char. Polynom zur kompletten Analyse"</h3>
+<p>Du bekommst eine Matrix $A$. Was tust du?</p>
+<ol>
+<li><strong>Char. Polynom</strong> berechnen → Eigenwerte finden</li>
+<li>Für jeden EW: <strong>Eigenraum</strong> berechnen ($\ker(A - \lambda I)$) → geo. VF</li>
+<li>Geo. VF vs. alg. VF → <strong>Diagonalisierbar?</strong></li>
+<li>Wenn ja: $A = SDS^{-1}$ → alles leicht ($A^k$, $\exp(A)$, ...)</li>
+<li>Wenn nein: <strong>JNF</strong> bestimmen → Hauptvektoren → $A = VJV^{-1}$</li>
+<li>Aus der JNF: <strong>Minimalpolynom</strong>, <strong>Determinante</strong>, alles ablesen</li>
+<li><strong>Cayley-Hamilton</strong> nutzen für Matrixgleichungen</li>
+</ol>
+<p><strong>Alles hängt zusammen!</strong> Char. Polynom → Eigenwerte → Eigenräume → JNF → Minimalpolynom → Matrixgleichungen.</p>
+<h3>Geschichte 3: "Skalarprodukt als Upgrade"</h3>
+<p>Ohne Skalarprodukt kannst du:</p>
+<ul>
+<li>Eigenwerte berechnen ✓</li>
+<li>Diagonalisieren ✓</li>
+<li>Determinanten berechnen ✓</li>
+</ul>
+<p><strong>Mit</strong> Skalarprodukt kannst du <strong>zusätzlich:</strong></p>
+<ul>
+<li>Winkel und Längen messen</li>
+<li>Orthogonale Basen konstruieren (Gram-Schmidt)</li>
+<li>Symmetrie erkennen → Spektralsatz nutzen</li>
+<li>Isometrien klassifizieren (Drehungen, Spiegelungen)</li>
+<li>Projektionen sauber definieren</li>
+</ul>
+<p>Das Skalarprodukt ist das <strong>geometrische Upgrade</strong> der algebraischen Theorie.</p>
+<hr>
+<h2>10. Verbotene Kurzschlüsse (häufige Denkfehler!)</h2>
+<table>
+<tr><th>Falsch</th><th>Richtig</th></tr>
+<tr><td>"Alle EW reell → symmetrisch"</td><td>Alle EW reell ist <strong>notwendig</strong>, aber nicht hinreichend!</td></tr>
+<tr><td>"alg. VF > 1 → nicht diagonalisierbar"</td><td><strong>Falsch!</strong> Nur wenn geo. VF < alg. VF → nicht diagonalisierbar</td></tr>
+<tr><td>"$\det(A) = 1$ → orientierungserhaltend"</td><td>Ja, das ist korrekt!</td></tr>
+<tr><td>"$\det(A) \neq 0$ → diagonalisierbar"</td><td><strong>Falsch!</strong> $\det \neq 0$ heißt nur: invertierbar</td></tr>
+<tr><td>"Orthogonale Matrix → Rotation"</td><td>Nur wenn $\det = +1$! Bei $\det = -1$: Spiegelung</td></tr>
+<tr><td>"Minimalpolynom = char. Polynom"</td><td>Nur wenn es einen einzigen Jordan-Block pro EW gibt</td></tr>
+<tr><td>"Gram-Schmidt ändert den aufgespannten Raum"</td><td><strong>Falsch!</strong> GS ändert nur die Basis, nicht den Raum</td></tr>
+</table>
+<hr>
+<h2>Letzte Worte</h2>
+<p>Wenn du in der Klausur eine Aufgabe siehst, frag dich immer:</p>
+<ol>
+<li><strong>Welche Objekte sind beteiligt?</strong> (Matrix, Eigenwerte, Determinante, Skalarprodukt, ...)</li>
+<li><strong>Welche Verbindungen kenne ich zwischen diesen Objekten?</strong></li>
+<li><strong>Welcher Satz/welche Formel verbindet die Gegebenen mit dem Gesuchten?</strong></li>
+</ol>
+<p>Die Klausur testet nicht, ob du rechnen kannst (das kannst du). Sie testet, ob du <strong>die Brücken zwischen den Konzepten</strong> kennst und nutzen kannst.</p>
+<p><strong>Lies dieses Dokument an jedem der 9 Tage einmal durch. Jedes Mal wird es klarer.</strong></p>
+<div class="footer">
+  LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
+  <a href="index.html">← Zurück zur Startseite</a>
+</div>
+</div>
+
+<script>
+// Close sidebar on mobile after link click
+document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('open');
+}));
+</script>
+</body>
+</html>

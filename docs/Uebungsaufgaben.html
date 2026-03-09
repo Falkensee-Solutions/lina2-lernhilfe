@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Übungsaufgaben – LINA2 Lernhilfe</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --accent: #f72585;
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 15px;
+  }
+
+  /* --- Top Bar --- */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary-dark);
+    color: white;
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .topbar a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+  .topbar .subtitle { color: rgba(255,255,255,.7); font-size: .85em; margin-left: auto; }
+  .menu-btn {
+    display: none; background: none; border: none; color: white;
+    font-size: 1.5em; cursor: pointer; padding: 4px 8px;
+  }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    position: fixed; top: 50px; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 16px 0;
+    z-index: 50;
+    transition: transform .3s;
+  }
+  .nav-category { padding: 0 16px; margin-bottom: 8px; }
+  .nav-cat-label {
+    display: block; font-size: .7em; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .08em; padding: 12px 0 4px 0;
+  }
+  .nav-link {
+    display: block; padding: 6px 16px; margin: 1px 8px;
+    border-radius: 6px; text-decoration: none;
+    color: var(--text); font-size: .88em;
+    transition: background .15s;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-link:hover { background: #f0f2ff; }
+  .nav-link.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* --- Main Content --- */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: 50px;
+    padding: 32px 40px 60px;
+    max-width: 900px;
+  }
+
+  h1 {
+    font-size: 1.8em; color: var(--text);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px; margin: 24px 0 20px;
+  }
+  h2 {
+    font-size: 1.35em; color: var(--primary-dark);
+    margin: 28px 0 14px;
+    border-left: 4px solid var(--primary);
+    padding-left: 12px;
+  }
+  h3 {
+    font-size: 1.1em; color: var(--primary);
+    margin: 20px 0 10px;
+  }
+  p { margin: 10px 0; }
+
+  blockquote {
+    border-left: 4px solid var(--accent);
+    background: #fff0f6;
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote strong { color: var(--accent); }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #f0f0f5; padding: 2px 6px;
+    border-radius: 4px; font-size: .9em;
+  }
+  pre {
+    background: #f0f0f5; padding: 16px;
+    border-radius: 8px; overflow-x: auto; margin: 12px 0;
+  }
+  pre code { background: none; padding: 0; }
+
+  table {
+    border-collapse: collapse; width: 100%;
+    margin: 16px 0; font-size: .92em;
+  }
+  th {
+    background: var(--primary); color: white;
+    padding: 10px 14px; text-align: left; font-weight: 600;
+  }
+  td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  tr:hover td { background: #e8ecff; }
+
+  ul, ol { margin: 10px 0 10px 24px; }
+  li { margin: 4px 0; }
+  li input[type="checkbox"] { margin-right: 8px; }
+
+  hr { border: none; border-top: 2px solid var(--border); margin: 30px 0; }
+
+  details {
+    background: #f8f9fa; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin: 12px 0;
+  }
+  details summary {
+    cursor: pointer; font-weight: 600; color: var(--primary);
+  }
+
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: .82em;
+    text-align: center;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); width: 260px; }
+    .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.15); }
+    .main { margin-left: 0; padding: 24px 16px 60px; }
+    .menu-btn { display: block; }
+    body { font-size: 14px; }
+  }
+
+  /* --- Print --- */
+  @media print {
+    .topbar, .sidebar, .menu-btn, .footer { display: none !important; }
+    .main { margin: 0; padding: 20px; max-width: 100%; }
+    body { font-size: 11px; background: white; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.15em; break-after: avoid; }
+    table { break-inside: avoid; font-size: .85em; }
+    blockquote { break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+  <a href="index.html">📐 LINA2 Lernhilfe</a>
+  <span class="subtitle">Lineare Algebra II – FU Berlin WiSe 2025/26</span>
+</div>
+
+<nav class="sidebar">
+  <div class="nav-category">
+    <a class="nav-link" href="index.html">🏠 Startseite</a>
+  </div>
+  <div class="nav-category"><span class="nav-cat-label">Planung</span>
+<a class="nav-link" href="00_Lernplan.html">📅 9-Tage-Lernplan</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Zusammenfassungen</span>
+<a class="nav-link" href="01_Komplexe_Zahlen_Vektorraeume.html">1️⃣ Komplexe Zahlen & Vektorräume</a>
+<a class="nav-link" href="02_Bild_Kern_Determinanten.html">2️⃣ Bild, Kern & Determinanten</a>
+<a class="nav-link" href="03_Eigenwerte_Diagonalisierung.html">3️⃣ Eigenwerte & Diagonalisierung</a>
+<a class="nav-link" href="04_Skalarprodukte_GramSchmidt.html">4️⃣ Skalarprodukte & Gram-Schmidt</a>
+<a class="nav-link" href="05_JNF_Minimalpolynom_CayleyHamilton.html">5️⃣ JNF, Minimalpolynom & Cayley-Hamilton</a>
+<a class="nav-link" href="06_Bilinearformen_Isometrien_Gruppen.html">6️⃣ Bilinearformen, Isometrien & Gruppen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Verständnis</span>
+<a class="nav-link" href="Vernetzung_Das_Grosse_Ganze.html">🌐 Das große Ganze – Vernetzung</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link" href="Karteikarten.html">🗂️ Karteikarten</a>
+<a class="nav-link" href="Checkliste_Themen.html">✅ Checkliste pro Thema</a>
+<a class="nav-link active" href="Uebungsaufgaben.html">📝 Übungsaufgaben</a>
+<a class="nav-link" href="Formelblatt.html">📋 Formelblatt</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Klausur</span>
+<a class="nav-link" href="Klausur_Musterloesungen.html">🎯 Klausur-Musterlösungen</a>
+</div>
+</nav>
+
+<div class="main">
+<h1>Übungsaufgaben mit Lösungshinweisen</h1>
+<blockquote><p>Bearbeite jede Aufgabe selbständig, bevor du die Hinweise liest!<br>Die Aufgaben sind nach Klausurrelevanz sortiert.</p></blockquote>
+<hr>
+<h2>⚡ Aufgabenblock 1: Eigenwerte & Beweise (wie Klausuraufgabe 2)</h2>
+<h3>Aufgabe 1.1 – ONS und Eigenwerte</h3>
+<p>Gegeben: $v_1 = \frac{1}{\sqrt{2}}\binom{1}{1}$, $v_2 = \frac{1}{\sqrt{2}}\binom{1}{-1}$ (ONS in $\mathbb{R}^2$) und $M = 3 v_1 v_1^T + 5 v_2 v_2^T$.</p>
+<p>a) Zeige: $Mv_1 = 3v_1$ und $Mv_2 = 5v_2$.  </p>
+<p>b) Berechne $M$ explizit als $2 \times 2$-Matrix.  </p>
+<p>c) Ist $M$ diagonalisierbar? Begründe!</p>
+<p><strong>Hinweis a):</strong> Setze $v_1$ in $M$ ein und nutze $v_i^T v_j = \delta_{ij}$.  </p>
+<p><strong>Hinweis b):</strong> $v_1 v_1^T = \frac{1}{2}\begin{pmatrix}1&1\\1&1\end{pmatrix}$ berechnen, analog $v_2 v_2^T$, dann einsetzen.  </p>
+<p><strong>Hinweis c):</strong> Prüfe: geo. VF = alg. VF für jeden EW? Oder: Haben wir eine Basis aus EV?</p>
+<details>
+<summary>Lösung</summary>
+<p>a) $Mv_1 = 3v_1(v_1^Tv_1) + 5v_2(v_2^Tv_1) = 3v_1 \cdot 1 + 5v_2 \cdot 0 = 3v_1$ ✓</p>
+<p>b) $M = 3 \cdot \frac{1}{2}\begin{pmatrix}1&1\\1&1\end{pmatrix} + 5 \cdot \frac{1}{2}\begin{pmatrix}1&-1\\-1&1\end{pmatrix} = \begin{pmatrix}4&-1\\-1&4\end{pmatrix}$</p>
+<p>c) Ja, denn $v_1, v_2$ sind linear unabhängig und bilden eine Basis aus Eigenvektoren. Alternativ: $M$ ist symmetrisch ($M = M^T$), also nach Spektralsatz diagonalisierbar.</p>
+</details>
+<hr>
+<h3>Aufgabe 1.2 – Defekt und Rang</h3>
+<p>Gegeben: $A \in \mathbb{R}^{4 \times 4}$ mit $\chi_A(\lambda) = \lambda^2(\lambda - 3)(\lambda + 1)$.</p>
+<p>a) Welche Eigenwerte hat $A$? Gib die algebraischen Vielfachheiten an.  </p>
+<p>b) Was kannst du über den Defekt von $A$ sagen?  </p>
+<p>c) Was kannst du über den Rang von $A$ sagen?  </p>
+<p>d) Ist $A$ invertierbar? Begründe!</p>
+<p><strong>Hinweis b):</strong> Defekt = geo. VF(0). Welche Schranken gelten?  </p>
+<p><strong>Hinweis c):</strong> Rangsatz: Rang = $n$ - Defekt.</p>
+<details>
+<summary>Lösung</summary>
+<p>a) EW: $\lambda_1 = 0$ (alg. VF 2), $\lambda_2 = 3$ (alg. VF 1), $\lambda_3 = -1$ (alg. VF 1)</p>
+<p>b) Defekt = geo. VF(0). Es gilt: $1 \leq \text{geo. VF}(0) \leq \text{alg. VF}(0) = 2$. Also Defekt $\in \{1, 2\}$.</p>
+<p>c) Rang = $4 - \text{Defekt} \in \{2, 3\}$.</p>
+<p>d) Nein! $\lambda = 0$ ist Eigenwert, also $\det(A) = 0 \cdot 0 \cdot 3 \cdot (-1) = 0$.</p>
+</details>
+<hr>
+<h3>Aufgabe 1.3 – Symmetrische Matrix und Diagonalisierbarkeit</h3>
+<p>Zeige: Wenn $A \in \mathbb{R}^{n \times n}$ einen Jordan-Block der Größe $k \geq 2$ besitzt, dann ist $A$ <strong>nicht</strong> symmetrisch.</p>
+<p><strong>Hinweis:</strong> Was weißt du über die Diagonalisierbarkeit symmetrischer Matrizen (Spektralsatz)?</p>
+<details>
+<summary>Lösung</summary>
+<p>Angenommen $A$ wäre symmetrisch. Dann ist $A$ nach dem Spektralsatz (reell, orthogonal) diagonalisierbar. D.h. alle Jordan-Blöcke haben Größe 1. Widerspruch zu der Annahme, dass ein Block Größe $k \geq 2$ hat. Also kann $A$ nicht symmetrisch sein. $\square$</p>
+</details>
+<hr>
+<h2>⚡ Aufgabenblock 2: Gram-Schmidt (wie Klausuraufgabe 3)</h2>
+<h3>Aufgabe 2.1 – GS im Reellen</h3>
+<p>Wende Gram-Schmidt auf $v_1 = (1, 1, 0)^T$ und $v_2 = (1, 0, 1)^T$ an (Standard-Skalarprodukt in $\mathbb{R}^3$).</p>
+<p><strong>Hinweis:</strong> Schritt 1: Normiere $v_1$. Schritt 2: Orthogonalisiere $v_2$ bzgl. $e_1$, dann normiere.</p>
+<details>
+<summary>Lösung</summary>
+<p>$\|v_1\| = \sqrt{2}$, also $e_1 = \frac{1}{\sqrt{2}}(1,1,0)^T$</p>
+<p>$\langle e_1 | v_2 \rangle = \frac{1}{\sqrt{2}}(1 \cdot 1 + 1 \cdot 0 + 0 \cdot 1) = \frac{1}{\sqrt{2}}$</p>
+<p>$\tilde{e}_2 = v_2 - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}}(1,1,0)^T = (1,0,1)^T - \frac{1}{2}(1,1,0)^T = (\frac{1}{2}, -\frac{1}{2}, 1)^T$</p>
+<p>$\|\tilde{e}_2\| = \sqrt{\frac{1}{4} + \frac{1}{4} + 1} = \sqrt{\frac{3}{2}}$</p>
+<p>$e_2 = \frac{1}{\sqrt{3/2}}(\frac{1}{2}, -\frac{1}{2}, 1)^T = \frac{1}{\sqrt{6}}(1, -1, 2)^T$</p>
+<p>Probe: $\langle e_1 | e_2 \rangle = \frac{1}{\sqrt{12}}(1 - 1 + 0) = 0$ ✓</p>
+</details>
+<hr>
+<h3>Aufgabe 2.2 – GS mit komplexem Integral-Skalarprodukt</h3>
+<p>Gegeben: $f_1(x) = 1$, $f_2(x) = e^{ix}$ auf $[0, 2\pi]$ mit $\langle f|g\rangle = \frac{1}{2\pi}\int_0^{2\pi} \overline{f(x)} g(x) \, dx$.</p>
+<p>Bestimme eine ONB von $\text{span}(f_1, f_2)$.</p>
+<p><strong>Hinweis:</strong> Berechne $\|f_1\|$, dann $\langle e_1 | f_2 \rangle$. Nutze $\int_0^{2\pi} e^{ix} dx = 0$.</p>
+<details>
+<summary>Lösung</summary>
+<p>$\|f_1\|^2 = \frac{1}{2\pi}\int_0^{2\pi} 1 \, dx = 1$, also $e_1 = 1$.</p>
+<p>$\langle e_1 | f_2 \rangle = \frac{1}{2\pi}\int_0^{2\pi} 1 \cdot e^{ix} dx = \frac{1}{2\pi}\left[\frac{e^{ix}}{i}\right]_0^{2\pi} = \frac{1}{2\pi} \cdot \frac{e^{2\pi i} - 1}{i} = 0$</p>
+<p>Also $\tilde{e}_2 = f_2 - 0 = e^{ix}$.</p>
+<p>$\|\tilde{e}_2\|^2 = \frac{1}{2\pi}\int_0^{2\pi} e^{-ix} \cdot e^{ix} dx = \frac{1}{2\pi}\int_0^{2\pi} 1 \, dx = 1$</p>
+<p>Also $e_1(x) = 1$ und $e_2(x) = e^{ix}$ – sie waren schon orthonormal!</p>
+</details>
+<hr>
+<h2>⚡ Aufgabenblock 3: JNF, Minimalpolynom, Cayley-Hamilton (wie Klausuraufgaben 1 + 4)</h2>
+<h3>Aufgabe 3.1 – JNF ablesen</h3>
+<p>Gegeben die JNF:</p>
+<p>$$J = \begin{pmatrix} 2 & 1 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & -3 \end{pmatrix}$$</p>
+<p>a) Wie lautet $\chi_A$?  </p>
+<p>b) Wie lautet $\mu_A$?  </p>
+<p>c) Ist $A$ diagonalisierbar?  </p>
+<p>d) geo. VF(2) = ? geo. VF(-3) = ?  </p>
+<p>e) $\det(A) = ?$, $\text{Spur}(A) = ?$</p>
+<details>
+<summary>Lösung</summary>
+<p>a) $\chi_A(\lambda) = (\lambda - 2)^3(\lambda + 3)$</p>
+<p>b) $\mu_A(\lambda) = (\lambda - 2)^2(\lambda + 3)$ (größter Block zu EW 2 hat Größe 2)</p>
+<p>c) Nein, der Jordan-Block $J_2(2)$ hat Größe 2.</p>
+<p>d) geo. VF(2) = 2 (zwei Blöcke: $J_2(2)$ und $J_1(2)$). geo. VF(-3) = 1.</p>
+<p>e) $\det(A) = 2^3 \cdot (-3) = -24$. $\text{Spur}(A) = 2+2+2+(-3) = 3$.</p>
+</details>
+<hr>
+<h3>Aufgabe 3.2 – Cayley-Hamilton anwenden</h3>
+<p>$A \in \mathbb{R}^{3 \times 3}$ mit $\chi_A(\lambda) = -\lambda^3 + 4\lambda$.</p>
+<p>a) Finde die Eigenwerte.  </p>
+<p>b) Drücke $A^3$ durch niedrigere Potenzen von $A$ aus.  </p>
+<p>c) Berechne $A^4$ (unter Verwendung von b).</p>
+<p><strong>Hinweis b):</strong> Cayley-Hamilton: $\chi_A(A) = 0$, also $-A^3 + 4A = 0$.</p>
+<details>
+<summary>Lösung</summary>
+<p>a) $-\lambda^3 + 4\lambda = -\lambda(\lambda^2 - 4) = -\lambda(\lambda-2)(\lambda+2) = 0$. EW: $0, 2, -2$.</p>
+<p>b) $-A^3 + 4A = 0 \implies A^3 = 4A$</p>
+<p>c) $A^4 = A \cdot A^3 = A \cdot 4A = 4A^2$</p>
+</details>
+<hr>
+<h3>Aufgabe 3.3 – Matrixexponential</h3>
+<p>$A$ ist diagonalisierbar mit einzigem Eigenwert $\lambda = 0$ (d.h. $A = 0$). Berechne $\exp(A)$.</p>
+<p><strong>Hinweis:</strong> Was ist $A^k$ für $k \geq 1$?</p>
+<details>
+<summary>Lösung</summary>
+<p>$A = 0$, also $A^k = 0$ für $k \geq 1$.</p>
+<p>$\exp(A) = I + \sum_{k=1}^\infty \frac{0}{k!} = I$</p>
+<p>Also $\exp(0) = I$. (Das ist konsistent: $e^0 = 1$.)</p>
+</details>
+<hr>
+<h3>Aufgabe 3.4 – Matrixexponential (schwieriger)</h3>
+<p>$A \in \mathbb{R}^{2 \times 2}$, nilpotent der Ordnung 2 (d.h. $A^2 = 0$ aber $A \neq 0$). Berechne $\exp(tA)$.</p>
+<details>
+<summary>Lösung</summary>
+<p>$A^k = 0$ für $k \geq 2$.</p>
+<p>$\exp(tA) = I + tA + \frac{(tA)^2}{2!} + \cdots = I + tA + 0 = I + tA$</p>
+<p>Also $\exp(tA) = I + tA$ (Polynomformel!).</p>
+</details>
+<hr>
+<h2>Aufgabenblock 4: Determinanten & Beweise</h2>
+<h3>Aufgabe 4.1 – Determinante und Ähnlichkeit</h3>
+<p>Zeige: Ähnliche Matrizen haben die gleiche Determinante, d.h. $\det(SAS^{-1}) = \det(A)$.</p>
+<details>
+<summary>Lösung</summary>
+<p>$\det(SAS^{-1}) = \det(S) \cdot \det(A) \cdot \det(S^{-1}) = \det(S) \cdot \det(A) \cdot \frac{1}{\det(S)} = \det(A)$</p>
+<p>(Verwendet: Produktregel und $\det(S^{-1}) = 1/\det(S)$.) $\square$</p>
+</details>
+<hr>
+<h3>Aufgabe 4.2 – Orientierung und Volumen</h3>
+<p>$A \in \mathbb{R}^{3 \times 3}$ mit Eigenwerten $2, -1, 3$.</p>
+<p>a) Ist $A$ volumentreu?  </p>
+<p>b) Ist $A$ orientierungserhaltend?  </p>
+<p>c) Ist $A$ invertierbar?</p>
+<details>
+<summary>Lösung</summary>
+<p>$\det(A) = 2 \cdot (-1) \cdot 3 = -6$</p>
+<p>a) $|\det(A)| = 6 \neq 1$ → <strong>nicht</strong> volumentreu.</p>
+<p>b) $\det(A) = -6 < 0$ → <strong>nicht</strong> orientierungserhaltend.</p>
+<p>c) $\det(A) = -6 \neq 0$ → <strong>ja</strong>, invertierbar.</p>
+</details>
+<hr>
+<h2>Aufgabenblock 5: Gemischte Beweisaufgaben</h2>
+<h3>Aufgabe 5.1 – Induktionsbeweis</h3>
+<p>Zeige per Induktion: Für eine nilpotente Matrix $N$ mit $N^k = 0$ gilt:</p>
+<p>$$(I - N)^{-1} = I + N + N^2 + \cdots + N^{k-1}$$</p>
+<p><strong>Hinweis:</strong> Multipliziere $(I-N)$ mit der rechten Seite und vereinfache.</p>
+<details>
+<summary>Lösung</summary>
+<p>Setze $S = I + N + N^2 + \cdots + N^{k-1}$.</p>
+<p>$(I - N) \cdot S = S - NS = (I + N + \cdots + N^{k-1}) - (N + N^2 + \cdots + N^k)$</p>
+<p>$= I + (N - N) + (N^2 - N^2) + \cdots + (N^{k-1} - N^{k-1}) - N^k = I - N^k = I - 0 = I$</p>
+<p>Also $(I-N) \cdot S = I$, d.h. $S = (I-N)^{-1}$. $\square$</p>
+<p>(Das ist eigentlich die geometrische Reihe für Matrizen!)</p>
+</details>
+<hr>
+<h3>Aufgabe 5.2 – Projektionsbeweis</h3>
+<p>Sei $P$ eine Projektion ($P^2 = P$). Zeige:</p>
+<p>a) $\ker(P) = \text{Bild}(I - P)$  </p>
+<p>b) $\text{Bild}(P) = \ker(I - P)$  </p>
+<p>c) $V = \ker(P) \oplus \text{Bild}(P)$</p>
+<p><strong>Hinweis a):</strong> Zeige $\subseteq$ und $\supseteq$ getrennt.</p>
+<details>
+<summary>Lösung</summary>
+<p>a) "$\subseteq$": Sei $v \in \ker(P)$, also $Pv = 0$. Dann $v = v - 0 = v - Pv = (I-P)v \in \text{Bild}(I-P)$.</p>
+<p>"$\supseteq$": Sei $v = (I-P)w$ für ein $w$. Dann $Pv = P(I-P)w = (P - P^2)w = (P - P)w = 0$, also $v \in \ker(P)$.</p>
+<p>b) Analog: $v \in \text{Bild}(P) \iff v = Pw \iff (I-P)v = v - Pv = Pw - P^2w = 0 \iff v \in \ker(I-P)$.</p>
+<p>c) Für jedes $v$: $v = Pv + (I-P)v$. Dabei $Pv \in \text{Bild}(P)$ und $(I-P)v \in \text{Bild}(I-P) = \ker(P)$. Schnitt: Wenn $v \in \ker(P) \cap \text{Bild}(P)$, dann $Pv = 0$ und $v = Pw$, also $0 = Pv = P^2w = Pw = v$. $\square$</p>
+</details>
+<hr>
+<h3>Aufgabe 5.3 – EW von Matrixpotenzen</h3>
+<p>Zeige: Wenn $\lambda$ Eigenwert von $A$ mit Eigenvektor $v$, dann ist $\lambda^k$ Eigenwert von $A^k$ mit gleichem Eigenvektor $v$.</p>
+<p><strong>Hinweis:</strong> Induktion über $k$.</p>
+<details>
+<summary>Lösung</summary>
+<p>IA ($k=1$): $A^1 v = Av = \lambda v = \lambda^1 v$ ✓</p>
+<p>IS ($k \to k+1$): Angenommen $A^k v = \lambda^k v$.</p>
+<p>$A^{k+1} v = A \cdot A^k v = A \cdot \lambda^k v = \lambda^k \cdot Av = \lambda^k \cdot \lambda v = \lambda^{k+1} v$ $\square$</p>
+</details>
+<div class="footer">
+  LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
+  <a href="index.html">← Zurück zur Startseite</a>
+</div>
+</div>
+
+<script>
+// Close sidebar on mobile after link click
+document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('open');
+}));
+</script>
+</body>
+</html>
