@@ -27,9 +27,12 @@ PAGES = [
     {"file": "Vernetzung_Das_Grosse_Ganze", "title": "Das große Ganze – Vernetzung", "icon": "🌐", "cat": "Verständnis"},
     {"file": "Karteikarten", "title": "Karteikarten", "icon": "🗂️", "cat": "Lernmaterial"},
     {"file": "Checkliste_Themen", "title": "Checkliste pro Thema", "icon": "✅", "cat": "Lernmaterial"},
-    {"file": "Uebungsaufgaben", "title": "Übungsaufgaben", "icon": "📝", "cat": "Lernmaterial"},
-    {"file": "Formelblatt", "title": "Formelblatt", "icon": "📋", "cat": "Lernmaterial"},
+    {"file": "Uebungsaufgaben", "title": "Übungsaufgaben (inkl. Lösungen)", "icon": "📝", "cat": "Lernmaterial"},
+    {"file": "Uebungszettel_Originale", "title": "Originale Übungszettel 1-10", "icon": "📄", "cat": "Lernmaterial"},
+    {"file": "Klausur_Originale", "title": "Originale (Probe-)Klausuren", "icon": "📝", "cat": "Klausur"},
     {"file": "Klausur_Musterloesungen", "title": "Klausur-Musterlösungen", "icon": "🎯", "cat": "Klausur"},
+    {"file": "Checklisten_Originale", "title": "Originale Checklisten", "icon": "✔️", "cat": "Lernmaterial"},
+    {"file": "Formelblatt", "title": "Formelblatt", "icon": "📋", "cat": "Lernmaterial"},
     {"file": "Vorlesungsmaterial", "title": "Vorlesungsmaterial & Klausuren", "icon": "📄", "cat": "Dozent"},
 ]
 

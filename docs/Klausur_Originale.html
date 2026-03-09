@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vorlesungsmaterial & Klausuren – LINA2 Lernhilfe</title>
+<title>Originale (Probe-)Klausuren – LINA2 Lernhilfe</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
 <script>
 MathJax = {
@@ -238,7 +238,7 @@ MathJax = {
 <a class="nav-link" href="Uebungszettel_Originale.html">📄 Originale Übungszettel 1-10</a>
 </div>
 <div class="nav-category"><span class="nav-cat-label">Klausur</span>
-<a class="nav-link" href="Klausur_Originale.html">📝 Originale (Probe-)Klausuren</a>
+<a class="nav-link active" href="Klausur_Originale.html">📝 Originale (Probe-)Klausuren</a>
 <a class="nav-link" href="Klausur_Musterloesungen.html">🎯 Klausur-Musterlösungen</a>
 </div>
 <div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
@@ -246,123 +246,103 @@ MathJax = {
 <a class="nav-link" href="Formelblatt.html">📋 Formelblatt</a>
 </div>
 <div class="nav-category"><span class="nav-cat-label">Dozent</span>
-<a class="nav-link active" href="Vorlesungsmaterial.html">📄 Vorlesungsmaterial & Klausuren</a>
+<a class="nav-link" href="Vorlesungsmaterial.html">📄 Vorlesungsmaterial & Klausuren</a>
 </div>
 </nav>
 
 <div class="main">
-<h1>📄 Vorlesungsmaterial & Klausuren</h1>
-<blockquote><p>Alle Dokumente vom Dozenten PD Dr. Marcus Weber – sortiert nach Vorlesungswoche.<br>Quelle: <a href="https://www.zib.de/userpage/weber/LINA2.html">Kursseite LINA2</a></p></blockquote>
+<h1>Originale Klausuren</h1>
+<h2>Klausur 2026</h2>
+<p><strong>Lineare Algebra II – FU Berlin</strong></p>
+<p>19.02.2026</p>
+<p><strong>Aufgabenpaket 1: Jordan-Normalform (30 P.)</strong></p>
+<p>Gegeben die Matrix $A \in \mathbb{R}^{5\times 5}$ mit $A = V J V^{-1}$, wobei die Matrizen $J, V \in \mathbb{R}^{5\times 5}$ folgende Gestalt haben sollen:</p>
+<p>$$
+J = \begin{pmatrix}
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & -1 & 1 & 0 \\
+0 & 0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 0 & -1
+\end{pmatrix}
+\quad \text{und} \quad
+V = \begin{pmatrix}
+| & | & | & | & | \\
+v_1 & v_2 & v_3 & v_4 & v_5 \\
+| & | & | & | & |
+\end{pmatrix}.
+$$</p>
+<p>Dabei sind $v_i \in \mathbb{R}^5$ für $i = 1, \dots, 5$ die Spalten der Matrix $V$. (kurz gesagt: $J$ ist eine Jordan-Normalform von $A$)</p>
+<p><strong>1.1</strong> Ohne Begründung: Wie lautet das charakteristische Polynom von $A$?</p>
+<p><strong>1.2</strong> Wie lautet das Minimalpolynom von $A$? Begründen Sie!</p>
+<p><strong>1.3</strong> Geben Sie Basisvektoren des Eigenraums zum Eigenwert -1 von $A$ an! Begründen Sie!</p>
+<p><strong>1.4</strong> Geben Sie jeweils die geometrische Vielfachheit der Eigenwerte von $A$ an! Begründen Sie!</p>
+<p><strong>1.5</strong> Ohne Begründung: Geben Sie einen Hauptvektor erster Stufe von $A$ an!</p>
+<p><strong>1.6</strong> Berechnen Sie die Determinante von $A$ (Hinweis: Zeigen Sie, dass $A$ und $J$ die gleiche Determinante haben)!</p>
+<p><strong>1.7</strong> Stellt die Matrix $A$ eine volumentreue lineare Abbildung dar? Begründen Sie!</p>
+<p><strong>1.8</strong> Stellt die Matrix $A$ eine orientierungserhaltende lineare Abbildung dar? Begründen Sie!</p>
+<p><strong>1.9</strong> Kann $A \in \mathbb{R}^{5\times 5}$ eine symmetrische Matrix sein? Begründen Sie!</p>
+<p><strong>Aufgabenpaket 2: Bedeutung von Eigenwerten (20 P.)</strong></p>
+<p><strong>2.1</strong> Gegeben sei das Orthonormalsystem $v_1, v_2, v_3 \in \mathbb{R}^n, n > 3$, bezüglich des Standard-Skalarproduktes $\langle x|y \rangle = x^\top y$. Für die reellen Zahlen $\lambda_1, \lambda_2, \lambda_3 \in \mathbb{R}$ sei ferner die folgende Matrix $M \in \mathbb{R}^{n\times n}$ gegeben:</p>
+<p>$$
+M = \lambda_1 v_1 v_1^\top + \lambda_2 v_2 v_2^\top + \lambda_3 v_3 v_3^\top.
+$$</p>
+<p>Zeigen Sie, dass die Matrix $M$ jeweils den Eigenvektor $v_i$ zum Eigenwert $\lambda_i$ für $i \in \{1, 2, 3\}$ besitzt!</p>
+<p><strong>2.2</strong> Welche möglichst genauen Angaben kann man bezüglich des Defekts einer Matrix $A$ machen, die den Eigenwert $\lambda = 0$ mit algebraischer Vielfachheit $m \geq 1$ besitzt? Begründen Sie!</p>
+<p><strong>Aufgabenpaket 3: Gram-Schmidt-Verfahren (30 P.)</strong></p>
+<p>Gegeben seien die beiden Funktionen $f_1, f_2 : [0, 1] \to \mathbb{C}$, wobei</p>
+<p>$f_1(x) = 1, \quad f_2(x) = ix.$</p>
+<p>Berechnen Sie ausführlich eine Orthonormalbasis des Vektorraumes, der von diesen beiden Funktionen aufgespannt wird, bezüglich des Skalarproduktes</p>
+<p>$$
+\langle f|g \rangle = \int_0^1 \overline{f(x)} g(x) dx.
+$$</p>
+<p><strong>Aufgabenpaket 4: Matrixexponential (20 P.)</strong></p>
+<p>Eine diagonalisierbare Matrix $A \in \mathbb{R}^{n\times n}$ habe nur die Eigenwerte $\lambda_1 = 0$ und $\lambda_2 = 1$.</p>
+<p><strong>4.1</strong> Ohne Begründung: Wie lautet das Minimalpolynom von $A$?</p>
+<p><strong>4.2</strong> Zeigen Sie anhand des Minimalpolynoms, dass $A^2 = A$ gilt! (Hinweis: Verwenden Sie bei der Begründung den Satz von Cayley-Hamilton)</p>
+<p><strong>4.3</strong> Folgern Sie daraus, dass $A^m = A$ gilt für $m \geq 1$!</p>
+<p><strong>4.4</strong> Zeigen Sie, dass $\exp(A) = I + (e - 1)A$ ist, wobei $I \in \mathbb{R}^{n\times n}$ die Einheitsmatrix sei!</p>
 <hr>
-<h2>📋 Checkliste</h2>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Checkliste_LINA2.pdf">Checkliste LINA2</a></td><td>13× ausdrucken – für jede Vorlesungswoche eine Liste zum Lernfortschritt</td></tr>
-</table>
-<hr>
-<h2>Phase I – Lernphase (Wochen 1–10)</h2>
-<h3>Woche 1: Komplexe Zahlen & Geometrie</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/komplexeZahlen.pdf">Komplexe Zahlen</a></td><td>Formelsammlung komplexe Zahlen</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Rechenbeispiele.pdf">Rechenbeispiele</a></td><td>Abkürzung: Rechenbeispiele</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Skizze_Geometrie.pdf">Skizze Geometrie</a></td><td>Hilfreiche Skizze zur Geometrie</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Beweisskizze.pdf">Beweisskizze</a></td><td>Beweisskizze (Napoléon)</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/AsymmetrischerPropeller.pdf">Asymmetrischer Propeller</a></td><td>Asymm. Propeller – Beweisskizze</td></tr>
-</table>
-<h3>Woche 2: Vektorräume & Lineare Abbildungen</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/AnfangVorlesung_2_2.pdf">Anfang Vorlesung 2.2</a></td><td>Anfang der Vorlesung – Basis, Dimension</td></tr>
-</table>
-<h3>Woche 3: Bild-Kern & Determinanten</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/BildKernAlgorithmus.pdf">Bild-Kern-Algorithmus</a></td><td>Der Bild-Kern-Algorithmus ausführlich</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/LGS-Theorie.pdf">LGS-Theorie</a></td><td>Theorie linearer Gleichungssysteme</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Determinante_Bsp.pdf">Determinante Beispiel</a></td><td>Determinante – Berechnungsbeispiel</td></tr>
-</table>
-<h3>Woche 4: Eigenwerte & Diagonalisierbarkeit</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Aufzeichnung_8.pdf">Aufzeichnung 8</a></td><td>Handzettel Eigenwerte/Eigenvektoren</td></tr>
-</table>
-<h3>Woche 6: Gram-Schmidt & Projektionsoperatoren</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Projektionsmatrix1.pdf">Projektionsmatrix</a></td><td>Projektionsmatrix berechnen</td></tr>
-</table>
-<h3>Woche 7: Jordan-Normalform & Cayley-Hamilton</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Jordan-Normalform.pdf">Jordan-Normalform</a></td><td>Existenz der JNF – einfach erklärt</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/BerechnungJNF.pdf">Berechnung JNF</a></td><td>JNF berechnen – Beispiele</td></tr>
-</table>
-<h3>Woche 8: Symmetriegruppen & Körper</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/HornerSchema.pdf">Horner-Schema</a></td><td>Nullstellen finden mit dem Horner-Schema</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Gruppe_Koerper.pdf">Gruppe & Körper</a></td><td>Grundlagen: Gruppe, Körper</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Symmetriegruppen.pdf">Symmetriegruppen</a></td><td>Symmetriegruppen</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Gruppentheorie.pdf">Gruppentheorie</a></td><td>Gruppentheorie I + II</td></tr>
-</table>
-<h3>Woche 10: Orthogonalität & Isometrien</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/UGr_Autom.pdf">Untergruppen & Automorphismen</a></td><td>Untergruppen von Automorphismen, Isometrien</td></tr>
-</table>
-<hr>
-<h2>Phase II – Altklausuren (Wochen 11–13)</h2>
-<h3>Woche 11: Grundkörper & Multilinearformen</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/MehrdimensionaleIntegrale.pdf">Mehrdimensionale Integrale</a></td><td>Integrale – Aufgabe & Lösung</td></tr>
-</table>
-<h3>Woche 13: Boolesche Ringe & Logische Datenanalyse</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/DaKoDi-Talk.pdf">DaKoDi-Talk</a></td><td>DaKoDi – Logische Datenanalyse</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/boolenp.pdf">Boolesche Ringe</a></td><td>Boolesche Polynome</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/LA-Kapitel_7.pdf">LA Kapitel 7</a></td><td>Kapitel 7 – weiterführendes Material</td></tr>
-</table>
-<hr>
-<h2>Phase III – Lücken schließen (Wochen 14–16)</h2>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Algorithmen.pdf">Algorithmen & Methoden</a></td><td>Klausurrelevante Algorithmen/Methoden</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Verstehen_Anwenden.pdf">Verstehen & Anwenden</a></td><td>Verstehen vs. Anwenden</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Beweisen.pdf">Beweisen</a></td><td>Beweistechniken</td></tr>
-</table>
-<hr>
-<h2>📝 Klausuren & Musterlösungen</h2>
-<h3>Aktuelle Klausur (WiSe 2025/26)</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/klausuren/Probeklausur26.pdf">Probeklausur</a></td><td>Probeklausur zur Vorbereitung</td></tr>
-<tr><td><a href="pdfs/klausuren/Klausur2026.pdf">Klausur 2026</a></td><td>Erstklausur 19.02.2026 – Aufgaben</td></tr>
-<tr><td><a href="pdfs/klausuren/MusterL2026.pdf">Musterlösung 2026</a></td><td>Offizielle Musterlösung</td></tr>
-<tr><td><a href="pdfs/klausuren/B2KlausurLsg.pdf">Punkteschema</a></td><td>Bewertungsschema / Punkteverteilung</td></tr>
-</table>
-<h3>Alte Klausuren</h3>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/klausuren/Klausur_SS_04.pdf">Klausur SS 2004</a></td><td>Alte Klausur (andere Uni)</td></tr>
-<tr><td><a href="pdfs/klausuren/Loesung_Klausur.pdf">Lösung alte Klausur</a></td><td>Lösung zur alten Klausur</td></tr>
-</table>
-<hr>
-<h2>📚 Hintergrundmaterial</h2>
-<table>
-<tr><th>Dokument</th><th>Beschreibung</th></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/dielinealeausde00grasgoog.pdf">Die lineale Ausdehnungslehre</a></td><td>Grassmanns historisches Werk (1844) – Grundlagen der Vektorraumtheorie</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/kapitel12.pdf">Kapitel 12</a></td><td>Ergänzendes Skript-Kapitel</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/ISOKANN_Bergen_2023.pdf">ISOKANN Bergen 2023</a></td><td>Forschungsvortrag – Koopman-Operator</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/MatheAufgabeVL3.pdf">Mathe-Aufgabe VL3</a></td><td>Ergänzende Aufgabe</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/Hints_for_visitors.pdf">Hints for Visitors</a></td><td>Anfahrt zum ZIB</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/9783060047048_x1KA_001-020.pdf">Lehrbuch-Auszug</a></td><td>Übungsaufgaben aus einem Lehrbuch</td></tr>
-<tr><td><a href="pdfs/vorlesungsmaterial/LA2-10-DGLn.pdf">LA2-10: DGL</a></td><td>Differentialgleichungen & Matrixexponential</td></tr>
-</table>
-<hr>
-<blockquote><p>💡 <strong>Tipp:</strong> Für die Nachklausur am 19.03.2026 sind besonders die Dokumente aus Phase I und III relevant.<br>Arbeite die <a href="pdfs/vorlesungsmaterial/Algorithmen.pdf">Algorithmen & Methoden</a> unbedingt durch!</p></blockquote>
+<h2>Probeklausur 2026</h2>
+<p><strong>Lineare Algebra II</strong></p>
+<p><strong>Aufgabenpaket 1: Eigenschaften von Matrizen</strong></p>
+<p>Gegeben sei folgende Matrix $A$:</p>
+<p>$$
+A = \begin{pmatrix}
+-1 & -2 & -1 \\
+0 & 1 & -1 \\
+0 & 0 & 1
+\end{pmatrix}.
+$$</p>
+<p><strong>1.1</strong> Berechnen Sie die Eigenwerte von $A$. Welche algebraischen Vielfachheiten haben die Eigenwerte?</p>
+<p><strong>1.2</strong> Begründen Sie durch eine Rechnung, dass die Matrix $A$ nicht diagonalisierbar ist.</p>
+<p><strong>1.3</strong> Wie lautet die Jordan-Normalform von $A$? Begründen Sie!</p>
+<p><strong>1.4</strong> Wie lautet das Minimalpolynom von $A$? Begründen Sie!</p>
+<p><strong>1.5</strong> Ist die Matrix $A$ invertierbar? Begründen Sie anhand der Eigenwerte!</p>
+<p><strong>1.6</strong> Wie lautet die allgemeine Lösung des linearen Gleichungssystems $Ax = b$, wobei die rechte Seite $b$ ein Eigenvektor von $A$ zum Eigenwert $1$ sein soll?</p>
+<p><strong>1.7</strong> Stellt die Matrix $A$ eine volumentreue lineare Abbildung dar? Begründen Sie!</p>
+<p><strong>1.8</strong> Stellt die Matrix $A$ eine orientierungserhaltende lineare Abbildung dar? Begründen Sie!</p>
+<p><strong>Aufgabenpaket 2: Konstruierbarkeit von Matrizen</strong></p>
+<p><strong>2.1</strong> Kann es eine symmetrische Matrix $S \in \mathbb{R}^{4\times 4}$ geben, die eine Rotation im vierdimensionalen Raum darstellt, deren Rotationsachse jedoch nicht im $\mathbb{R}^4$ liegt? Begründen Sie Ihre Aussage!</p>
+<p><strong>2.2</strong> Können Sie die $\ast$-Elemente in der folgenden Matrix</p>
+<p>$$
+B = \begin{pmatrix}
+-1 & -1 & -1 \\
+\ast & 1 & -1 \\
+\ast & \ast & 1
+\end{pmatrix} \in \mathbb{R}^{3\times 3}
+$$</p>
+<p>so durch reelle Zahlen ergänzen, dass $x^\top By$ ein Skalarprodukt für $x, y \in \mathbb{R}^3$ definiert? Begründen Sie!</p>
+<p><strong>Aufgabenpaket 3: Endliche Körper</strong></p>
+<p>Eine lineare Abbildung $f : K^n \to K^n$ über einem endlichen Körper $K$ mit $n \in \mathbb{N}$ habe keine Eigenwerte in $K$. Zeigen Sie, dass diese Abbildung nicht nilpotent ist! (Tipp: Begründen Sie über das Minimalpolynom).</p>
+<p><strong>Aufgabenpaket 4: Gram-Schmidt-Verfahren</strong></p>
+<p>Gegeben seien die Vektoren</p>
+<p>$$
+v_1 = \begin{pmatrix} 1 \\ i \\ 0 \end{pmatrix}, \quad v_2 = \begin{pmatrix} 0 \\ 1 \\ i \end{pmatrix}
+$$</p>
+<p>im Raum $\mathbb{C}^3$.</p>
+<p><strong>4.1</strong> Berechnen Sie eine bezüglich des Standardskalarproduktes $\overline{x}^\top y$ orthonormale Basis des Untervektorraumes, der von $v_1$ und $v_2$ aufgespannt wird!</p>
+<p><strong>4.2</strong> Berechnen Sie die Matrix $\Pi \in \mathbb{C}^{3\times 3}$, die die orthogonale Projektion auf diesen Unterraum darstellt!</p>
 <div class="footer">
   LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
   <a href="index.html">← Zurück zur Startseite</a>
