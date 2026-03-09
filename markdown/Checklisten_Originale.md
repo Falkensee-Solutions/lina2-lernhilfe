@@ -7,7 +7,7 @@
 * Zusammenhänge zwischen Jordan Normalform / Minimalpolynom / Haupträumen / Diagonalisierbarkeit / Linearfaktorzerlegung
 * Zusammenhang zwischen Reversibilität und Eigenwerten / Eigenvektoren (links und rechts)
 * Zusammenhang zwischen Matrixexponential und Lösung einer Differentialgleichung
-* Zusammenhang zwischen Art der Matrix (z.B. orthogonal, unitär, $\det(A)=1$, $\det(A)<0$) und der linearen Abbildung
+* Zusammenhang zwischen Art der Matrix (z.B. orthogonal, unitär, $\det(A)=1$, $\det(A)&lt;0$) und der linearen Abbildung
 * Zusammenhang zwischen Symmetrie/Symmetriebrechung und Symmetriegruppe/Untergruppe
 * Zusammenhang zwischen Skalarprodukten und Längen(=Norm)- und Winkelmessung
 

@@ -180,7 +180,7 @@ $$ V = \begin{pmatrix}
 
 **1.1** Berechne die Determinante der Matrix $V$ für $n = 3$ explizit.
 **1.2** Zeige, dass die Determinante der allgemeinen Vandermonde-Matrix durch folgende Formel gegeben ist:
-$$ \det(V) = \prod_{1 \leq i < j \leq n} (x_j - x_i) $$
+$$ \det(V) = \prod_{1 \leq i &lt; j \leq n} (x_j - x_i) $$
 **1.3** Begründe, warum die Vandermonde-Matrix invertierbar ist, wenn die $x_i$ paarweise verschieden sind.
 
 ---
