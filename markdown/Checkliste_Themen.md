@@ -80,6 +80,27 @@
 - [ ] Anwendung auf DGL: $\dot{x} = Ax \Rightarrow x(t) = e^{tA} x_0$
 - [ ] **Induktionsbeweis:** $A^m = A$ für $m \geq 1$ (Klausur 4.3)
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Matrixexponential</b></summary>
+<blockquote>
+Das Matrixexponential stiftet die Verbindung zwischen einer Matrix $A$ (oder Lie-Algebra) und der entsprechenden Lie-Gruppe. 
+<br><br>
+<b>Zentrale Eigenschaften:</b>
+<ul>
+    <li>$e^0 = I$</li>
+    <li>Kommutierende Matrizen: $AB=BA \implies e^{A+B} = e^A e^B$</li>
+    <li>Die Matrix $e^A$ ist immer invertierbar mit Inverser $e^{-A}$.</li>
+    <li>Determinante: $\det(e^A) = e^{\text{Spur}(A)}$</li>
+</ul>
+<b>Berechnung:</b>
+<ul>
+    <li>Für diagonale Matrizen: Werte auf der Diagonale gewöhnlich exponentieren.</li>
+    <li>Mit Jordan-Normalform $J$: $e^A = P e^J P^{-1}$.</li>
+    <li>Nilpotente Matrizen: Taylor-Reihe bricht nach endlich vielen Termen ab.</li>
+</ul>
+</blockquote>
+</details>
+
 ## Thema 11: Beweistechniken (Tag 6)
 - [ ] Vollständige Induktion sauber aufschreiben (IA, IV, IS)
 - [ ] Direkter Beweis: Voraussetzungen → logische Kette → Behauptung

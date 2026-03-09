@@ -88,6 +88,20 @@ Aus JNF $J$ ablesen:
 | Diagonalisierbar? | Alle Blöcke Größe 1 |
 | $\det(A) = \det(J)$ | Produkt der Diagonaleinträge |
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Minimalpolynom</b></summary>
+<blockquote>
+Das Minimalpolynom $\mu_A$ einer quadratischen $n \times n$-Matrix $A$ über einem Körper $K$ ist das normierte Polynom kleinsten Grades, für das $\mu_A(A) = 0$ (die Nullmatrix) gilt.
+<br><br>
+<b>Eigenschaften:</b>
+<ul>
+    <li>Die Nullstellen des Minimalpolynoms stimmen genau mit den Nullstellen des charakteristischen Polynoms (also den Eigenwerten) überein, nur ggf. mit kleinerer algebraischer Vielfachheit.</li>
+    <li>Die Vielfachheit eines Eigenwerts $\lambda$ im Minimalpolynom entspricht der <i>Größe des größten Jordan-Blocks</i> zu diesem Eigenwert in der jordanschen Normalform.</li>
+    <li><b>Satz von Cayley-Hamilton:</b> Weil $\chi_A(A) = 0$, ist das char. Polynom ein Vielfaches des Minimalpolynoms ($\mu_A$ teilt $\chi_A$).</li>
+</ul>
+</blockquote>
+</details>
+
 ---
 
 ## 8. Cayley-Hamilton & Matrixexponential

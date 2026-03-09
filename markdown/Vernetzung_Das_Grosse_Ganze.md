@@ -32,6 +32,18 @@ $$\det(A) = \lambda_1 \cdot \lambda_2 \cdots \lambda_n$$
 
 **Warum?** Das char. Polynom ist $\chi_A(\lambda) = \det(A - \lambda I)$. Setzt du $\lambda = 0$ ein, bekommst du $\det(A)$. Und das char. Polynom hat die Form $(\lambda_1 - \lambda)(\lambda_2 - \lambda)\cdots$. Bei $\lambda = 0$ steht da genau $\lambda_1 \cdot \lambda_2 \cdots$.
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Determinante & Eigenwerte</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Determinante_(Mathematik)">Wikipedia</a> <i>Determinante</i>: 
+<ul>
+<li>Zerfällt das charakteristische Polynom in Linearfaktoren $\chi_A(x) = (x-\alpha_1)\cdots(x-\alpha_n)$, so ist insbesondere $\det(A) = \alpha_1 \cdots \alpha_n$.</li>
+<li>Ist $\chi_A(x) = x^n - a_1x^{n-1} + a_2x^{n-2} - \dots + (-1)^na_n$, so ist $a_n$ die Determinante von $A$.</li>
+<li>Die Determinante ist (multiplikativ) ein Gruppenhomomorphismus: $\det(A \cdot B) = \det(A) \cdot \det(B)$ vom Raum der invertierbaren Matrizen in die Einheitengruppe des Körpers.</li>
+</ul>
+</blockquote>
+</details>
+
 **Was folgt daraus?**
 - $A$ invertierbar $\iff$ $\det(A) \neq 0$ $\iff$ kein Eigenwert ist 0
 - $A$ hat Eigenwert 0 $\iff$ $\det(A) = 0$ $\iff$ $A$ nicht invertierbar $\iff$ $\ker(A) \neq \{0\}$
@@ -83,6 +95,18 @@ Kein Eigenwert = 0 $\iff$ $A$ invertierbar
 | Alle $|\lambda_i| = 1$ | Könnte orthogonal/unitär sein (Isometrie) |
 | Alle $\lambda_i > 0$ | Positiv definit (wenn symmetrisch) |
 
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Spektralsatz & Eigenschaften</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Eigenwertproblem">Wikipedia</a> <i>Eigenwertproblem</i>: 
+<ul>
+<li>Sind alle Eigenwerte einer Matrix $A$ echt positiv und reell, und die Matrix symmetrisch bzw. hermitesch, ist sie <b>positiv definit</b>.</li>
+<li>Speziell für reelle symmetrische oder komplexe hermitesche Matrizen gilt: Alle Eigenwerte sind stets reell (Hauptwerte). Zudem lässt sich immer eine Orthonormalbasis aus Eigenvektoren angeben (Spektralsatz).</li>
+<li>Gilt für einen Eigenwert, dass seine algebraische Vielfachheit gleich seiner geometrischen Vielfachheit ist, so spricht man von einem halbeinfachen (semisimple) Eigenwert. </li>
+</ul>
+</blockquote>
+</details>
+
 ### Eigenwerte → Potenzen & Exponential
 Wenn $Av = \lambda v$, dann:
 - $A^k v = \lambda^k v$ (Potenzen)
@@ -99,6 +123,18 @@ Das ist das **Herzstück** der Vorlesung und das, was die meisten nicht verstehe
 ### Was die algebraische Vielfachheit sagt
 = Wie oft taucht $\lambda$ als Nullstelle im char. Polynom auf?
 = Wie viel "Platz" reserviert $\lambda$ in der Matrix?
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Jordansche Normalform</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Jordansche_Normalform">Wikipedia</a> <i>Jordansche Normalform</i>: 
+<ul>
+<li>Die Existenz der jordanschen Normalform liefert die Existenz der (additiven) Jordan-Chevalley-Zerlegung eines Endomorphismus: $J = D + N$, in einen diagonalisierbaren Anteil $D$ und einen nilpotenten Anteil $N$, mit $D N = N D$.</li>
+<li>Zu jedem Eigenwert $\lambda_j$ gibt es seiner geometrischen Vielfachheit entsprechend viele Jordanblöcke. Die Gesamtdimension aller Jordanblöcke eines Eigenwertes entspricht seiner algebraischen Vielfachheit.</li>
+<li>Haben alle Blöcke die Größe 1, so liegt der Spezialfall einer Diagonalmatrix vor und $A$ ist diagonalisierbar.</li>
+</ul>
+</blockquote>
+</details>
+
 
 ### Was die geometrische Vielfachheit sagt
 = Wie viele **unabhängige Richtungen** gibt es, in die $A$ einfach nur streckt (ohne zu "drehen")?
@@ -110,6 +146,17 @@ Das ist das **Herzstück** der Vorlesung und das, was die meisten nicht verstehe
 
 $$\text{geo. VF} = \text{Anzahl der Jordan-Blöcke}$$
 $$\text{alg. VF} = \text{Gesamtgröße aller Jordan-Blöcke}$$
+
+<details>
+<summary>🎓 <b>Wikipedia-Ergänzung: Rangsatz</b></summary>
+<blockquote>
+Nach <a href="https://de.wikipedia.org/wiki/Rangsatz">Wikipedia</a> <i>Rangsatz</i>: 
+<ul>
+<li>Der Rangsatz (auch Dimensionssatz oder Kern-Bild-Satz) besagt $\dim V = \text{def}(f) + \text{rk}(f)$ für eine lineare Abbildung $f: V \to W$.</li>
+<li>Der Satz folgt unmittelbar aus dem <b>Homomorphiesatz</b>: $\text{im}(f) \cong V/\ker(f)$. Da der Faktorraum isomorph zu einem Komplementärraum $U$ von $\ker(f)$ ist, folgt $\dim V = \dim \ker(f) + \dim U = \dim \ker(f) + \dim \text{im}(f)$.</li>
+</ul>
+</blockquote>
+</details>
 
 **Beispiel aus der Klausur (EW = -1, alg. VF = 3):**
 - $J_2(-1)$ und $J_1(-1)$ → 2 Blöcke → geo. VF = 2
