@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎓 4 Trainings-Nachklausuren – LINA2 Lernhilfe</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --accent: #f72585;
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 15px;
+  }
+
+  /* --- Top Bar --- */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary-dark);
+    color: white;
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .topbar a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+  .topbar .subtitle { color: rgba(255,255,255,.7); font-size: .85em; margin-left: auto; }
+  .menu-btn {
+    display: none; background: none; border: none; color: white;
+    font-size: 1.5em; cursor: pointer; padding: 4px 8px;
+  }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    position: fixed; top: 50px; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 16px 0;
+    z-index: 50;
+    transition: transform .3s;
+  }
+  .nav-category { padding: 0 16px; margin-bottom: 8px; }
+  .nav-cat-label {
+    display: block; font-size: .7em; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .08em; padding: 12px 0 4px 0;
+  }
+  .nav-link {
+    display: block; padding: 6px 16px; margin: 1px 8px;
+    border-radius: 6px; text-decoration: none;
+    color: var(--text); font-size: .88em;
+    transition: background .15s;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-link:hover { background: #f0f2ff; }
+  .nav-link.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* --- Main Content --- */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: 50px;
+    padding: 32px 40px 60px;
+    max-width: 900px;
+  }
+
+  h1 {
+    font-size: 1.8em; color: var(--text);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px; margin: 24px 0 20px;
+  }
+  h2 {
+    font-size: 1.35em; color: var(--primary-dark);
+    margin: 28px 0 14px;
+    border-left: 4px solid var(--primary);
+    padding-left: 12px;
+  }
+  h3 {
+    font-size: 1.1em; color: var(--primary);
+    margin: 20px 0 10px;
+  }
+  p { margin: 10px 0; }
+
+  blockquote {
+    border-left: 4px solid var(--accent);
+    background: #fff0f6;
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote strong { color: var(--accent); }
+
+  .infobox {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 20px 24px; margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 8px rgba(16,185,129,.1);
+    font-size: .97em;
+    line-height: 1.85;
+  }
+  .infobox-title {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1.05em;
+    color: #065f46; margin-bottom: 10px;
+  }
+  .infobox p { margin: 8px 0; color: #1a3a2a; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #f0f0f5; padding: 2px 6px;
+    border-radius: 4px; font-size: .9em;
+  }
+  pre {
+    background: #f0f0f5; padding: 16px;
+    border-radius: 8px; overflow-x: auto; margin: 12px 0;
+  }
+  pre code { background: none; padding: 0; }
+
+  table {
+    border-collapse: collapse; width: 100%;
+    margin: 16px 0; font-size: .92em;
+  }
+  th {
+    background: var(--primary); color: white;
+    padding: 10px 14px; text-align: left; font-weight: 600;
+  }
+  td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  tr:hover td { background: #e8ecff; }
+
+  ul, ol { margin: 10px 0 10px 24px; }
+  li { margin: 4px 0; }
+  li input[type="checkbox"] { margin-right: 8px; }
+
+  hr { border: none; border-top: 2px solid var(--border); margin: 30px 0; }
+
+  details {
+    background: #f8f9fa; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin: 12px 0;
+  }
+  details summary {
+    cursor: pointer; font-weight: 600; color: var(--primary);
+  }
+
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: .82em;
+    text-align: center;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); width: 260px; }
+    .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.15); }
+    .main { margin-left: 0; padding: 24px 16px 60px; }
+    .menu-btn { display: block; }
+    body { font-size: 14px; }
+  }
+
+  /* --- Print --- */
+  @media print {
+    .topbar, .sidebar, .menu-btn, .footer { display: none !important; }
+    .main { margin: 0; padding: 20px; max-width: 100%; }
+    body { font-size: 11px; background: white; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.15em; break-after: avoid; }
+    table { break-inside: avoid; font-size: .85em; }
+    blockquote { break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+  <a href="index.html">📐 LINA2 Lernhilfe</a>
+  <span class="subtitle">Lineare Algebra II – FU Berlin WiSe 2025/26</span>
+</div>
+
+<nav class="sidebar">
+  <div class="nav-category">
+    <a class="nav-link" href="index.html">🏠 Startseite</a>
+  </div>
+  <div class="nav-category"><span class="nav-cat-label">Planung</span>
+<a class="nav-link" href="00_Lernplan.html">📅 9-Tage-Lernplan</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Zusammenfassungen</span>
+<a class="nav-link" href="01_Komplexe_Zahlen_Vektorraeume.html">1️⃣ Komplexe Zahlen & Vektorräume</a>
+<a class="nav-link" href="02_Bild_Kern_Determinanten.html">2️⃣ Bild, Kern & Determinanten</a>
+<a class="nav-link" href="03_Eigenwerte_Diagonalisierung.html">3️⃣ Eigenwerte & Diagonalisierung</a>
+<a class="nav-link" href="04_Skalarprodukte_GramSchmidt.html">4️⃣ Skalarprodukte & Gram-Schmidt</a>
+<a class="nav-link" href="05_JNF_Minimalpolynom_CayleyHamilton.html">5️⃣ JNF, Minimalpolynom & Cayley-Hamilton</a>
+<a class="nav-link" href="06_Bilinearformen_Isometrien_Gruppen.html">6️⃣ Bilinearformen, Isometrien & Gruppen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Verständnis</span>
+<a class="nav-link" href="Vernetzung_Das_Grosse_Ganze.html">🌐 Das große Ganze – Vernetzung</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link" href="Karteikarten.html">🗂️ Karteikarten</a>
+<a class="nav-link" href="Checkliste_Themen.html">✅ Checkliste pro Thema</a>
+<a class="nav-link" href="Uebungsaufgaben.html">📝 Übungsaufgaben (inkl. Lösungen)</a>
+<a class="nav-link" href="Uebungszettel_Originale.html">📄 Originale Übungszettel 1-10</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Klausur</span>
+<a class="nav-link" href="Nachklausur_Tipps.html">⚠️ 💡 Nachklausur Tipps vom Prof</a>
+<a class="nav-link active" href="Trainings_Nachklausuren.html">💯 🎓 4 Trainings-Nachklausuren</a>
+<a class="nav-link" href="Klausur_Originale.html">📝 Originale (Probe-)Klausuren</a>
+<a class="nav-link" href="Klausur_Musterloesungen.html">🎯 Klausur-Musterlösungen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link" href="Checklisten_Originale.html">✔️ Originale Checklisten</a>
+<a class="nav-link" href="Formelblatt.html">📋 Formelblatt</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Dozent</span>
+<a class="nav-link" href="Vorlesungsmaterial.html">📄 Vorlesungsmaterial & Klausuren</a>
+</div>
+</nav>
+
+<div class="main">
+<h1 id="4-spezial-trainingsklausuren-zur-nachklausur">🎓 4 Spezial-Trainingsklausuren zur Nachklausur</h1>
+<div class="infobox"><div class="infobox-title">💡 Über diese Klausuren</div><p>Diese 4 Probeklausuren wurden methodisch exakt nach der hochgeladenen <strong>Tipp-Liste des Dozenten zur Nachklausur</strong> modelliert. Sie prüfen genau die Thematiken, Schwerpunkte und Rechenalgorithmen, die relevant sein werden. <strong>Tipp:</strong> Versuche zuerst die Aufgaben auf Papier zu bearbeiten, bevor du die Lösung ausklappst!</p></div>
+<hr>
+<h2 id="trainingsklausur-1-grundlagen-koerper-bild-kern">📄 Trainingsklausur 1: Grundlagen, Körper & Bild-Kern</h2>
+<h3 id="aufgabe-1-1-wahr-oder-falsch-gefragte-zusammenhaenge">Aufgabe 1.1: Wahr oder Falsch? (Gefragte Zusammenhänge)</h3>
+<p>Entscheiden Sie, ob folgende Aussagen wahr oder falsch sind, und geben Sie eine kurze Begründung.</p>
+<ol>
+<li>Eine lineare Abbildung ist genau dann umkehrbar (invertierbar), wenn der Kern der Darstellungsmatrix nur aus dem Nullvektor besteht.</li>
+<li>Zwei Matrizen, die dasselbe Minimalpolynom besitzen, haben zwingend auch dieselbe Jordan-Normalform.</li>
+<li>Jede Matrix mit Determinante ungleich Null ist diagonalisierbar.</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<ol>
+<li><strong>Wahr.</strong> Wenn der Kern nur $\{0\}$ enthält (Defekt = 0), ist die Matrix nach dem Rangsatz surjektiv und damit (da quadratisch) bijektiv, also invertierbar.</li>
+<li><strong>Falsch.</strong> Gegenbeispiel: Wenn Blockgrößen identisch sind, kann die Multiplizität variieren. Sei das Minimalpolynom $(x-1)^2$. Blockgrößen sind max max 2x2. Bei einer 4x4 Matrix kann die JNF so aussehen: ein 2er Block & zwei 1er Blöcke, ODER zwei 2er Blöcke. Beide haben exakt dasselbe Minimalpolynom!</li>
+<li><strong>Falsch.</strong> Die Determinante sagt nur aus, dass der Eigenwert 0 nicht existiert (Invertibilität gewährt). Die Matrix $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ hat Determinante 1, st aber offensichtlich nicht diagonalisierbar.</li>
+</ol>
+</details>
+<h3 id="aufgabe-1-2-rechnen-im-koerper-offizieller-prof-tipp">Aufgabe 1.2: Rechnen im Körper (Offizieller Prof-Tipp!)</h3>
+<p>Betrachten wir den endlichen Körper $\mathbb{F}_7$ (Restklassen modulo 7). Sei $a = 5$ und $b = 3$. Lösen Sie die Gleichung $u \cdot b + a = 0$ für ein gesuchtes $u \in \mathbb{F}_7$. </p>
+<p><strong>Nutzen Sie explizit den Tipp des Professors:</strong></p>
+<ol>
+<li>Ermitteln Sie zunächst das additiv Inverse $A$ von $a$, sodass $A + a = 0$.</li>
+<li>Finden Sie dann einen Faktor $u$, sodass $u \cdot b = A$.</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<ol>
+<li>Wir suchen das additiv Inverse $A$ zu $a=5$ in $\mathbb{F}_7$.</li>
+</ol>
+<p>Wegen $5 + 2 = 7 \equiv 0 \pmod 7$ gilt $A = 2$.</p>
+<p>Es gilt also $A + a = 0$.</p>
+<ol>
+<li>Nun muss $u \cdot 3 \equiv 2 \pmod 7$ gelöst werden. </li>
+</ol>
+<p>Wir benötigen das multiplikativ Inverse von $3$. Wir testen: $3 \cdot 1 = 3$, $3 \cdot 2 = 6$, $3 \cdot 3 = 9 \equiv 2$, $3 \cdot 4 = 12 \equiv 5$, $3 \cdot 5 = 15 \equiv 1$.</p>
+<p>Das multiplikativ Inverse zu $3$ ist also $5$.</p>
+<p>Wir multiplizieren beide Seiten der Gleichung $u \cdot 3 \equiv 2$ mit $5$:</p>
+<p>$$ u \cdot (3 \cdot 5) \equiv 2 \cdot 5 \pmod 7 $$</p>
+<p>$$ u \cdot 1 \equiv 10 \pmod 7 $$</p>
+<p>Da $10 = 7 + 3$, folgt: <strong>$u = 3$</strong>.</p>
+<p><em>Probe:</em> $3 \cdot 3 + 5 = 9 + 5 = 14 \equiv 0 \pmod 7$. Stimmt!</p>
+</details>
+<h3 id="aufgabe-1-3-bild-kern-algorithmus-zur-invertierung">Aufgabe 1.3: Bild-Kern-Algorithmus zur Invertierung</h3>
+<p>Berechnen Sie mittels des Bild-Kern-Algorithmus die Inverse der Matrix:</p>
+<p>$$ M = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} $$</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Beim Bild-Kern-Algorithmus erweitert man die Matrix mit der Einheitsmatrix und rechnet per Spalten/Zeilenumformung. Bei der klassischen Invertierung durch Gauß-Jordan schreibt man:</p>
+<p>$$ \left( \begin{array}{cc|cc} 1 & 2 & 1 & 0 \\ 3 & 4 & 0 & 1 \end{array} \right) $$</p>
+<p>Zeile 2 minus 3*Zeile 1:</p>
+<p>$$ \left( \begin{array}{cc|cc} 1 & 2 & 1 & 0 \\ 0 & -2 & -3 & 1 \end{array} \right) $$</p>
+<p>Zeile 2 durch -2:</p>
+<p>$$ \left( \begin{array}{cc|cc} 1 & 2 & 1 & 0 \\ 0 & 1 & 1.5 & -0.5 \end{array} \right) $$</p>
+<p>Zeile 1 minus 2*Zeile 2:</p>
+<p>$$ \left( \begin{array}{cc|cc} 1 & 0 & -2 & 1 \\ 0 & 1 & 1.5 & -0.5 \end{array} \right) $$</p>
+<p>Die Inverse ist somit: </p>
+<p>$$ M^{-1} = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix} $$</p>
+</details>
+<hr>
+<h2 id="trainingsklausur-2-matrixexponential-polynome">📈 Trainingsklausur 2: Matrixexponential & Polynome</h2>
+<h3 id="aufgabe-2-1-taylorreihe-fuer-matrizen-matrixexponential">Aufgabe 2.1: Taylorreihe für Matrizen (Matrixexponential)</h3>
+<p>Berechnen Sie $\exp(A)$ für die Matrix $A = \begin{pmatrix} 4 & 2 \\ 0 & 4 \end{pmatrix}$.</p>
+<p>Nutzen Sie die additive Zerlegung $A = D + N$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Wir zerlegen $A = \begin{pmatrix} 4 & 0 \\ 0 & 4 \end{pmatrix} + \begin{pmatrix} 0 & 2 \\ 0 & 0 \end{pmatrix} = D + N$.</p>
+<p>Da $D = 4 \cdot I$ ein Vielfaches der Einheitsmatrix ist, gilt unweigerlich $D \cdot N = N \cdot D$.</p>
+<p>Da die Matrizen kommutieren, gilt das Exponentialgesetz: $\exp(A) = \exp(D) \cdot \exp(N)$.</p>
+<p>Es ist $\exp(D) = e^4 \cdot I = \begin{pmatrix} e^4 & 0 \\ 0 & e^4 \end{pmatrix}$.</p>
+<p>Für $N$ gilt $N^2 = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$. </p>
+<p>Die Taylorreihe für $\exp(N)$ bricht also exakt nach dem linearen Glied ab:</p>
+<p>$\exp(N) = I + N + \frac{1}{2}N^2 + \dots = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} + \begin{pmatrix} 0 & 2 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$.</p>
+<p>Zusammensetzen:</p>
+<p>$$ \exp(A) = \begin{pmatrix} e^4 & 0 \\ 0 & e^4 \end{pmatrix} \cdot \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} e^4 & 2e^4 \\ 0 & e^4 \end{pmatrix} $$</p>
+</details>
+<h3 id="aufgabe-2-2-horner-schema-euklidischer-algorithmus">Aufgabe 2.2: Horner-Schema & Euklidischer Algorithmus</h3>
+<p>Gesucht sind die Nullstellen des Polynoms $P(x) = x^3 - 6x^2 + 11x - 6$.</p>
+<ol>
+<li>Raten Sie eine Nullstelle (Tipp: Teiler von 6).</li>
+<li>Spalten Sie den Linearfaktor mithilfe des Horner-Schemas ab, oder per Polynomdivision.</li>
+<li>Berechnen Sie im Anschluss den $\operatorname{ggT}(x^3 - 1, x^2 - 1)$ mit dem Euklidischen Algorithmus.</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<ol>
+<li>Nullstelle raten: Probieren wir $x_0 = 1$: $1 - 6 + 11 - 6 = 0$.</li>
+<li><strong>Horner-Schema</strong> für $(x^3 - 6x^2 + 11x - 6) : (x-1)$:</li>
+</ol>
+<ul>
+<li>Koeffizienten aufschreiben: $1, -6, 11, -6$</li>
+<li>Von links nach rechts durchrechnen:</li>
+</ul>
+<p>Restpolynom ist $x^2 - 5x + 6$. </p>
+<p>Dieses lässt sich per pq-Formel zerlegen zu $(x-2)(x-3)$. </p>
+<p>Die Nullstellen sind also $\{1, 2, 3\}$.</p>
+<ol>
+<li><strong>Euklidischer Algorithmus:</strong></li>
+</ol>
+<p>$P(x) = x^3-1$, $Q(x) = x^2-1$.</p>
+<p>Teile $P$ durch $Q$: </p>
+<p>$(x^3-1) = x \cdot (x^2-1) + (x-1)$. Der Rest ist $r_1 = x-1$.</p>
+<p>Nächste Iteration, teile $Q$ durch $r_1$:</p>
+<p>$(x^2-1) = (x+1) \cdot (x-1) + 0$.</p>
+<p>Der Rest ist 0. Der letzte nicht verschwindende Rest ist somit $(x-1)$.</p>
+<p>Also ist der $\operatorname{ggT}(x^3-1, x^2-1) = x-1$.</p>
+</details>
+<hr>
+<h2 id="trainingsklausur-3-gram-schmidt-ausgleichsrechnung-symmetrie">🎯 Trainingsklausur 3: Gram-Schmidt, Ausgleichsrechnung & Symmetrie</h2>
+<h3 id="aufgabe-3-1-gram-schmidt-projektionsmatrix-galerkin">Aufgabe 3.1: Gram-Schmidt & Projektionsmatrix (Galerkin)</h3>
+<p>Gegeben seien die beiden linear unabhängigen Vektoren im $\mathbb{R}^3$: </p>
+<p>$v_1 = (1, 1, 0)^T$ und $v_2 = (1, 0, 1)^T$.</p>
+<ol>
+<li>Orthonormalisieren Sie diese Basisfolgen ins System $(u_1, u_2)$ (Gram-Schmidt).</li>
+<li>Berechnen Sie daraus den Projektionsoperator (Projektionsmatrix) auf die aufgespannte Ebene als iterierte Summe dyadischer Produkte.</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>1. Gram-Schmidt-Verfahren:</strong></p>
+<ul>
+<li>$u_1 = \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}$.</li>
+<li>Definiere Zwischenvektor $\tilde{u}_2 = v_2 - \langle v_2, u_1 \rangle u_1$.</li>
+</ul>
+<p>Das Skalarprodukt liefert: $\langle v_2, u_1 \rangle = \frac{1}{\sqrt{2}}(1\cdot 1 + 0\cdot 1 + 1\cdot 0) = \frac{1}{\sqrt{2}}$.</p>
+<p>$\tilde{u}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} - \frac{1}{2} \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0.5 \\ -0.5 \\ 1 \end{pmatrix}$.</p>
+<p>Norm von $\tilde{u}_2$: $\|\tilde{u}_2\| = \sqrt{0.25+0.25+1} = \sqrt{1.5} = \sqrt{3/2}$.</p>
+<p>Nomierter finaler Vektor: $u_2 = \frac{\tilde{u}_2}{\|\tilde{u}_2\|} = \sqrt{\frac{2}{3}} \begin{pmatrix} 1/2 \\ -1/2 \\ 1 \end{pmatrix}$.</p>
+<p><strong>2. Projektionsmatrix (Summe dyadischer Produkte):</strong></p>
+<p>$P = u_1 u_1^T + u_2 u_2^T$</p>
+<p>$u_1 u_1^T = \frac{1}{2} \begin{pmatrix} 1 & 1 & 0 \\ 1 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$</p>
+<p>$u_2 u_2^T = \frac{2}{3} \begin{pmatrix} 1/4 & -1/4 & 1/2 \\ -1/4 & 1/4 & -1/2 \\ 1/2 & -1/2 & 1 \end{pmatrix} = \begin{pmatrix} 1/6 & -1/6 & 1/3 \\ -1/6 & 1/6 & -1/3 \\ 1/3 & -1/3 & 2/3 \end{pmatrix}$</p>
+<p>Summe liefert:</p>
+<p>$$ P = \begin{pmatrix} 1/2 + 1/6 & 1/2 - 1/6 & 1/3 \\ 1/2 - 1/6 & 1/2 + 1/6 & -1/3 \\ 1/3 & -1/3 & 2/3 \end{pmatrix} = \begin{pmatrix} 2/3 & 1/3 & 1/3 \\ 1/3 & 2/3 & -1/3 \\ 1/3 & -1/3 & 2/3 \end{pmatrix} $$</p>
+</details>
+<h3 id="aufgabe-3-2-ausgleichsrechnung-normalengleichung">Aufgabe 3.2: Ausgleichsrechnung (Normalengleichung)</h3>
+<p>Wir sollen die "am besten " passende Gerade $y = mx + c$ für die verrauschten Datenpunkte $(0,1), (1,3), (2,3)$ unter Verwendung der Normalengleichung $A^T A x = A^T b$ bestimmen.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Unser Modell lautet: $x_i \cdot m + 1 \cdot c = y_i$.</p>
+<p>Matrixform $A \begin{pmatrix} m \\ c \end{pmatrix} = b$:</p>
+<p>$$ A = \begin{pmatrix} 0 & 1 \\ 1 & 1 \\ 2 & 1 \end{pmatrix}, \quad b = \begin{pmatrix} 1 \\ 3 \\ 3 \end{pmatrix} $$</p>
+<ol>
+<li>Gram-Matrix der Spalten von A konstruieren ($A^T A$):</li>
+</ol>
+<p>$$ A^T A = \begin{pmatrix} 0 & 1 & 2 \\ 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ 1 & 1 \\ 2 & 1 \end{pmatrix} = \begin{pmatrix} 5 & 3 \\ 3 & 3 \end{pmatrix} $$</p>
+<ol>
+<li>Rechte Seite ($A^T b$):</li>
+</ol>
+<p>$$ A^T b = \begin{pmatrix} 0 & 1 & 2 \\ 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} 1 \\ 3 \\ 3 \end{pmatrix} = \begin{pmatrix} 9 \\ 7 \end{pmatrix} $$</p>
+<ol>
+<li>Gleichungssystem lösen: $\begin{pmatrix} 5 & 3 \\ 3 & 3 \end{pmatrix} \begin{pmatrix} m \\ c \end{pmatrix} = \begin{pmatrix} 9 \\ 7 \end{pmatrix}$.</li>
+</ol>
+<p><em>(Subtrahiere Zeile 2 von 1)</em>: $2m = 2 \implies m = 1$.</p>
+<p><em>(Rückeinsetzen)</em>: $3(1) + 3c = 7 \implies 3c = 4 \implies c = 4/3 \approx 1.33$.</p>
+<p>Die Ausgleichsgerade lautet: <strong>$y = x + 1.33$</strong>.</p>
+</details>
+<hr>
+<h2 id="trainingsklausur-4-distanzgeometrie-rangsatz-reversibilitaet">🧭 Trainingsklausur 4: Distanzgeometrie, Rangsatz & Reversibilität</h2>
+<h3 id="aufgabe-4-1-wahr-oder-falsch-matrix-arten-skalarprodukte">Aufgabe 4.1: Wahr oder Falsch? (Matrix-Arten & Skalarprodukte)</h3>
+<ol>
+<li>Wenn $M$ unitär ist ($\bar{M}^T M = I$), dann bewahrt $M$ bei Multiplikation mit Vektoren das komplexe Skalarprodukt und damit Winkel und Längen.</li>
+<li>Jede reelle Matrix mit $\det(A) < 0$ repräsentiert unweigerlich eine Abbildung mit Orientierungsumkehr (z.B. Spiegelung in einer Ebene).</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<ol>
+<li><strong>Wahr.</strong> Definition einer unitären bzw. orthogonalen Matrix: $\langle Mv, Mw \rangle = \langle v, M^* Mw \rangle = \langle v, Iw \rangle = \langle v, w \rangle$. Wenn das Skalarprodukt erhalten bleibt, bleiben Norm (Länge) und die Zwischenwinkel zu 100% erhalten!</li>
+<li><strong>Wahr.</strong> Die Determinante gibt exakt den geometrischen Skalierungsfaktor von Volumina an. Ihr Vorzeichen verrät die "Händigkeit" der Transformation. Ein negativer Wert erzwingt zwingend das Umklappen der Raumorientierung (mindestens eine ungerade Anzahl an Spiegelungedimensionen).</li>
+</ol>
+</details>
+<h3 id="aufgabe-4-2-distanzgeometrie-gram-matrizen">Aufgabe 4.2: Distanzgeometrie & Gram-Matrizen</h3>
+<p>Entscheide, ob es Vektoren gibt, die die Konfiguration der Gram-Matrix </p>
+<p>$$ G = \begin{pmatrix} 4 & 2 \\ 2 & 1 \end{pmatrix} $$</p>
+<p>realisieren. Falls ja, liegen die Vektoren in einem $1D$- oder $2D$-Raum? Begründe.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Ein Set von Abständen/Skalarprodukten ist genau dann in Realität darstellbar (euklidisch realisierbar), wenn die resultierende Gram-Matrix $G$ nicht nur <strong>symmetrisch</strong>, sondern auch <strong>positiv semidefinit</strong> ist.</p>
+<ol>
+<li>Symmetrie $G^T = G$ ist gegeben!</li>
+<li>Positive Definitheit via Hauptminoren untersuchen:</li>
+</ol>
+<ul>
+<li>Der erste Minor (oben links) ist $\det(4) = 4 \geq 0$.</li>
+<li>Die gesamte Matrix: $\det(G) = (4 \cdot 1) - (2 \cdot 2) = 0 \geq 0$.</li>
+</ul>
+<p>Da alle Bedingungen greifen, ist sie positiv <strong>semi-definit</strong>. </p>
+<p>Durch die Existenz der Determinante $0$ wissen wir, dass der Rang der Matrix nicht $2$, sondern $1$ ist (Matrix enthält linear abhängige Zeilen). Es existiert genau ein strikt positiver Eigenwert und ein Null-Eigenwert.</p>
+<p>Das bedeutet: Beide "Punkte" oder Vektoren liegen direkt auf einer eindimensionalen Linie! Die Menge ist folglich im <strong>$\mathbb{R}^1$</strong> darstellbar!</p>
+</details>
+<h3 id="aufgabe-4-3-ulmer-skript-beweis-reversibilitaet">Aufgabe 4.3: Ulmer-Skript Beweis & Reversibilität</h3>
+<p>Beweisen Sie direkt aus den Axiomen, aus welchem Grund eine reversible Matrix (Zeit-Reversibilität gibt es eine Matrix $R$, sodass $R A R^{-1} = -A$) mit Eigenwert $\lambda$ zwingend auch den Eigenwert $-\lambda$ aufweisen muss.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Die Gleichung der Reversibilität formt man um: </p>
+<p>$$ R A R^{-1} = -A $$</p>
+<p>Dies ist mathematisch exakt die Definition dafür, dass die Systemmatrix $A$ <strong>ähnlich</strong> zu ihrer Negation $-A$ ist! </p>
+<p>Zwei zueinander ähnliche Matrizen haben zwingend identische Charakteristische Polynome und infolgedessen auch exakt dieselben Eigenwerte.</p>
+<ol>
+<li>Eigenwerte von $A$ nennen wir das Spektrum $\sigma(A) = \{\lambda_1, \ldots, \lambda_n\}$.</li>
+<li>Eigenwerte von $-A$ sind offenbar negativ zu $A$: $\sigma(-A) = \{-\lambda_1, \ldots, -\lambda_n\}$.</li>
+</ol>
+<p>Damit das Ähnlichkeitsgebot der Reversibilität erfüllt ist, müssen beide Mengen elementweise gleich sein!</p>
+<p>Taucht also ein bestimmter Wert (wie $+3$) im Spektrum von $A$ auf, muss die Matrix $A$ folgerichtig auch den negierten Wert ($-3$) als Eigenwert besitzen, um die Symmetrie aufrecht zu erhalten. </p>
+<p>Das Paar $(\lambda, -\lambda)$ ist der unverkennbare Signaturstempel eines reversiblen Modells.</p>
+</details>
+<div class="footer">
+  LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
+  <a href="index.html">← Zurück zur Startseite</a>
+</div>
+</div>
+
+<script>
+// Close sidebar on mobile after link click
+document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('open');
+}));
+</script>
+</body>
+</html>

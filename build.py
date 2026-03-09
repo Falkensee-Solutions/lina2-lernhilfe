@@ -37,6 +37,7 @@ PAGES = [
     {"file": "Uebungsaufgaben", "title": "Übungsaufgaben (inkl. Lösungen)", "icon": "📝", "cat": "Lernmaterial"},
     {"file": "Uebungszettel_Originale", "title": "Originale Übungszettel 1-10", "icon": "📄", "cat": "Lernmaterial"},
     {"file": "Nachklausur_Tipps", "title": "💡 Nachklausur Tipps vom Prof", "icon": "⚠️", "cat": "Klausur"},
+    {"file": "Trainings_Nachklausuren", "title": "🎓 4 Trainings-Nachklausuren", "icon": "💯", "cat": "Klausur"},
     {"file": "Klausur_Originale", "title": "Originale (Probe-)Klausuren", "icon": "📝", "cat": "Klausur"},
     {"file": "Klausur_Musterloesungen", "title": "Klausur-Musterlösungen", "icon": "🎯", "cat": "Klausur"},
     {"file": "Checklisten_Originale", "title": "Originale Checklisten", "icon": "✔️", "cat": "Lernmaterial"},
