@@ -30,6 +30,7 @@ PAGES = [
     {"file": "Uebungsaufgaben", "title": "Übungsaufgaben", "icon": "📝", "cat": "Lernmaterial"},
     {"file": "Formelblatt", "title": "Formelblatt", "icon": "📋", "cat": "Lernmaterial"},
     {"file": "Klausur_Musterloesungen", "title": "Klausur-Musterlösungen", "icon": "🎯", "cat": "Klausur"},
+    {"file": "Vorlesungsmaterial", "title": "Vorlesungsmaterial & Klausuren", "icon": "📄", "cat": "Dozent"},
 ]
 
 def get_nav_html(current_file):
@@ -497,6 +498,7 @@ def build_index():
   <li><strong>Wissen prüfen:</strong> Gehe die <a href="Karteikarten.html">Karteikarten</a> und <a href="Checkliste_Themen.html">Checkliste</a> durch</li>
   <li><strong>Klausur üben:</strong> Arbeite die <a href="Klausur_Musterloesungen.html">Musterlösungen</a> durch</li>
   <li><strong>Nachschlagen:</strong> Nutze das <a href="Formelblatt.html">Formelblatt</a></li>
+  <li><strong>Original-PDFs:</strong> Alle Vorlesungs-PDFs und Klausuren unter <a href="Vorlesungsmaterial.html">Vorlesungsmaterial</a></li>
 </ol>
 <p style="margin-top:24px;color:#6b7280;font-size:.9em;">
   💡 <strong>PDF-Export:</strong> Jede Seite kann über <code>Cmd+P</code> (Mac) / <code>Strg+P</code> (Win) → "Als PDF speichern" exportiert werden.
