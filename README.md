@@ -9,9 +9,7 @@ PD Dr. Marcus Weber · [Kursseite](https://www.zib.de/userpage/weber/LINA2.html)
 
 ## 🌐 Live-Seite
 
-👉 **[Zur Lernhilfe](https://<username>.github.io/lina2-lernhilfe/)**
-
-*(Nach dem Veröffentlichen auf GitHub Pages den Link oben anpassen)*
+👉 **[Zur Lernhilfe](https://falkensee-solutions.github.io/lina2-lernhilfe/)**
 
 ---
 
