@@ -253,212 +253,806 @@ MathJax = {
 </nav>
 
 <div class="main">
-<h1 id="4-spezial-trainingsklausuren-zur-nachklausur">🎓 4 Spezial-Trainingsklausuren zur Nachklausur</h1>
-<div class="infobox"><div class="infobox-title">💡 Über diese Klausuren</div><p>Diese 4 Probeklausuren wurden methodisch exakt nach der hochgeladenen <strong>Tipp-Liste des Dozenten zur Nachklausur</strong> modelliert. Sie prüfen genau die Thematiken, Schwerpunkte und Rechenalgorithmen, die relevant sein werden. <strong>Tipp:</strong> Versuche zuerst die Aufgaben auf Papier zu bearbeiten, bevor du die Lösung ausklappst!</p></div>
+<h1 id="trainings-nachklausuren-neue-version">🎓 Trainings-Nachklausuren (Neue Version)</h1>
+<div class="infobox"><div class="infobox-title">💡 Über diese Klausuren</div><p>Diese 4 Probeklausuren wurden <strong>präzise nach den Hinweisen des Dozenten</strong> zur Nachklausur modelliert. Sie decken exakt die genannten Zusammenhänge, Algorithmen und Beweistechniken ab – mit <strong>anderen Aufgaben</strong> als die Erstklausur. Jede Klausur hat ca. 100 Punkte mit der Verteilung ~1/3 Methoden, ~1/3 Verstehen, ~1/3 Beweisen. <strong>Tipp:</strong> Bearbeite jede Aufgabe zuerst auf Papier, bevor du die Lösung aufklappst. Zeitvorgabe: 120 Minuten pro Klausur.</p></div>
 <hr>
-<h2 id="trainingsklausur-1-grundlagen-koerper-bild-kern">📄 Trainingsklausur 1: Grundlagen, Körper & Bild-Kern</h2>
-<h3 id="aufgabe-1-1-wahr-oder-falsch-gefragte-zusammenhaenge">Aufgabe 1.1: Wahr oder Falsch? (Gefragte Zusammenhänge)</h3>
-<p>Entscheiden Sie, ob folgende Aussagen wahr oder falsch sind, und geben Sie eine kurze Begründung.</p>
+<hr>
+<h1 id="klausur-a-die-wahrscheinlichste">📝 Klausur A — „Die Wahrscheinlichste"</h1>
+<p><em>Schwerpunkte: Körper (Prof-Tipp!), Matrixexponential via D+N, Gram-Schmidt + Projektion, Zusammenhänge</em></p>
+<hr>
+<h2 id="aufgabe-a1-rechnen-in-endlichen-koerpern-25-punkte-methoden">Aufgabe A1: Rechnen in endlichen Körpern (25 Punkte) — Methoden</h2>
+<h3 id="a-koerper-mathbb-f-5-grundoperationen-5p">(a) Körper $\mathbb{F}_5$ — Grundoperationen (5P)</h3>
+<p>Bestimmen Sie im Körper $\mathbb{F}_5 = \{0, 1, 2, 3, 4\}$ (Restklassen modulo 5):</p>
 <ol>
-<li>Eine lineare Abbildung ist genau dann umkehrbar (invertierbar), wenn der Kern der Darstellungsmatrix nur aus dem Nullvektor besteht.</li>
-<li>Zwei Matrizen, die dasselbe Minimalpolynom besitzen, haben zwingend auch dieselbe Jordan-Normalform.</li>
-<li>Jede Matrix mit Determinante ungleich Null ist diagonalisierbar.</li>
+<li>$3 + 4 = \;?$</li>
+<li>$2 \cdot 3 = \;?$</li>
+<li>Das multiplikative Inverse von $2$, also $2^{-1} = \;?$</li>
 </ol>
 <details>
 <summary><b>Lösung einblenden</b></summary>
 <ol>
-<li><strong>Wahr.</strong> Wenn der Kern nur $\{0\}$ enthält (Defekt = 0), ist die Matrix nach dem Rangsatz surjektiv und damit (da quadratisch) bijektiv, also invertierbar.</li>
-<li><strong>Falsch.</strong> Gegenbeispiel: Wenn Blockgrößen identisch sind, kann die Multiplizität variieren. Sei das Minimalpolynom $(x-1)^2$. Blockgrößen sind max max 2x2. Bei einer 4x4 Matrix kann die JNF so aussehen: ein 2er Block & zwei 1er Blöcke, ODER zwei 2er Blöcke. Beide haben exakt dasselbe Minimalpolynom!</li>
-<li><strong>Falsch.</strong> Die Determinante sagt nur aus, dass der Eigenwert 0 nicht existiert (Invertibilität gewährt). Die Matrix $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ hat Determinante 1, st aber offensichtlich nicht diagonalisierbar.</li>
+<li>$3 + 4 = 7 \equiv 2 \pmod{5}$. <strong>Antwort: $2$</strong></li>
+<li>$2 \cdot 3 = 6 \equiv 1 \pmod{5}$. <strong>Antwort: $1$</strong></li>
+<li>Wir suchen $x$ mit $2x \equiv 1 \pmod{5}$. Da $2 \cdot 3 = 6 \equiv 1$, ist $2^{-1} = 3$. <strong>Antwort: $3$</strong></li>
 </ol>
 </details>
-<h3 id="aufgabe-1-2-rechnen-im-koerper-offizieller-prof-tipp">Aufgabe 1.2: Rechnen im Körper (Offizieller Prof-Tipp!)</h3>
-<p>Betrachten wir den endlichen Körper $\mathbb{F}_7$ (Restklassen modulo 7). Sei $a = 5$ und $b = 3$. Lösen Sie die Gleichung $u \cdot b + a = 0$ für ein gesuchtes $u \in \mathbb{F}_7$. </p>
-<p><strong>Nutzen Sie explizit den Tipp des Professors:</strong></p>
+<h3 id="b-gleichung-ub-a-0-im-koerper-loesen-10p">(b) Gleichung $ub + a = 0$ im Körper lösen (10P)</h3>
+<p>Lösen Sie im Körper $\mathbb{F}_5$ die Gleichung $u \cdot b + a = 0$ für $a = 3$ und $b = 4$.</p>
+<p><strong>Gehen Sie exakt nach dem Tipp des Professors vor:</strong></p>
 <ol>
-<li>Ermitteln Sie zunächst das additiv Inverse $A$ von $a$, sodass $A + a = 0$.</li>
-<li>Finden Sie dann einen Faktor $u$, sodass $u \cdot b = A$.</li>
+<li>Finden Sie zunächst das additiv Inverse $A$ von $a$, sodass $A + a = 0$.</li>
+<li>Finden Sie dann $u$ mit $u \cdot b = A$.</li>
 </ol>
 <details>
 <summary><b>Lösung einblenden</b></summary>
-<ol>
-<li>Wir suchen das additiv Inverse $A$ zu $a=5$ in $\mathbb{F}_7$.</li>
-</ol>
-<p>Wegen $5 + 2 = 7 \equiv 0 \pmod 7$ gilt $A = 2$.</p>
-<p>Es gilt also $A + a = 0$.</p>
-<ol>
-<li>Nun muss $u \cdot 3 \equiv 2 \pmod 7$ gelöst werden. </li>
-</ol>
-<p>Wir benötigen das multiplikativ Inverse von $3$. Wir testen: $3 \cdot 1 = 3$, $3 \cdot 2 = 6$, $3 \cdot 3 = 9 \equiv 2$, $3 \cdot 4 = 12 \equiv 5$, $3 \cdot 5 = 15 \equiv 1$.</p>
-<p>Das multiplikativ Inverse zu $3$ ist also $5$.</p>
-<p>Wir multiplizieren beide Seiten der Gleichung $u \cdot 3 \equiv 2$ mit $5$:</p>
-<p>$$ u \cdot (3 \cdot 5) \equiv 2 \cdot 5 \pmod 7 $$</p>
-<p>$$ u \cdot 1 \equiv 10 \pmod 7 $$</p>
-<p>Da $10 = 7 + 3$, folgt: <strong>$u = 3$</strong>.</p>
-<p><em>Probe:</em> $3 \cdot 3 + 5 = 9 + 5 = 14 \equiv 0 \pmod 7$. Stimmt!</p>
+<p><strong>Schritt 1:</strong> Additiv Inverses von $a = 3$ in $\mathbb{F}_5$:</p>
+<p>$A + 3 \equiv 0 \pmod{5}$. Da $2 + 3 = 5 \equiv 0$, ist $A = 2$.</p>
+<p><strong>Schritt 2:</strong> Löse $u \cdot 4 \equiv 2 \pmod{5}$.</p>
+<p>Wir brauchen das multiplikativ Inverse von $4$ in $\mathbb{F}_5$:</p>
+<p>$4 \cdot 1 = 4$, $4 \cdot 2 = 8 \equiv 3$, $4 \cdot 3 = 12 \equiv 2$, $4 \cdot 4 = 16 \equiv 1$.</p>
+<p>Also ist $4^{-1} = 4$.</p>
+<p>Multiplikation beider Seiten mit $4$:</p>
+<p>$$u = 2 \cdot 4 = 8 \equiv 3 \pmod{5}$$</p>
+<p><strong>Antwort: $u = 3$</strong></p>
+<p><strong>Probe:</strong> $3 \cdot 4 + 3 = 12 + 3 = 15 \equiv 0 \pmod{5}$ ✓</p>
 </details>
-<h3 id="aufgabe-1-3-bild-kern-algorithmus-zur-invertierung">Aufgabe 1.3: Bild-Kern-Algorithmus zur Invertierung</h3>
-<p>Berechnen Sie mittels des Bild-Kern-Algorithmus die Inverse der Matrix:</p>
-<p>$$ M = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} $$</p>
+<h3 id="c-lineares-gleichungssystem-ueber-mathbb-f-5-10p">(c) Lineares Gleichungssystem über $\mathbb{F}_5$ (10P)</h3>
+<p>Lösen Sie über $\mathbb{F}_5$ das LGS:</p>
+<p>$$\begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 4 \\ 2 \end{pmatrix}$$</p>
 <details>
 <summary><b>Lösung einblenden</b></summary>
-<p>Beim Bild-Kern-Algorithmus erweitert man die Matrix mit der Einheitsmatrix und rechnet per Spalten/Zeilenumformung. Bei der klassischen Invertierung durch Gauß-Jordan schreibt man:</p>
-<p>$$ \left( \begin{array}{cc|cc} 1 & 2 & 1 & 0 \\ 3 & 4 & 0 & 1 \end{array} \right) $$</p>
-<p>Zeile 2 minus 3*Zeile 1:</p>
-<p>$$ \left( \begin{array}{cc|cc} 1 & 2 & 1 & 0 \\ 0 & -2 & -3 & 1 \end{array} \right) $$</p>
-<p>Zeile 2 durch -2:</p>
-<p>$$ \left( \begin{array}{cc|cc} 1 & 2 & 1 & 0 \\ 0 & 1 & 1.5 & -0.5 \end{array} \right) $$</p>
-<p>Zeile 1 minus 2*Zeile 2:</p>
-<p>$$ \left( \begin{array}{cc|cc} 1 & 0 & -2 & 1 \\ 0 & 1 & 1.5 & -0.5 \end{array} \right) $$</p>
-<p>Die Inverse ist somit: </p>
-<p>$$ M^{-1} = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix} $$</p>
+<p>Gauß-Algorithmus über $\mathbb{F}_5$:</p>
+<p>$$\left(\begin{array}{cc|c} 2 & 1 & 4 \\ 3 & 4 & 2 \end{array}\right)$$</p>
+<p><strong>Zeile 1 mit $2^{-1} = 3$ multiplizieren</strong> (in $\mathbb{F}_5$):</p>
+<p>$Z_1 \to 3 \cdot Z_1$: $(3 \cdot 2, 3 \cdot 1, 3 \cdot 4) = (6, 3, 12) \equiv (1, 3, 2)$</p>
+<p>$$\left(\begin{array}{cc|c} 1 & 3 & 2 \\ 3 & 4 & 2 \end{array}\right)$$</p>
+<p><strong>$Z_2 \to Z_2 - 3 \cdot Z_1$:</strong></p>
+<p>$(3 - 3, 4 - 9, 2 - 6) = (0, -5, -4) \equiv (0, 0, 1)$</p>
+<p>$$\left(\begin{array}{cc|c} 1 & 3 & 2 \\ 0 & 0 & 1 \end{array}\right)$$</p>
+<p>Zeile 2 besagt $0 = 1$. <strong>Das LGS hat keine Lösung!</strong></p>
+<p><strong>Alternativ:</strong> $\det(A) = 2 \cdot 4 - 1 \cdot 3 = 8 - 3 = 5 \equiv 0 \pmod{5}$. Die Matrix ist singulär über $\mathbb{F}_5$, daher ist das LGS nicht für jede rechte Seite lösbar.</p>
 </details>
 <hr>
-<h2 id="trainingsklausur-2-matrixexponential-polynome">📈 Trainingsklausur 2: Matrixexponential & Polynome</h2>
-<h3 id="aufgabe-2-1-taylorreihe-fuer-matrizen-matrixexponential">Aufgabe 2.1: Taylorreihe für Matrizen (Matrixexponential)</h3>
-<p>Berechnen Sie $\exp(A)$ für die Matrix $A = \begin{pmatrix} 4 & 2 \\ 0 & 4 \end{pmatrix}$.</p>
-<p>Nutzen Sie die additive Zerlegung $A = D + N$.</p>
+<h2 id="aufgabe-a2-matrixexponential-via-d-n-zerlegung-25-punkte-methoden">Aufgabe A2: Matrixexponential via $D+N$-Zerlegung (25 Punkte) — Methoden</h2>
+<p>Gegeben sei die Matrix:</p>
+<p>$$A = \begin{pmatrix} 3 & 1 & 0 \\ 0 & 3 & 1 \\ 0 & 0 & 3 \end{pmatrix}$$</p>
+<h3 id="a-zerlegung-a-d-n-5p">(a) Zerlegung $A = D + N$ (5P)</h3>
+<p>Zerlegen Sie $A = D + N$ in einen diagonalen Anteil $D$ und einen nilpotenten Anteil $N$. Verifizieren Sie $DN = ND$.</p>
 <details>
 <summary><b>Lösung einblenden</b></summary>
-<p>Wir zerlegen $A = \begin{pmatrix} 4 & 0 \\ 0 & 4 \end{pmatrix} + \begin{pmatrix} 0 & 2 \\ 0 & 0 \end{pmatrix} = D + N$.</p>
-<p>Da $D = 4 \cdot I$ ein Vielfaches der Einheitsmatrix ist, gilt unweigerlich $D \cdot N = N \cdot D$.</p>
-<p>Da die Matrizen kommutieren, gilt das Exponentialgesetz: $\exp(A) = \exp(D) \cdot \exp(N)$.</p>
-<p>Es ist $\exp(D) = e^4 \cdot I = \begin{pmatrix} e^4 & 0 \\ 0 & e^4 \end{pmatrix}$.</p>
-<p>Für $N$ gilt $N^2 = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$. </p>
-<p>Die Taylorreihe für $\exp(N)$ bricht also exakt nach dem linearen Glied ab:</p>
-<p>$\exp(N) = I + N + \frac{1}{2}N^2 + \dots = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} + \begin{pmatrix} 0 & 2 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$.</p>
-<p>Zusammensetzen:</p>
-<p>$$ \exp(A) = \begin{pmatrix} e^4 & 0 \\ 0 & e^4 \end{pmatrix} \cdot \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} e^4 & 2e^4 \\ 0 & e^4 \end{pmatrix} $$</p>
+<p>$$D = \begin{pmatrix} 3 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix} = 3I, \qquad N = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$$</p>
+<p>Da $D = 3I$ ein Vielfaches der Einheitsmatrix ist, kommutiert es mit jeder Matrix:</p>
+<p>$$DN = 3I \cdot N = 3N = N \cdot 3I = ND \quad ✓$$</p>
 </details>
-<h3 id="aufgabe-2-2-horner-schema-euklidischer-algorithmus">Aufgabe 2.2: Horner-Schema & Euklidischer Algorithmus</h3>
-<p>Gesucht sind die Nullstellen des Polynoms $P(x) = x^3 - 6x^2 + 11x - 6$.</p>
+<h3 id="b-nilpotenz-von-n-5p">(b) Nilpotenz von $N$ (5P)</h3>
+<p>Berechnen Sie $N^2$ und $N^3$. Ab welcher Potenz ist $N^k = 0$?</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$$N^2 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$</p>
+<p>$$N^3 = N^2 \cdot N = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} = 0$$</p>
+<p>$N$ ist nilpotent der <strong>Ordnung 3</strong>: $N^3 = 0$, aber $N^2 \neq 0$.</p>
+</details>
+<h3 id="c-berechnung-von-exp-n-7p">(c) Berechnung von $\exp(N)$ (7P)</h3>
+<p>Berechnen Sie $\exp(N)$ mithilfe der Taylorreihe.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Da $N^k = 0$ für $k \geq 3$, bricht die Taylorreihe ab:</p>
+<p>$$\exp(N) = I + N + \frac{N^2}{2!} + \underbrace{\frac{N^3}{3!} + \cdots}_{=0}$$</p>
+<p>$$= \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} + \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix} + \frac{1}{2}\begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$</p>
+<p>$$\boxed{\exp(N) = \begin{pmatrix} 1 & 1 & 1/2 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}}$$</p>
+</details>
+<h3 id="d-berechnung-von-exp-a-8p">(d) Berechnung von $\exp(A)$ (8P)</h3>
+<p>Berechnen Sie $\exp(A)$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Da $DN = ND$, gilt $\exp(A) = \exp(D + N) = \exp(D) \cdot \exp(N)$.</p>
+<p>$$\exp(D) = \exp(3I) = e^3 I = \begin{pmatrix} e^3 & 0 & 0 \\ 0 & e^3 & 0 \\ 0 & 0 & e^3 \end{pmatrix}$$</p>
+<p>$$\exp(A) = e^3 I \cdot \exp(N) = e^3 \begin{pmatrix} 1 & 1 & 1/2 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$$</p>
+<p>$$\boxed{\exp(A) = \begin{pmatrix} e^3 & e^3 & e^3/2 \\ 0 & e^3 & e^3 \\ 0 & 0 & e^3 \end{pmatrix}}$$</p>
+<p><strong>DGL-Anwendung:</strong> Die Lösung von $\dot{x}(t) = Ax(t)$ mit Start $x(0) = x_0$ ist $x(t) = e^{tA} x_0$, wobei man überall $e^3$ durch $e^{3t}$ und $1/2$ durch $t^2/2$ und die mittleren Einsen durch $t$ ersetzt.</p>
+</details>
+<hr>
+<h2 id="aufgabe-a3-gram-schmidt-projektion-ausgleichsrechnung-30-punkte-methoden">Aufgabe A3: Gram-Schmidt, Projektion & Ausgleichsrechnung (30 Punkte) — Methoden</h2>
+<h3 id="a-gram-schmidt-in-mathbb-r-3-12p">(a) Gram-Schmidt in $\mathbb{R}^3$ (12P)</h3>
+<p>Orthonormalisieren Sie die Vektoren $v_1 = (1, 0, 1)^T$ und $v_2 = (1, 1, 0)^T$ bezüglich des Standard-Skalarprodukts mit dem Gram-Schmidt-Verfahren.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Schritt 1: Normierung von $v_1$</strong></p>
+<p>$$\|v_1\| = \sqrt{1^2 + 0^2 + 1^2} = \sqrt{2}$$</p>
+<p>$$e_1 = \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$$</p>
+<p><strong>Schritt 2: Orthogonalisierung von $v_2$</strong></p>
+<p>$$\langle e_1 | v_2 \rangle = \frac{1}{\sqrt{2}}(1 \cdot 1 + 0 \cdot 1 + 1 \cdot 0) = \frac{1}{\sqrt{2}}$$</p>
+<p>$$\tilde{e}_2 = v_2 - \langle e_1 | v_2 \rangle \cdot e_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1/2 \\ 0 \\ 1/2 \end{pmatrix} = \begin{pmatrix} 1/2 \\ 1 \\ -1/2 \end{pmatrix}$$</p>
+<p><strong>Schritt 3: Normierung</strong></p>
+<p>$$\|\tilde{e}_2\| = \sqrt{1/4 + 1 + 1/4} = \sqrt{3/2} = \frac{\sqrt{6}}{2}$$</p>
+<p>$$e_2 = \frac{\tilde{e}_2}{\|\tilde{e}_2\|} = \frac{2}{\sqrt{6}}\begin{pmatrix} 1/2 \\ 1 \\ -1/2 \end{pmatrix} = \frac{1}{\sqrt{6}}\begin{pmatrix} 1 \\ 2 \\ -1 \end{pmatrix}$$</p>
+<p><strong>Probe:</strong> $\langle e_1 | e_2 \rangle = \frac{1}{\sqrt{12}}(1 \cdot 1 + 0 \cdot 2 + 1 \cdot (-1)) = 0$ ✓</p>
+<p>$\|e_1\| = 1$ ✓, $\|e_2\| = \sqrt{1/6 + 4/6 + 1/6} = 1$ ✓</p>
+</details>
+<h3 id="b-projektionsmatrix-8p">(b) Projektionsmatrix (8P)</h3>
+<p>Berechnen Sie die Projektionsmatrix $P$ auf $U = \text{span}(v_1, v_2)$ als Summe dyadischer Produkte.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$$P = e_1 e_1^T + e_2 e_2^T$$</p>
+<p>$$e_1 e_1^T = \frac{1}{2}\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}(1, 0, 1) = \frac{1}{2}\begin{pmatrix} 1 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 1 \end{pmatrix}$$</p>
+<p>$$e_2 e_2^T = \frac{1}{6}\begin{pmatrix} 1 \\ 2 \\ -1 \end{pmatrix}(1, 2, -1) = \frac{1}{6}\begin{pmatrix} 1 & 2 & -1 \\ 2 & 4 & -2 \\ -1 & -2 & 1 \end{pmatrix}$$</p>
+<p>$$P = \frac{1}{2}\begin{pmatrix} 1 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 1 \end{pmatrix} + \frac{1}{6}\begin{pmatrix} 1 & 2 & -1 \\ 2 & 4 & -2 \\ -1 & -2 & 1 \end{pmatrix}$$</p>
+<p>$$= \begin{pmatrix} 3/6 + 1/6 & 2/6 & 3/6 - 1/6 \\ 2/6 & 4/6 & -2/6 \\ 3/6 - 1/6 & -2/6 & 3/6 + 1/6 \end{pmatrix}$$</p>
+<p>$$\boxed{P = \frac{1}{6}\begin{pmatrix} 4 & 2 & 2 \\ 2 & 4 & -2 \\ 2 & -2 & 4 \end{pmatrix} = \frac{1}{3}\begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & -1 \\ 1 & -1 & 2 \end{pmatrix}}$$</p>
+<p><strong>Probe:</strong> $P^2 = P$ ✓ (Projektion), $P = P^T$ ✓ (Orthogonalprojektion)</p>
+</details>
+<h3 id="c-ausgleichsrechnung-normalengleichung-10p">(c) Ausgleichsrechnung — Normalengleichung (10P)</h3>
+<p>Die Datenpunkte $(1, 2)$, $(2, 3)$, $(3, 6)$ sollen durch eine Gerade $y = mx + c$ bestmöglich approximiert werden. Bestimmen Sie $m$ und $c$ mittels der Normalengleichung $A^T A \hat{x} = A^T b$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Modell: $\begin{pmatrix} 1 & 1 \\ 2 & 1 \\ 3 & 1 \end{pmatrix} \begin{pmatrix} m \\ c \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \\ 6 \end{pmatrix}$, also $A = \begin{pmatrix} 1 & 1 \\ 2 & 1 \\ 3 & 1 \end{pmatrix}$, $b = \begin{pmatrix} 2 \\ 3 \\ 6 \end{pmatrix}$.</p>
+<p><strong>Schritt 1:</strong> Gram-Matrix $A^TA$ berechnen:</p>
+<p>$$A^T A = \begin{pmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 2 & 1 \\ 3 & 1 \end{pmatrix} = \begin{pmatrix} 14 & 6 \\ 6 & 3 \end{pmatrix}$$</p>
+<p><strong>Schritt 2:</strong> Rechte Seite $A^T b$:</p>
+<p>$$A^T b = \begin{pmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{pmatrix}\begin{pmatrix} 2 \\ 3 \\ 6 \end{pmatrix} = \begin{pmatrix} 26 \\ 11 \end{pmatrix}$$</p>
+<p><strong>Schritt 3:</strong> LGS lösen: $\begin{pmatrix} 14 & 6 \\ 6 & 3 \end{pmatrix}\begin{pmatrix} m \\ c \end{pmatrix} = \begin{pmatrix} 26 \\ 11 \end{pmatrix}$</p>
+<p>$Z_2 \to Z_2 - \frac{6}{14} Z_1 = Z_2 - \frac{3}{7} Z_1$:</p>
+<p>$3 - \frac{3}{7} \cdot 6 = 3 - \frac{18}{7} = \frac{3}{7}$ und $11 - \frac{3}{7} \cdot 26 = 11 - \frac{78}{7} = \frac{-1}{7}$</p>
+<p>Also $\frac{3}{7} c = \frac{-1}{7}$ → $c = -\frac{1}{3}$</p>
+<p>Rückeinsetzen: $14m + 6 \cdot (-\frac{1}{3}) = 26$ → $14m = 28$ → $m = 2$</p>
+<p>$$\boxed{y = 2x - \frac{1}{3}}$$</p>
+<p><strong>Probe:</strong> $f(1) = 5/3 \approx 1.67$, $f(2) = 11/3 \approx 3.67$, $f(3) = 17/3 \approx 5.67$. Residuenvektor: $(-1/3, -2/3, 1/3)^T$, symmetrisch verteilt ✓</p>
+</details>
+<hr>
+<h2 id="aufgabe-a4-zusammenhaenge-wahr-falsch-reversibilitaet-20-punkte-verstehen-beweisen">Aufgabe A4: Zusammenhänge — Wahr/Falsch & Reversibilität (20 Punkte) — Verstehen/Beweisen</h2>
+<h3 id="a-wahr-oder-falsch-10p-je-2p">(a) Wahr oder Falsch? (10P, je 2P)</h3>
+<p>Entscheiden Sie mit Begründung:</p>
 <ol>
-<li>Raten Sie eine Nullstelle (Tipp: Teiler von 6).</li>
-<li>Spalten Sie den Linearfaktor mithilfe des Horner-Schemas ab, oder per Polynomdivision.</li>
-<li>Berechnen Sie im Anschluss den $\operatorname{ggT}(x^3 - 1, x^2 - 1)$ mit dem Euklidischen Algorithmus.</li>
+<li>Wenn $\det(A) \neq 0$, dann hat das LGS $Ax = b$ für jedes $b$ genau eine Lösung.</li>
+<li>Jede $3 \times 3$-Matrix über $\mathbb{C}$ ist trigonalisierbar.</li>
+<li>Wenn $A$ und $B$ dieselben Eigenwerte (mit Vielfachheiten) haben, dann ist $A$ ähnlich zu $B$.</li>
+<li>Für eine orthogonale Matrix $Q$ gilt stets $Q^{-1} = Q^T$.</li>
+<li>Wenn $A$ nilpotent ist (d.h. $A^k = 0$ für ein $k$), dann ist $\det(A) = 0$.</li>
 </ol>
 <details>
 <summary><b>Lösung einblenden</b></summary>
 <ol>
-<li>Nullstelle raten: Probieren wir $x_0 = 1$: $1 - 6 + 11 - 6 = 0$.</li>
-<li><strong>Horner-Schema</strong> für $(x^3 - 6x^2 + 11x - 6) : (x-1)$:</li>
+<li><strong>Wahr.</strong> $\det(A) \neq 0 \Rightarrow A$ invertierbar $\Rightarrow$ eindeutige Lösung $x = A^{-1}b$.</li>
+<li><strong>Wahr.</strong> Über $\mathbb{C}$ zerfällt das char. Polynom in Linearfaktoren. Der Satz von Schur besagt, dass dann jede Matrix über $\mathbb{C}$ unitär trigonalisierbar ist.</li>
+<li><strong>Falsch.</strong> Gegenbeispiel: $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ und $B = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ haben beide den Eigenwert $1$ mit alg. VF $2$, aber $A$ ist nicht diagonalisierbar, $B$ schon. Sie haben verschiedene JNF und sind daher nicht ähnlich.</li>
+<li><strong>Wahr.</strong> Aus $Q^TQ = I$ folgt direkt $Q^{-1} = Q^T$ (Definition der Orthogonalität).</li>
+<li><strong>Wahr.</strong> Wenn $A^k = 0$, dann $\det(A)^k = \det(A^k) = \det(0) = 0$. Also $\det(A) = 0$.</li>
+</ol>
+<p>Alternativ: Alle Eigenwerte nilpotenter Matrizen sind $0$ (denn $Av = \lambda v \Rightarrow 0 = A^k v = \lambda^k v \Rightarrow \lambda = 0$), also $\det(A) = \prod \lambda_i = 0$.</p>
+</details>
+<h3 id="b-reversibilitaet-beweis-10p">(b) Reversibilität — Beweis (10P)</h3>
+<p>Sei $A \in \mathbb{R}^{n \times n}$ eine <strong>reversible</strong> Matrix, d.h. es existiert eine invertierbare Matrix $R$ mit $RAR^{-1} = -A$.</p>
+<p><strong>Zeigen Sie:</strong> Wenn $\lambda$ ein Eigenwert von $A$ ist, dann ist auch $-\lambda$ ein Eigenwert von $A$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Beweis:</strong></p>
+<p>Sei $\lambda$ ein Eigenwert von $A$, also $Av = \lambda v$ für ein $v \neq 0$.</p>
+<p>Aus der Reversibilitätsbedingung $RAR^{-1} = -A$ folgt, dass $A$ und $-A$ <strong>ähnlich</strong> sind.</p>
+<p>Ähnliche Matrizen haben dasselbe charakteristische Polynom:</p>
+<p>$$\chi_{-A}(\mu) = \det(-A - \mu I) = \det(-(A + \mu I)) = (-1)^n \det(A + \mu I) = (-1)^n \chi_A(-\mu)$$</p>
+<p>Da $A$ und $-A$ ähnlich sind: $\chi_A(\mu) = \chi_{-A}(\mu) = (-1)^n \chi_A(-\mu)$.</p>
+<p>Sei $\lambda$ Nullstelle von $\chi_A$: $\chi_A(\lambda) = 0$. Dann ist $\chi_{-A}(\lambda) = 0$, also ist $\lambda$ Eigenwert von $-A$.</p>
+<p>Die Eigenwerte von $-A$ sind genau die negierten Eigenwerte von $A$: Wenn $\mu$ Eigenwert von $-A$ ist, dann $-Aw = \mu w$, also $A w = -\mu w$, d.h. $-\mu$ ist Eigenwert von $A$.</p>
+<p>Da $\lambda$ Eigenwert von $-A$ ist, ist $-\lambda$ Eigenwert von $A$. $\square$</p>
+<p><strong>Alternativbeweis (direkter):</strong></p>
+<p>Sei $Av = \lambda v$ mit $v \neq 0$. Setze $w := Rv \neq 0$ (da $R$ invertierbar).</p>
+<p>$$Aw = A(Rv) = -R(AR^{-1}R)v\;?$$</p>
+<p>Besser: Aus $RAR^{-1} = -A$ folgt $RA = -AR$.</p>
+<p>$$A(Rv) = AR v$$</p>
+<p>Aus $RA = -AR$ folgt $AR = -RA$:</p>
+<p>$$A(Rv) = -R(Av) = -R(\lambda v) = -\lambda(Rv) = -\lambda w$$</p>
+<p>Also $Aw = -\lambda w$ mit $w = Rv \neq 0$, d.h. $-\lambda$ ist Eigenwert von $A$. $\square$</p>
+</details>
+<hr>
+<hr>
+<h1 id="klausur-b-die-beweislastige">📝 Klausur B — „Die Beweislastige"</h1>
+<p><em>Schwerpunkte: JNF berechnen, Geometrie mit komplexen Zahlen, Gram-Schmidt mit Integral-SP, Euklidischer Algorithmus</em></p>
+<hr>
+<h2 id="aufgabe-b1-eigenwerte-jordan-normalform-konkret-30-punkte-methoden">Aufgabe B1: Eigenwerte & Jordan-Normalform konkret (30 Punkte) — Methoden</h2>
+<p>Gegeben sei die Matrix:</p>
+<p>$$B = \begin{pmatrix} 2 & 0 & 0 & 0 \\ 1 & 2 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 3 & -1 \end{pmatrix}$$</p>
+<h3 id="a-bestimmen-sie-das-charakteristische-polynom-und-die-eigenwerte-von-b-6p">(a) Bestimmen Sie das charakteristische Polynom und die Eigenwerte von $B$. (6P)</h3>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$B$ ist eine untere Dreiecksmatrix (in Blockform). Die Eigenwerte stehen auf der Diagonale: $\lambda_1 = 2$ (doppelt), $\lambda_2 = -1$ (doppelt).</p>
+<p>$$\chi_B(\lambda) = (\lambda - 2)^2(\lambda + 1)^2$$</p>
+<p><strong>Eigenwerte:</strong> $\lambda_1 = 2$ mit alg. VF $= 2$, $\lambda_2 = -1$ mit alg. VF $= 2$.</p>
+</details>
+<h3 id="b-berechnen-sie-die-eigenraeume-e-2-und-e-1-8p">(b) Berechnen Sie die Eigenräume $E_2$ und $E_{-1}$. (8P)</h3>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Eigenraum $E_2 = \ker(B - 2I)$:</strong></p>
+<p>$$B - 2I = \begin{pmatrix} 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & -3 & 0 \\ 0 & 0 & 3 & -3 \end{pmatrix}$$</p>
+<p>Gauß:</p>
+<ul>
+<li>Pivots in Zeile 2 (Spalte 1), Zeile 3 (Spalte 3). Zeile 4 → $Z_4 + Z_3$: $(0, 0, 0, -3)$ → Pivot Spalte 4.</li>
+<li>Freie Variable: $x_2$.</li>
+</ul>
+<p>$x_1 = 0$, $x_3 = 0$, $x_4 = 0$, $x_2$ frei.</p>
+<p>$$E_2 = \text{span}\left(\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}\right), \quad \text{geo. VF}(2) = 1$$</p>
+<p><strong>Eigenraum $E_{-1} = \ker(B + I)$:</strong></p>
+<p>$$B + I = \begin{pmatrix} 3 & 0 & 0 & 0 \\ 1 & 3 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 3 & 0 \end{pmatrix}$$</p>
+<p>Gauß: Pivots in Spalte 1, 2, 3. Freie Variable: $x_4$.</p>
+<p>$x_1 = 0$, $x_2 = 0$, $x_3 = 0$, $x_4$ frei.</p>
+<p>$$E_{-1} = \text{span}\left(\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}\right), \quad \text{geo. VF}(-1) = 1$$</p>
+</details>
+<h3 id="c-bestimmen-sie-die-jordan-normalform-von-b-8p">(c) Bestimmen Sie die Jordan-Normalform von $B$. (8P)</h3>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Für jeden Eigenwert haben wir alg. VF $= 2$ und geo. VF $= 1$. Also gibt es zu jedem Eigenwert genau <strong>einen</strong> Jordan-Block der Größe 2.</p>
+<p>$$\boxed{J = \begin{pmatrix} 2 & 1 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & -1 & 1 \\ 0 & 0 & 0 & -1 \end{pmatrix}}$$</p>
+</details>
+<h3 id="d-minimalpolynom-determinante-diagonalisierbarkeit-8p">(d) Minimalpolynom, Determinante, Diagonalisierbarkeit (8P)</h3>
+<p>Bestimmen Sie:</p>
+<ol>
+<li>Das Minimalpolynom $\mu_B(\lambda)$.</li>
+<li>$\det(B)$.</li>
+<li>Ist $B$ diagonalisierbar?</li>
+<li>Ist $B$ invertierbar?</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<ol>
+<li><strong>Minimalpolynom:</strong> Der größte Block zu EW $2$ hat Größe 2, der größte zu EW $-1$ hat Größe 2.</li>
+</ol>
+<p>$$\mu_B(\lambda) = (\lambda - 2)^2(\lambda + 1)^2$$</p>
+<p>(Hier stimmen char. Polynom und Minimalpolynom überein, da es zu jedem EW genau einen Block gibt.)</p>
+<ol>
+<li><strong>Determinante:</strong> $\det(B) = \det(J) = 2 \cdot 2 \cdot (-1) \cdot (-1) = 4$.</li>
+<li><strong>Nicht diagonalisierbar,</strong> da Jordan-Blöcke der Größe 2 existieren. Äquivalent: geo. VF $\neq$ alg. VF für beide EW.</li>
+<li><strong>Invertierbar,</strong> da $\det(B) = 4 \neq 0$.</li>
+</ol>
+</details>
+<hr>
+<h2 id="aufgabe-b2-geometrie-mit-komplexen-zahlen-20-punkte-beweisen">Aufgabe B2: Geometrie mit komplexen Zahlen (20 Punkte) — Beweisen</h2>
+<h3 id="a-drehung-als-multiplikation-10p">(a) Drehung als Multiplikation (10P)</h3>
+<p>Sei $w = e^{i\pi/3}$ und sei $z \in \mathbb{C}$ ein beliebiger Punkt in der komplexen Ebene. Zeigen Sie:</p>
+<ol>
+<li>$|wz| = |z|$ (die Multiplikation mit $w$ ändert den Abstand zum Ursprung nicht).</li>
+<li>Die Abbildung $z \mapsto wz$ beschreibt eine Drehung um $60°$ um den Ursprung.</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>1. Längentreue:</strong></p>
+<p>$$|wz| = |w| \cdot |z| = |e^{i\pi/3}| \cdot |z| = 1 \cdot |z| = |z| \quad \square$$</p>
+<p>(Für die Polarform $e^{i\theta}$ gilt $|e^{i\theta}| = |\cos\theta + i\sin\theta| = \sqrt{\cos^2\theta + \sin^2\theta} = 1$.)</p>
+<p><strong>2. Drehung um $60°$:</strong></p>
+<p>Schreibe $z = re^{i\varphi}$ in Polarform. Dann:</p>
+<p>$$wz = e^{i\pi/3} \cdot re^{i\varphi} = r \cdot e^{i(\varphi + \pi/3)}$$</p>
+<p>Der Betrag bleibt $r$, der Winkel wird um $\pi/3 = 60°$ erhöht. Das ist die Definition einer Drehung um den Ursprung mit Winkel $60°$. $\square$</p>
+</details>
+<h3 id="b-gleichseitiges-dreieck-10p">(b) Gleichseitiges Dreieck (10P)</h3>
+<p>Drei Punkte $z_1, z_2, z_3 \in \mathbb{C}$ bilden ein gleichseitiges Dreieck mit Schwerpunkt im Ursprung (d.h. $z_1 + z_2 + z_3 = 0$).</p>
+<p>Zeigen Sie: Wenn $z_2 = wz_1$ mit $w = e^{i 2\pi/3}$, dann gilt $z_3 = w^2 z_1$ und $z_1 + z_2 + z_3 = 0$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Für ein gleichseitiges Dreieck mit Schwerpunkt im Ursprung sind die Ecken um jeweils $120° = 2\pi/3$ gedreht.</p>
+<p>Sei $z_1 = re^{i\alpha}$ ein beliebiger Eckpunkt. Dann:</p>
+<ul>
+<li>$z_2 = wz_1 = e^{i2\pi/3} \cdot re^{i\alpha} = re^{i(\alpha + 2\pi/3)}$</li>
+<li>$z_3 = w^2 z_1 = e^{i4\pi/3} \cdot re^{i\alpha} = re^{i(\alpha + 4\pi/3)}$</li>
+</ul>
+<p><strong>Schwerpunktbedingung:</strong></p>
+<p>$$z_1 + z_2 + z_3 = z_1(1 + w + w^2)$$</p>
+<p>Wir berechnen $1 + w + w^2$ mit $w = e^{i2\pi/3}$. Da $w$ eine primitive dritte Einheitswurzel ist, ist $w$ Nullstelle von $\frac{x^3 - 1}{x - 1} = x^2 + x + 1$. Also:</p>
+<p>$$w^2 + w + 1 = 0 \implies 1 + w + w^2 = 0$$</p>
+<p>Somit: $z_1 + z_2 + z_3 = z_1 \cdot 0 = 0$. $\square$</p>
+</details>
+<hr>
+<h2 id="aufgabe-b3-gram-schmidt-mit-integral-skalarprodukt-30-punkte-methoden">Aufgabe B3: Gram-Schmidt mit Integral-Skalarprodukt (30 Punkte) — Methoden</h2>
+<p>Gegeben: $f_1(x) = 1$, $f_2(x) = x$, $f_3(x) = x^2$ auf dem Intervall $[-1, 1]$ mit dem Skalarprodukt:</p>
+<p>$$\langle f | g \rangle = \int_{-1}^{1} f(x) \, g(x) \, dx$$</p>
+<h3 id="a-orthonormalisieren-sie-f-1-f-2-zu-einem-ons-e-1-e-2-12p">(a) Orthonormalisieren Sie $\{f_1, f_2\}$ zu einem ONS $\{e_1, e_2\}$. (12P)</h3>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Schritt 1: Normierung von $f_1 = 1$</strong></p>
+<p>$$\|f_1\|^2 = \int_{-1}^1 1^2 \, dx = 2$$</p>
+<p>$$e_1 = \frac{f_1}{\|f_1\|} = \frac{1}{\sqrt{2}}$$</p>
+<p><strong>Schritt 2: Orthogonalisierung von $f_2 = x$</strong></p>
+<p>$$\langle e_1 | f_2 \rangle = \int_{-1}^1 \frac{1}{\sqrt{2}} \cdot x \, dx = \frac{1}{\sqrt{2}} \left[\frac{x^2}{2}\right]_{-1}^1 = \frac{1}{\sqrt{2}} \cdot 0 = 0$$</p>
+<p>$f_2 = x$ ist bereits orthogonal zu $e_1$ (symmetrisches Intervall!).</p>
+<p>$$\tilde{e}_2 = f_2 - 0 = x$$</p>
+<p><strong>Schritt 3: Normierung</strong></p>
+<p>$$\|\tilde{e}_2\|^2 = \int_{-1}^1 x^2 \, dx = \left[\frac{x^3}{3}\right]_{-1}^1 = \frac{1}{3} - \left(-\frac{1}{3}\right) = \frac{2}{3}$$</p>
+<p>$$\boxed{e_1(x) = \frac{1}{\sqrt{2}}, \qquad e_2(x) = \sqrt{\frac{3}{2}} \cdot x}$$</p>
+<p><strong>Probe:</strong> $\langle e_1 | e_2 \rangle = \int_{-1}^1 \frac{1}{\sqrt{2}} \cdot \sqrt{3/2} \cdot x \, dx = \frac{\sqrt{3}}{2} \int_{-1}^1 x \, dx = 0$ ✓</p>
+</details>
+<h3 id="b-erweitern-sie-zu-einem-ons-e-1-e-2-e-3-durch-gram-schmidt-auf-f-3-x-2-12p">(b) Erweitern Sie zu einem ONS $\{e_1, e_2, e_3\}$ durch Gram-Schmidt auf $f_3 = x^2$. (12P)</h3>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Skalarprodukt $\langle e_1 | f_3 \rangle$:</strong></p>
+<p>$$\langle e_1 | f_3 \rangle = \frac{1}{\sqrt{2}} \int_{-1}^1 x^2 \, dx = \frac{1}{\sqrt{2}} \cdot \frac{2}{3} = \frac{2}{3\sqrt{2}} = \frac{\sqrt{2}}{3}$$</p>
+<p><strong>Skalarprodukt $\langle e_2 | f_3 \rangle$:</strong></p>
+<p>$$\langle e_2 | f_3 \rangle = \sqrt{\frac{3}{2}} \int_{-1}^1 x \cdot x^2 \, dx = \sqrt{\frac{3}{2}} \int_{-1}^1 x^3 \, dx = 0$$</p>
+<p>(Ungerade Funktion über symmetrisches Intervall!)</p>
+<p><strong>Orthogonalisierung:</strong></p>
+<p>$$\tilde{e}_3 = f_3 - \langle e_1 | f_3 \rangle e_1 - \langle e_2 | f_3 \rangle e_2 = x^2 - \frac{\sqrt{2}}{3} \cdot \frac{1}{\sqrt{2}} - 0 = x^2 - \frac{1}{3}$$</p>
+<p><strong>Normierung:</strong></p>
+<p>$$\|\tilde{e}_3\|^2 = \int_{-1}^1 \left(x^2 - \frac{1}{3}\right)^2 dx = \int_{-1}^1 \left(x^4 - \frac{2}{3}x^2 + \frac{1}{9}\right) dx$$</p>
+<p>$$= \left[\frac{x^5}{5}\right]_{-1}^1 - \frac{2}{3}\left[\frac{x^3}{3}\right]_{-1}^1 + \frac{1}{9}\left[x\right]_{-1}^1 = \frac{2}{5} - \frac{2}{3} \cdot \frac{2}{3} + \frac{1}{9} \cdot 2 = \frac{2}{5} - \frac{4}{9} + \frac{2}{9}$$</p>
+<p>$$= \frac{2}{5} - \frac{2}{9} = \frac{18 - 10}{45} = \frac{8}{45}$$</p>
+<p>$$\boxed{e_3(x) = \sqrt{\frac{45}{8}}\left(x^2 - \frac{1}{3}\right) = \frac{3\sqrt{5}}{2\sqrt{8}}\left(x^2 - \frac{1}{3}\right) = \frac{3}{2}\sqrt{\frac{5}{2}}\left(x^2 - \frac{1}{3}\right)}$$</p>
+<p><em>Anmerkung:</em> Die $e_1, e_2, e_3$ sind (bis auf Normierung) die <strong>Legendre-Polynome</strong> $P_0, P_1, P_2$!</p>
+</details>
+<h3 id="c-berechnen-sie-die-projektionsmatrix-p-bzgl-der-basis-e-1-e-2-und-die-beste-approximation-von-f-3-x-2-im-unterraum-text-span-1-x-6p">(c) Berechnen Sie die Projektionsmatrix $P$ (bzgl. der Basis $\{e_1, e_2\}$) und die beste Approximation von $f_3 = x^2$ im Unterraum $\text{span}(1, x)$. (6P)</h3>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Die beste Approximation von $f_3 = x^2$ im Unterraum $U = \text{span}(e_1, e_2) = \text{span}(1, x)$ ist:</p>
+<p>$$\hat{f}_3 = \langle e_1 | f_3 \rangle \, e_1 + \langle e_2 | f_3 \rangle \, e_2 = \frac{\sqrt{2}}{3} \cdot \frac{1}{\sqrt{2}} + 0 = \frac{1}{3}$$</p>
+<p>Also: <strong>Die beste Approximation von $x^2$ durch eine Gerade $ax + b$ auf $[-1,1]$ ist die Konstante $\frac{1}{3}$.</strong></p>
+<p>Der Approximationsfehler:</p>
+<p>$$\|f_3 - \hat{f}_3\|^2 = \|\tilde{e}_3\|^2 = \frac{8}{45}$$</p>
+<p>$$\|f_3 - \hat{f}_3\| = \sqrt{\frac{8}{45}} = \frac{2\sqrt{2}}{3\sqrt{5}} \approx 0.422$$</p>
+</details>
+<hr>
+<h2 id="aufgabe-b4-euklidischer-algorithmus-polynome-20-punkte-methoden-verstehen">Aufgabe B4: Euklidischer Algorithmus & Polynome (20 Punkte) — Methoden/Verstehen</h2>
+<h3 id="a-horner-schema-6p">(a) Horner-Schema (6P)</h3>
+<p>Bestimmen Sie die Nullstellen von $p(x) = x^3 - 2x^2 - 5x + 6$ mithilfe des Horner-Schemas.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Nullstelle raten (Teiler von 6): $p(1) = 1 - 2 - 5 + 6 = 0$ ✓</p>
+<p><strong>Horner-Schema</strong> für $(x^3 - 2x^2 - 5x + 6) : (x - 1)$:</p>
+<table>
+<tr><th></th><th>$1$</th><th>$-2$</th><th>$-5$</th><th>$6$</th></tr>
+<tr><td>$1$</td><td>$\downarrow$</td><td>$1$</td><td>$-1$</td><td>$-6$</td></tr>
+<tr><td></td><td>$1$</td><td>$-1$</td><td>$-6$</td><td>$0$</td></tr>
+</table>
+<p>Restpolynom: $x^2 - x - 6 = (x - 3)(x + 2)$.</p>
+<p><strong>Nullstellen:</strong> $\boxed{x_1 = 1, \; x_2 = 3, \; x_3 = -2}$</p>
+</details>
+<h3 id="b-euklidischer-algorithmus-fuer-polynome-8p">(b) Euklidischer Algorithmus für Polynome (8P)</h3>
+<p>Berechnen Sie $\gcd(x^4 - 1, \; x^3 - x)$ mit dem Euklidischen Algorithmus.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$p(x) = x^4 - 1$, $q(x) = x^3 - x$.</p>
+<p><strong>Schritt 1:</strong> Polynomdivision $p : q$:</p>
+<p>$$x^4 - 1 = x \cdot (x^3 - x) + (x^2 - 1)$$</p>
+<p>Rest $r_1(x) = x^2 - 1$.</p>
+<p><strong>Schritt 2:</strong> Teile $q$ durch $r_1$:</p>
+<p>$$x^3 - x = x \cdot (x^2 - 1) + 0$$</p>
+<p>Rest $= 0$.</p>
+<p>Der letzte nicht verschwindende Rest ist $r_1(x) = x^2 - 1$.</p>
+<p>$$\boxed{\gcd(x^4 - 1, \; x^3 - x) = x^2 - 1}$$</p>
+<p><em>Probe:</em> $x^4 - 1 = (x^2 - 1)(x^2 + 1)$ ✓ und $x^3 - x = x(x^2 - 1)$ ✓.</p>
+</details>
+<h3 id="c-zusammenhang-minimalpolynom-teilbarkeit-6p">(c) Zusammenhang Minimalpolynom & Teilbarkeit (6P)</h3>
+<p>Sei $A$ eine Matrix mit char. Polynom $\chi_A(\lambda) = (\lambda - 1)^3(\lambda + 2)^2$.</p>
+<ol>
+<li>Welche Minimalpolynome sind möglich? Listen Sie alle auf.</li>
+<li>Warum muss das Minimalpolynom $\mu_A$ stets ein Teiler von $\chi_A$ sein?</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>1.</strong> Das Minimalpolynom hat die Form $\mu_A(\lambda) = (\lambda - 1)^a (\lambda + 2)^b$ mit $1 \leq a \leq 3$ und $1 \leq b \leq 2$. Die möglichen Kombinationen:</p>
+<table>
+<tr><th>$a$</th><th>$b$</th><th>$\mu_A(\lambda)$</th></tr>
+<tr><td>1</td><td>1</td><td>$(\lambda-1)(\lambda+2)$</td></tr>
+<tr><td>1</td><td>2</td><td>$(\lambda-1)(\lambda+2)^2$</td></tr>
+<tr><td>2</td><td>1</td><td>$(\lambda-1)^2(\lambda+2)$</td></tr>
+<tr><td>2</td><td>2</td><td>$(\lambda-1)^2(\lambda+2)^2$</td></tr>
+<tr><td>3</td><td>1</td><td>$(\lambda-1)^3(\lambda+2)$</td></tr>
+<tr><td>3</td><td>2</td><td>$(\lambda-1)^3(\lambda+2)^2$</td></tr>
+</table>
+<p>Insgesamt <strong>6 mögliche</strong> Minimalpolynome.</p>
+<p><strong>2.</strong> Nach dem Satz von Cayley-Hamilton gilt $\chi_A(A) = 0$. Da das Minimalpolynom per Definition das Polynom kleinsten Grades ist mit $\mu_A(A) = 0$, und $\chi_A$ die Matrix ebenfalls annulliert, muss $\mu_A | \chi_A$ gelten (Polynomdivision: der Rest müsste die Matrix auch annullieren, hätte aber kleineren Grad als $\mu_A$ — Widerspruch, also Rest $= 0$).</p>
+</details>
+<hr>
+<hr>
+<h1 id="klausur-c-die-anwendungsorientierte">📝 Klausur C — „Die Anwendungsorientierte"</h1>
+<p><em>Schwerpunkte: LGS & Inverse, Distanzgeometrie, Körper $\mathbb{F}_{11}$, Spektralsatz & Gruppen</em></p>
+<hr>
+<h2 id="aufgabe-c1-lgs-bild-kern-algorithmus-25-punkte-methoden">Aufgabe C1: LGS & Bild-Kern-Algorithmus (25 Punkte) — Methoden</h2>
+<h3 id="a-lgs-loesen-10p">(a) LGS lösen (10P)</h3>
+<p>Bestimmen Sie die allgemeine Lösung des linearen Gleichungssystems $Ax = b$ mit:</p>
+<p>$$A = \begin{pmatrix} 1 & 2 & 1 \\ 2 & 4 & 3 \\ 3 & 6 & 4 \end{pmatrix}, \quad b = \begin{pmatrix} 1 \\ 3 \\ 4 \end{pmatrix}$$</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Erweitertes Tableau:</p>
+<p>$$\left(\begin{array}{ccc|c} 1 & 2 & 1 & 1 \\ 2 & 4 & 3 & 3 \\ 3 & 6 & 4 & 4 \end{array}\right)$$</p>
+<p>$Z_2 \to Z_2 - 2Z_1$: $(0, 0, 1, 1)$</p>
+<p>$Z_3 \to Z_3 - 3Z_1$: $(0, 0, 1, 1)$</p>
+<p>$$\left(\begin{array}{ccc|c} 1 & 2 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 \end{array}\right)$$</p>
+<p>$Z_3 \to Z_3 - Z_2$: $(0, 0, 0, 0)$</p>
+<p>$$\left(\begin{array}{ccc|c} 1 & 2 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{array}\right)$$</p>
+<p>$Z_1 \to Z_1 - Z_2$: $(1, 2, 0, 0)$</p>
+<p>$$\left(\begin{array}{ccc|c} 1 & 2 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{array}\right)$$</p>
+<p>Pivots: Spalten 1 und 3. Freie Variable: $x_2 = t$.</p>
+<ul>
+<li>$x_3 = 1$</li>
+<li>$x_1 = -2t$</li>
+</ul>
+<p>$$\boxed{x = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} + t \begin{pmatrix} -2 \\ 1 \\ 0 \end{pmatrix}, \quad t \in \mathbb{R}}$$</p>
+<p><strong>Rang</strong> $= 2$, <strong>Defekt</strong> $= 1$, <strong>Bild</strong> $= \text{span}(s_1, s_3)$ der Originalmatrix.</p>
+</details>
+<h3 id="b-kern-bestimmen-5p">(b) Kern bestimmen (5P)</h3>
+<p>Bestimmen Sie eine Basis des <strong>Kerns</strong> von $A$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$\ker(A)$ ist die Lösungsmenge von $Ax = 0$. Aus dem reduzierten Tableau:</p>
+<p>$x_1 = -2t$, $x_2 = t$, $x_3 = 0$.</p>
+<p>$$\ker(A) = \text{span}\left(\begin{pmatrix} -2 \\ 1 \\ 0 \end{pmatrix}\right)$$</p>
+<p>$\dim(\ker(A)) = 1$, $\text{Rang}(A) = 2$. Rangsatz: $3 = 2 + 1$ ✓</p>
+</details>
+<h3 id="c-inverse-einer-matrix-10p">(c) Inverse einer Matrix (10P)</h3>
+<p>Berechnen Sie die Inverse von:</p>
+<p>$$M = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 1 \\ 1 & 1 & 0 \end{pmatrix}$$</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$\det(M) = 1(0-1) - 0 + 1(0-1) = -1 - 1 = -2 \neq 0$ → invertierbar.</p>
+<p>Gauß-Jordan mit erweiterter Einheitsmatrix:</p>
+<p>$$\left(\begin{array}{ccc|ccc} 1 & 0 & 1 & 1 & 0 & 0 \\ 0 & 1 & 1 & 0 & 1 & 0 \\ 1 & 1 & 0 & 0 & 0 & 1 \end{array}\right)$$</p>
+<p>$Z_3 \to Z_3 - Z_1$:</p>
+<p>$$\left(\begin{array}{ccc|ccc} 1 & 0 & 1 & 1 & 0 & 0 \\ 0 & 1 & 1 & 0 & 1 & 0 \\ 0 & 1 & -1 & -1 & 0 & 1 \end{array}\right)$$</p>
+<p>$Z_3 \to Z_3 - Z_2$:</p>
+<p>$$\left(\begin{array}{ccc|ccc} 1 & 0 & 1 & 1 & 0 & 0 \\ 0 & 1 & 1 & 0 & 1 & 0 \\ 0 & 0 & -2 & -1 & -1 & 1 \end{array}\right)$$</p>
+<p>$Z_3 \to Z_3 / (-2)$:</p>
+<p>$$\left(\begin{array}{ccc|ccc} 1 & 0 & 1 & 1 & 0 & 0 \\ 0 & 1 & 1 & 0 & 1 & 0 \\ 0 & 0 & 1 & 1/2 & 1/2 & -1/2 \end{array}\right)$$</p>
+<p>$Z_1 \to Z_1 - Z_3$, $Z_2 \to Z_2 - Z_3$:</p>
+<p>$$\left(\begin{array}{ccc|ccc} 1 & 0 & 0 & 1/2 & -1/2 & 1/2 \\ 0 & 1 & 0 & -1/2 & 1/2 & 1/2 \\ 0 & 0 & 1 & 1/2 & 1/2 & -1/2 \end{array}\right)$$</p>
+<p>$$\boxed{M^{-1} = \frac{1}{2}\begin{pmatrix} 1 & -1 & 1 \\ -1 & 1 & 1 \\ 1 & 1 & -1 \end{pmatrix}}$$</p>
+<p><strong>Probe:</strong> $M \cdot M^{-1} = I$ ✓</p>
+</details>
+<hr>
+<h2 id="aufgabe-c2-distanzgeometrie-gram-matrizen-25-punkte-methoden-verstehen">Aufgabe C2: Distanzgeometrie & Gram-Matrizen (25 Punkte) — Methoden/Verstehen</h2>
+<h3 id="a-positiv-semi-definit-pruefen-8p">(a) Positiv (semi-)definit prüfen (8P)</h3>
+<p>Gegeben die Gram-Matrix:</p>
+<p>$$G = \begin{pmatrix} 9 & 3 \\ 3 & 4 \end{pmatrix}$$</p>
+<p>Ist $G$ positiv definit, positiv semidefinit, oder keines von beiden? Existieren Vektoren $v_1, v_2$, die $G$ realisieren?</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$G$ ist symmetrisch: ✓</p>
+<p><strong>Hauptminoren-Test:</strong></p>
+<ul>
+<li>$D_1 = 9 > 0$ ✓</li>
+<li>$D_2 = \det(G) = 9 \cdot 4 - 3 \cdot 3 = 36 - 9 = 27 > 0$ ✓</li>
+</ul>
+<p>$G$ ist <strong>positiv definit</strong> (alle Hauptminoren echt positiv).</p>
+<p>Da $G$ positiv definit ist mit $\text{Rang}(G) = 2$, existieren Vektoren $v_1, v_2 \in \mathbb{R}^2$ (mindestens), die $G$ realisieren, d.h. $G_{ij} = \langle v_i | v_j \rangle$.</p>
+<p>Man kann sie z.B. via Cholesky-Zerlegung finden: $G = LL^T$ mit</p>
+<p>$$L = \begin{pmatrix} 3 & 0 \\ 1 & ? \end{pmatrix}$$</p>
+<p>$L_{22}: 1^2 + L_{22}^2 = 4 \Rightarrow L_{22} = \sqrt{3}$.</p>
+<p>$$v_1 = \begin{pmatrix} 3 \\ 0 \end{pmatrix}, \quad v_2 = \begin{pmatrix} 1 \\ \sqrt{3} \end{pmatrix}$$</p>
+<p><strong>Probe:</strong> $\langle v_1|v_1\rangle = 9$, $\langle v_1|v_2\rangle = 3$, $\langle v_2|v_2\rangle = 1 + 3 = 4$ ✓</p>
+</details>
+<h3 id="b-degenerierter-fall-7p">(b) Degenerierter Fall (7P)</h3>
+<p>Gegeben:</p>
+<p>$$G' = \begin{pmatrix} 4 & 6 \\ 6 & 9 \end{pmatrix}$$</p>
+<ol>
+<li>Ist $G'$ positiv semidefinit?</li>
+<li>In welchem Teilraum leben die realisierenden Vektoren?</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Hauptminoren:</strong> $D_1 = 4 > 0$, $D_2 = 4 \cdot 9 - 36 = 0 \geq 0$.</p>
+<p>$G'$ ist <strong>positiv semidefinit</strong> (alle Hauptminoren $\geq 0$, aber $\det = 0$).</p>
+<p><strong>Rang von $G'$:</strong> $\text{Rang}(G') = 1$, da Zeile 2 $= 3/2 \cdot$ Zeile 1.</p>
+<p>Die realisierenden Vektoren leben in $\mathbb{R}^1$ (eindimensional): $v_1 = 2$, $v_2 = 3$ (als Skalare).</p>
+<p><strong>Probe:</strong> $v_1^2 = 4$, $v_1 v_2 = 6$, $v_2^2 = 9$ ✓</p>
+</details>
+<h3 id="c-nicht-realisierbar-10p">(c) Nicht-realisierbar (10P)</h3>
+<p>Kann die Matrix</p>
+<p>$$G'' = \begin{pmatrix} 1 & 5 \\ 5 & 4 \end{pmatrix}$$</p>
+<p>als Gram-Matrix realisiert werden? Begründen Sie ausführlich.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Hauptminoren:</strong> $D_1 = 1 > 0$, aber $D_2 = \det(G'') = 1 \cdot 4 - 5 \cdot 5 = 4 - 25 = -21 < 0$.</p>
+<p>$G''$ ist <strong>nicht positiv semidefinit</strong> (negativer Hauptminor). Eine Gram-Matrix muss immer positiv semidefinit sein (da $\langle v | v \rangle \geq 0$), daher:</p>
+<p><strong>$G''$ ist nicht als Gram-Matrix realisierbar.</strong> Es gibt keine Vektoren in einem reellen Vektorraum, deren paarweise Skalarprodukte diese Matrix bilden.</p>
+<p><em>Anschaulich:</em> $|\langle v_1 | v_2 \rangle| = 5$, aber $\|v_1\| \cdot \|v_2\| = 1 \cdot 2 = 2 < 5$. Das verletzt die <strong>Cauchy-Schwarz-Ungleichung</strong> $|\langle u|v\rangle| \leq \|u\| \|v\|$.</p>
+</details>
+<hr>
+<h2 id="aufgabe-c3-koerper-mathbb-f-11-vertiefung-25-punkte-methoden-beweisen">Aufgabe C3: Körper $\mathbb{F}_{11}$ — Vertiefung (25 Punkte) — Methoden/Beweisen</h2>
+<h3 id="a-gleichung-ub-a-0-loesen-10p">(a) Gleichung $ub + a = 0$ lösen (10P)</h3>
+<p>Lösen Sie in $\mathbb{F}_{11}$ die Gleichung $u \cdot b + a = 0$ für $a = 7$ und $b = 9$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Schritt 1 (Prof-Tipp):</strong> Additiv Inverses von $a = 7$:</p>
+<p>$A + 7 \equiv 0 \pmod{11}$. Da $4 + 7 = 11 \equiv 0$, ist $A = 4$.</p>
+<p><strong>Schritt 2:</strong> Löse $u \cdot 9 \equiv 4 \pmod{11}$.</p>
+<p>Multiplikativ Inverses von $9$: Suche $x$ mit $9x \equiv 1 \pmod{11}$.</p>
+<p>$9 \cdot 1 = 9$, $9 \cdot 2 = 18 \equiv 7$, $9 \cdot 3 = 27 \equiv 5$, $9 \cdot 4 = 36 \equiv 3$, $9 \cdot 5 = 45 \equiv 1$. ✓</p>
+<p>Also $9^{-1} = 5$.</p>
+<p>$$u = 4 \cdot 5 = 20 \equiv 9 \pmod{11}$$</p>
+<p><strong>Antwort: $u = 9$</strong></p>
+<p><strong>Probe:</strong> $9 \cdot 9 + 7 = 81 + 7 = 88 = 8 \cdot 11 \equiv 0 \pmod{11}$ ✓</p>
+</details>
+<h3 id="b-nachweis-jedes-element-neq-0-hat-ein-multiplikatives-inverses-8p">(b) Nachweis: Jedes Element $\neq 0$ hat ein multiplikatives Inverses (8P)</h3>
+<p>Beweisen Sie: In einem endlichen Körper $\mathbb{F}_p$ (mit $p$ prim) hat jedes Element $a \neq 0$ ein multiplikatives Inverses.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Beweis:</strong> Sei $a \in \mathbb{F}_p$ mit $a \neq 0$, also $a \in \{1, 2, \ldots, p-1\}$.</p>
+<p>Betrachte die Abbildung $\varphi: \mathbb{F}_p^<em> \to \mathbb{F}_p^</em>$ mit $\varphi(x) = ax \bmod p$ (wobei $\mathbb{F}_p^* = \{1, \ldots, p-1\}$).</p>
+<p><strong>Injektivität:</strong> Sei $ax \equiv ay \pmod{p}$, also $a(x - y) \equiv 0 \pmod{p}$. Da $p$ prim und $a \not\equiv 0$, folgt $x \equiv y \pmod{p}$. Also ist $\varphi$ injektiv.</p>
+<p>Da $\mathbb{F}_p^*$ endlich ist und $\varphi$ injektiv, ist $\varphi$ auch <strong>surjektiv</strong> (Schubfachprinzip). Also gibt es ein $x$ mit $ax \equiv 1 \pmod{p}$. Dieses $x$ ist das multiplikative Inverse von $a$. $\square$</p>
+</details>
+<h3 id="c-nilpotente-matrizen-ueber-endlichen-koerpern-7p">(c) Nilpotente Matrizen über endlichen Körpern (7P)</h3>
+<p>Sei $A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ über $\mathbb{F}_{11}$. Zeigen Sie: $A$ ist nilpotent und berechnen Sie $(I - A)^{-1}$ über $\mathbb{F}_{11}$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Nilpotenz:</strong> $A^2 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = 0$ ✓</p>
+<p><strong>Inverse via geometrische Reihe:</strong> Da $A^2 = 0$:</p>
+<p>$$(I - A)^{-1} = I + A + A^2 + \cdots = I + A$$</p>
+<p>(Neumann-Reihe terminiert nach dem linearen Glied.)</p>
+<p>$$(I - A)^{-1} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} + \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$$</p>
+<p><strong>Probe über $\mathbb{F}_{11}$:</strong></p>
+<p>$$(I - A)(I + A) = I + A - A - A^2 = I - 0 = I \quad ✓$$</p>
+<p>(Das funktioniert identisch wie über $\mathbb{R}$, da es nur ganzzahlige Operationen sind.)</p>
+</details>
+<hr>
+<h2 id="aufgabe-c4-spektralsatz-matrixtypen-gruppen-25-punkte-verstehen-beweisen">Aufgabe C4: Spektralsatz, Matrixtypen & Gruppen (25 Punkte) — Verstehen/Beweisen</h2>
+<h3 id="a-wahr-oder-falsch-10p-je-2p">(a) Wahr oder Falsch? (10P, je 2P)</h3>
+<ol>
+<li>Eine symmetrische reelle Matrix hat stets reelle Eigenwerte.</li>
+<li>Orthogonale Matrizen bilden eine Untergruppe von $GL(n, \mathbb{R})$.</li>
+<li>Die Signatur einer quadratischen Form $q(x) = x^T A x$ hängt von der Wahl der Basis ab.</li>
+<li>Jede normale Matrix ($A^<em>A = AA^</em>$) ist unitär diagonalisierbar.</li>
+<li>Wenn $A \in SO(2)$, dann ist $A$ eine Drehung.</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<ol>
+<li><strong>Wahr.</strong> Spektralsatz: Symmetrische reelle Matrizen haben nur reelle Eigenwerte und sind orthogonal diagonalisierbar.</li>
+<li><strong>Wahr.</strong> Untergruppen-Check:</li>
 </ol>
 <ul>
-<li>Koeffizienten aufschreiben: $1, -6, 11, -6$</li>
-<li>Von links nach rechts durchrechnen:</li>
+<li>$I \in O(n)$: $I^T I = I$ ✓</li>
+<li>Abgeschlossenheit: $A, B \in O(n) \Rightarrow (AB)^T(AB) = B^T A^T A B = B^T B = I$ ✓</li>
+<li>Inverse: $A^{-1} = A^T$ und $(A^T)^T A^T = A A^T = I$ ✓</li>
 </ul>
-<p>Restpolynom ist $x^2 - 5x + 6$. </p>
-<p>Dieses lässt sich per pq-Formel zerlegen zu $(x-2)(x-3)$. </p>
-<p>Die Nullstellen sind also $\{1, 2, 3\}$.</p>
 <ol>
-<li><strong>Euklidischer Algorithmus:</strong></li>
+<li><strong>Falsch.</strong> Nach dem Trägheitssatz von Sylvester ist die Signatur $(n_+, n_-, n_0)$ eine <strong>Invariante</strong> — unabhängig von der Basiswahl.</li>
+<li><strong>Wahr.</strong> Das ist genau die Aussage des Spektralsatzes (über $\mathbb{C}$): Normale Matrizen sind unitär diagonalisierbar.</li>
+<li><strong>Wahr.</strong> $SO(2) = \{A \in O(2) : \det(A) = 1\}$. Jede solche Matrix hat die Form $\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$, was eine Drehung um den Winkel $\theta$ ist.</li>
 </ol>
-<p>$P(x) = x^3-1$, $Q(x) = x^2-1$.</p>
-<p>Teile $P$ durch $Q$: </p>
-<p>$(x^3-1) = x \cdot (x^2-1) + (x-1)$. Der Rest ist $r_1 = x-1$.</p>
-<p>Nächste Iteration, teile $Q$ durch $r_1$:</p>
-<p>$(x^2-1) = (x+1) \cdot (x-1) + 0$.</p>
-<p>Der Rest ist 0. Der letzte nicht verschwindende Rest ist somit $(x-1)$.</p>
-<p>Also ist der $\operatorname{ggT}(x^3-1, x^2-1) = x-1$.</p>
+</details>
+<h3 id="b-beweis-orthogonale-matrix-ist-isometrie-8p">(b) Beweis: Orthogonale Matrix ist Isometrie (8P)</h3>
+<p>Zeigen Sie: Wenn $Q \in \mathbb{R}^{n \times n}$ orthogonal ist ($Q^TQ = I$), dann gilt $\|Qv\| = \|v\|$ für alle $v \in \mathbb{R}^n$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Beweis:</strong></p>
+<p>$$\|Qv\|^2 = \langle Qv | Qv \rangle = (Qv)^T(Qv) = v^T Q^T Q v = v^T I v = v^T v = \langle v|v\rangle = \|v\|^2$$</p>
+<p>Da Normen nicht-negativ sind: $\|Qv\| = \|v\|$. $\square$</p>
+<p><strong>Korollar:</strong> Orthogonale Abbildungen erhalten auch das Skalarprodukt:</p>
+<p>$$\langle Qu | Qv \rangle = u^T Q^T Q v = u^T v = \langle u | v \rangle$$</p>
+<p>Das heißt: Längen UND Winkel werden bewahrt → orthogonale Matrizen sind <strong>Isometrien</strong>.</p>
+</details>
+<h3 id="c-untergruppe-zeigen-7p">(c) Untergruppe zeigen (7P)</h3>
+<p>Zeigen Sie, dass $SL(n, \mathbb{R}) = \{A \in GL(n, \mathbb{R}) : \det(A) = 1\}$ eine Untergruppe von $GL(n, \mathbb{R})$ ist.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Untergruppen-Kriterium</strong> (drei Bedingungen):</p>
+<p><strong>(1) Nicht leer / neutrales Element:</strong></p>
+<p>$I \in SL(n)$, da $\det(I) = 1$. ✓</p>
+<p><strong>(2) Abgeschlossenheit unter Multiplikation:</strong></p>
+<p>Seien $A, B \in SL(n)$, also $\det(A) = \det(B) = 1$.</p>
+<p>$$\det(AB) = \det(A) \cdot \det(B) = 1 \cdot 1 = 1$$</p>
+<p>Also $AB \in SL(n)$. ✓</p>
+<p><strong>(3) Abgeschlossenheit unter Inversenbildung:</strong></p>
+<p>Sei $A \in SL(n)$, also $\det(A) = 1 \neq 0$, daher existiert $A^{-1}$.</p>
+<p>$$\det(A^{-1}) = \frac{1}{\det(A)} = \frac{1}{1} = 1$$</p>
+<p>Also $A^{-1} \in SL(n)$. ✓</p>
+<p>$\Rightarrow$ $SL(n, \mathbb{R})$ ist Untergruppe von $GL(n, \mathbb{R})$. $\square$</p>
 </details>
 <hr>
-<h2 id="trainingsklausur-3-gram-schmidt-ausgleichsrechnung-symmetrie">🎯 Trainingsklausur 3: Gram-Schmidt, Ausgleichsrechnung & Symmetrie</h2>
-<h3 id="aufgabe-3-1-gram-schmidt-projektionsmatrix-galerkin">Aufgabe 3.1: Gram-Schmidt & Projektionsmatrix (Galerkin)</h3>
-<p>Gegeben seien die beiden linear unabhängigen Vektoren im $\mathbb{R}^3$: </p>
-<p>$v_1 = (1, 1, 0)^T$ und $v_2 = (1, 0, 1)^T$.</p>
-<ol>
-<li>Orthonormalisieren Sie diese Basisfolgen ins System $(u_1, u_2)$ (Gram-Schmidt).</li>
-<li>Berechnen Sie daraus den Projektionsoperator (Projektionsmatrix) auf die aufgespannte Ebene als iterierte Summe dyadischer Produkte.</li>
-</ol>
+<hr>
+<h1 id="klausur-d-die-dgl-klausur">📝 Klausur D — „Die DGL-Klausur"</h1>
+<p><em>Schwerpunkte: Matrixexponential via JNF, Cayley-Hamilton-Anwendungen, Determinanten, Reversibilität & Isometrien</em></p>
+<hr>
+<h2 id="aufgabe-d1-matrixexponential-differentialgleichungen-25-punkte-methoden">Aufgabe D1: Matrixexponential & Differentialgleichungen (25 Punkte) — Methoden</h2>
+<p>Gegeben sei die Matrix:</p>
+<p>$$A = \begin{pmatrix} 1 & 0 \\ 1 & -1 \end{pmatrix}$$</p>
+<h3 id="a-eigenwerte-und-diagonalisierbarkeit-5p">(a) Eigenwerte und Diagonalisierbarkeit (5P)</h3>
+<p>Bestimmen Sie die Eigenwerte von $A$. Ist $A$ diagonalisierbar?</p>
 <details>
 <summary><b>Lösung einblenden</b></summary>
-<p><strong>1. Gram-Schmidt-Verfahren:</strong></p>
-<ul>
-<li>$u_1 = \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}$.</li>
-<li>Definiere Zwischenvektor $\tilde{u}_2 = v_2 - \langle v_2, u_1 \rangle u_1$.</li>
-</ul>
-<p>Das Skalarprodukt liefert: $\langle v_2, u_1 \rangle = \frac{1}{\sqrt{2}}(1\cdot 1 + 0\cdot 1 + 1\cdot 0) = \frac{1}{\sqrt{2}}$.</p>
-<p>$\tilde{u}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} - \frac{1}{2} \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0.5 \\ -0.5 \\ 1 \end{pmatrix}$.</p>
-<p>Norm von $\tilde{u}_2$: $\|\tilde{u}_2\| = \sqrt{0.25+0.25+1} = \sqrt{1.5} = \sqrt{3/2}$.</p>
-<p>Nomierter finaler Vektor: $u_2 = \frac{\tilde{u}_2}{\|\tilde{u}_2\|} = \sqrt{\frac{2}{3}} \begin{pmatrix} 1/2 \\ -1/2 \\ 1 \end{pmatrix}$.</p>
-<p><strong>2. Projektionsmatrix (Summe dyadischer Produkte):</strong></p>
-<p>$P = u_1 u_1^T + u_2 u_2^T$</p>
-<p>$u_1 u_1^T = \frac{1}{2} \begin{pmatrix} 1 & 1 & 0 \\ 1 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$</p>
-<p>$u_2 u_2^T = \frac{2}{3} \begin{pmatrix} 1/4 & -1/4 & 1/2 \\ -1/4 & 1/4 & -1/2 \\ 1/2 & -1/2 & 1 \end{pmatrix} = \begin{pmatrix} 1/6 & -1/6 & 1/3 \\ -1/6 & 1/6 & -1/3 \\ 1/3 & -1/3 & 2/3 \end{pmatrix}$</p>
-<p>Summe liefert:</p>
-<p>$$ P = \begin{pmatrix} 1/2 + 1/6 & 1/2 - 1/6 & 1/3 \\ 1/2 - 1/6 & 1/2 + 1/6 & -1/3 \\ 1/3 & -1/3 & 2/3 \end{pmatrix} = \begin{pmatrix} 2/3 & 1/3 & 1/3 \\ 1/3 & 2/3 & -1/3 \\ 1/3 & -1/3 & 2/3 \end{pmatrix} $$</p>
+<p>$$\chi_A(\lambda) = (1 - \lambda)(-1 - \lambda) - 0 = -(1 - \lambda)(1 + \lambda) = \lambda^2 - 1$$</p>
+<p>Eigenwerte: $\lambda_1 = 1$, $\lambda_2 = -1$.</p>
+<p>Zwei verschiedene Eigenwerte bei einer $2 \times 2$-Matrix → <strong>diagonalisierbar</strong> (jeder Eigenwert hat geo. VF = alg. VF = 1).</p>
 </details>
-<h3 id="aufgabe-3-2-ausgleichsrechnung-normalengleichung">Aufgabe 3.2: Ausgleichsrechnung (Normalengleichung)</h3>
-<p>Wir sollen die "am besten " passende Gerade $y = mx + c$ für die verrauschten Datenpunkte $(0,1), (1,3), (2,3)$ unter Verwendung der Normalengleichung $A^T A x = A^T b$ bestimmen.</p>
+<h3 id="b-diagonalisierung-8p">(b) Diagonalisierung (8P)</h3>
+<p>Finden Sie $S$ und $D$ mit $A = SDS^{-1}$.</p>
 <details>
 <summary><b>Lösung einblenden</b></summary>
-<p>Unser Modell lautet: $x_i \cdot m + 1 \cdot c = y_i$.</p>
-<p>Matrixform $A \begin{pmatrix} m \\ c \end{pmatrix} = b$:</p>
-<p>$$ A = \begin{pmatrix} 0 & 1 \\ 1 & 1 \\ 2 & 1 \end{pmatrix}, \quad b = \begin{pmatrix} 1 \\ 3 \\ 3 \end{pmatrix} $$</p>
-<ol>
-<li>Gram-Matrix der Spalten von A konstruieren ($A^T A$):</li>
-</ol>
-<p>$$ A^T A = \begin{pmatrix} 0 & 1 & 2 \\ 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ 1 & 1 \\ 2 & 1 \end{pmatrix} = \begin{pmatrix} 5 & 3 \\ 3 & 3 \end{pmatrix} $$</p>
-<ol>
-<li>Rechte Seite ($A^T b$):</li>
-</ol>
-<p>$$ A^T b = \begin{pmatrix} 0 & 1 & 2 \\ 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} 1 \\ 3 \\ 3 \end{pmatrix} = \begin{pmatrix} 9 \\ 7 \end{pmatrix} $$</p>
-<ol>
-<li>Gleichungssystem lösen: $\begin{pmatrix} 5 & 3 \\ 3 & 3 \end{pmatrix} \begin{pmatrix} m \\ c \end{pmatrix} = \begin{pmatrix} 9 \\ 7 \end{pmatrix}$.</li>
-</ol>
-<p><em>(Subtrahiere Zeile 2 von 1)</em>: $2m = 2 \implies m = 1$.</p>
-<p><em>(Rückeinsetzen)</em>: $3(1) + 3c = 7 \implies 3c = 4 \implies c = 4/3 \approx 1.33$.</p>
-<p>Die Ausgleichsgerade lautet: <strong>$y = x + 1.33$</strong>.</p>
+<p><strong>EW $\lambda_1 = 1$:</strong> $\ker(A - I) = \ker\begin{pmatrix} 0 & 0 \\ 1 & -2 \end{pmatrix}$. Aus $x_1 = 2x_2$ folgt $v_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$.</p>
+<p><strong>EW $\lambda_2 = -1$:</strong> $\ker(A + I) = \ker\begin{pmatrix} 2 & 0 \\ 1 & 0 \end{pmatrix}$. Aus $x_1 = 0$ folgt $v_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$.</p>
+<p>$$S = \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}, \quad D = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$$</p>
+<p><strong>$S^{-1}$:</strong> $\det(S) = 2$, also $S^{-1} = \frac{1}{2}\begin{pmatrix} 1 & 0 \\ -1 & 2 \end{pmatrix}$.</p>
+<p><strong>Probe:</strong> $SDS^{-1} = \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\frac{1}{2}\begin{pmatrix} 1 & 0 \\ -1 & 2 \end{pmatrix} = \begin{pmatrix} 2 & 0 \\ 1 & -1 \end{pmatrix}\frac{1}{2}\begin{pmatrix} 1 & 0 \\ -1 & 2 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 1 & -1 \end{pmatrix} = A$ ✓</p>
+</details>
+<h3 id="c-matrixexponential-exp-ta-7p">(c) Matrixexponential $\exp(tA)$ (7P)</h3>
+<p>Berechnen Sie $\exp(tA)$ für $t \in \mathbb{R}$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Da $A = SDS^{-1}$:</p>
+<p>$$\exp(tA) = S \exp(tD) S^{-1} = S \begin{pmatrix} e^t & 0 \\ 0 & e^{-t} \end{pmatrix} S^{-1}$$</p>
+<p>$$= \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} e^t & 0 \\ 0 & e^{-t} \end{pmatrix}\frac{1}{2}\begin{pmatrix} 1 & 0 \\ -1 & 2 \end{pmatrix}$$</p>
+<p>$$= \begin{pmatrix} 2e^t & 0 \\ e^t & e^{-t} \end{pmatrix} \cdot \frac{1}{2}\begin{pmatrix} 1 & 0 \\ -1 & 2 \end{pmatrix}$$</p>
+<p>$$= \frac{1}{2}\begin{pmatrix} 2e^t & 0 \\ e^t - e^{-t} & 2e^{-t} \end{pmatrix}$$</p>
+<p>$$\boxed{\exp(tA) = \begin{pmatrix} e^t & 0 \\ \frac{e^t - e^{-t}}{2} & e^{-t} \end{pmatrix} = \begin{pmatrix} e^t & 0 \\ \sinh(t) & e^{-t} \end{pmatrix}}$$</p>
+</details>
+<h3 id="d-dgl-loesen-5p">(d) DGL lösen (5P)</h3>
+<p>Lösen Sie das Anfangswertproblem $\dot{x}(t) = Ax(t)$ mit $x(0) = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$$x(t) = \exp(tA) \cdot x(0) = \begin{pmatrix} e^t & 0 \\ \sinh(t) & e^{-t} \end{pmatrix}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} e^t \\ \sinh(t) \end{pmatrix}$$</p>
+<p>$$\boxed{x(t) = \begin{pmatrix} e^t \\ \frac{e^t - e^{-t}}{2} \end{pmatrix}}$$</p>
+<p><strong>Probe:</strong> $\dot{x} = \begin{pmatrix} e^t \\ \cosh(t) \end{pmatrix}$ und $Ax = \begin{pmatrix} 1 & 0 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} e^t \\ \sinh(t) \end{pmatrix} = \begin{pmatrix} e^t \\ e^t - \sinh(t) \end{pmatrix} = \begin{pmatrix} e^t \\ \cosh(t) \end{pmatrix}$ ✓</p>
+<p>$x(0) = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ ✓</p>
 </details>
 <hr>
-<h2 id="trainingsklausur-4-distanzgeometrie-rangsatz-reversibilitaet">🧭 Trainingsklausur 4: Distanzgeometrie, Rangsatz & Reversibilität</h2>
-<h3 id="aufgabe-4-1-wahr-oder-falsch-matrix-arten-skalarprodukte">Aufgabe 4.1: Wahr oder Falsch? (Matrix-Arten & Skalarprodukte)</h3>
+<h2 id="aufgabe-d2-cayley-hamilton-nilpotente-matrizen-25-punkte-beweisen">Aufgabe D2: Cayley-Hamilton & nilpotente Matrizen (25 Punkte) — Beweisen</h2>
+<h3 id="a-cayley-hamilton-anwenden-8p">(a) Cayley-Hamilton anwenden (8P)</h3>
+<p>Sei $A \in \mathbb{R}^{3 \times 3}$ mit $\chi_A(\lambda) = -\lambda^3 + 3\lambda^2 - 3\lambda + 1 = -(\lambda - 1)^3$.</p>
 <ol>
-<li>Wenn $M$ unitär ist ($\bar{M}^T M = I$), dann bewahrt $M$ bei Multiplikation mit Vektoren das komplexe Skalarprodukt und damit Winkel und Längen.</li>
-<li>Jede reelle Matrix mit $\det(A) < 0$ repräsentiert unweigerlich eine Abbildung mit Orientierungsumkehr (z.B. Spiegelung in einer Ebene).</li>
+<li>Welches Matrixpolynom folgt direkt aus Cayley-Hamilton?</li>
+<li>Drücken Sie $A^3$ durch niedrigere Potenzen von $A$ aus.</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>1.</strong> Cayley-Hamilton: $\chi_A(A) = 0$, also:</p>
+<p>$$-A^3 + 3A^2 - 3A + I = 0$$</p>
+<p><strong>2.</strong> Umstellen:</p>
+<p>$$A^3 = 3A^2 - 3A + I$$</p>
+<p><em>Beachte:</em> $(A - I)^3 = A^3 - 3A^2 + 3A - I = 0$ nach Cayley-Hamilton. Also ist $A - I$ nilpotent der Ordnung $\leq 3$.</p>
+</details>
+<h3 id="b-nilpotenz-und-inverse-10p">(b) Nilpotenz und Inverse (10P)</h3>
+<p>Sei $N \in \mathbb{R}^{n \times n}$ nilpotent mit $N^3 = 0$ (aber $N^2 \neq 0$).</p>
+<ol>
+<li>Beweisen Sie: $(I - N)$ ist invertierbar und $(I - N)^{-1} = I + N + N^2$.</li>
+<li>Beweisen Sie: Alle Eigenwerte von $N$ sind $0$.</li>
+</ol>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>1.</strong> Wir zeigen $(I - N)(I + N + N^2) = I$:</p>
+<p>$$(I - N)(I + N + N^2) = I + N + N^2 - N - N^2 - N^3 = I - N^3 = I - 0 = I$$</p>
+<p>Also $(I - N)^{-1} = I + N + N^2$. $\square$</p>
+<p><em>Dies ist die endliche geometrische Reihe für Matrizen: $\sum_{k=0}^{2} N^k$.</em></p>
+<p><strong>2.</strong> Sei $\lambda$ ein Eigenwert von $N$ mit Eigenvektor $v \neq 0$, also $Nv = \lambda v$.</p>
+<p>Dann: $N^3 v = \lambda^3 v$ (induktiv: $N^k v = \lambda^k v$).</p>
+<p>Aber $N^3 = 0$, also $N^3 v = 0 = \lambda^3 v$.</p>
+<p>Da $v \neq 0$: $\lambda^3 = 0$, also $\lambda = 0$. $\square$</p>
+</details>
+<h3 id="c-matrixpotenzen-und-induktion-7p">(c) Matrixpotenzen und Induktion (7P)</h3>
+<p>Sei $A \in \mathbb{R}^{2 \times 2}$ mit $A^2 = 2A - I$. Beweisen Sie durch vollständige Induktion:</p>
+<p>$$A^n = nA - (n-1)I \quad \text{für alle } n \geq 1$$</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Induktionsanfang ($n = 1$):</strong></p>
+<p>$$A^1 = 1 \cdot A - 0 \cdot I = A \quad ✓$$</p>
+<p><strong>Induktionsanfang ($n = 2$):</strong></p>
+<p>$$A^2 = 2A - I \quad ✓ \text{ (Voraussetzung)}$$</p>
+<p><strong>Induktionsvoraussetzung:</strong> Für ein $n \geq 2$ gelte $A^n = nA - (n-1)I$.</p>
+<p><strong>Induktionsschritt ($n \to n+1$):</strong></p>
+<p>$$A^{n+1} = A^n \cdot A \overset{\text{IV}}{=} (nA - (n-1)I) \cdot A$$</p>
+<p>$$= nA^2 - (n-1)A$$</p>
+<p>$$\overset{A^2 = 2A-I}{=} n(2A - I) - (n-1)A$$</p>
+<p>$$= 2nA - nI - (n-1)A$$</p>
+<p>$$= (2n - n + 1)A - nI$$</p>
+<p>$$= (n+1)A - nI$$</p>
+<p>Das ist genau die Formel für $n+1$: $A^{n+1} = (n+1)A - ((n+1)-1)I$ ✓ $\square$</p>
+</details>
+<hr>
+<h2 id="aufgabe-d3-determinanten-eigenwerte-25-punkte-methoden">Aufgabe D3: Determinanten & Eigenwerte (25 Punkte) — Methoden</h2>
+<h3 id="a-determinante-einer-4-4-matrix-via-laplace-10p">(a) Determinante einer 4×4-Matrix via Laplace (10P)</h3>
+<p>Berechnen Sie die Determinante von:</p>
+<p>$$M = \begin{pmatrix} 2 & 0 & 0 & 3 \\ 0 & 1 & 0 & 0 \\ 1 & 0 & 4 & 0 \\ 0 & 0 & 0 & 5 \end{pmatrix}$$</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Laplace-Entwicklung nach Zeile 2</strong> (hat die meisten Nullen):</p>
+<p>$$\det(M) = (-1)^{2+2} \cdot 1 \cdot \det\begin{pmatrix} 2 & 0 & 3 \\ 1 & 4 & 0 \\ 0 & 0 & 5 \end{pmatrix}$$</p>
+<p>(Alle anderen Einträge in Zeile 2 sind $0$.)</p>
+<p>Berechne die 3×3-Determinante, <strong>Laplace nach Zeile 3</strong>:</p>
+<p>$$\det = 0 - 0 + 5 \cdot \det\begin{pmatrix} 2 & 0 \\ 1 & 4 \end{pmatrix} = 5 \cdot (8 - 0) = 40$$</p>
+<p>$$\boxed{\det(M) = 1 \cdot 40 = 40}$$</p>
+<p><em>Alternativ-Check:</em> $M$ hat eine fast-Dreiecksstruktur. Wir können auch nach Spalte 2 entwickeln und erhalten dasselbe Ergebnis.</p>
+</details>
+<h3 id="b-eigenwerte-mit-horner-schema-10p">(b) Eigenwerte mit Horner-Schema (10P)</h3>
+<p>Bestimmen Sie die Eigenwerte von:</p>
+<p>$$C = \begin{pmatrix} 4 & -2 & 1 \\ 0 & 3 & -1 \\ 0 & 0 & 2 \end{pmatrix}$$</p>
+<p>Geben Sie an: Ist $C$ diagonalisierbar? Was sind $\det(C)$ und $\text{Spur}(C)$?</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$C$ ist eine <strong>obere Dreiecksmatrix</strong>. Die Eigenwerte stehen auf der Diagonale:</p>
+<p>$$\lambda_1 = 4, \quad \lambda_2 = 3, \quad \lambda_3 = 2$$</p>
+<p>Da alle Eigenwerte verschieden, ist $C$ <strong>diagonalisierbar</strong> (jeder EW hat automatisch geo. VF = alg. VF = 1).</p>
+<p>$$\det(C) = 4 \cdot 3 \cdot 2 = 24$$</p>
+<p>$$\text{Spur}(C) = 4 + 3 + 2 = 9$$</p>
+</details>
+<h3 id="c-daraus-folgende-eigenschaften-5p">(c) Daraus folgende Eigenschaften (5P)</h3>
+<p>Für die Matrix $C$ aus (b):</p>
+<ol>
+<li>Ist $C$ invertierbar?</li>
+<li>Ist $C$ volumentreu?</li>
+<li>Ist $C$ orientierungserhaltend?</li>
+<li>Kann $C$ orthogonal sein?</li>
 </ol>
 <details>
 <summary><b>Lösung einblenden</b></summary>
 <ol>
-<li><strong>Wahr.</strong> Definition einer unitären bzw. orthogonalen Matrix: $\langle Mv, Mw \rangle = \langle v, M^* Mw \rangle = \langle v, Iw \rangle = \langle v, w \rangle$. Wenn das Skalarprodukt erhalten bleibt, bleiben Norm (Länge) und die Zwischenwinkel zu 100% erhalten!</li>
-<li><strong>Wahr.</strong> Die Determinante gibt exakt den geometrischen Skalierungsfaktor von Volumina an. Ihr Vorzeichen verrät die "Händigkeit" der Transformation. Ein negativer Wert erzwingt zwingend das Umklappen der Raumorientierung (mindestens eine ungerade Anzahl an Spiegelungedimensionen).</li>
+<li><strong>Ja</strong>, da $\det(C) = 24 \neq 0$.</li>
+<li><strong>Nein</strong>, da $|\det(C)| = 24 \neq 1$.</li>
+<li><strong>Ja</strong>, da $\det(C) = 24 > 0$.</li>
+<li><strong>Nein</strong>, denn für orthogonale Matrizen gilt $\det = \pm 1$, aber $\det(C) = 24$. Alternativ: Eigenwerte orthogonaler Matrizen haben Betrag 1, aber hier ist $|\lambda_1| = 4 \neq 1$.</li>
 </ol>
 </details>
-<h3 id="aufgabe-4-2-distanzgeometrie-gram-matrizen">Aufgabe 4.2: Distanzgeometrie & Gram-Matrizen</h3>
-<p>Entscheide, ob es Vektoren gibt, die die Konfiguration der Gram-Matrix </p>
-<p>$$ G = \begin{pmatrix} 4 & 2 \\ 2 & 1 \end{pmatrix} $$</p>
-<p>realisieren. Falls ja, liegen die Vektoren in einem $1D$- oder $2D$-Raum? Begründe.</p>
+<hr>
+<h2 id="aufgabe-d4-reversibilitaet-isometrien-strukturtheorie-25-punkte-verstehen-beweisen">Aufgabe D4: Reversibilität, Isometrien & Strukturtheorie (25 Punkte) — Verstehen/Beweisen</h2>
+<h3 id="a-zusammenhang-determinante-ew-kern-und-lgs-8p">(a) Zusammenhang Determinante, EW, Kern und LGS (8P)</h3>
+<p>Sei $A \in \mathbb{R}^{n \times n}$. Beweisen Sie die Äquivalenz der folgenden Aussagen:</p>
+<ol>
+<li>$\det(A) \neq 0$</li>
+<li>$\ker(A) = \{0\}$</li>
+<li>$Ax = b$ hat für jedes $b$ genau eine Lösung.</li>
+</ol>
 <details>
 <summary><b>Lösung einblenden</b></summary>
-<p>Ein Set von Abständen/Skalarprodukten ist genau dann in Realität darstellbar (euklidisch realisierbar), wenn die resultierende Gram-Matrix $G$ nicht nur <strong>symmetrisch</strong>, sondern auch <strong>positiv semidefinit</strong> ist.</p>
-<ol>
-<li>Symmetrie $G^T = G$ ist gegeben!</li>
-<li>Positive Definitheit via Hauptminoren untersuchen:</li>
-</ol>
-<ul>
-<li>Der erste Minor (oben links) ist $\det(4) = 4 \geq 0$.</li>
-<li>Die gesamte Matrix: $\det(G) = (4 \cdot 1) - (2 \cdot 2) = 0 \geq 0$.</li>
-</ul>
-<p>Da alle Bedingungen greifen, ist sie positiv <strong>semi-definit</strong>. </p>
-<p>Durch die Existenz der Determinante $0$ wissen wir, dass der Rang der Matrix nicht $2$, sondern $1$ ist (Matrix enthält linear abhängige Zeilen). Es existiert genau ein strikt positiver Eigenwert und ein Null-Eigenwert.</p>
-<p>Das bedeutet: Beide "Punkte" oder Vektoren liegen direkt auf einer eindimensionalen Linie! Die Menge ist folglich im <strong>$\mathbb{R}^1$</strong> darstellbar!</p>
+<p><strong>$(1) \Rightarrow (2)$:</strong> $\det(A) \neq 0$ bedeutet, dass $A$ invertierbar ist. Sei $v \in \ker(A)$, also $Av = 0$. Dann $v = A^{-1} \cdot 0 = 0$. Also $\ker(A) = \{0\}$.</p>
+<p><strong>$(2) \Rightarrow (3)$:</strong> $\ker(A) = \{0\}$ bedeutet Defekt $= 0$. Nach dem Rangsatz: $\text{Rang}(A) = n - 0 = n$. Also hat $A$ vollen Rang, $A$ ist surjektiv (Bild $= \mathbb{R}^n$), und $Ax = b$ hat für jedes $b$ eine Lösung. Da $\ker(A) = \{0\}$, ist die Lösung eindeutig (homogene Lösung ist trivial).</p>
+<p><strong>$(3) \Rightarrow (1)$:</strong> Wenn $Ax = b$ für jedes $b$ genau eine Lösung hat, dann insbesondere für jede Spalte $e_i$ der Einheitsmatrix. Die Lösungsvektoren bilden $A^{-1}$, also existiert $A^{-1}$, und daher $\det(A) \neq 0$. $\square$</p>
 </details>
-<h3 id="aufgabe-4-3-ulmer-skript-beweis-reversibilitaet">Aufgabe 4.3: Ulmer-Skript Beweis & Reversibilität</h3>
-<p>Beweisen Sie direkt aus den Axiomen, aus welchem Grund eine reversible Matrix (Zeit-Reversibilität gibt es eine Matrix $R$, sodass $R A R^{-1} = -A$) mit Eigenwert $\lambda$ zwingend auch den Eigenwert $-\lambda$ aufweisen muss.</p>
+<h3 id="b-eigenwerte-spezieller-matrizen-10p">(b) Eigenwerte spezieller Matrizen (10P)</h3>
+<p>Beweisen Sie:</p>
+<ol>
+<li>Wenn $A$ orthogonal ist ($A^T A = I$), dann gilt $|\lambda| = 1$ für jeden Eigenwert $\lambda$ von $A$.</li>
+<li>Wenn $A$ schiefsymmetrisch ist ($A^T = -A$, reelle Matrix), dann sind alle Eigenwerte rein imaginär (d.h. $\lambda = i\mu$ mit $\mu \in \mathbb{R}$).</li>
+</ol>
 <details>
 <summary><b>Lösung einblenden</b></summary>
-<p>Die Gleichung der Reversibilität formt man um: </p>
-<p>$$ R A R^{-1} = -A $$</p>
-<p>Dies ist mathematisch exakt die Definition dafür, dass die Systemmatrix $A$ <strong>ähnlich</strong> zu ihrer Negation $-A$ ist! </p>
-<p>Zwei zueinander ähnliche Matrizen haben zwingend identische Charakteristische Polynome und infolgedessen auch exakt dieselben Eigenwerte.</p>
-<ol>
-<li>Eigenwerte von $A$ nennen wir das Spektrum $\sigma(A) = \{\lambda_1, \ldots, \lambda_n\}$.</li>
-<li>Eigenwerte von $-A$ sind offenbar negativ zu $A$: $\sigma(-A) = \{-\lambda_1, \ldots, -\lambda_n\}$.</li>
-</ol>
-<p>Damit das Ähnlichkeitsgebot der Reversibilität erfüllt ist, müssen beide Mengen elementweise gleich sein!</p>
-<p>Taucht also ein bestimmter Wert (wie $+3$) im Spektrum von $A$ auf, muss die Matrix $A$ folgerichtig auch den negierten Wert ($-3$) als Eigenwert besitzen, um die Symmetrie aufrecht zu erhalten. </p>
-<p>Das Paar $(\lambda, -\lambda)$ ist der unverkennbare Signaturstempel eines reversiblen Modells.</p>
+<p><strong>1.</strong> Sei $Av = \lambda v$ mit $v \neq 0$ (möglicherweise $\lambda \in \mathbb{C}$, $v \in \mathbb{C}^n$).</p>
+<p>$$\|Av\|^2 = (Av)^<em> (Av) = v^</em> A^<em> A v = v^</em> A^T A v = v^<em> I v = v^</em> v = \|v\|^2$$</p>
+<p>Andererseits: $\|Av\|^2 = \|\lambda v\|^2 = |\lambda|^2 \|v\|^2$.</p>
+<p>Da $v \neq 0$: $|\lambda|^2 = 1$, also $|\lambda| = 1$. $\square$</p>
+<p><strong>2.</strong> Sei $A^T = -A$ und $Av = \lambda v$ mit $v \neq 0$ ($v \in \mathbb{C}^n$).</p>
+<p>Betrachte $v^* A v$ auf zwei Arten:</p>
+<p><strong>Einerseits:</strong> $v^<em> A v = v^</em> (\lambda v) = \lambda \|v\|^2$.</p>
+<p><strong>Andererseits:</strong> $(v^<em> A v)^</em> = v^<em> A^</em> v = v^<em> \overline{A}^T v = v^</em> (-\overline{A}) v$</p>
+<p>Da $A$ reell: $\overline{A} = A$, also $(v^<em> A v)^</em> = -v^* A v$.</p>
+<p>Also $\overline{v^<em> A v} = -v^</em> A v$, d.h. $\overline{\lambda}\|v\|^2 = -\lambda\|v\|^2$.</p>
+<p>Da $v \neq 0$: $\overline{\lambda} = -\lambda$, also $\text{Re}(\lambda) = 0$. $\square$</p>
 </details>
+<h3 id="c-reversibilitaet-und-spur-7p">(c) Reversibilität und Spur (7P)</h3>
+<p>Sei $A$ reversibel (d.h. $\exists R$ invertierbar mit $RAR^{-1} = -A$).</p>
+<p>Zeigen Sie: $\text{Spur}(A) = 0$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Beweis:</strong></p>
+<p>Ähnliche Matrizen haben die gleiche Spur (da die Spur eine Invariante unter Ähnlichkeitstransformationen ist):</p>
+<p>$$\text{Spur}(RAR^{-1}) = \text{Spur}(A)$$</p>
+<p>Aus der Reversibilitätsbedingung $RAR^{-1} = -A$:</p>
+<p>$$\text{Spur}(A) = \text{Spur}(RAR^{-1}) = \text{Spur}(-A) = -\text{Spur}(A)$$</p>
+<p>Also: $2 \cdot \text{Spur}(A) = 0$, d.h. $\text{Spur}(A) = 0$. $\square$</p>
+<p><em>Alternativ:</em> Da (wie in Klausur A, Aufgabe 4 gezeigt) die Eigenwerte einer reversiblen Matrix paarweise $(\lambda, -\lambda)$ auftreten, heben sie sich in der Spur $= \sum \lambda_i$ gegenseitig auf.</p>
+</details>
+<hr>
+<hr>
+<h1 id="uebersicht-themenabdeckung-der-4-klausuren">📊 Übersicht: Themenabdeckung der 4 Klausuren</h1>
+<table>
+<tr><th>Thema</th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+<tr><td><strong>Körper (Prof-Tipp!)</strong></td><td>✅ $\mathbb{F}_5$</td><td>—</td><td>✅ $\mathbb{F}_{11}$</td><td>—</td></tr>
+<tr><td><strong>Matrixexponential</strong></td><td>✅ $D+N$</td><td>—</td><td>—</td><td>✅ via Diag.</td></tr>
+<tr><td><strong>Gram-Schmidt</strong></td><td>✅ $\mathbb{R}^3$</td><td>✅ Integral-SP</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Ausgleichsrechnung</strong></td><td>✅</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Projektionsmatrix</strong></td><td>✅</td><td>✅</td><td>—</td><td>—</td></tr>
+<tr><td><strong>JNF berechnen</strong></td><td>—</td><td>✅ konkret</td><td>—</td><td>—</td></tr>
+<tr><td><strong>JNF ablesen</strong></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Eigenwerte/Diag.</strong></td><td>—</td><td>✅</td><td>—</td><td>✅</td></tr>
+<tr><td><strong>Determinanten</strong></td><td>—</td><td>—</td><td>—</td><td>✅ Laplace</td></tr>
+<tr><td><strong>Euklidischer Alg.</strong></td><td>—</td><td>✅</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Horner-Schema</strong></td><td>—</td><td>✅</td><td>—</td><td>✅</td></tr>
+<tr><td><strong>Geometrie kompl. Zahlen</strong></td><td>—</td><td>✅ Drehung</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Distanzgeometrie</strong></td><td>—</td><td>—</td><td>✅</td><td>—</td></tr>
+<tr><td><strong>LGS / Bild-Kern</strong></td><td>✅</td><td>—</td><td>✅</td><td>—</td></tr>
+<tr><td><strong>Inverse berechnen</strong></td><td>—</td><td>—</td><td>✅</td><td>—</td></tr>
+<tr><td><strong>Reversibilität</strong></td><td>✅</td><td>—</td><td>—</td><td>✅</td></tr>
+<tr><td><strong>Cayley-Hamilton</strong></td><td>—</td><td>✅</td><td>—</td><td>✅</td></tr>
+<tr><td><strong>Induktionsbeweis</strong></td><td>—</td><td>—</td><td>—</td><td>✅</td></tr>
+<tr><td><strong>Wahr/Falsch</strong></td><td>✅</td><td>—</td><td>✅</td><td>—</td></tr>
+<tr><td><strong>Isometrien/Gruppen</strong></td><td>—</td><td>—</td><td>✅</td><td>✅</td></tr>
+<tr><td><strong>Nilpotenz</strong></td><td>—</td><td>—</td><td>✅</td><td>✅</td></tr>
+<tr><td><strong>DGL mit $\exp(tA)$</strong></td><td>—</td><td>—</td><td>—</td><td>✅</td></tr>
+<tr><td><strong>Spektralsatz</strong></td><td>—</td><td>—</td><td>✅</td><td>—</td></tr>
+</table>
+<blockquote><p><strong>Empfehlung:</strong> Bearbeite die Klausuren in der Reihenfolge A → C → D → B (aufsteigender Schwierigkeitsgrad).</p></blockquote>
 <div class="footer">
   LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
   <a href="index.html">← Zurück zur Startseite</a>
