@@ -36,6 +36,7 @@ PAGES = [
     {"file": "Checkliste_Themen", "title": "Checkliste pro Thema", "icon": "✅", "cat": "Lernmaterial"},
     {"file": "Uebungsaufgaben", "title": "Übungsaufgaben (inkl. Lösungen)", "icon": "📝", "cat": "Lernmaterial"},
     {"file": "Uebungszettel_Originale", "title": "Originale Übungszettel 1-10", "icon": "📄", "cat": "Lernmaterial"},
+    {"file": "Nachklausur_Tipps", "title": "💡 Nachklausur Tipps vom Prof", "icon": "⚠️", "cat": "Klausur"},
     {"file": "Klausur_Originale", "title": "Originale (Probe-)Klausuren", "icon": "📝", "cat": "Klausur"},
     {"file": "Klausur_Musterloesungen", "title": "Klausur-Musterlösungen", "icon": "🎯", "cat": "Klausur"},
     {"file": "Checklisten_Originale", "title": "Originale Checklisten", "icon": "✔️", "cat": "Lernmaterial"},
@@ -534,6 +535,15 @@ def build_index():
   Diese Seite enthält Zusammenfassungen, Karteikarten, Übungsaufgaben, Formelblätter und
   Musterlösungen zur Vorbereitung auf die LINA2-Klausur.</p>
 </blockquote>
+
+<div style="background:linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%); border-left: 5px solid #ffc107; padding: 16px 24px; border-radius: 6px; margin: 24px 0; display: flex; align-items: center; gap: 16px; box-shadow: 0 4px 6px rgba(255,193,7,.1);">
+  <div style="font-size: 2.5em;">💡</div>
+  <div>
+    <h3 style="margin: 0 0 8px 0; color: #b28900; font-size: 1.25em;">Tipps & Schwerpunkte des Profs zur Nachklausur!</h3>
+    <p style="margin: 0; color: #5c4600; font-size: 0.95em;">PD. Dr. Weber hat konkrete Hinweise zu Schwerpunkten, relevanten Zusammenhängen und einen Lösungs-Tipp für eine schwere Klausuraufgabe gegeben. <br><a href="Nachklausur_Tipps.html" style="font-weight: 600; color: #b28900; text-decoration: underline;">👉 Jetzt die offiziellen Tipps ansehen!</a></p>
+  </div>
+</div>
+
 <hr>
 {''.join(cards)}
 <hr>
