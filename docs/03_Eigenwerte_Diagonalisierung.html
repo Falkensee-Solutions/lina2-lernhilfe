@@ -123,6 +123,22 @@ MathJax = {
   }
   blockquote strong { color: var(--accent); }
 
+  .infobox {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 20px 24px; margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 8px rgba(16,185,129,.1);
+    font-size: .97em;
+    line-height: 1.85;
+  }
+  .infobox-title {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1.05em;
+    color: #065f46; margin-bottom: 10px;
+  }
+  .infobox p { margin: 8px 0; color: #1a3a2a; }
+
   code {
     font-family: 'JetBrains Mono', monospace;
     background: #f0f0f5; padding: 2px 6px;
@@ -232,6 +248,7 @@ MathJax = {
 <div class="main">
 <h1>3. Eigenwerte, Eigenvektoren & Diagonalisierung</h1>
 <blockquote><p>⚡ <strong>PRIORITÄT 1 – Hier hast du 19/20 Punkte verloren (Aufgabe 2)!</strong></p></blockquote>
+<div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Eigenwerte und Eigenvektoren sind eines der wichtigsten Konzepte der gesamten linearen Algebra – und gleichzeitig das Thema, das in deiner Klausur am schlechtesten lief. Aber die Grundidee ist gar nicht so kompliziert: Ein <strong>Eigenvektor</strong> ist ein Vektor, der durch eine Matrix nicht seine Richtung ändert, sondern nur gestreckt oder gestaucht wird. Der Faktor, um den er gestreckt wird, heißt <strong>Eigenwert</strong>. Wenn du zum Beispiel eine Spiegelungsmatrix hast, dann bleibt ein Vektor, der genau auf der Spiegelachse liegt, unverändert – er hat den Eigenwert 1. Ein Vektor senkrecht dazu wird umgeklappt – er hat den Eigenwert −1.</p><p>Eigenwerte findest du, indem du das <strong>charakteristische Polynom</strong> berechnest – das ist $\det(A - \lambda I)$ – und dessen Nullstellen bestimmst. Der Kniff ist, dass jede Nullstelle ein Eigenwert ist. Für jeden Eigenwert berechnest du dann den <strong>Eigenraum</strong>, also die Menge aller zugehörigen Eigenvektoren, indem du den Kern von $(A - \lambda I)$ bestimmst.</p><p>Die große Frage ist dann: Kann man eine Basis finden, die nur aus Eigenvektoren besteht? Wenn ja, ist die Matrix <strong>diagonalisierbar</strong> – und das vereinfacht alles enorm, weil eine Diagonalmatrix trivial zu potenzieren ist. Ob das klappt, hängt davon ab, ob für jeden Eigenwert genug linear unabhängige Eigenvektoren existieren. Dafür vergleichst du die <strong>algebraische Vielfachheit</strong> (wie oft der Eigenwert als Nullstelle im char. Polynom vorkommt) mit der <strong>geometrischen Vielfachheit</strong> (Dimension des Eigenraums). Stimmen beide überein, ist die Matrix diagonalisierbar.</p><p><strong>Für die Nachklausur:</strong> In der Klausur solltest du zeigen, dass gewisse Vektoren Eigenvektoren sind, und den Defekt einer Matrix bestimmen. Übe insbesondere den Beweis, dass bei einer Matrix $M = \lambda_1 v_1 v_1^T + \ldots$ die $v_i$ tatsächlich Eigenvektoren sind – genau das kam dran!</p></div>
 <h2>3.1 Grundbegriffe</h2>
 <h3>Eigenwert & Eigenvektor</h3>
 <p>$\lambda \in K$ ist <strong>Eigenwert</strong> von $A$ und $v \neq 0$ ist <strong>Eigenvektor</strong> zum Eigenwert $\lambda$, wenn:</p>

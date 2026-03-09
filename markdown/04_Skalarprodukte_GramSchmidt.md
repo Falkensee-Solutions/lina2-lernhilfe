@@ -2,6 +2,16 @@
 
 > ⚡ **PRIORITÄT 3 – Hier hast du 16/30 Punkte verloren (Aufgabe 3)!**
 
+> [!INFO] Worum geht es hier? – Einfach erklärt
+>
+> Ein **Skalarprodukt** ist eine Methode, um in einem Vektorraum Längen und Winkel zu messen. Im $\mathbb{R}^2$ kennst du das als das gewöhnliche Punktprodukt: $\langle x | y \rangle = x_1 y_1 + x_2 y_2$. Dieses Konzept lässt sich verallgemeinern – sogar auf Funktionenräume, wo das Skalarprodukt ein Integral wird. Entscheidend ist: Zwei Vektoren stehen **senkrecht** (orthogonal) zueinander, wenn ihr Skalarprodukt Null ergibt.
+>
+> Im Komplexen wird das etwas kniffliger. Weil komplexe Zahlen einen Real- und Imaginärteil haben, muss man beim Skalarprodukt das erste Argument konjugieren: $\langle x | y \rangle = \sum \overline{x_i} y_i$. Das nennt man **hermitesches Skalarprodukt**. Der Haken: $\langle u | v \rangle \neq \langle v | u \rangle$ – stattdessen gilt $\langle u | v \rangle = \overline{\langle v | u \rangle}$. Dieses Detail war in deiner Klausuraufgabe entscheidend!
+>
+> Das **Gram-Schmidt-Verfahren** ist ein Algorithmus, der aus einer beliebigen Basis eine **Orthonormalbasis** macht – also eine Basis, in der alle Vektoren Länge 1 haben und paarweise senkrecht aufeinander stehen. Die Idee ist einfach: Du nimmst den ersten Vektor und normierst ihn. Dann nimmst du den zweiten Vektor, ziehst den Anteil ab, der in Richtung des ersten zeigt, und normierst das Ergebnis. So machst du weiter, bis alle Vektoren sauber orthogonal zueinander sind. Die Reihenfolge ist immer: erst orthogonalisieren (Projektionen abziehen), dann normieren.
+>
+> **Für die Nachklausur:** In Aufgabe 3 der Klausur musstest du Gram-Schmidt im Funktionenraum mit komplexem Skalarprodukt durchführen. Der häufigste Fehler hier: Die Konjugation vergessen! Wenn $f(x) = ix$ ist, dann ist $\overline{f(x)} = -ix$. Übe das Verfahren Schritt für Schritt an konkreten Beispielen durch, bis der Ablauf automatisch sitzt.
+
 ## 4.1 Skalarprodukte – Axiome
 
 ### Reelles Skalarprodukt

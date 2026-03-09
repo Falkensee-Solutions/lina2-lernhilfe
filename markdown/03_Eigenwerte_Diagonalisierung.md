@@ -2,6 +2,16 @@
 
 > ⚡ **PRIORITÄT 1 – Hier hast du 19/20 Punkte verloren (Aufgabe 2)!**
 
+> [!INFO] Worum geht es hier? – Einfach erklärt
+>
+> Eigenwerte und Eigenvektoren sind eines der wichtigsten Konzepte der gesamten linearen Algebra – und gleichzeitig das Thema, das in deiner Klausur am schlechtesten lief. Aber die Grundidee ist gar nicht so kompliziert: Ein **Eigenvektor** ist ein Vektor, der durch eine Matrix nicht seine Richtung ändert, sondern nur gestreckt oder gestaucht wird. Der Faktor, um den er gestreckt wird, heißt **Eigenwert**. Wenn du zum Beispiel eine Spiegelungsmatrix hast, dann bleibt ein Vektor, der genau auf der Spiegelachse liegt, unverändert – er hat den Eigenwert 1. Ein Vektor senkrecht dazu wird umgeklappt – er hat den Eigenwert −1.
+>
+> Eigenwerte findest du, indem du das **charakteristische Polynom** berechnest – das ist $\det(A - \lambda I)$ – und dessen Nullstellen bestimmst. Der Kniff ist, dass jede Nullstelle ein Eigenwert ist. Für jeden Eigenwert berechnest du dann den **Eigenraum**, also die Menge aller zugehörigen Eigenvektoren, indem du den Kern von $(A - \lambda I)$ bestimmst.
+>
+> Die große Frage ist dann: Kann man eine Basis finden, die nur aus Eigenvektoren besteht? Wenn ja, ist die Matrix **diagonalisierbar** – und das vereinfacht alles enorm, weil eine Diagonalmatrix trivial zu potenzieren ist. Ob das klappt, hängt davon ab, ob für jeden Eigenwert genug linear unabhängige Eigenvektoren existieren. Dafür vergleichst du die **algebraische Vielfachheit** (wie oft der Eigenwert als Nullstelle im char. Polynom vorkommt) mit der **geometrischen Vielfachheit** (Dimension des Eigenraums). Stimmen beide überein, ist die Matrix diagonalisierbar.
+>
+> **Für die Nachklausur:** In der Klausur solltest du zeigen, dass gewisse Vektoren Eigenvektoren sind, und den Defekt einer Matrix bestimmen. Übe insbesondere den Beweis, dass bei einer Matrix $M = \lambda_1 v_1 v_1^T + \ldots$ die $v_i$ tatsächlich Eigenvektoren sind – genau das kam dran!
+
 ## 3.1 Grundbegriffe
 
 ### Eigenwert & Eigenvektor

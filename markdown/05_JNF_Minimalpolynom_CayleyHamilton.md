@@ -2,6 +2,18 @@
 
 > ⚡ **PRIORITÄT 2 – Hier hast du 27/50 Punkte verloren (Aufgaben 1 + 4)!**
 
+> [!INFO] Worum geht es hier? – Einfach erklärt
+>
+> Nicht jede Matrix lässt sich diagonalisieren – manchmal gibt es einfach nicht genug Eigenvektoren. Für solche Matrizen gibt es die **Jordan-Normalform (JNF)**: eine fast-diagonale Struktur, in der auf der Hauptdiagonale die Eigenwerte stehen und direkt darüber manchmal Einsen. Diese Einsen zeigen an, wo ein Eigenwert „nicht genug" Eigenvektoren hat. Je größer ein Jordan-Block ist, desto weiter entfernt ist die Matrix vom Diagonalisierbaren.
+>
+> Die JNF ist eine Art Röntgenbild der Matrix. Aus ihr kannst du sofort fast alles ablesen: Eigenwerte (die Diagonaleinträge), algebraische Vielfachheiten (Summe der Blockgrößen pro Eigenwert), geometrische Vielfachheiten (Anzahl der Blöcke pro Eigenwert), das Minimalpolynom, die Determinante und ob die Matrix diagonalisierbar ist. Es lohnt sich enorm, die Tabelle auf dieser Seite sicher zu beherrschen.
+>
+> Das **Minimalpolynom** ist das kleinste Polynom, das die Matrix zu Null macht – wenn du es in die Matrix einsetzt, kommt die Nullmatrix raus. Es hängt eng mit der JNF zusammen: Der Exponent jedes Eigenwerts im Minimalpolynom entspricht der Größe des größten Jordan-Blocks zu diesem Eigenwert. Der Satz von **Cayley-Hamilton** sagt, dass jede Matrix ihr eigenes charakteristisches Polynom erfüllt – das heißt, wenn du das char. Polynom in die Matrix einsetzt, kommt immer Null raus.
+>
+> Das **Matrixexponential** $\exp(A)$ ist das Pendant zur Exponentialfunktion für Matrizen und taucht bei Differentialgleichungen auf: Die Lösung von $\dot{x}(t) = Ax(t)$ ist $x(t) = \exp(tA) x_0$. Für die Berechnung hilft es, zu wissen, ob die Matrix idempotent ist ($A^2 = A$), denn dann vereinfacht sich die Reihe drastisch.
+>
+> **Für die Nachklausur:** Aufgabe 1 (JNF ablesen: 19/30) und Aufgabe 4 (Matrixexponential: 4/20) machten zusammen 50 Punkte aus. In Aufgabe 1 musst du die JNF blitzschnell „lesen" können – char. Polynom, Minimalpolynom, Eigenräume, Determinante, alles direkt ablesen. In Aufgabe 4 war der Schlüssel Cayley-Hamilton: Zeige $A^2 = A$, dann per Induktion $A^m = A$, und damit vereinfacht sich $\exp(A) = I + (e-1)A$. Übe beide Aufgabentypen, bis sie sitzen!
+
 ## 5.1 Jordan-Normalform (JNF)
 
 ### Jordan-Block

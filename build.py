@@ -176,6 +176,22 @@ MathJax = {{
   }}
   blockquote strong {{ color: var(--accent); }}
 
+  .infobox {{
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 20px 24px; margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 8px rgba(16,185,129,.1);
+    font-size: .97em;
+    line-height: 1.85;
+  }}
+  .infobox-title {{
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1.05em;
+    color: #065f46; margin-bottom: 10px;
+  }}
+  .infobox p {{ margin: 8px 0; color: #1a3a2a; }}
+
   code {{
     font-family: 'JetBrains Mono', monospace;
     background: #f0f0f5; padding: 2px 6px;
@@ -384,8 +400,29 @@ def markdown_to_html(md_text):
             while i < len(lines) and lines[i].strip().startswith('>'):
                 quote_lines.append(lines[i].strip().lstrip('> '))
                 i += 1
-            content = inline_format('<br>'.join(quote_lines))
-            html_lines.append(f'<blockquote><p>{content}</p></blockquote>')
+            # Check for [!INFO] infobox
+            if quote_lines and quote_lines[0].strip().startswith('[!INFO]'):
+                title = quote_lines[0].replace('[!INFO]', '').strip()
+                if not title:
+                    title = 'Einfach erklärt'
+                body_lines = quote_lines[1:]
+                # Convert body to paragraphs
+                paragraphs = []
+                current_para = []
+                for ql in body_lines:
+                    if ql.strip() == '':
+                        if current_para:
+                            paragraphs.append(' '.join(current_para))
+                            current_para = []
+                    else:
+                        current_para.append(ql)
+                if current_para:
+                    paragraphs.append(' '.join(current_para))
+                body_html = ''.join(f'<p>{inline_format(p)}</p>' for p in paragraphs)
+                html_lines.append(f'<div class="infobox"><div class="infobox-title">💡 {title}</div>{body_html}</div>')
+            else:
+                content = inline_format('<br>'.join(quote_lines))
+                html_lines.append(f'<blockquote><p>{content}</p></blockquote>')
             continue
 
         # Unordered list

@@ -1,5 +1,17 @@
 # 6. Bilinearformen, Orthogonalität, Isometrien & Gruppentheorie
 
+> [!INFO] Worum geht es hier? – Einfach erklärt
+>
+> In diesem Kapitel kommen mehrere Themen zusammen, die auf den ersten Blick unterschiedlich wirken, aber alle mit der Frage zu tun haben: Wie misst man Geometrie in Vektorräumen, und welche Abbildungen erhalten diese Geometrie?
+>
+> Eine **Bilinearform** ist wie ein verallgemeinertes Skalarprodukt – eine Funktion, die zwei Vektoren nimmt und eine Zahl zurückgibt, und die in beiden Argumenten linear ist. Im Komplexen heißt das Ganze **Sesquilinearform**, weil es im ersten Argument „anderthalblinear" (anti-linear) ist. Jede Bilinearform lässt sich durch eine Matrix $G$ darstellen: $\beta(v, w) = v^T G w$. Die **Signatur** von $G$ (wie viele positive, negative und Null-Eigenwerte sie hat) ist eine Invariante – sie ändert sich nicht, egal welche Basis du wählst.
+>
+> **Adjungiertheit** ist ein Konzept, bei dem du fragst: Wenn ich eine Matrix $A$ auf der linken Seite eines Skalarprodukts habe, welche Matrix $A^*$ muss ich auf die rechte Seite schreiben, damit der Wert gleich bleibt? Im Reellen ist das einfach die Transponierte, im Komplexen die konjugiert-Transponierte. Daraus ergeben sich wichtige Matrixklassen: **selbstadjungierte** Matrizen (alle Eigenwerte reell), **orthogonale** Matrizen (erhalten Längen und Winkel) und **unitäre** Matrizen (die komplexe Version davon).
+>
+> **Isometrien** sind Abbildungen, die alle Abstände erhalten – sie verzerren den Raum nicht. Orthogonale Matrizen sind genau die Isometrien des $\mathbb{R}^n$: entweder Drehungen (Determinante $+1$) oder Spiegelungen (Determinante $-1$). Die Menge aller solchen Matrizen bildet eine **Gruppe** – das heißt, du kannst sie hintereinander ausführen und jede rückgängig machen, und das Ergebnis ist wieder eine Isometrie.
+>
+> **Für die Nachklausur:** Dieses Kapitel ist hinter den Kulissen überall präsent. In der Klausur kam die Frage, ob eine Matrix symmetrisch sein kann (Aufgabe 1.9) – dafür brauchst du den **Spektralsatz**: symmetrische Matrizen sind diagonalisierbar. Die Gruppentheorie-Grundlagen (Definition einer Gruppe, Untergruppe, wichtige Beispiele wie $GL(n)$, $O(n)$, $SO(n)$) solltest du kennen – mindestens die Definitionen.
+
 ## 6.1 Bilinearformen
 
 ### Definition

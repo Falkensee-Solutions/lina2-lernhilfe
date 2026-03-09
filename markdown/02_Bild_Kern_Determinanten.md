@@ -1,5 +1,15 @@
 # 2. Lineare Abbildungen, Bild-Kern & Determinanten
 
+> [!INFO] Worum geht es hier? – Einfach erklärt
+>
+> Stell dir eine Matrix als Maschine vor: Du steckst einen Vektor rein und bekommst einen anderen raus. Das **Bild** ist alles, was aus der Maschine rauskommen kann – also die Menge aller möglichen Ergebnisse. Der **Kern** hingegen ist die Menge aller Vektoren, die die Maschine zu Null macht. Wenn der Kern nur aus dem Nullvektor besteht, geht keine Information verloren und die Abbildung ist injektiv.
+>
+> Das Berechnen von Bild und Kern läuft immer gleich: Du bringst die Matrix mit Gauß auf Zeilenstufenform. Die Pivotspalten verraten dir das Bild, die freien Variablen den Kern. Der **Rangsatz** garantiert dabei, dass sich die Spaltenanzahl immer sauber in Rang (Dimension des Bildes) und Defekt (Dimension des Kerns) aufteilt.
+>
+> **Determinanten** sind eine einzige Zahl, die einer quadratischen Matrix zugeordnet wird – und diese Zahl enthält überraschend viel Information. Ist sie Null, ist die Matrix nicht invertierbar und das zugehörige Gleichungssystem hat entweder keine oder unendlich viele Lösungen. Ist sie ungleich Null, ist alles eindeutig lösbar. Geometrisch beschreibt der Betrag der Determinante, wie stark die Matrix Volumina verzerrt, und das Vorzeichen sagt dir, ob die Orientierung erhalten bleibt oder gespiegelt wird.
+>
+> **Für die Nachklausur:** Die Determinante kam in der Klausur bei Aufgabe 1.6–1.8 vor – dort musst du sie aus der Jordan-Normalform ablesen können. Übe die Laplace-Entwicklung und lerne die Rechenregeln (Produktregel, Transposition, Skalierung) wirklich auswendig. Der Bild-Kern-Algorithmus ist dein Schweizer Taschenmesser für fast jede Aufgabe.
+
 ## 2.1 Bild-Kern-Algorithmus
 
 ### Kern (Nullraum)

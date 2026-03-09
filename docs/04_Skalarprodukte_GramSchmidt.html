@@ -123,6 +123,22 @@ MathJax = {
   }
   blockquote strong { color: var(--accent); }
 
+  .infobox {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 20px 24px; margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 8px rgba(16,185,129,.1);
+    font-size: .97em;
+    line-height: 1.85;
+  }
+  .infobox-title {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1.05em;
+    color: #065f46; margin-bottom: 10px;
+  }
+  .infobox p { margin: 8px 0; color: #1a3a2a; }
+
   code {
     font-family: 'JetBrains Mono', monospace;
     background: #f0f0f5; padding: 2px 6px;
@@ -232,6 +248,7 @@ MathJax = {
 <div class="main">
 <h1>4. Skalarprodukte & Gram-Schmidt-Verfahren</h1>
 <blockquote><p>⚡ <strong>PRIORITÄT 3 – Hier hast du 16/30 Punkte verloren (Aufgabe 3)!</strong></p></blockquote>
+<div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Ein <strong>Skalarprodukt</strong> ist eine Methode, um in einem Vektorraum Längen und Winkel zu messen. Im $\mathbb{R}^2$ kennst du das als das gewöhnliche Punktprodukt: $\langle x | y \rangle = x_1 y_1 + x_2 y_2$. Dieses Konzept lässt sich verallgemeinern – sogar auf Funktionenräume, wo das Skalarprodukt ein Integral wird. Entscheidend ist: Zwei Vektoren stehen <strong>senkrecht</strong> (orthogonal) zueinander, wenn ihr Skalarprodukt Null ergibt.</p><p>Im Komplexen wird das etwas kniffliger. Weil komplexe Zahlen einen Real- und Imaginärteil haben, muss man beim Skalarprodukt das erste Argument konjugieren: $\langle x | y \rangle = \sum \overline{x_i} y_i$. Das nennt man <strong>hermitesches Skalarprodukt</strong>. Der Haken: $\langle u | v \rangle \neq \langle v | u \rangle$ – stattdessen gilt $\langle u | v \rangle = \overline{\langle v | u \rangle}$. Dieses Detail war in deiner Klausuraufgabe entscheidend!</p><p>Das <strong>Gram-Schmidt-Verfahren</strong> ist ein Algorithmus, der aus einer beliebigen Basis eine <strong>Orthonormalbasis</strong> macht – also eine Basis, in der alle Vektoren Länge 1 haben und paarweise senkrecht aufeinander stehen. Die Idee ist einfach: Du nimmst den ersten Vektor und normierst ihn. Dann nimmst du den zweiten Vektor, ziehst den Anteil ab, der in Richtung des ersten zeigt, und normierst das Ergebnis. So machst du weiter, bis alle Vektoren sauber orthogonal zueinander sind. Die Reihenfolge ist immer: erst orthogonalisieren (Projektionen abziehen), dann normieren.</p><p><strong>Für die Nachklausur:</strong> In Aufgabe 3 der Klausur musstest du Gram-Schmidt im Funktionenraum mit komplexem Skalarprodukt durchführen. Der häufigste Fehler hier: Die Konjugation vergessen! Wenn $f(x) = ix$ ist, dann ist $\overline{f(x)} = -ix$. Übe das Verfahren Schritt für Schritt an konkreten Beispielen durch, bis der Ablauf automatisch sitzt.</p></div>
 <h2>4.1 Skalarprodukte – Axiome</h2>
 <h3>Reelles Skalarprodukt</h3>
 <p>$\langle \cdot | \cdot \rangle: V \times V \to \mathbb{R}$ heißt Skalarprodukt, wenn:</p>

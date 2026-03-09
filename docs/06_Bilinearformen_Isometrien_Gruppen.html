@@ -123,6 +123,22 @@ MathJax = {
   }
   blockquote strong { color: var(--accent); }
 
+  .infobox {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 20px 24px; margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 8px rgba(16,185,129,.1);
+    font-size: .97em;
+    line-height: 1.85;
+  }
+  .infobox-title {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1.05em;
+    color: #065f46; margin-bottom: 10px;
+  }
+  .infobox p { margin: 8px 0; color: #1a3a2a; }
+
   code {
     font-family: 'JetBrains Mono', monospace;
     background: #f0f0f5; padding: 2px 6px;
@@ -231,6 +247,7 @@ MathJax = {
 
 <div class="main">
 <h1>6. Bilinearformen, Orthogonalität, Isometrien & Gruppentheorie</h1>
+<div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>In diesem Kapitel kommen mehrere Themen zusammen, die auf den ersten Blick unterschiedlich wirken, aber alle mit der Frage zu tun haben: Wie misst man Geometrie in Vektorräumen, und welche Abbildungen erhalten diese Geometrie?</p><p>Eine <strong>Bilinearform</strong> ist wie ein verallgemeinertes Skalarprodukt – eine Funktion, die zwei Vektoren nimmt und eine Zahl zurückgibt, und die in beiden Argumenten linear ist. Im Komplexen heißt das Ganze <strong>Sesquilinearform</strong>, weil es im ersten Argument „anderthalblinear" (anti-linear) ist. Jede Bilinearform lässt sich durch eine Matrix $G$ darstellen: $\beta(v, w) = v^T G w$. Die <strong>Signatur</strong> von $G$ (wie viele positive, negative und Null-Eigenwerte sie hat) ist eine Invariante – sie ändert sich nicht, egal welche Basis du wählst.</p><p><strong>Adjungiertheit</strong> ist ein Konzept, bei dem du fragst: Wenn ich eine Matrix $A$ auf der linken Seite eines Skalarprodukts habe, welche Matrix $A^*$ muss ich auf die rechte Seite schreiben, damit der Wert gleich bleibt? Im Reellen ist das einfach die Transponierte, im Komplexen die konjugiert-Transponierte. Daraus ergeben sich wichtige Matrixklassen: <strong>selbstadjungierte</strong> Matrizen (alle Eigenwerte reell), <strong>orthogonale</strong> Matrizen (erhalten Längen und Winkel) und <strong>unitäre</strong> Matrizen (die komplexe Version davon).</p><p><strong>Isometrien</strong> sind Abbildungen, die alle Abstände erhalten – sie verzerren den Raum nicht. Orthogonale Matrizen sind genau die Isometrien des $\mathbb{R}^n$: entweder Drehungen (Determinante $+1$) oder Spiegelungen (Determinante $-1$). Die Menge aller solchen Matrizen bildet eine <strong>Gruppe</strong> – das heißt, du kannst sie hintereinander ausführen und jede rückgängig machen, und das Ergebnis ist wieder eine Isometrie.</p><p><strong>Für die Nachklausur:</strong> Dieses Kapitel ist hinter den Kulissen überall präsent. In der Klausur kam die Frage, ob eine Matrix symmetrisch sein kann (Aufgabe 1.9) – dafür brauchst du den <strong>Spektralsatz</strong>: symmetrische Matrizen sind diagonalisierbar. Die Gruppentheorie-Grundlagen (Definition einer Gruppe, Untergruppe, wichtige Beispiele wie $GL(n)$, $O(n)$, $SO(n)$) solltest du kennen – mindestens die Definitionen.</p></div>
 <h2>6.1 Bilinearformen</h2>
 <h3>Definition</h3>
 <p>Eine <strong>Bilinearform</strong> $\beta: V \times V \to K$ ist linear in <strong>beiden</strong> Argumenten:</p>

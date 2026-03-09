@@ -1,5 +1,15 @@
 # 1. Komplexe Zahlen & Vektorräume
 
+> [!INFO] Worum geht es hier? – Einfach erklärt
+>
+> In der Schule hast du mit reellen Zahlen gerechnet – also Zahlen auf dem Zahlenstrahl. Aber manche Gleichungen, wie $x^2 = -1$, haben dort keine Lösung. Deshalb erweitern wir den Zahlenstrahl zu einer ganzen Zahlenebene: den **komplexen Zahlen**. Jede komplexe Zahl hat einen „Realteil" (links-rechts) und einen „Imaginärteil" (oben-unten). Das Besondere: Wenn du eine komplexe Zahl mit einer anderen multiplizierst, passiert geometrisch eine Drehung und Streckung in der Ebene. Das ist kein Zufall – genau deshalb sind komplexe Zahlen so nützlich, um Drehungen und Schwingungen zu beschreiben.
+>
+> Der zweite große Block hier sind **Vektorräume**. Du kennst Vektoren als Pfeile im $\mathbb{R}^2$ oder $\mathbb{R}^3$. Ein Vektorraum verallgemeinert das: Alles, was man sinnvoll addieren und mit Zahlen strecken kann, ist ein Vektorraum – auch Funktionen oder Polynome. Die zentrale Idee ist die **Basis**: eine minimale Menge von Vektoren, aus denen man durch Linearkombination jeden anderen Vektor im Raum erzeugen kann. Die Anzahl der Basisvektoren ist die **Dimension** des Raums.
+>
+> **Lineare Abbildungen** sind Funktionen zwischen Vektorräumen, die sich „brav" verhalten: Sie erhalten Addition und Skalierung. Jede solche Abbildung lässt sich als Matrix schreiben. Der **Rangsatz** sagt dir, dass die Dimension des Raums sich aufteilt in das, was die Abbildung trifft (Bild) und das, was sie auf Null schickt (Kern). Dieses Zusammenspiel von Bild und Kern zieht sich wie ein roter Faden durch die gesamte Vorlesung.
+>
+> **Für die Nachklausur:** Komplexe Zahlen kommen dir bei Eigenwerten und beim Gram-Schmidt mit komplexem Skalarprodukt wieder entgegen. Übe besonders das Rechnen mit $i$, $\bar{z}$ und $|z|$, und stelle sicher, dass du die Polarform sicher beherrschst.
+
 ## 1.1 Komplexe Zahlen
 
 ### Definition

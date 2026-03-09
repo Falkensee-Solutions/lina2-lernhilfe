@@ -123,6 +123,22 @@ MathJax = {
   }
   blockquote strong { color: var(--accent); }
 
+  .infobox {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 20px 24px; margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 8px rgba(16,185,129,.1);
+    font-size: .97em;
+    line-height: 1.85;
+  }
+  .infobox-title {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1.05em;
+    color: #065f46; margin-bottom: 10px;
+  }
+  .infobox p { margin: 8px 0; color: #1a3a2a; }
+
   code {
     font-family: 'JetBrains Mono', monospace;
     background: #f0f0f5; padding: 2px 6px;
@@ -231,6 +247,7 @@ MathJax = {
 
 <div class="main">
 <h1>2. Lineare Abbildungen, Bild-Kern & Determinanten</h1>
+<div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Stell dir eine Matrix als Maschine vor: Du steckst einen Vektor rein und bekommst einen anderen raus. Das <strong>Bild</strong> ist alles, was aus der Maschine rauskommen kann – also die Menge aller möglichen Ergebnisse. Der <strong>Kern</strong> hingegen ist die Menge aller Vektoren, die die Maschine zu Null macht. Wenn der Kern nur aus dem Nullvektor besteht, geht keine Information verloren und die Abbildung ist injektiv.</p><p>Das Berechnen von Bild und Kern läuft immer gleich: Du bringst die Matrix mit Gauß auf Zeilenstufenform. Die Pivotspalten verraten dir das Bild, die freien Variablen den Kern. Der <strong>Rangsatz</strong> garantiert dabei, dass sich die Spaltenanzahl immer sauber in Rang (Dimension des Bildes) und Defekt (Dimension des Kerns) aufteilt.</p><p><strong>Determinanten</strong> sind eine einzige Zahl, die einer quadratischen Matrix zugeordnet wird – und diese Zahl enthält überraschend viel Information. Ist sie Null, ist die Matrix nicht invertierbar und das zugehörige Gleichungssystem hat entweder keine oder unendlich viele Lösungen. Ist sie ungleich Null, ist alles eindeutig lösbar. Geometrisch beschreibt der Betrag der Determinante, wie stark die Matrix Volumina verzerrt, und das Vorzeichen sagt dir, ob die Orientierung erhalten bleibt oder gespiegelt wird.</p><p><strong>Für die Nachklausur:</strong> Die Determinante kam in der Klausur bei Aufgabe 1.6–1.8 vor – dort musst du sie aus der Jordan-Normalform ablesen können. Übe die Laplace-Entwicklung und lerne die Rechenregeln (Produktregel, Transposition, Skalierung) wirklich auswendig. Der Bild-Kern-Algorithmus ist dein Schweizer Taschenmesser für fast jede Aufgabe.</p></div>
 <h2>2.1 Bild-Kern-Algorithmus</h2>
 <h3>Kern (Nullraum)</h3>
 <p>$$\ker(A) = \{x \in K^n \mid Ax = 0\}$$</p>

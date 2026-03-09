@@ -123,6 +123,22 @@ MathJax = {
   }
   blockquote strong { color: var(--accent); }
 
+  .infobox {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 20px 24px; margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 8px rgba(16,185,129,.1);
+    font-size: .97em;
+    line-height: 1.85;
+  }
+  .infobox-title {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1.05em;
+    color: #065f46; margin-bottom: 10px;
+  }
+  .infobox p { margin: 8px 0; color: #1a3a2a; }
+
   code {
     font-family: 'JetBrains Mono', monospace;
     background: #f0f0f5; padding: 2px 6px;
@@ -232,6 +248,7 @@ MathJax = {
 <div class="main">
 <h1>5. Jordan-Normalform, Minimalpolynom & Cayley-Hamilton</h1>
 <blockquote><p>⚡ <strong>PRIORITÄT 2 – Hier hast du 27/50 Punkte verloren (Aufgaben 1 + 4)!</strong></p></blockquote>
+<div class="infobox"><div class="infobox-title">💡 Worum geht es hier? – Einfach erklärt</div><p>Nicht jede Matrix lässt sich diagonalisieren – manchmal gibt es einfach nicht genug Eigenvektoren. Für solche Matrizen gibt es die <strong>Jordan-Normalform (JNF)</strong>: eine fast-diagonale Struktur, in der auf der Hauptdiagonale die Eigenwerte stehen und direkt darüber manchmal Einsen. Diese Einsen zeigen an, wo ein Eigenwert „nicht genug" Eigenvektoren hat. Je größer ein Jordan-Block ist, desto weiter entfernt ist die Matrix vom Diagonalisierbaren.</p><p>Die JNF ist eine Art Röntgenbild der Matrix. Aus ihr kannst du sofort fast alles ablesen: Eigenwerte (die Diagonaleinträge), algebraische Vielfachheiten (Summe der Blockgrößen pro Eigenwert), geometrische Vielfachheiten (Anzahl der Blöcke pro Eigenwert), das Minimalpolynom, die Determinante und ob die Matrix diagonalisierbar ist. Es lohnt sich enorm, die Tabelle auf dieser Seite sicher zu beherrschen.</p><p>Das <strong>Minimalpolynom</strong> ist das kleinste Polynom, das die Matrix zu Null macht – wenn du es in die Matrix einsetzt, kommt die Nullmatrix raus. Es hängt eng mit der JNF zusammen: Der Exponent jedes Eigenwerts im Minimalpolynom entspricht der Größe des größten Jordan-Blocks zu diesem Eigenwert. Der Satz von <strong>Cayley-Hamilton</strong> sagt, dass jede Matrix ihr eigenes charakteristisches Polynom erfüllt – das heißt, wenn du das char. Polynom in die Matrix einsetzt, kommt immer Null raus.</p><p>Das <strong>Matrixexponential</strong> $\exp(A)$ ist das Pendant zur Exponentialfunktion für Matrizen und taucht bei Differentialgleichungen auf: Die Lösung von $\dot{x}(t) = Ax(t)$ ist $x(t) = \exp(tA) x_0$. Für die Berechnung hilft es, zu wissen, ob die Matrix idempotent ist ($A^2 = A$), denn dann vereinfacht sich die Reihe drastisch.</p><p><strong>Für die Nachklausur:</strong> Aufgabe 1 (JNF ablesen: 19/30) und Aufgabe 4 (Matrixexponential: 4/20) machten zusammen 50 Punkte aus. In Aufgabe 1 musst du die JNF blitzschnell „lesen" können – char. Polynom, Minimalpolynom, Eigenräume, Determinante, alles direkt ablesen. In Aufgabe 4 war der Schlüssel Cayley-Hamilton: Zeige $A^2 = A$, dann per Induktion $A^m = A$, und damit vereinfacht sich $\exp(A) = I + (e-1)A$. Übe beide Aufgabentypen, bis sie sitzen!</p></div>
 <h2>5.1 Jordan-Normalform (JNF)</h2>
 <h3>Jordan-Block</h3>
 <p>Ein <strong>Jordan-Block</strong> der Größe $k$ zum Eigenwert $\lambda$:</p>
