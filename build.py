@@ -469,14 +469,15 @@ def markdown_to_html(md_text):
             continue
 
         # Display math block
-        if line.strip().startswith('$$') and line.strip() == '$$':
-            math_lines = ['$$']
+        if line.strip().startswith('$$') and not (line.strip().endswith('$$') and len(line.strip()) > 2):
+            math_lines = [line]
             i += 1
-            while i < len(lines) and lines[i].strip() != '$$':
+            while i < len(lines) and not lines[i].strip().endswith('$$'):
                 math_lines.append(lines[i])
                 i += 1
-            math_lines.append('$$')
-            i += 1
+            if i < len(lines):
+                math_lines.append(lines[i])
+                i += 1
             html_lines.append('<p>' + '\n'.join(math_lines) + '</p>')
             continue
 
