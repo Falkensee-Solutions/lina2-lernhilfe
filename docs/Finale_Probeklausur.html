@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏆 Finale Probeklausur – LINA2 Lernhilfe</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --accent: #f72585;
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 15px;
+  }
+
+  /* --- Top Bar --- */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary-dark);
+    color: white;
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .topbar a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+  .topbar .subtitle { color: rgba(255,255,255,.7); font-size: .85em; margin-left: auto; }
+  .menu-btn {
+    display: none; background: none; border: none; color: white;
+    font-size: 1.5em; cursor: pointer; padding: 4px 8px;
+  }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    position: fixed; top: 50px; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 16px 0;
+    z-index: 50;
+    transition: transform .3s;
+  }
+  .nav-category { padding: 0 16px; margin-bottom: 8px; }
+  .nav-cat-label {
+    display: block; font-size: .7em; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: .08em; padding: 12px 0 4px 0;
+  }
+  .nav-link {
+    display: block; padding: 6px 16px; margin: 1px 8px;
+    border-radius: 6px; text-decoration: none;
+    color: var(--text); font-size: .88em;
+    transition: background .15s;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-link:hover { background: #f0f2ff; }
+  .nav-link.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* --- Main Content --- */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: 50px;
+    padding: 32px 40px 60px;
+    max-width: 900px;
+  }
+
+  h1 {
+    font-size: 1.8em; color: var(--text);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px; margin: 24px 0 20px;
+  }
+  h2 {
+    font-size: 1.35em; color: var(--primary-dark);
+    margin: 28px 0 14px;
+    border-left: 4px solid var(--primary);
+    padding-left: 12px;
+  }
+  h3 {
+    font-size: 1.1em; color: var(--primary);
+    margin: 20px 0 10px;
+  }
+  p { margin: 10px 0; }
+
+  blockquote {
+    border-left: 4px solid var(--accent);
+    background: #fff0f6;
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote strong { color: var(--accent); }
+
+  .infobox {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 20px 24px; margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 2px 8px rgba(16,185,129,.1);
+    font-size: .97em;
+    line-height: 1.85;
+  }
+  .infobox-title {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1.05em;
+    color: #065f46; margin-bottom: 10px;
+  }
+  .infobox p { margin: 8px 0; color: #1a3a2a; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #f0f0f5; padding: 2px 6px;
+    border-radius: 4px; font-size: .9em;
+  }
+  pre {
+    background: #f0f0f5; padding: 16px;
+    border-radius: 8px; overflow-x: auto; margin: 12px 0;
+  }
+  pre code { background: none; padding: 0; }
+
+  table {
+    border-collapse: collapse; width: 100%;
+    margin: 16px 0; font-size: .92em;
+  }
+  th {
+    background: var(--primary); color: white;
+    padding: 10px 14px; text-align: left; font-weight: 600;
+  }
+  td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  tr:hover td { background: #e8ecff; }
+
+  ul, ol { margin: 10px 0 10px 24px; }
+  li { margin: 4px 0; }
+  li input[type="checkbox"] { margin-right: 8px; }
+
+  hr { border: none; border-top: 2px solid var(--border); margin: 30px 0; }
+
+  details {
+    background: #f8f9fa; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin: 12px 0;
+  }
+  details summary {
+    cursor: pointer; font-weight: 600; color: var(--primary);
+  }
+
+  .footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted); font-size: .82em;
+    text-align: center;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); width: 260px; }
+    .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.15); }
+    .main { margin-left: 0; padding: 24px 16px 60px; }
+    .menu-btn { display: block; }
+    body { font-size: 14px; }
+  }
+
+  /* --- Print --- */
+  @media print {
+    .topbar, .sidebar, .menu-btn, .footer { display: none !important; }
+    .main { margin: 0; padding: 20px; max-width: 100%; }
+    body { font-size: 11px; background: white; }
+    h1 { font-size: 1.4em; }
+    h2 { font-size: 1.15em; break-after: avoid; }
+    table { break-inside: avoid; font-size: .85em; }
+    blockquote { break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+  <a href="index.html">📐 LINA2 Lernhilfe</a>
+  <span class="subtitle">Lineare Algebra II – FU Berlin WiSe 2025/26</span>
+</div>
+
+<nav class="sidebar">
+  <div class="nav-category">
+    <a class="nav-link" href="index.html">🏠 Startseite</a>
+  </div>
+  <div class="nav-category"><span class="nav-cat-label">Planung</span>
+<a class="nav-link" href="00_Lernplan.html">📅 9-Tage-Lernplan</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Zusammenfassungen</span>
+<a class="nav-link" href="01_Komplexe_Zahlen_Vektorraeume.html">1️⃣ Komplexe Zahlen & Vektorräume</a>
+<a class="nav-link" href="02_Bild_Kern_Determinanten.html">2️⃣ Bild, Kern & Determinanten</a>
+<a class="nav-link" href="03_Eigenwerte_Diagonalisierung.html">3️⃣ Eigenwerte & Diagonalisierung</a>
+<a class="nav-link" href="04_Skalarprodukte_GramSchmidt.html">4️⃣ Skalarprodukte & Gram-Schmidt</a>
+<a class="nav-link" href="05_JNF_Minimalpolynom_CayleyHamilton.html">5️⃣ JNF, Minimalpolynom & Cayley-Hamilton</a>
+<a class="nav-link" href="06_Bilinearformen_Isometrien_Gruppen.html">6️⃣ Bilinearformen, Isometrien & Gruppen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Verständnis</span>
+<a class="nav-link" href="Vernetzung_Das_Grosse_Ganze.html">🌐 Das große Ganze – Vernetzung</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link" href="Karteikarten.html">🗂️ Karteikarten</a>
+<a class="nav-link" href="Checkliste_Themen.html">✅ Checkliste pro Thema</a>
+<a class="nav-link" href="Uebungsaufgaben.html">📝 Übungsaufgaben (inkl. Lösungen)</a>
+<a class="nav-link" href="Uebungszettel_Originale.html">📄 Originale Übungszettel 1-10</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Klausur</span>
+<a class="nav-link" href="Nachklausur_Tipps.html">⚠️ 💡 Nachklausur Tipps vom Prof</a>
+<a class="nav-link" href="Trainings_Nachklausuren.html">💯 🎓 4 Trainings-Nachklausuren</a>
+<a class="nav-link active" href="Finale_Probeklausur.html">🏆 🏆 Finale Probeklausur</a>
+<a class="nav-link" href="Klausur_Originale.html">📝 Originale (Probe-)Klausuren</a>
+<a class="nav-link" href="Klausur_Musterloesungen.html">🎯 Klausur-Musterlösungen</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Lernmaterial</span>
+<a class="nav-link" href="Checklisten_Originale.html">✔️ Originale Checklisten</a>
+<a class="nav-link" href="Formelblatt.html">📋 Formelblatt</a>
+</div>
+<div class="nav-category"><span class="nav-cat-label">Dozent</span>
+<a class="nav-link" href="Vorlesungsmaterial.html">📄 Vorlesungsmaterial & Klausuren</a>
+</div>
+</nav>
+
+<div class="main">
+<h1 id="finale-probeklausur-lina2-nachklausur">🏆 Finale Probeklausur – LINA2 Nachklausur</h1>
+<div class="infobox"><div class="infobox-title">💡 Über diese Klausur</div><p>Diese <strong>Abschluss-Probeklausur</strong> wurde als Generalprobe vor der echten Klausur konzipiert. Sie kombiniert alle wichtigen Themenbereiche: Rechnen in verschiedenen Körpern, Beweistechniken (Widerspruch, Induktion), Verfahren zum Durchrechnen und Matrixpotenzen. <strong>100 Punkte, 120 Minuten.</strong> Löse alles auf Papier, bevor du die Lösungen aufklappst!</p></div>
+<hr>
+<hr>
+<h1 id="aufgabenpaket-1-matrix-eigenschaften-ueber-verschiedenen-koerpern-25-punkte">Aufgabenpaket 1: Matrix-Eigenschaften über verschiedenen Körpern (25 Punkte)</h1>
+<p><em>Wie verändert sich das Verhalten einer Matrix, wenn man den Grundkörper wechselt?</em></p>
+<p>Gegeben sei die Matrix mit ganzzahligen Einträgen:</p>
+<p>$$A = \begin{pmatrix} 2 & 1 & 0 & 0 \\ 3 & 4 & 0 & 0 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 3 & 1 \end{pmatrix}$$</p>
+<hr>
+<h2 id="1-1-determinante-und-invertierbarkeit-5p">1.1 Determinante und Invertierbarkeit (5P)</h2>
+<p>Berechnen Sie $\det(A)$ über $\mathbb{Z}$. Bestimmen Sie anschließend, ob $A$ über $\mathbb{F}_5$ bzw. über $\mathbb{F}_7$ invertierbar ist.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$A$ ist eine Blockdiagonalmatrix, daher:</p>
+<p>$$\det(A) = \det\begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix} \cdot \det\begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix}$$</p>
+<p>$$= (2 \cdot 4 - 1 \cdot 3) \cdot (1 \cdot 1 - 2 \cdot 3) = 5 \cdot (-5) = -25$$</p>
+<ul>
+<li><strong>Über $\mathbb{F}_5$:</strong> $\det(A) = -25 \equiv 0 \pmod{5}$. <strong>Nicht invertierbar!</strong> ✗</li>
+<li><strong>Über $\mathbb{F}_7$:</strong> $\det(A) = -25 \equiv -25 + 28 = 3 \pmod{7}$. Da $3 \neq 0$: <strong>Invertierbar!</strong> ✓</li>
+</ul>
+<blockquote><p><strong>Merke:</strong> Ein und dieselbe Matrix kann in einem Körper invertierbar sein und im anderen nicht!</p></blockquote>
+</details>
+<hr>
+<h2 id="1-2-charakteristisches-polynom-ueber-mathbb-f-5-8p">1.2 Charakteristisches Polynom über $\mathbb{F}_5$ (8P)</h2>
+<p>Bestimmen Sie das charakteristische Polynom $\chi_A(\lambda)$ über $\mathbb{F}_5$ und faktorisieren Sie es vollständig in Linearfaktoren (falls möglich).</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Wegen der Blockstruktur berechnen wir die char. Polynome der 2×2-Blöcke separat.</p>
+<p><strong>Oberer Block</strong> $B_1 = \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}$:</p>
+<p>$$\chi_{B_1}(\lambda) = (2-\lambda)(4-\lambda) - 1 \cdot 3 = \lambda^2 - 6\lambda + 8 - 3 = \lambda^2 - 6\lambda + 5$$</p>
+<p>Über $\mathbb{F}_5$: $\lambda^2 - 6\lambda + 5 \equiv \lambda^2 - \lambda + 0 \equiv \lambda(\lambda - 1) \pmod{5}$</p>
+<p><strong>Unterer Block</strong> $B_2 = \begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix}$:</p>
+<p>$$\chi_{B_2}(\lambda) = (1-\lambda)^2 - 2 \cdot 3 = \lambda^2 - 2\lambda + 1 - 6 = \lambda^2 - 2\lambda - 5$$</p>
+<p>Über $\mathbb{F}_5$: $\lambda^2 - 2\lambda - 5 \equiv \lambda^2 - 2\lambda \equiv \lambda(\lambda - 2) \pmod{5}$</p>
+<p><strong>Gesamtes char. Polynom über $\mathbb{F}_5$:</strong></p>
+<p>$$\boxed{\chi_A(\lambda) = \lambda(\lambda - 1) \cdot \lambda(\lambda - 2) = \lambda^2(\lambda - 1)(\lambda - 2)}$$</p>
+<p>Das Polynom zerfällt vollständig in Linearfaktoren über $\mathbb{F}_5$.</p>
+</details>
+<hr>
+<h2 id="1-3-eigenwerte-ueber-mathbb-f-5-vs-mathbb-f-7-6p">1.3 Eigenwerte über $\mathbb{F}_5$ vs. $\mathbb{F}_7$ (6P)</h2>
+<p><strong>(a)</strong> Geben Sie über $\mathbb{F}_5$ alle Eigenwerte mit algebraischer Vielfachheit an.</p>
+<p><strong>(b)</strong> Bestimmen Sie die Eigenwerte über $\mathbb{F}_7$. Warum hat $A$ über $\mathbb{F}_7$ weniger Eigenwerte?</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>(a) Eigenwerte über $\mathbb{F}_5$:</strong></p>
+<p>Aus dem char. Polynom $\lambda^2(\lambda-1)(\lambda-2)$:</p>
+<table>
+<tr><th>Eigenwert</th><th>alg. VF</th></tr>
+<tr><td>$\lambda = 0$</td><td>2</td></tr>
+<tr><td>$\lambda = 1$</td><td>1</td></tr>
+<tr><td>$\lambda = 2$</td><td>1</td></tr>
+</table>
+<hr>
+<p><strong>(b) Eigenwerte über $\mathbb{F}_7$:</strong></p>
+<p><strong>Oberer Block:</strong> $\chi_{B_1}(\lambda) = \lambda^2 - 6\lambda + 5 \pmod{7}$.</p>
+<p>Nullstellen suchen: $\lambda = 1$: $1 - 6 + 5 = 0$ ✓. $\lambda = 5$: $25 - 30 + 5 = 0$ ✓.</p>
+<p>Also $\chi_{B_1} = (\lambda - 1)(\lambda - 5)$ über $\mathbb{F}_7$.</p>
+<p><strong>Unterer Block:</strong> $\chi_{B_2}(\lambda) = \lambda^2 - 2\lambda - 5 \equiv \lambda^2 - 2\lambda + 2 \pmod{7}$.</p>
+<p>Diskriminante: $\Delta = 4 - 8 = -4 \equiv 3 \pmod{7}$.</p>
+<p>Ist $3$ ein Quadrat in $\mathbb{F}_7$? Prüfe: $1^2 = 1$, $2^2 = 4$, $3^2 = 2$, $4^2 = 2$, $5^2 = 4$, $6^2 = 1$.</p>
+<p>Die Quadrate in $\mathbb{F}_7$ sind $\{0, 1, 2, 4\}$. Da $3 \notin \{0,1,2,4\}$: <strong>$3$ ist kein Quadrat in $\mathbb{F}_7$!</strong></p>
+<p>$\Rightarrow$ $\lambda^2 - 2\lambda + 2$ ist <strong>irreduzibel</strong> über $\mathbb{F}_7$ (hat keine Nullstelle).</p>
+<table>
+<tr><th>Eigenwert</th><th>alg. VF</th></tr>
+<tr><td>$\lambda = 1$</td><td>1</td></tr>
+<tr><td>$\lambda = 5$</td><td>1</td></tr>
+</table>
+<p>$$\chi_A(\lambda) = (\lambda - 1)(\lambda - 5) \underbrace{(\lambda^2 - 2\lambda + 2)}_{\text{irreduzibel über } \mathbb{F}_7}$$</p>
+<p>$A$ hat über $\mathbb{F}_7$ <strong>nur 2 Eigenwerte</strong> (statt 3 über $\mathbb{F}_5$), weil der Faktor $\lambda^2 - 2\lambda + 2$ über $\mathbb{F}_7$ nicht in Linearfaktoren zerfällt – seine Diskriminante ist kein quadratischer Rest modulo 7.</p>
+</details>
+<hr>
+<h2 id="1-4-kern-ueber-mathbb-f-5-3p">1.4 Kern über $\mathbb{F}_5$ (3P)</h2>
+<p>Bestimmen Sie über $\mathbb{F}_5$ eine Basis von $\ker(A)$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Wegen der Blockstruktur lösen wir $B_1 x_{12} = 0$ und $B_2 x_{34} = 0$ getrennt.</p>
+<p><strong>Oberer Block</strong> über $\mathbb{F}_5$: $\begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = 0$</p>
+<p>$Z_1 \cdot 2^{-1}=3$: $(1, 3)$. Dann $Z_2 - 3Z_1$: $(0, 4-9) = (0, -5) = (0, 0)$.</p>
+<p>$\Rightarrow x_1 + 3x_2 = 0 \Rightarrow x_1 = -3x_2 = 2x_2$ in $\mathbb{F}_5$.</p>
+<p>Basisvektor: $(2, 1)^T$.</p>
+<p><strong>Unterer Block</strong> über $\mathbb{F}_5$: $\begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix} \begin{pmatrix} x_3 \\ x_4 \end{pmatrix} = 0$</p>
+<p>$Z_2 - 3Z_1$: $(0, 1-6) = (0, -5) = (0, 0)$.</p>
+<p>$\Rightarrow x_3 + 2x_4 = 0 \Rightarrow x_3 = -2x_4 = 3x_4$ in $\mathbb{F}_5$.</p>
+<p>Basisvektor: $(3, 1)^T$.</p>
+<p>$$\boxed{\ker(A) = \text{span}\left\{ \begin{pmatrix} 2 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 3 \\ 1 \end{pmatrix} \right\}, \quad \dim(\ker A) = 2}$$</p>
+<p><strong>Probe:</strong> $\dim(\ker A) = 2 =$ alg. VF des Eigenwerts $0$ ✓ (konsistent mit Diagonalisierbarkeit)</p>
+</details>
+<hr>
+<h2 id="1-5-diagonalisierbarkeit-3p">1.5 Diagonalisierbarkeit (3P)</h2>
+<p>Entscheiden und begründen Sie: Ist $A$ über $\mathbb{F}_5$ diagonalisierbar? Ist $A$ über $\mathbb{F}_7$ diagonalisierbar?</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Über $\mathbb{F}_5$: Ja, $A$ ist diagonalisierbar!</strong></p>
+<p>Begründung: geo. VF = alg. VF für <strong>alle</strong> Eigenwerte:</p>
+<ul>
+<li>$\lambda = 0$: alg. VF $= 2$, geo. VF $= \dim(\ker A) = 2$ ✓</li>
+<li>$\lambda = 1$: alg. VF $= 1$, also automatisch geo. VF $= 1$ ✓</li>
+<li>$\lambda = 2$: alg. VF $= 1$, also automatisch geo. VF $= 1$ ✓</li>
+</ul>
+<p>Die JNF über $\mathbb{F}_5$ wäre: $\text{diag}(0, 0, 1, 2)$.</p>
+<hr>
+<p><strong>Über $\mathbb{F}_7$: Nein, $A$ ist NICHT diagonalisierbar!</strong></p>
+<p>Begründung: Das char. Polynom $(\lambda-1)(\lambda-5)(\lambda^2-2\lambda+2)$ zerfällt über $\mathbb{F}_7$ <strong>nicht</strong> vollständig in Linearfaktoren. Eine Matrix ist nur dann diagonalisierbar, wenn eine Basis aus Eigenvektoren existiert. Da der irreduzible quadratische Faktor keine Nullstellen in $\mathbb{F}_7$ hat, liefert der untere $2 \times 2$-Block keine Eigenvektoren. Es gibt nur 2 Eigenvektoren für eine $4 \times 4$-Matrix – zu wenig.</p>
+<blockquote><p><strong>Fazit:</strong> Über $\mathbb{F}_5$ ist $A$ <strong>nicht invertierbar, aber diagonalisierbar</strong>. Über $\mathbb{F}_7$ ist $A$ <strong>invertierbar, aber nicht diagonalisierbar</strong>. Der Körper bestimmt alles!</p></blockquote>
+</details>
+<hr>
+<hr>
+<h1 id="aufgabenpaket-2-beweis-matrixgleichung-eigenwerte-invertierbarkeit-25-punkte">Aufgabenpaket 2: Beweis – Matrixgleichung, Eigenwerte & Invertierbarkeit (25 Punkte)</h1>
+<p><em>Beweistechniken: Widerspruchsbeweis, Minimalpolynom, Diagonalisierbarkeit</em></p>
+<p>Sei $A \in \mathbb{R}^{n \times n}$ eine Matrix, die die Gleichung</p>
+<p>$$A^2 - 5A + 6I = 0$$</p>
+<p>erfüllt (wobei $I$ die Einheitsmatrix und $0$ die Nullmatrix ist).</p>
+<hr>
+<h2 id="2-1-moegliche-eigenwerte-bestimmen-5p">2.1 Mögliche Eigenwerte bestimmen (5P)</h2>
+<p>Bestimmen Sie alle Eigenwerte, die $A$ haben kann.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Sei $\lambda$ ein Eigenwert von $A$ mit Eigenvektor $v \neq 0$, also $Av = \lambda v$.</p>
+<p>Wir wenden die Matrixgleichung auf $v$ an:</p>
+<p>$$(A^2 - 5A + 6I)v = 0$$</p>
+<p>$$A^2 v - 5Av + 6v = 0$$</p>
+<p>$$\lambda^2 v - 5\lambda v + 6v = 0$$</p>
+<p>$$(\lambda^2 - 5\lambda + 6) v = 0$$</p>
+<p>Da $v \neq 0$, folgt:</p>
+<p>$$\lambda^2 - 5\lambda + 6 = 0$$</p>
+<p>$$(\lambda - 2)(\lambda - 3) = 0$$</p>
+<p>$$\boxed{\lambda \in \{2, 3\}}$$</p>
+<p>Die einzig möglichen Eigenwerte von $A$ sind $2$ und $3$.</p>
+</details>
+<hr>
+<h2 id="2-2-widerspruchsbeweis-a-ist-invertierbar-8p">2.2 Widerspruchsbeweis: $A$ ist invertierbar (8P)</h2>
+<p>Zeigen Sie per <strong>Widerspruchsbeweis</strong>, dass $A$ invertierbar ist.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Beweis (Widerspruch):</strong></p>
+<p><strong>Annahme:</strong> $A$ ist <strong>nicht</strong> invertierbar.</p>
+<p>Dann ist $\det(A) = 0$, was gleichbedeutend damit ist, dass $\lambda = 0$ ein Eigenwert von $A$ ist (denn $A$ hat nichttrivialen Kern, d.h. es existiert $v \neq 0$ mit $Av = 0 \cdot v$).</p>
+<p>Aber aus Aufgabe 2.1 wissen wir: Die einzig möglichen Eigenwerte sind $\lambda \in \{2, 3\}$.</p>
+<p>Da $0 \notin \{2, 3\}$, kann $\lambda = 0$ <strong>kein</strong> Eigenwert von $A$ sein.</p>
+<p><strong>Widerspruch!</strong> ↯</p>
+<p>Also war unsere Annahme falsch, und $A$ <strong>ist invertierbar</strong>. $\square$</p>
+<hr>
+<p><strong>Alternativ (direkt):</strong> Aus $A^2 - 5A + 6I = 0$ folgt $6I = 5A - A^2 = A(5I - A)$, also</p>
+<p>$$A \cdot \frac{5I - A}{6} = I$$</p>
+<p>Damit ist $A^{-1} = \frac{5I - A}{6}$ explizit angegeben und $A$ ist invertierbar. (Dies wird in 2.4 vertieft.)</p>
+</details>
+<hr>
+<h2 id="2-3-diagonalisierbarkeit-zeigen-5p">2.3 Diagonalisierbarkeit zeigen (5P)</h2>
+<p>Zeigen Sie: $A$ ist diagonalisierbar.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Beweis:</strong></p>
+<p>Aus der Matrixgleichung $A^2 - 5A + 6I = 0$ folgt, dass das Polynom</p>
+<p>$$p(\lambda) = \lambda^2 - 5\lambda + 6 = (\lambda - 2)(\lambda - 3)$$</p>
+<p>die Matrix $A$ annulliert: $p(A) = 0$.</p>
+<p>Das <strong>Minimalpolynom</strong> $\mu_A$ ist definiert als das normierte Polynom kleinsten Grades, das $A$ annulliert. Per Definition gilt: $\mu_A$ <strong>teilt</strong> jedes Polynom, das $A$ annulliert.</p>
+<p>Also teilt $\mu_A$ das Polynom $p(\lambda) = (\lambda - 2)(\lambda - 3)$.</p>
+<p>Die Teiler von $(\lambda-2)(\lambda-3)$ sind:</p>
+<ul>
+<li>$(\lambda - 2)$</li>
+<li>$(\lambda - 3)$</li>
+<li>$(\lambda - 2)(\lambda - 3)$</li>
+</ul>
+<p>In <strong>allen</strong> Fällen hat $\mu_A$ nur <strong>einfache</strong> Nullstellen (keine Nullstelle mit Vielfachheit $\geq 2$).</p>
+<p><strong>Satz:</strong> Eine Matrix ist genau dann diagonalisierbar, wenn ihr Minimalpolynom nur einfache Nullstellen hat (d.h. in paarweise verschiedene Linearfaktoren zerfällt).</p>
+<p>$\Rightarrow$ $A$ ist diagonalisierbar. $\square$</p>
+</details>
+<hr>
+<h2 id="2-4-inverse-als-linearkombination-7p">2.4 Inverse als Linearkombination (7P)</h2>
+<p>Bestimmen Sie $A^{-1}$ als Linearkombination von $A$ und $I$. Verifizieren Sie Ihr Ergebnis.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Aus der Matrixgleichung $A^2 - 5A + 6I = 0$ formen wir um:</p>
+<p>$$A^2 - 5A = -6I$$</p>
+<p>$$A(A - 5I) = -6I$$</p>
+<p>$$A \cdot \frac{-(A - 5I)}{6} = I$$</p>
+<p>$$A \cdot \frac{5I - A}{6} = I$$</p>
+<p>Also:</p>
+<p>$$\boxed{A^{-1} = \frac{1}{6}(5I - A)}$$</p>
+<hr>
+<p><strong>Verifikation:</strong></p>
+<p>$$A \cdot A^{-1} = A \cdot \frac{5I - A}{6} = \frac{5A - A^2}{6} = \frac{5A - (5A - 6I)}{6} = \frac{6I}{6} = I \quad ✓$$</p>
+<p>Dabei haben wir $A^2 = 5A - 6I$ (umgestellt aus der Matrixgleichung) verwendet.</p>
+<hr>
+<p><strong>Zahlenbeispiel zur Kontrolle:</strong> Sei $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$. Dann ist $A^2 - 5A + 6I = \begin{pmatrix} 4 & 0 \\ 0 & 9 \end{pmatrix} - \begin{pmatrix} 10 & 0 \\ 0 & 15 \end{pmatrix} + \begin{pmatrix} 6 & 0 \\ 0 & 6 \end{pmatrix} = 0$ ✓</p>
+<p>$A^{-1} = \frac{1}{6}\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/3 \end{pmatrix}$ ✓</p>
+</details>
+<hr>
+<hr>
+<h1 id="aufgabenpaket-3-verfahren-gram-schmidt-mit-komplexem-skalarprodukt-projektion-25-punkte">Aufgabenpaket 3: Verfahren — Gram-Schmidt mit komplexem Skalarprodukt & Projektion (25 Punkte)</h1>
+<p><em>Rechnung Schritt für Schritt mit Konjugation im 1. Argument</em></p>
+<p>Gegeben seien die Vektoren in $\mathbb{C}^3$:</p>
+<p>$$v_1 = \begin{pmatrix} 1 \\ i \\ 0 \end{pmatrix}, \qquad v_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$$</p>
+<p>mit dem Standard-Skalarprodukt $\langle x | y \rangle = \bar{x}^T y = \sum_k \overline{x_k} \, y_k$ (konjugiert-linear im <strong>ersten</strong> Argument).</p>
+<hr>
+<h2 id="3-1-gram-schmidt-orthonormalisierung-12p">3.1 Gram-Schmidt: Orthonormalisierung (12P)</h2>
+<p>Orthonormalisieren Sie $\{v_1, v_2\}$ mit dem Gram-Schmidt-Verfahren. Zeigen Sie jeden Zwischenschritt.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<h3 id="schritt-1-normierung-von-v-1">Schritt 1: Normierung von $v_1$</h3>
+<p>$$\|v_1\|^2 = \langle v_1 | v_1 \rangle = \overline{1} \cdot 1 + \overline{i} \cdot i + \overline{0} \cdot 0 = 1 + (-i)(i) + 0 = 1 + 1 = 2$$</p>
+<p>$$\|v_1\| = \sqrt{2}$$</p>
+<p>$$\boxed{e_1 = \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ i \\ 0 \end{pmatrix}}$$</p>
+<hr>
+<h3 id="schritt-2-skalarprodukt-langle-e-1-v-2-rangle">Schritt 2: Skalarprodukt $\langle e_1 | v_2 \rangle$</h3>
+<p>$$\langle e_1 | v_2 \rangle = \frac{1}{\sqrt{2}} \left( \overline{1} \cdot 1 + \overline{i} \cdot 0 + \overline{0} \cdot 1 \right) = \frac{1}{\sqrt{2}} (1 + 0 + 0) = \frac{1}{\sqrt{2}}$$</p>
+<blockquote><p><strong>Achtung:</strong> Der Faktor $\overline{i} = -i$ taucht hier nicht auf, weil die zweite Komponente von $v_2$ Null ist. Konjugation immer im 1. Argument!</p></blockquote>
+<hr>
+<h3 id="schritt-3-orthogonalisierung">Schritt 3: Orthogonalisierung</h3>
+<p>$$\tilde{e}_2 = v_2 - \langle e_1 | v_2 \rangle \cdot e_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ i \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} - \frac{1}{2}\begin{pmatrix} 1 \\ i \\ 0 \end{pmatrix} = \begin{pmatrix} 1/2 \\ -i/2 \\ 1 \end{pmatrix}$$</p>
+<hr>
+<h3 id="schritt-4-normierung-von-tilde-e-2">Schritt 4: Normierung von $\tilde{e}_2$</h3>
+<p>$$\|\tilde{e}_2\|^2 = |1/2|^2 + |-i/2|^2 + |1|^2 = \frac{1}{4} + \frac{1}{4} + 1 = \frac{3}{2}$$</p>
+<p>$$\|\tilde{e}_2\| = \sqrt{3/2} = \frac{\sqrt{6}}{2}$$</p>
+<p>$$\boxed{e_2 = \frac{\tilde{e}_2}{\|\tilde{e}_2\|} = \frac{2}{\sqrt{6}} \begin{pmatrix} 1/2 \\ -i/2 \\ 1 \end{pmatrix} = \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -i \\ 2 \end{pmatrix}}$$</p>
+<hr>
+<h3 id="probe-orthonormalitaet">Probe: Orthonormalität</h3>
+<p>$$\langle e_1 | e_2 \rangle = \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{6}} \left( \overline{1} \cdot 1 + \overline{i} \cdot (-i) + \overline{0} \cdot 2 \right) = \frac{1}{\sqrt{12}} \left(1 + (-i)(-i)\right) = \frac{1}{\sqrt{12}}(1 + i^2) = \frac{1}{\sqrt{12}}(1 - 1) = 0 \quad ✓$$</p>
+<p>$$\|e_1\| = 1 \; ✓, \qquad \|e_2\| = \sqrt{1/6 + 1/6 + 4/6} = \sqrt{6/6} = 1 \; ✓$$</p>
+</details>
+<hr>
+<h2 id="3-2-orthogonale-projektion-8p">3.2 Orthogonale Projektion (8P)</h2>
+<p>Projizieren Sie den Vektor $w = (1, 1, 1)^T$ orthogonal auf den Unterraum $U = \text{span}(v_1, v_2)$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>Die orthogonale Projektion auf $U$ bezüglich des ONS $\{e_1, e_2\}$ ist:</p>
+<p>$$\text{proj}_U(w) = \langle e_1 | w \rangle \, e_1 + \langle e_2 | w \rangle \, e_2$$</p>
+<p><strong>Berechnung der Koeffizienten:</strong></p>
+<p>$$\langle e_1 | w \rangle = \frac{1}{\sqrt{2}}\left(\overline{1} \cdot 1 + \overline{i} \cdot 1 + \overline{0} \cdot 1\right) = \frac{1}{\sqrt{2}}(1 + (-i)) = \frac{1-i}{\sqrt{2}}$$</p>
+<p>$$\langle e_2 | w \rangle = \frac{1}{\sqrt{6}}\left(\overline{1} \cdot 1 + \overline{(-i)} \cdot 1 + \overline{2} \cdot 1\right) = \frac{1}{\sqrt{6}}(1 + i + 2) = \frac{3 + i}{\sqrt{6}}$$</p>
+<p><strong>Einsetzen:</strong></p>
+<p>$$\text{proj}_U(w) = \frac{1-i}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ i \\ 0 \end{pmatrix} + \frac{3+i}{\sqrt{6}} \cdot \frac{1}{\sqrt{6}}\begin{pmatrix} 1 \\ -i \\ 2 \end{pmatrix}$$</p>
+<p>$$= \frac{1-i}{2}\begin{pmatrix} 1 \\ i \\ 0 \end{pmatrix} + \frac{3+i}{6}\begin{pmatrix} 1 \\ -i \\ 2 \end{pmatrix}$$</p>
+<p>Erster Summand:</p>
+<p>$$\frac{1-i}{2}\begin{pmatrix} 1 \\ i \\ 0 \end{pmatrix} = \begin{pmatrix} (1-i)/2 \\ i(1-i)/2 \\ 0 \end{pmatrix} = \begin{pmatrix} (1-i)/2 \\ (i-i^2)/2 \\ 0 \end{pmatrix} = \begin{pmatrix} (1-i)/2 \\ (i+1)/2 \\ 0 \end{pmatrix}$$</p>
+<p>Zweiter Summand:</p>
+<p>$$\frac{3+i}{6}\begin{pmatrix} 1 \\ -i \\ 2 \end{pmatrix} = \begin{pmatrix} (3+i)/6 \\ -i(3+i)/6 \\ (3+i)/3 \end{pmatrix} = \begin{pmatrix} (3+i)/6 \\ (-3i-i^2)/6 \\ (3+i)/3 \end{pmatrix} = \begin{pmatrix} (3+i)/6 \\ (1-3i)/6 \\ (3+i)/3 \end{pmatrix}$$</p>
+<p><strong>Summe</strong> (auf gemeinsamen Nenner 6):</p>
+<p>$$\text{proj}_U(w) = \begin{pmatrix} 3(1-i)/6 + (3+i)/6 \\ 3(1+i)/6 + (1-3i)/6 \\ (3+i)/3 \end{pmatrix} = \begin{pmatrix} (3-3i+3+i)/6 \\ (3+3i+1-3i)/6 \\ (3+i)/3 \end{pmatrix}$$</p>
+<p>$$\boxed{\text{proj}_U(w) = \begin{pmatrix} (6-2i)/6 \\ 4/6 \\ (3+i)/3 \end{pmatrix} = \begin{pmatrix} (3-i)/3 \\ 2/3 \\ (3+i)/3 \end{pmatrix}}$$</p>
+</details>
+<hr>
+<h2 id="3-3-abstand-5p">3.3 Abstand (5P)</h2>
+<p>Berechnen Sie den Abstand $d(w, U) = \|w - \text{proj}_U(w)\|$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Residuenvektor:</strong></p>
+<p>$$r = w - \text{proj}_U(w) = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} - \begin{pmatrix} (3-i)/3 \\ 2/3 \\ (3+i)/3 \end{pmatrix} = \begin{pmatrix} i/3 \\ 1/3 \\ -i/3 \end{pmatrix}$$</p>
+<p><strong>Abstand:</strong></p>
+<p>$$d(w, U)^2 = \|r\|^2 = |i/3|^2 + |1/3|^2 + |-i/3|^2 = \frac{1}{9} + \frac{1}{9} + \frac{1}{9} = \frac{3}{9} = \frac{1}{3}$$</p>
+<p>$$\boxed{d(w, U) = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}}$$</p>
+<p><strong>Probe:</strong> $\langle e_1 | r \rangle = 0$ und $\langle e_2 | r \rangle = 0$ (der Residuenvektor steht senkrecht auf $U$).</p>
+<p>$\langle e_1 | r \rangle = \frac{1}{\sqrt{2}}(\overline{1} \cdot \frac{i}{3} + \overline{i} \cdot \frac{1}{3} + 0) = \frac{1}{\sqrt{2}}(\frac{i}{3} + \frac{-i}{3}) = 0$ ✓</p>
+</details>
+<hr>
+<hr>
+<h1 id="aufgabenpaket-4-matrixpotenzen-beweis-mit-vollstaendiger-induktion-25-punkte">Aufgabenpaket 4: Matrixpotenzen – Beweis mit vollständiger Induktion (25 Punkte)</h1>
+<p><em>Vermutung aufstellen, beweisen & auf das Matrixexponential anwenden</em></p>
+<p>Gegeben sei die Matrix:</p>
+<p>$$A = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$$</p>
+<hr>
+<h2 id="4-1-potenzen-berechnen-vermutung-aufstellen-8p">4.1 Potenzen berechnen & Vermutung aufstellen (8P)</h2>
+<p>Berechnen Sie $A^2$, $A^3$ und $A^4$. Stellen Sie eine Vermutung für die allgemeine Formel $A^n$ auf ($n \geq 1$).</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$$A^2 = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 4 & 4 \\ 0 & 4 \end{pmatrix} = \begin{pmatrix} 2^2 & 2 \cdot 2^1 \\ 0 & 2^2 \end{pmatrix}$$</p>
+<p>$$A^3 = A^2 \cdot A = \begin{pmatrix} 4 & 4 \\ 0 & 4 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 8 & 12 \\ 0 & 8 \end{pmatrix} = \begin{pmatrix} 2^3 & 3 \cdot 2^2 \\ 0 & 2^3 \end{pmatrix}$$</p>
+<p>$$A^4 = A^3 \cdot A = \begin{pmatrix} 8 & 12 \\ 0 & 8 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 16 & 32 \\ 0 & 16 \end{pmatrix} = \begin{pmatrix} 2^4 & 4 \cdot 2^3 \\ 0 & 2^4 \end{pmatrix}$$</p>
+<p><strong>Vermutung:</strong></p>
+<p>$$\boxed{A^n = \begin{pmatrix} 2^n & n \cdot 2^{n-1} \\ 0 & 2^n \end{pmatrix} \quad \text{für alle } n \geq 1}$$</p>
+<p><em>Muster: In der oberen rechten Ecke steht immer $n \cdot 2^{n-1}$.</em></p>
+</details>
+<hr>
+<h2 id="4-2-beweis-per-vollstaendiger-induktion-10p">4.2 Beweis per vollständiger Induktion (10P)</h2>
+<p>Beweisen Sie: $A^n = \begin{pmatrix} 2^n & n \cdot 2^{n-1} \\ 0 & 2^n \end{pmatrix}$ für alle $n \geq 1$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Beweis durch vollständige Induktion über $n$:</strong></p>
+<hr>
+<p><strong>Induktionsanfang ($n = 1$):</strong></p>
+<p>$$A^1 = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 2^1 & 1 \cdot 2^0 \\ 0 & 2^1 \end{pmatrix} \quad ✓$$</p>
+<hr>
+<p><strong>Induktionsvoraussetzung (IV):</strong> Für ein festes $n \geq 1$ gelte:</p>
+<p>$$A^n = \begin{pmatrix} 2^n & n \cdot 2^{n-1} \\ 0 & 2^n \end{pmatrix}$$</p>
+<hr>
+<p><strong>Induktionsschritt ($n \to n+1$):</strong></p>
+<p>$$A^{n+1} = A^n \cdot A \overset{\text{IV}}{=} \begin{pmatrix} 2^n & n \cdot 2^{n-1} \\ 0 & 2^n \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$$</p>
+<p>Matrixmultiplikation:</p>
+<p>$$= \begin{pmatrix} 2^n \cdot 2 + n \cdot 2^{n-1} \cdot 0 & 2^n \cdot 1 + n \cdot 2^{n-1} \cdot 2 \\ 0 \cdot 2 + 2^n \cdot 0 & 0 \cdot 1 + 2^n \cdot 2 \end{pmatrix}$$</p>
+<p>$$= \begin{pmatrix} 2^{n+1} & 2^n + n \cdot 2^n \\ 0 & 2^{n+1} \end{pmatrix}$$</p>
+<p>Die obere rechte Ecke vereinfacht sich:</p>
+<p>$$2^n + n \cdot 2^n = (1 + n) \cdot 2^n = (n+1) \cdot 2^{(n+1)-1}$$</p>
+<p>Also:</p>
+<p>$$A^{n+1} = \begin{pmatrix} 2^{n+1} & (n+1) \cdot 2^n \\ 0 & 2^{n+1} \end{pmatrix} \quad ✓$$</p>
+<p>Dies ist genau die Behauptung für $n+1$.</p>
+<hr>
+<p>Nach dem Prinzip der vollständigen Induktion gilt die Formel für alle $n \geq 1$. $\square$</p>
+</details>
+<hr>
+<h2 id="4-3-matrixexponential-berechnen-5p">4.3 Matrixexponential berechnen (5P)</h2>
+<p>Berechnen Sie $\exp(tA)$ für $t \in \mathbb{R}$.</p>
+<p><em>Hinweis: Zerlegen Sie $A = D + N$ mit $D$ diagonal und $N$ nilpotent.</em></p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p><strong>Zerlegung:</strong> $A = \underbrace{\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}}_{D \,=\, 2I} + \underbrace{\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}}_{N}$</p>
+<p>Da $D = 2I$ ein Vielfaches der Einheitsmatrix ist, gilt $DN = ND$ (trivial). Außerdem:</p>
+<p>$$N^2 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = 0$$</p>
+<p>$N$ ist nilpotent der Ordnung 2.</p>
+<p><strong>Matrixexponential:</strong></p>
+<p>$$\exp(tA) = \exp(tD + tN) = \exp(tD) \cdot \exp(tN)$$</p>
+<p>$$\exp(tD) = \exp(2tI) = e^{2t} I = \begin{pmatrix} e^{2t} & 0 \\ 0 & e^{2t} \end{pmatrix}$$</p>
+<p>$$\exp(tN) = I + tN + \underbrace{\frac{t^2 N^2}{2!} + \cdots}_{= \; 0} = \begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix}$$</p>
+<p>$$\boxed{\exp(tA) = e^{2t} \begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} e^{2t} & t \cdot e^{2t} \\ 0 & e^{2t} \end{pmatrix}}$$</p>
+<p><strong>Konsistenz-Check mit 4.1:</strong> Für die Potenzreihe $\exp(tA) = \sum \frac{t^n}{n!} A^n$ und $A^n$ aus der bewiesenen Formel muss das Gleiche herauskommen. Die obere rechte Ecke wäre $\sum \frac{t^n}{n!} n \cdot 2^{n-1} = t \sum \frac{(2t)^{n-1}}{(n-1)!} = t \cdot e^{2t}$ ✓</p>
+</details>
+<hr>
+<h2 id="4-4-anwendung-differentialgleichung-loesen-2p">4.4 Anwendung: Differentialgleichung lösen (2P)</h2>
+<p>Lösen Sie das Anfangswertproblem $\dot{y}(t) = Ay(t)$ mit $y(0) = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.</p>
+<details>
+<summary><b>Lösung einblenden</b></summary>
+<p>$$y(t) = \exp(tA) \cdot y(0) = \begin{pmatrix} e^{2t} & te^{2t} \\ 0 & e^{2t} \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$</p>
+<p>$$\boxed{y(t) = \begin{pmatrix} (1+t) e^{2t} \\ e^{2t} \end{pmatrix}}$$</p>
+<p><strong>Probe:</strong> $y(0) = (1, 1)^T$ ✓. $\dot{y}(t) = \begin{pmatrix} e^{2t} + 2(1+t)e^{2t} \\ 2e^{2t} \end{pmatrix} = \begin{pmatrix} (3+2t)e^{2t} \\ 2e^{2t} \end{pmatrix}$.</p>
+<p>$Ay(t) = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\begin{pmatrix} (1+t)e^{2t} \\ e^{2t} \end{pmatrix} = \begin{pmatrix} (2+2t+1)e^{2t} \\ 2e^{2t} \end{pmatrix} = \begin{pmatrix} (3+2t)e^{2t} \\ 2e^{2t} \end{pmatrix}$ ✓</p>
+</details>
+<hr>
+<hr>
+<h2 id="zusammenfassung-strategie">🏁 Zusammenfassung & Strategie</h2>
+<table>
+<tr><th>Aufgabenpaket</th><th>Punkte</th><th>Kernthema</th><th>Schwierigkeit</th></tr>
+<tr><td><strong>AP1:</strong> Körperwechsel</td><td>25</td><td>det, EW, Kern, Diag. über $\mathbb{F}_5$ vs. $\mathbb{F}_7$</td><td>⚡ Mittel</td></tr>
+<tr><td><strong>AP2:</strong> Matrixgleichung</td><td>25</td><td>Widerspruchsbeweis, Minimalpolynom, $A^{-1}$</td><td>⚡ Mittel</td></tr>
+<tr><td><strong>AP3:</strong> Gram-Schmidt komplex</td><td>25</td><td>ONS, Projektion, Abstand (mit $\overline{\phantom{x}}$ im 1. Arg.)</td><td>⚡⚡ Schwer</td></tr>
+<tr><td><strong>AP4:</strong> Induktion + exp</td><td>25</td><td>$A^n$-Formel, vollst. Induktion, $e^{tA}$, DGL</td><td>⚡ Mittel</td></tr>
+</table>
+<p><strong>Optimale Bearbeitungsreihenfolge:</strong></p>
+<ol>
+<li>AP4 zuerst (sichere Punkte bei Induktion, Schema ist immer gleich)</li>
+<li>AP1 (strukturiert abarbeiten, Blockstruktur ausnutzen)  </li>
+<li>AP2 (Beweisstruktur üben, Widerspruch klar formulieren)</li>
+<li>AP3 (Gram-Schmidt sauber durchrechnen, Konjugation nicht vergessen!)</li>
+</ol>
+<p><strong>Mindest-Ziel: 60/100</strong> = bestanden. Realistisch erreichbar durch AP4 komplett + AP1 komplett + Teile von AP2 und AP3.</p>
+<div class="footer">
+  LINA2 Lernhilfe · Lineare Algebra II · FU Berlin WiSe 2025/26 · 
+  <a href="index.html">← Zurück zur Startseite</a>
+</div>
+</div>
+
+<script>
+// Close sidebar on mobile after link click
+document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.remove('open');
+}));
+</script>
+</body>
+</html>
